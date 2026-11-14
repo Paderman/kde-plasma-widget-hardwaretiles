@@ -1,0 +1,9 @@
+# compiled translations – built by translate/build.sh (install.sh, make-package.sh)
+package/contents/locale/
+# build output
+demo-multigpu/build/
+*.plasmoid
+__pycache__/
+dist/
+# local archives (e.g. old screenshots)
+docs/*.tar.gz

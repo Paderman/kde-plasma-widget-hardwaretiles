@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2026 Paderman
+# SPDX-License-Identifier: GPL-2.0-or-later
+[Unit]
+Description=Publish NVIDIA VRAM temperature to /run/gddr6 (Sensor Deck, unprivileged)
+After=nvidia-persistenced.service systemd-modules-load.service systemd-udev-settle.service
+
+[Service]
+Type=simple
+# reads only /sys/bus/pci/devices/<nvidia card>/resource0 (group gpu-sensors via udev rule)
+ExecStart=/usr/bin/python3 -I /usr/local/libexec/sensordeck-vram-reader --serve /run/gddr6 1
+Restart=on-failure
+RestartSec=10
+Nice=10
+
+# no root: throw-away user, only member of gpu-sensors
+DynamicUser=yes
+SupplementaryGroups=gpu-sensors
+RuntimeDirectory=gddr6
+RuntimeDirectoryMode=0755
+UMask=0022
+
+# hardening
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateNetwork=yes
+PrivateDevices=yes
+PrivateIPC=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+ProcSubset=pid
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+
+[Install]
+WantedBy=multi-user.target

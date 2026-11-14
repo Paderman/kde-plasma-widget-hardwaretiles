@@ -1,0 +1,1528 @@
+# Italian translation of Sensor Deck.
+# SPDX-FileCopyrightText: 2026 Paderman
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+# Machine-assisted translation – corrections are welcome.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sensor Deck\n"
+"Report-Msgid-Bugs-To: https://github.com/Paderman/sensordeck/issues\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2026-11-14 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: package/contents/config/config.qml:9
+msgid "Sensors"
+msgstr "Sensori"
+
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:497
+msgid "Notifications"
+msgstr "Notifiche"
+
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:466
+msgid "Appearance"
+msgstr "Aspetto"
+
+#: package/contents/config/config.qml:24
+msgid "About & updates"
+msgstr "Informazioni e aggiornamenti"
+
+#: package/contents/ui/ConfigAbout.qml:47
+msgid "Version:"
+msgstr "Versione:"
+
+#: package/contents/ui/ConfigAbout.qml:51
+msgid "Licence:"
+msgstr "Licenza:"
+
+#: package/contents/ui/ConfigAbout.qml:55
+msgid "Links:"
+msgstr "Collegamenti:"
+
+#: package/contents/ui/ConfigAbout.qml:57
+msgid "Website"
+msgstr "Sito web"
+
+#: package/contents/ui/ConfigAbout.qml:62
+msgid "Report a problem"
+msgstr "Segnala un problema"
+
+#: package/contents/ui/ConfigAbout.qml:67
+msgid "Hardware not detected"
+msgstr "Hardware non rilevato"
+
+#: package/contents/ui/ConfigAbout.qml:77
+msgid "Updates:"
+msgstr "Aggiornamenti:"
+
+#: package/contents/ui/ConfigAbout.qml:78
+msgid "Look for new versions once a week"
+msgstr "Cerca nuove versioni una volta alla settimana"
+
+#: package/contents/ui/ConfigAbout.qml:83
+msgid "Check now"
+msgstr "Controlla ora"
+
+#: package/contents/ui/ConfigAbout.qml:97
+msgid "You have the latest version."
+msgstr "Hai la versione più recente."
+
+#: package/contents/ui/ConfigAbout.qml:98
+msgid "Version %1 is available."
+msgstr "È disponibile la versione %1."
+
+#: package/contents/ui/ConfigAbout.qml:99
+msgid "No version has been published yet."
+msgstr "Non è ancora stata pubblicata alcuna versione."
+
+#: package/contents/ui/ConfigAbout.qml:100
+msgid "GitHub could not be reached (%1)."
+msgstr "Impossibile raggiungere GitHub (%1)."
+
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:287
+msgid "Open download page"
+msgstr "Apri la pagina di download"
+
+#: package/contents/ui/ConfigAbout.qml:119
+msgid "Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Sensor Deck sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>."
+msgstr "Privacy: il controllo avviene solo se lo consenti o fai clic su «Controlla ora». Il computer chiede allora ad api.github.com il numero dell’ultima versione. GitHub vede il tuo indirizzo IP, come per ogni visita a un sito web; Sensor Deck non invia altri dati e non raccoglie statistiche. Dettagli: <a href=\"%1\">informativa sulla privacy di GitHub</a>."
+
+#: package/contents/ui/ConfigAbout.qml:128
+msgid "Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you."
+msgstr "Installato tramite «Scarica nuovi widget» o Discover? Allora Discover installa gli aggiornamenti per te – il controllo qui serve solo da informazione."
+
+#: package/contents/ui/ConfigAlerts.qml:30
+msgid "Notifications:"
+msgstr "Notifiche:"
+
+#: package/contents/ui/ConfigAlerts.qml:31
+msgid "Notify on critical values"
+msgstr "Notifica in caso di valori critici"
+
+#: package/contents/ui/ConfigAlerts.qml:36
+msgid "Also when the warning threshold is reached"
+msgstr "Anche al raggiungimento della soglia di avviso"
+
+#: package/contents/ui/ConfigAlerts.qml:41
+msgid "All-clear when the value is back to normal"
+msgstr "Cessato allarme quando il valore torna normale"
+
+#: package/contents/ui/ConfigAlerts.qml:50
+msgid "Trigger after:"
+msgstr "Attiva dopo:"
+
+#: package/contents/ui/ConfigAlerts.qml:52
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 secondo"
+msgstr[1] "%1 secondi"
+
+#: package/contents/ui/ConfigAlerts.qml:59
+msgid "Warn again only:"
+msgstr "Avvisa di nuovo solo:"
+
+#: package/contents/ui/ConfigAlerts.qml:61
+msgid "%1 below the threshold"
+msgstr "%1 sotto la soglia"
+
+#: package/contents/ui/ConfigAlerts.qml:68
+msgid "Repeat at the earliest after:"
+msgstr "Ripeti al più presto dopo:"
+
+#: package/contents/ui/ConfigAlerts.qml:70
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 minuto"
+msgstr[1] "%1 minuti"
+
+#: package/contents/ui/ConfigAlerts.qml:78
+msgid "A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page."
+msgstr "Una notifica viene attivata quando un valore resta sopra la sua soglia per il tempo impostato – i picchi brevi vengono ignorati. Si viene avvisati di nuovo solo dopo che il valore è sceso nel frattempo sotto la soglia del margine impostato – nell'unità del sensore, ad es. 3 °C o 3 %. Le notifiche critiche restano finché non le chiudi e compaiono anche in modalità «Non disturbare». Le soglie e l'interruttore «Notifica» si impostano per ogni sensore nella pagina «Sensori»."
+
+#: package/contents/ui/ConfigAlerts.qml:85
+msgid "Send test notification"
+msgstr "Invia notifica di prova"
+
+#: package/contents/ui/ConfigAlerts.qml:94 package/contents/ui/ConfigAppearance.qml:164
+msgid "Restore defaults"
+msgstr "Ripristina predefiniti"
+
+#: package/contents/ui/ConfigAlerts.qml:105 package/contents/ui/ConfigAppearance.qml:175
+msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
+msgstr "Ripristinato. Ha effetto solo dopo «Applica» – «Annulla» lascia tutto com'era."
+
+#: package/contents/ui/ConfigAlerts.qml:106
+msgid "Only affects the general settings on this page – your sensor tiles, their thresholds and the per-sensor “Notify” switch are kept."
+msgstr "Riguarda solo le impostazioni generali di questa pagina – i riquadri dei sensori, le loro soglie e l'interruttore «Notifica» di ogni sensore vengono mantenuti."
+
+#: package/contents/ui/ConfigAlerts.qml:116
+msgid "VRAM temperature critical: 102 °C"
+msgstr "Temperatura VRAM critica: 102 °C"
+
+#: package/contents/ui/ConfigAlerts.qml:117
+msgid ""
+"Critical threshold of 100 °C exceeded.\n"
+"(This is just a test from Sensor Deck.)"
+msgstr ""
+"Soglia critica di 100 °C superata.\n"
+"(Questo è solo un test di Sensor Deck.)"
+
+#: package/contents/ui/ConfigAppearance.qml:40
+msgid "Columns:"
+msgstr "Colonne:"
+
+#: package/contents/ui/ConfigAppearance.qml:42 package/contents/ui/ConfigAppearance.qml:43
+msgid "Automatic"
+msgstr "Automatico"
+
+#: package/contents/ui/ConfigAppearance.qml:47
+msgid "On the desktop:"
+msgstr "Sul desktop:"
+
+#: package/contents/ui/ConfigAppearance.qml:48
+msgid "Shrink tiles so everything fits without scrolling"
+msgstr "Rimpicciolisci i riquadri perché tutto entri senza scorrere"
+
+#: package/contents/ui/ConfigAppearance.qml:53
+msgid "Tile style:"
+msgstr "Stile dei riquadri:"
+
+#: package/contents/ui/ConfigAppearance.qml:56
+msgid "Glass (subtle)"
+msgstr "Vetro (discreto)"
+
+#: package/contents/ui/ConfigAppearance.qml:57
+msgid "Filled"
+msgstr "Pieno"
+
+#: package/contents/ui/ConfigAppearance.qml:58
+msgid "Outline (accent colour)"
+msgstr "Contorno (colore d'accento)"
+
+#: package/contents/ui/ConfigAppearance.qml:64
+msgid "Size:"
+msgstr "Dimensione:"
+
+#: package/contents/ui/ConfigAppearance.qml:76
+msgid "Sections per graphics card:"
+msgstr "Sezioni per scheda grafica:"
+
+#: package/contents/ui/ConfigAppearance.qml:79
+msgid "From two graphics cards"
+msgstr "Da due schede grafiche"
+
+#: package/contents/ui/ConfigAppearance.qml:80
+msgid "Always (even with one card)"
+msgstr "Sempre (anche con una scheda)"
+
+#: package/contents/ui/ConfigAppearance.qml:81
+msgid "Never (several cards: coloured edge)"
+msgstr "Mai (più schede: bordo colorato)"
+
+#: package/contents/ui/ConfigAppearance.qml:88
+msgid "Arrangement:"
+msgstr "Disposizione:"
+
+#: package/contents/ui/ConfigAppearance.qml:89
+msgid "Move tiles by drag & drop"
+msgstr "Sposta i riquadri con trascinamento"
+
+#: package/contents/ui/ConfigAppearance.qml:94
+msgid "Start moving:"
+msgstr "Avvia lo spostamento:"
+
+#: package/contents/ui/ConfigAppearance.qml:98
+msgid "Ctrl + drag"
+msgstr "Ctrl + trascina"
+
+#: package/contents/ui/ConfigAppearance.qml:99
+msgid "Long press or Ctrl + drag (only useful in the panel popup)"
+msgstr "Pressione prolungata o Ctrl + trascina (utile solo nel popup del pannello)"
+
+#: package/contents/ui/ConfigAppearance.qml:100
+msgid "Immediately when dragging"
+msgstr "Subito durante il trascinamento"
+
+#: package/contents/ui/ConfigAppearance.qml:108
+msgid "Hold time:"
+msgstr "Durata della pressione:"
+
+#: package/contents/ui/ConfigAppearance.qml:111
+msgid "%1 ms"
+msgstr "%1 ms"
+
+#: package/contents/ui/ConfigAppearance.qml:119
+msgid "On the desktop a long press moves the whole widget (Plasma) – so arrange tiles with Ctrl + drag. Right-click the widget: “Undo last move” and “Restore original arrangement”."
+msgstr "Sul desktop una pressione prolungata sposta l'intero widget (Plasma) – disponi quindi i riquadri con Ctrl + trascina. Clic destro sul widget: «Annulla ultimo spostamento» e «Ripristina disposizione originale»."
+
+#: package/contents/ui/ConfigAppearance.qml:127
+msgid "Update:"
+msgstr "Aggiornamento:"
+
+#: package/contents/ui/ConfigAppearance.qml:129
+msgid "every %1 s"
+msgstr "ogni %1 s"
+
+#: package/contents/ui/ConfigAppearance.qml:135
+msgid "History in graphs:"
+msgstr "Cronologia nei grafici:"
+
+#: package/contents/ui/ConfigAppearance.qml:137
+msgid "%1 s"
+msgstr "%1 s"
+
+#: package/contents/ui/ConfigAppearance.qml:141
+msgid "Panel"
+msgstr "Pannello"
+
+#: package/contents/ui/ConfigAppearance.qml:145
+msgid "In the panel:"
+msgstr "Nel pannello:"
+
+#: package/contents/ui/ConfigAppearance.qml:146
+msgid "Show mini rings"
+msgstr "Mostra mini anelli"
+
+#: package/contents/ui/ConfigAppearance.qml:150
+msgid "Show labels"
+msgstr "Mostra etichette"
+
+#: package/contents/ui/ConfigAppearance.qml:156
+msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
+msgstr "Quali sensori compaiono nel pannello si imposta per ogni voce nella pagina «Sensori». Lo sfondo del widget sul desktop si può cambiare in modalità modifica."
+
+#: package/contents/ui/ConfigAppearance.qml:176
+msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
+msgstr "Riguarda solo le impostazioni di questa pagina – i riquadri dei sensori e le notifiche vengono mantenuti."
+
+#: package/contents/ui/ConfigSensors.qml:29 package/contents/ui/FullView.qml:470
+msgid "Ring"
+msgstr "Anello"
+
+#: package/contents/ui/ConfigSensors.qml:30 package/contents/ui/FullView.qml:475
+msgid "Bar"
+msgstr "Barra"
+
+#: package/contents/ui/ConfigSensors.qml:31 package/contents/ui/FullView.qml:480
+msgid "History graph"
+msgstr "Grafico cronologico"
+
+#: package/contents/ui/ConfigSensors.qml:32 package/contents/ui/FullView.qml:485
+msgid "Value only"
+msgstr "Solo valore"
+
+#: package/contents/ui/ConfigSensors.qml:33
+msgid "Fan curve"
+msgstr "Curva delle ventole"
+
+#: package/contents/ui/ConfigSensors.qml:106
+msgid "Main card (%1)"
+msgstr "Scheda principale (%1)"
+
+#: package/contents/ui/ConfigSensors.qml:113
+msgid "System overview"
+msgstr "Panoramica del sistema"
+
+#: package/contents/ui/ConfigSensors.qml:114
+msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
+msgstr "Riquadri predefiniti per il tuo hardware: scheda grafica, processore, memoria, SSD, ventole"
+
+#: package/contents/ui/ConfigSensors.qml:117
+msgid "All graphics cards"
+msgstr "Tutte le schede grafiche"
+
+#: package/contents/ui/ConfigSensors.qml:118
+msgid "One section per graphics card, plus comparison tiles and system"
+msgstr "Una sezione per scheda grafica, più riquadri di confronto e sistema"
+
+#: package/contents/ui/ConfigSensors.qml:121
+msgid "GPU focus"
+msgstr "Focus GPU"
+
+#: package/contents/ui/ConfigSensors.qml:122
+msgid "Only the selected graphics card, with all of its values"
+msgstr "Solo la scheda grafica selezionata, con tutti i suoi valori"
+
+#: package/contents/ui/ConfigSensors.qml:127
+msgid "Setup wizard"
+msgstr "Procedura guidata"
+
+#: package/contents/ui/ConfigSensors.qml:169
+msgid "Layout:"
+msgstr "Disposizione:"
+
+#: package/contents/ui/ConfigSensors.qml:179
+msgid "(modified)"
+msgstr "(modificata)"
+
+#: package/contents/ui/ConfigSensors.qml:185
+msgid "Is loaded and unchanged."
+msgstr "È caricata e invariata."
+
+#: package/contents/ui/ConfigSensors.qml:186
+msgid "Clicking restores the template – your changes will be lost."
+msgstr "Facendo clic si ripristina il modello – le tue modifiche andranno perse."
+
+#: package/contents/ui/ConfigSensors.qml:187
+msgid "Clicking replaces all tiles with this template."
+msgstr "Facendo clic tutti i riquadri vengono sostituiti da questo modello."
+
+#: package/contents/ui/ConfigSensors.qml:209
+msgid "Created by the setup wizard – unchanged."
+msgstr "Creata dalla procedura guidata – invariata."
+
+#: package/contents/ui/ConfigSensors.qml:210
+msgid "Template “%1” is loaded – unchanged."
+msgstr "Il modello «%1» è caricato – invariato."
+
+#: package/contents/ui/ConfigSensors.qml:212
+msgid "Customised: based on “%1”, tiles have been changed."
+msgstr "Personalizzata: basata su «%1», i riquadri sono stati modificati."
+
+#: package/contents/ui/ConfigSensors.qml:213
+msgid "Custom layout."
+msgstr "Disposizione personalizzata."
+
+#: package/contents/ui/ConfigSensors.qml:221
+msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
+msgstr "Un modello sostituisce tutti i riquadri – «Panoramica del sistema» ripristina i riquadri predefiniti per il tuo hardware. Ha effetto solo dopo «Applica», «Annulla» lascia tutto com'era."
+
+#: package/contents/ui/ConfigSensors.qml:233
+msgid "Main card:"
+msgstr "Scheda principale:"
+
+#: package/contents/ui/ConfigSensors.qml:233 package/contents/ui/ConfigSensors.qml:360
+msgid "Graphics card:"
+msgstr "Scheda grafica:"
+
+#: package/contents/ui/ConfigSensors.qml:243
+msgid "Searching …"
+msgstr "Ricerca …"
+
+#: package/contents/ui/ConfigSensors.qml:243
+msgid "No supported graphics card found"
+msgstr "Nessuna scheda grafica supportata trovata"
+
+#: package/contents/ui/ConfigSensors.qml:249
+msgid "Search again"
+msgstr "Cerca di nuovo"
+
+#: package/contents/ui/ConfigSensors.qml:259
+msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
+msgstr "I riquadri GPU senza assegnazione propria mostrano questa scheda. Ogni riquadro può essere assegnato a un'altra scheda qui sotto – oppure la disposizione «Tutte le schede grafiche» (sopra) crea una sezione separata per ogni scheda."
+
+#: package/contents/ui/ConfigSensors.qml:260
+msgid "All GPU tiles refer to this card."
+msgstr "Tutti i riquadri GPU si riferiscono a questa scheda."
+
+#: package/contents/ui/ConfigSensors.qml:266
+msgid "Start setup wizard"
+msgstr "Avvia la procedura guidata"
+
+#: package/contents/ui/ConfigSensors.qml:273
+msgid "Appears in the widget after “Apply”."
+msgstr "Compare nel widget dopo «Applica»."
+
+#: package/contents/ui/ConfigSensors.qml:284
+msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be rearranged directly in the widget: Ctrl + drag."
+msgstr "Fonti: sensori di sistema (ksystemstats – CPU, ventole, NVMe, RAM …), valori NVIDIA direttamente da nvidia-smi oppure un comando shell. Sulle GPU AMD la temperatura VRAM si trova sotto «amdgpu … mem». I riquadri si possono anche riordinare direttamente nel widget: Ctrl + trascina."
+
+#: package/contents/ui/ConfigSensors.qml:323
+msgid "Label (empty = automatic)"
+msgstr "Etichetta (vuota = automatica)"
+
+#: package/contents/ui/ConfigSensors.qml:331
+msgid "Move up"
+msgstr "Sposta su"
+
+#: package/contents/ui/ConfigSensors.qml:337
+msgid "Move down"
+msgstr "Sposta giù"
+
+#: package/contents/ui/ConfigSensors.qml:347
+msgid "Duplicate"
+msgstr "Duplica"
+
+#: package/contents/ui/ConfigSensors.qml:352
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: package/contents/ui/ConfigSensors.qml:373
+msgid "Not found (PCI %1)"
+msgstr "Non trovata (PCI %1)"
+
+#: package/contents/ui/ConfigSensors.qml:377
+msgid "Compare all cards"
+msgstr "Confronta tutte le schede"
+
+#: package/contents/ui/ConfigSensors.qml:381
+msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
+msgstr "Mostra il valore di ogni scheda grafica in questo riquadro – anello: un arco per scheda, grafico: una linea per scheda, barra/valore: una riga per scheda."
+
+#: package/contents/ui/ConfigSensors.qml:389
+msgid "Temperature (X):"
+msgstr "Temperatura (X):"
+
+#: package/contents/ui/ConfigSensors.qml:389 package/contents/ui/SourceEditor.qml:19
+msgid "Source:"
+msgstr "Fonte:"
+
+#: package/contents/ui/ConfigSensors.qml:402
+msgid "Fan (Y):"
+msgstr "Ventola (Y):"
+
+#: package/contents/ui/ConfigSensors.qml:422
+msgid "Total value:"
+msgstr "Valore totale:"
+
+#: package/contents/ui/ConfigSensors.qml:441
+msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
+msgstr "Facoltativo, ad es. «VRAM totale» → mostra «1,0 / 10 GiB» e imposta il massimo per barra/anello. I valori NVIDIA portano il loro totale automaticamente."
+
+#: package/contents/ui/ConfigSensors.qml:449
+msgid "Style:"
+msgstr "Stile:"
+
+#: package/contents/ui/ConfigSensors.qml:464 package/contents/ui/FullView.qml:490
+msgid "Double width"
+msgstr "Doppia larghezza"
+
+#: package/contents/ui/ConfigSensors.qml:469
+msgid "In panel"
+msgstr "Nel pannello"
+
+#: package/contents/ui/ConfigSensors.qml:474
+msgid "Notify"
+msgstr "Notifica"
+
+#: package/contents/ui/ConfigSensors.qml:478
+msgid "Desktop notification when a threshold is exceeded"
+msgstr "Notifica sul desktop quando una soglia viene superata"
+
+#: package/contents/ui/ConfigSensors.qml:485
+msgid "Accent colour"
+msgstr "Colore d'accento"
+
+#: package/contents/ui/ConfigSensors.qml:491
+msgid "Automatic colour"
+msgstr "Colore automatico"
+
+#: package/contents/ui/ConfigSensors.qml:495
+msgid "Temperature axis:"
+msgstr "Asse della temperatura:"
+
+#: package/contents/ui/ConfigSensors.qml:495
+msgid "Range:"
+msgstr "Intervallo:"
+
+#: package/contents/ui/ConfigSensors.qml:498
+msgid "Min"
+msgstr "Min"
+
+#: package/contents/ui/ConfigSensors.qml:505
+msgid "Max"
+msgstr "Max"
+
+#: package/contents/ui/ConfigSensors.qml:510 package/contents/ui/ConfigSensors.qml:511 package/contents/ui/ConfigSensors.qml:520 package/contents/ui/ConfigSensors.qml:521
+msgid "auto"
+msgstr "auto"
+
+#: package/contents/ui/ConfigSensors.qml:514
+msgid "Fan max"
+msgstr "Ventola max"
+
+#: package/contents/ui/ConfigSensors.qml:526
+msgid "Thresholds:"
+msgstr "Soglie:"
+
+#: package/contents/ui/ConfigSensors.qml:534 package/contents/ui/ConfigSensors.qml:535 package/contents/ui/ConfigSensors.qml:543 package/contents/ui/ConfigSensors.qml:544
+msgid "off"
+msgstr "disattivata"
+
+#: package/contents/ui/ConfigSensors.qml:549
+msgid "Reference curve:"
+msgstr "Curva di riferimento:"
+
+#: package/contents/ui/ConfigSensors.qml:566
+msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
+msgstr "Facoltativo: punti «temperatura:ventola», disegnati tratteggiati – ad es. la tua curva da GreenWithEnvy o CoolerControl. La linea continua viene appresa dal widget dalle misurazioni."
+
+#: package/contents/ui/ConfigSensors.qml:578
+msgid "Add sensor"
+msgstr "Aggiungi sensore"
+
+#: package/contents/ui/ConfigSensors.qml:583
+msgid "Template …"
+msgstr "Modello …"
+
+#: package/contents/ui/ConfigSensors.qml:588
+msgid "GPU comparison: temperature (ring)"
+msgstr "Confronto GPU: temperatura (anello)"
+
+#: package/contents/ui/ConfigSensors.qml:590 package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
+msgid "GPU temperature"
+msgstr "Temperatura GPU"
+
+#: package/contents/ui/ConfigSensors.qml:593
+msgid "GPU comparison: load (graph)"
+msgstr "Confronto GPU: carico (grafico)"
+
+#: package/contents/ui/ConfigSensors.qml:595 package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332 package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+msgid "GPU load"
+msgstr "Carico GPU"
+
+#: package/contents/ui/ConfigSensors.qml:598
+msgid "GPU comparison: power (bar)"
+msgstr "Confronto GPU: consumo (barra)"
+
+#: package/contents/ui/ConfigSensors.qml:600 package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322 package/contents/ui/Hardware.js:329
+msgid "GPU power"
+msgstr "Consumo GPU"
+
+#: package/contents/ui/ConfigSensors.qml:602 package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
+msgid "GPU fan curve"
+msgstr "Curva delle ventole GPU"
+
+#: package/contents/ui/ConfigSensors.qml:603
+msgid "VRAM temperature (gddr6, NVIDIA)"
+msgstr "Temperatura VRAM (gddr6, NVIDIA)"
+
+#: package/contents/ui/ConfigSensors.qml:603 package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
+msgid "VRAM temperature"
+msgstr "Temperatura VRAM"
+
+#: package/contents/ui/ConfigSensors.qml:604
+msgid "VRAM used / total (NVIDIA)"
+msgstr "VRAM usata / totale (NVIDIA)"
+
+#: package/contents/ui/ConfigSensors.qml:604 package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323 package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
+msgid "VRAM used"
+msgstr "VRAM usata"
+
+#: package/contents/ui/ConfigSensors.qml:605
+msgid "GPU throttling (NVIDIA)"
+msgstr "Limitazione GPU (NVIDIA)"
+
+#: package/contents/ui/ConfigSensors.qml:605 package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
+msgid "Throttling"
+msgstr "Limitazione"
+
+#: package/contents/ui/ConfigSensors.qml:606
+msgid "CPU temperature (max.)"
+msgstr "Temperatura CPU (max.)"
+
+#: package/contents/ui/ConfigSensors.qml:606 package/contents/ui/Hardware.js:367
+msgid "CPU temperature"
+msgstr "Temperatura CPU"
+
+#: package/contents/ui/ConfigSensors.qml:607
+msgid "CPU power (power service)"
+msgstr "Consumo CPU (servizio consumi)"
+
+#: package/contents/ui/ConfigSensors.qml:607 package/contents/ui/Hardware.js:369
+msgid "CPU power"
+msgstr "Consumo CPU"
+
+#: package/contents/ui/ConfigSensors.qml:608
+msgid "CPU usage (graph)"
+msgstr "Utilizzo CPU (grafico)"
+
+#: package/contents/ui/ConfigSensors.qml:608 package/contents/ui/Hardware.js:370
+msgid "CPU load"
+msgstr "Carico CPU"
+
+#: package/contents/ui/ConfigSensors.qml:609 package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
+msgid "Memory"
+msgstr "Memoria"
+
+#: package/contents/ui/ConfigSensors.qml:610
+msgid "Network download"
+msgstr "Download di rete"
+
+#: package/contents/ui/ConfigSensors.qml:610 package/contents/ui/Hardware.js:391
+msgid "Download"
+msgstr "Download"
+
+#: package/contents/ui/Defaults.js:133
+msgid "NVMe · Temperature"
+msgstr "NVMe · Temperatura"
+
+#: package/contents/ui/Defaults.js:133
+msgid "%1-SSD · Temperature"
+msgstr "SSD %1 · Temperatura"
+
+#: package/contents/ui/Explain.js:31
+msgid "Shows how fast the graphics card fans spin at which temperature. The widget learns the line from the measurements; the dot is the current state."
+msgstr "Mostra a che velocità girano le ventole della scheda grafica a ciascuna temperatura. Il widget apprende la linea dalle misurazioni; il punto è lo stato attuale."
+
+#: package/contents/ui/Explain.js:33
+msgid "Current power draw of the graphics built into the processor. Near 0 W when idle, a few to about 15 W under load."
+msgstr "Consumo attuale della grafica integrata nel processore. Quasi 0 W a riposo, da pochi a circa 15 W sotto carico."
+
+#: package/contents/ui/Explain.js:35
+msgid "Current power draw of the processor, averaged over one second. Low when idle, much higher under full load – the maximum depends on the processor."
+msgstr "Consumo attuale del processore, mediato su un secondo. Basso a riposo, molto più alto a pieno carico – il massimo dipende dal processore."
+
+#: package/contents/ui/Explain.js:37
+msgid "How busy the 3D and compute unit of the graphics built into the processor is – games, desktop effects, browsers. Only programs of your user are counted."
+msgstr "Carico dell’unità 3D e di calcolo della grafica integrata nel processore – giochi, effetti del desktop, browser. Vengono contati solo i programmi del tuo utente."
+
+#: package/contents/ui/Explain.js:39
+msgid "How busy the video unit of the graphics built into the processor is – playing, recording or converting videos. Only programs of your user are counted."
+msgstr "Carico dell’unità video della grafica integrata nel processore – riprodurre, registrare o convertire video. Vengono contati solo i programmi del tuo utente."
+
+#: package/contents/ui/Explain.js:41
+msgid "Graphics built into the processor have no memory of their own – they use part of the main memory. This shows how much the programs using them occupy right now."
+msgstr "La grafica integrata nel processore non ha memoria propria – usa una parte della memoria di sistema. Mostra quanta ne occupano ora i programmi che la usano."
+
+#: package/contents/ui/Explain.js:43
+msgid "Current clock of the graphics built into the processor. 0 MHz means it is asleep – normal when it has nothing to do."
+msgstr "Frequenza attuale della grafica integrata nel processore. 0 MHz significa che è a riposo – normale quando non ha nulla da fare."
+
+#: package/contents/ui/Explain.js:45
+msgid "How busy the graphics built into the processor is. Measured as the share of time it is not asleep to save power – a good estimate, not an exact value."
+msgstr "Carico della grafica integrata nel processore. Misurato come quota di tempo in cui non è in riposo per risparmiare energia – una buona stima, non un valore esatto."
+
+#: package/contents/ui/Explain.js:47
+msgid "Link between graphics card and mainboard: generation (Gen) and number of data lanes (×). When idle the card often drops to a lower generation to save power – that is normal."
+msgstr "Collegamento tra scheda grafica e scheda madre: generazione (Gen) e numero di linee dati (×). A riposo la scheda passa spesso a una generazione inferiore per risparmiare energia – è normale."
+
+#: package/contents/ui/Explain.js:51
+msgid "Temperature of the graphics memory (VRAM). It usually runs hotter than the graphics chip – 80–95 °C under load is common."
+msgstr "Temperatura della memoria grafica (VRAM). Di solito è più calda del chip grafico – sotto carico 80–95 °C sono comuni."
+
+#: package/contents/ui/Explain.js:53
+msgid "Hottest spot on the graphics chip. Usually 10–20 °C above the GPU temperature."
+msgstr "Punto più caldo del chip grafico. Di solito 10–20 °C sopra la temperatura della GPU."
+
+#: package/contents/ui/Explain.js:55
+msgid "Temperature of the graphics chip. 60–80 °C under load is normal."
+msgstr "Temperatura del chip grafico. Sotto carico 60–80 °C sono normali."
+
+#: package/contents/ui/Explain.js:57
+msgid "Speed of the graphics card fans. 0 when idle is normal – many cards switch the fans off completely then."
+msgstr "Velocità delle ventole della scheda grafica. 0 a riposo è normale – molte schede spengono allora completamente le ventole."
+
+#: package/contents/ui/Explain.js:59
+msgid "How busy the graphics chip is right now. 95–100 % while gaming is normal and desired."
+msgstr "Quanto è impegnato in questo momento il chip grafico. Durante il gioco 95–100 % è normale e desiderato."
+
+#: package/contents/ui/Explain.js:61
+msgid "Current power draw of the graphics card. The second value is its power limit – when it reaches it, it lowers its clock (see Throttling)."
+msgstr "Consumo elettrico attuale della scheda grafica. Il secondo valore è il suo limite di potenza – quando lo raggiunge, abbassa la frequenza (vedi Limitazione)."
+
+#: package/contents/ui/Explain.js:63
+msgid "Maximum allowed power draw of the graphics card. Above it, the card lowers its clock."
+msgstr "Consumo elettrico massimo consentito della scheda grafica. Oltre questo valore la scheda abbassa la frequenza."
+
+#: package/contents/ui/Explain.js:65
+msgid "Graphics memory (VRAM) for textures, images and compute data. When it is full, games have to fall back to slower system memory – that can cause stutter."
+msgstr "Memoria grafica (VRAM) per texture, immagini e dati di calcolo. Quando è piena, i giochi devono ripiegare sulla memoria di sistema più lenta – ciò può causare scatti."
+
+#: package/contents/ui/Explain.js:67
+msgid "Share of time in which the graphics memory is being read or written."
+msgstr "Quota di tempo in cui la memoria grafica viene letta o scritta."
+
+#: package/contents/ui/Explain.js:69
+msgid "Current clock of the graphics chip. It changes constantly: high under load, low when idle. The second value is the maximum clock."
+msgstr "Frequenza attuale del chip grafico. Varia continuamente: alta sotto carico, bassa a riposo. Il secondo valore è la frequenza massima."
+
+#: package/contents/ui/Explain.js:71
+msgid "Clock of the graphics memory. When idle the card lowers it a lot to save power."
+msgstr "Frequenza della memoria grafica. A riposo la scheda la riduce molto per risparmiare energia."
+
+#: package/contents/ui/Explain.js:73
+msgid "Clock of the video units that encode and decode videos."
+msgstr "Frequenza delle unità video che codificano e decodificano i video."
+
+#: package/contents/ui/Explain.js:75
+msgid "Load of the video encoder (NVENC). Active when recording the screen, streaming or exporting video, e.g. with OBS."
+msgstr "Carico del codificatore video (NVENC). Attivo durante la registrazione dello schermo, lo streaming o l'esportazione video, ad es. con OBS."
+
+#: package/contents/ui/Explain.js:77
+msgid "Load of the video decoder (NVDEC). Active when playing videos, e.g. on YouTube or in a video player."
+msgstr "Carico del decodificatore video (NVDEC). Attivo durante la riproduzione di video, ad es. su YouTube o in un lettore video."
+
+#: package/contents/ui/Explain.js:79
+msgid "Power state of the graphics card: P0 is full performance, P8 and above is idle power saving."
+msgstr "Stato energetico della scheda grafica: P0 è la massima prestazione, da P8 in su risparmio energetico a riposo."
+
+#: package/contents/ui/Explain.js:81
+msgid "Shows whether and why the graphics card is currently running below its possible clock."
+msgstr "Mostra se e perché la scheda grafica funziona al momento sotto la sua frequenza possibile."
+
+#: package/contents/ui/Explain.js:85
+msgid "Temperature of the hottest processor core. 60–85 °C under load is normal."
+msgstr "Temperatura del core del processore più caldo. Sotto carico 60–85 °C sono normali."
+
+#: package/contents/ui/Explain.js:87
+msgid "Combined usage of all processor cores."
+msgstr "Utilizzo complessivo di tutti i core del processore."
+
+#: package/contents/ui/Explain.js:89
+msgid "Used system memory (RAM). When it runs low, the system swaps to disk and becomes noticeably slower."
+msgstr "Memoria di sistema (RAM) usata. Quando scarseggia, il sistema usa il disco e diventa sensibilmente più lento."
+
+#: package/contents/ui/Explain.js:91
+msgid "Used disk space. Above 90 % it is time to clean up – very full SSDs get slower."
+msgstr "Spazio su disco usato. Oltre il 90 % è ora di fare pulizia – gli SSD molto pieni rallentano."
+
+#: package/contents/ui/Explain.js:93
+msgid "Temperature of the SSD. Up to about 70 °C is fine; above that it slows down to protect itself."
+msgstr "Temperatura dell'SSD. Fino a circa 70 °C va bene; oltre rallenta per proteggersi."
+
+#: package/contents/ui/Explain.js:95
+msgid "Speed of this fan in revolutions per minute. 0 means it is standing still – intended for some fans when idle."
+msgstr "Velocità di questa ventola in giri al minuto. 0 significa che è ferma – voluto per alcune ventole a riposo."
+
+#: package/contents/ui/Explain.js:97
+msgid "Temperature on the mainboard – a good indicator of the heat inside the case. 30–45 °C is common."
+msgstr "Temperatura sulla scheda madre – un buon indicatore del calore nel case. Sono comuni 30–45 °C."
+
+#: package/contents/ui/Explain.js:99
+msgid "Amount of data currently being received over all network connections."
+msgstr "Quantità di dati ricevuta al momento su tutte le connessioni di rete."
+
+#: package/contents/ui/Explain.js:101
+msgid "Amount of data currently being sent over all network connections."
+msgstr "Quantità di dati inviata al momento su tutte le connessioni di rete."
+
+#: package/contents/ui/Explain.js:108
+msgid "The card has reached its power limit – normal under load."
+msgstr "La scheda ha raggiunto il suo limite di potenza – normale sotto carico."
+
+#: package/contents/ui/Explain.js:109
+msgid "The card holds its target temperature and clocks a little lower to do so. More airflow in the case helps."
+msgstr "La scheda mantiene la sua temperatura obiettivo abbassando un po' la frequenza. Più flusso d'aria nel case aiuta."
+
+#: package/contents/ui/Explain.js:110
+msgid "The card is too hot and slows down heavily. Check the cooling: dust, fans, case ventilation."
+msgstr "La scheda è troppo calda e rallenta molto. Controlla il raffreddamento: polvere, ventole, aerazione del case."
+
+#: package/contents/ui/Explain.js:111
+msgid "The hardware is slowing down – usually due to overheating or a power supply problem."
+msgstr "L'hardware sta rallentando – di solito per surriscaldamento o un problema di alimentazione."
+
+#: package/contents/ui/Explain.js:112
+msgid "The power supply reports a problem – check the PSU and power cables."
+msgstr "L'alimentazione segnala un problema – controlla l'alimentatore e i cavi."
+
+#: package/contents/ui/Explain.js:113
+msgid "The clock has been limited by a program or a setting."
+msgstr "La frequenza è stata limitata da un programma o da un'impostazione."
+
+#: package/contents/ui/Explain.js:114
+msgid "The clock is synced to other graphics cards (only common in data centres)."
+msgstr "La frequenza viene allineata ad altre schede grafiche (comune solo nei data center)."
+
+#: package/contents/ui/Explain.js:115
+msgid "Limited by the display output clock."
+msgstr "Limitata dalla frequenza dell'uscita video."
+
+#: package/contents/ui/Explain.js:116
+msgid "Nothing to do – the card clocks down to save power."
+msgstr "Niente da fare – la scheda abbassa la frequenza per risparmiare energia."
+
+#: package/contents/ui/Explain.js:117
+msgid "The card runs freely, without throttling."
+msgstr "La scheda funziona liberamente, senza limitazioni."
+
+#: package/contents/ui/Explain.js:132
+msgid "Full performance."
+msgstr "Prestazioni massime."
+
+#: package/contents/ui/Explain.js:133
+msgid "High performance – typical under load or for compute tasks."
+msgstr "Prestazioni elevate – tipico sotto carico o per attività di calcolo."
+
+#: package/contents/ui/Explain.js:134
+msgid "Medium level."
+msgstr "Livello medio."
+
+#: package/contents/ui/Explain.js:135
+msgid "Power saving – the card has little to do right now."
+msgstr "Risparmio energetico – la scheda ha poco da fare al momento."
+
+#: package/contents/ui/FanCurve.qml:198
+msgid "So far only measured at %1 °C."
+msgstr "Finora misurata solo a %1 °C."
+
+#: package/contents/ui/FanCurve.qml:199
+msgid "So far only %1–%2 °C measured."
+msgstr "Finora misurati solo %1–%2 °C."
+
+#: package/contents/ui/FanCurve.qml:200
+msgid "The curve grows as the graphics card gets warmer, e.g. while gaming."
+msgstr "La curva cresce man mano che la scheda grafica si scalda, ad es. durante il gioco."
+
+#: package/contents/ui/FanCurve.qml:210
+msgid "No data from the sensors"
+msgstr "Nessun dato dai sensori"
+
+#: package/contents/ui/FanCurve.qml:210
+msgid "Collecting data points …"
+msgstr "Raccolta dei punti di misura …"
+
+#: package/contents/ui/FullView.qml:146
+msgid "Comparison"
+msgstr "Confronto"
+
+#: package/contents/ui/FullView.qml:148
+msgid "System"
+msgstr "Sistema"
+
+#: package/contents/ui/FullView.qml:270
+msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
+msgstr "Sensor Deck deve cercare nuove versioni una volta alla settimana? Per farlo si collega a github.com – GitHub vede il tuo indirizzo IP, come per ogni visita a un sito web; nient’altro viene inviato. Puoi cambiare questa scelta in qualsiasi momento nelle impostazioni."
+
+#: package/contents/ui/FullView.qml:271
+msgid "Sensor Deck %1 is available (installed: %2)."
+msgstr "Sensor Deck %1 è disponibile (installata: %2)."
+
+#: package/contents/ui/FullView.qml:275
+msgid "Yes, check weekly"
+msgstr "Sì, controlla ogni settimana"
+
+#: package/contents/ui/FullView.qml:281
+msgid "No, thanks"
+msgstr "No, grazie"
+
+#: package/contents/ui/FullView.qml:459
+msgid "Edit in settings …"
+msgstr "Modifica nelle impostazioni …"
+
+#: package/contents/ui/FullView.qml:505
+msgid "Remove tile"
+msgstr "Rimuovi riquadro"
+
+#: package/contents/ui/FullView.qml:510 package/contents/ui/main.qml:360
+msgid "Restore “%1”"
+msgstr "Ripristina «%1»"
+
+#: package/contents/ui/FullView.qml:518
+msgid "Configure Sensor Deck …"
+msgstr "Configura Sensor Deck …"
+
+#: package/contents/ui/FullView.qml:559
+msgid "No sensors configured"
+msgstr "Nessun sensore configurato"
+
+#: package/contents/ui/FullView.qml:565
+msgid "Configure …"
+msgstr "Configura …"
+
+#: package/contents/ui/GpuSectionHeader.qml:111
+msgid "PCI address: %1"
+msgstr "Indirizzo PCI: %1"
+
+#: package/contents/ui/GpuSectionHeader.qml:111
+msgid "Driver: %1"
+msgstr "Driver: %1"
+
+#: package/contents/ui/GpuSectionHeader.qml:117
+msgid "PCIe link: %1"
+msgstr "Collegamento PCIe: %1"
+
+#: package/contents/ui/Hardware.js:176
+msgid "Fan %1"
+msgstr "Ventola %1"
+
+#: package/contents/ui/Hardware.js:207
+msgid "No fan sensors were found. Sensor Deck can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password."
+msgstr "Non è stato trovato alcun sensore delle ventole. Sensor Deck può configurare il supporto ai sensori per te: installa il pacchetto «%1» e rileva il chip dei sensori della scheda madre. Ti verrà chiesta la password."
+
+#: package/contents/ui/Hardware.js:209
+msgid "No fan sensors were found. Sensor Deck can detect the sensor chip of your mainboard and load its driver. You will be asked for your password."
+msgstr "Non è stato trovato alcun sensore delle ventole. Sensor Deck può rilevare il chip dei sensori della scheda madre e caricarne il driver. Ti verrà chiesta la password."
+
+#: package/contents/ui/Hardware.js:212
+msgid "No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
+msgstr "Non è stato trovato alcun sensore delle ventole. Su questo sistema i programmi si installano in modo diverso (sistema basato su immagine): aggiungi «lm-sensors», esegui una volta «sudo sensors-detect» e riavvia – maggiori dettagli nel README, sezione «Mainboard sensors»."
+
+#: package/contents/ui/Hardware.js:213
+msgid "No fan sensors were found. Install “lm-sensors” with your software center, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
+msgstr "Non è stato trovato alcun sensore delle ventole. Installa «lm-sensors» con il gestore software, esegui una volta «sudo sensors-detect» e riavvia – maggiori dettagli nel README, sezione «Mainboard sensors»."
+
+#: package/contents/ui/Hardware.js:222
+msgid "Graphics card – details"
+msgstr "Scheda grafica – dettagli"
+
+#: package/contents/ui/Hardware.js:222
+msgid "Fans & fan curve, clocks, throttling, video encoding …"
+msgstr "Ventole e curva, frequenze, limitazione, codifica video …"
+
+#: package/contents/ui/Hardware.js:223
+msgid "Processor"
+msgstr "Processore"
+
+#: package/contents/ui/Hardware.js:223
+msgid "Temperature and usage"
+msgstr "Temperatura e utilizzo"
+
+#: package/contents/ui/Hardware.js:224
+msgid "Usage in percent"
+msgstr "Occupazione in percentuale"
+
+#: package/contents/ui/Hardware.js:225
+msgid "SSDs & drives"
+msgstr "SSD e unità"
+
+#: package/contents/ui/Hardware.js:225
+msgid "NVMe temperatures, disk space"
+msgstr "Temperature NVMe, spazio su disco"
+
+#: package/contents/ui/Hardware.js:226
+msgid "Mainboard & fans"
+msgstr "Scheda madre e ventole"
+
+#: package/contents/ui/Hardware.js:226
+msgid "Case temperature, fan speeds"
+msgstr "Temperatura del case, velocità delle ventole"
+
+#: package/contents/ui/Hardware.js:227
+msgid "Network"
+msgstr "Rete"
+
+#: package/contents/ui/Hardware.js:227
+msgid "Download and upload"
+msgstr "Download e upload"
+
+#: package/contents/ui/Hardware.js:229
+msgid "GPU comparison"
+msgstr "Confronto GPU"
+
+#: package/contents/ui/Hardware.js:229
+msgid "Temperature, load, power and VRAM of all cards in shared tiles"
+msgstr "Temperatura, carico, consumo e VRAM di tutte le schede in riquadri comuni"
+
+#: package/contents/ui/Hardware.js:319
+msgid "GPU hotspot"
+msgstr "Hotspot GPU"
+
+#: package/contents/ui/Hardware.js:338 package/contents/ui/Hardware.js:348
+msgid "GPU fan"
+msgstr "Ventola GPU"
+
+#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359 package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+msgid "GPU clock"
+msgstr "Frequenza GPU"
+
+#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352 package/contents/ui/NvidiaKeys.js:31
+msgid "Memory clock"
+msgstr "Frequenza memoria"
+
+#: package/contents/ui/Hardware.js:343
+msgid "Video encoding"
+msgstr "Codifica video"
+
+#: package/contents/ui/Hardware.js:344
+msgid "Video decoding"
+msgstr "Decodifica video"
+
+#: package/contents/ui/Hardware.js:346
+msgid "Performance level"
+msgstr "Livello di prestazioni"
+
+#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+msgid "3D load"
+msgstr "Carico 3D"
+
+#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+msgid "Video load"
+msgstr "Carico video"
+
+#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:81
+msgid "Graphics memory"
+msgstr "Memoria grafica"
+
+#: package/contents/ui/Hardware.js:362
+msgid "Graphics card · PCIe"
+msgstr "Scheda grafica · PCIe"
+
+#: package/contents/ui/Hardware.js:380
+msgid "Disk used"
+msgstr "Disco usato"
+
+#: package/contents/ui/Hardware.js:385
+msgid "Case temperature"
+msgstr "Temperatura del case"
+
+#: package/contents/ui/Hardware.js:392
+msgid "Upload"
+msgstr "Upload"
+
+#: package/contents/ui/main.qml:53
+msgid "Graphics card"
+msgstr "Scheda grafica"
+
+#: package/contents/ui/main.qml:54
+msgid "Graphics card %1 (not found)"
+msgstr "Scheda grafica %1 (non trovata)"
+
+#: package/contents/ui/main.qml:55
+msgid "Graphics card %1"
+msgstr "Scheda grafica %1"
+
+#: package/contents/ui/main.qml:354
+msgid "Sensor Deck %1 is available – open download page"
+msgstr "Sensor Deck %1 è disponibile – apri la pagina di download"
+
+#: package/contents/ui/main.qml:366
+msgid "Undo last move"
+msgstr "Annulla ultimo spostamento"
+
+#: package/contents/ui/main.qml:372
+msgid "Restore original arrangement"
+msgstr "Ripristina disposizione originale"
+
+#: package/contents/ui/main.qml:385
+msgid "Sensor Deck"
+msgstr "Sensor Deck"
+
+#: package/contents/ui/NvidiaKeys.js:23
+msgid "Fan"
+msgstr "Ventola"
+
+#: package/contents/ui/NvidiaKeys.js:25
+msgid "VRAM activity"
+msgstr "Attività VRAM"
+
+#: package/contents/ui/NvidiaKeys.js:26
+msgid "Video encoding (NVENC)"
+msgstr "Codifica video (NVENC)"
+
+#: package/contents/ui/NvidiaKeys.js:27
+msgid "Video decoding (NVDEC)"
+msgstr "Decodifica video (NVDEC)"
+
+#: package/contents/ui/NvidiaKeys.js:28
+msgid "Power draw"
+msgstr "Consumo"
+
+#: package/contents/ui/NvidiaKeys.js:29 package/contents/ui/NvidiaKeys.js:63
+msgid "Power limit"
+msgstr "Limite di potenza"
+
+#: package/contents/ui/NvidiaKeys.js:32
+msgid "Video clock"
+msgstr "Frequenza video"
+
+#: package/contents/ui/NvidiaKeys.js:34
+msgid "VRAM free"
+msgstr "VRAM libera"
+
+#: package/contents/ui/NvidiaKeys.js:35
+msgid "VRAM total"
+msgstr "VRAM totale"
+
+#: package/contents/ui/NvidiaKeys.js:36
+msgid "Performance level (P-state)"
+msgstr "Livello di prestazioni (P-state)"
+
+#: package/contents/ui/NvidiaKeys.js:63
+msgid "Hardware slowdown"
+msgstr "Rallentamento hardware"
+
+#: package/contents/ui/NvidiaKeys.js:63
+msgid "Temperature target"
+msgstr "Temperatura obiettivo"
+
+#: package/contents/ui/NvidiaKeys.js:63
+msgid "Overheating!"
+msgstr "Surriscaldamento!"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Power supply slowdown"
+msgstr "Rallentamento alimentazione"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Clock locked"
+msgstr "Frequenza bloccata"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Synced to other GPU"
+msgstr "Allineata a un'altra GPU"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Display clock"
+msgstr "Frequenza display"
+
+#: package/contents/ui/NvidiaKeys.js:78
+msgid "Maximum"
+msgstr "Massimo"
+
+#: package/contents/ui/NvidiaKeys.js:79
+msgid "High"
+msgstr "Alto"
+
+#: package/contents/ui/NvidiaKeys.js:80
+msgid "Medium"
+msgstr "Medio"
+
+#: package/contents/ui/NvidiaKeys.js:81
+msgid "Power saving"
+msgstr "Risparmio energetico"
+
+#: package/contents/ui/NvidiaKeys.js:103
+msgid "Idle"
+msgstr "Inattiva"
+
+#: package/contents/ui/NvidiaKeys.js:103
+msgid "None"
+msgstr "Nessuna"
+
+#: package/contents/ui/Reader.qml:42
+msgid "In use by: %1"
+msgstr "In uso da: %1"
+
+#: package/contents/ui/Reader.qml:43
+msgid "Opened, but idle: %1"
+msgstr "Aperto, ma inattivo: %1"
+
+#: package/contents/ui/Reader.qml:70
+msgid "PCIe device %1 on slot port %2"
+msgstr "Dispositivo PCIe %1 sulla porta dello slot %2"
+
+#: package/contents/ui/Reader.qml:71
+msgid "PCIe link"
+msgstr "Collegamento PCIe"
+
+#: package/contents/ui/Reader.qml:72
+msgid "Current clock of the graphics built into the processor (from the kernel driver)"
+msgstr "Frequenza attuale della grafica integrata nel processore (driver del kernel)"
+
+#: package/contents/ui/Reader.qml:73
+msgid "Main memory used by programs on the graphics built into the processor"
+msgstr "Memoria di sistema occupata dai programmi sulla grafica integrata nel processore"
+
+#: package/contents/ui/Reader.qml:74
+msgid "3D and compute unit of the graphics built into the processor"
+msgstr "Unità 3D e di calcolo della grafica integrata nel processore"
+
+#: package/contents/ui/Reader.qml:75
+msgid "Video unit (encoding/decoding) of the graphics built into the processor"
+msgstr "Unità video (codifica/decodifica) della grafica integrata nel processore"
+
+#: package/contents/ui/Reader.qml:76
+msgid "Unit “%1” of the graphics built into the processor"
+msgstr "Unità «%1» della grafica integrata nel processore"
+
+#: package/contents/ui/Reader.qml:77
+msgid "Load of the graphics built into the processor (from the kernel driver)"
+msgstr "Carico della grafica integrata nel processore (driver del kernel)"
+
+#: package/contents/ui/Reader.qml:84
+msgid "Memory temperature (VRAM), measured by the gddr6 service"
+msgstr "Temperatura della memoria (VRAM), misurata dal servizio gddr6"
+
+#: package/contents/ui/Reader.qml:85
+msgid "Graphics card PCI %1"
+msgstr "Scheda grafica PCI %1"
+
+#: package/contents/ui/Reader.qml:87
+msgid "Power draw of the graphics built into the processor"
+msgstr "Consumo della grafica integrata nel processore"
+
+#: package/contents/ui/Reader.qml:88
+msgid "Power draw of the processor cores"
+msgstr "Consumo dei core del processore"
+
+#: package/contents/ui/Reader.qml:89
+msgid "Power draw of the memory"
+msgstr "Consumo della memoria"
+
+#: package/contents/ui/Reader.qml:90
+msgid "Power draw of the whole processor"
+msgstr "Consumo dell’intero processore"
+
+#: package/contents/ui/Reader.qml:91
+msgid "measured by the processor, published by the Sensor Deck power service"
+msgstr "misurato dal processore, pubblicato dal servizio consumi di Sensor Deck"
+
+#: package/contents/ui/Reader.qml:92
+msgid "Shell command: %1"
+msgstr "Comando shell: %1"
+
+#: package/contents/ui/Reader.qml:94
+msgid "PCIe"
+msgstr "PCIe"
+
+#: package/contents/ui/Reader.qml:185
+msgid "Gen %1 ×%2"
+msgstr "Gen %1 ×%2"
+
+#: package/contents/ui/Reader.qml:198
+msgid "Built into CPU"
+msgstr "Integrata nella CPU"
+
+#: package/contents/ui/Reader.qml:198
+msgid "No link"
+msgstr "Nessun collegamento"
+
+#: package/contents/ui/Reader.qml:199
+msgid "Gen %1 · max %2 ×%3"
+msgstr "Gen %1 · max %2 ×%3"
+
+#: package/contents/ui/Reader.qml:202
+msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
+msgstr "Grafica integrata nel processore – usa la memoria di sistema, nessuno slot PCIe"
+
+#: package/contents/ui/Reader.qml:206
+msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
+msgstr "Solo ×%1 di ×%2 linee possibili – controlla contatto/slot"
+
+#: package/contents/ui/Reader.qml:208
+msgid "Max. %1 · currently power saving"
+msgstr "Max. %1 · ora in risparmio energetico"
+
+#: package/contents/ui/Reader.qml:210
+msgid "Maximum for this slot"
+msgstr "Massimo per questo slot"
+
+#: package/contents/ui/Reader.qml:211
+msgid "Card %1 · slot %2"
+msgstr "Scheda %1 · slot %2"
+
+#: package/contents/ui/SensorSetup.qml:36
+msgid "Setting up sensor support … this can take a minute."
+msgstr "Configurazione del supporto ai sensori … può richiedere un minuto."
+
+#: package/contents/ui/SensorSetup.qml:40
+msgid "Done – sensor driver loaded (%1). The fans are now offered."
+msgstr "Fatto – driver dei sensori caricato (%1). Ora le ventole sono disponibili."
+
+#: package/contents/ui/SensorSetup.qml:41
+msgid "Sensor driver loaded (%1), but no fan reports a speed yet. Fans that stand still appear once they spin."
+msgstr "Driver dei sensori caricato (%1), ma nessuna ventola indica ancora una velocità. Le ventole ferme compaiono appena girano."
+
+#: package/contents/ui/SensorSetup.qml:43
+msgid "No supported sensor chip was found. Some mainboards need an extra driver – see the instructions."
+msgstr "Non è stato trovato alcun chip di sensori supportato. Alcune schede madri richiedono un driver aggiuntivo – vedi le istruzioni."
+
+#: package/contents/ui/SensorSetup.qml:46
+msgid "The installation did not work. Please install “%1” with your software center and try again."
+msgstr "L’installazione non è riuscita. Installa «%1» con il gestore software e riprova."
+
+#: package/contents/ui/SensorSetup.qml:48
+msgid "Cancelled – nothing was changed."
+msgstr "Annullato – non è stato modificato nulla."
+
+#: package/contents/ui/SensorSetup.qml:56
+msgid "Install sensor support"
+msgstr "Installa il supporto ai sensori"
+
+#: package/contents/ui/SensorSetup.qml:62
+msgid "Detect sensor chip"
+msgstr "Rileva chip dei sensori"
+
+#: package/contents/ui/SensorSetup.qml:68
+msgid "Open instructions"
+msgstr "Apri istruzioni"
+
+#: package/contents/ui/SensorSource.qml:79
+msgid "Command"
+msgstr "Comando"
+
+#: package/contents/ui/SensorSource.qml:248
+msgid "%1 critical: %2"
+msgstr "%1 critica: %2"
+
+#: package/contents/ui/SensorSource.qml:249
+msgid "Critical threshold of %1 exceeded."
+msgstr "Soglia critica di %1 superata."
+
+#: package/contents/ui/SensorSource.qml:254
+msgid "%1 high: %2"
+msgstr "%1 alta: %2"
+
+#: package/contents/ui/SensorSource.qml:255
+msgid "Warning threshold of %1 exceeded."
+msgstr "Soglia di avviso di %1 superata."
+
+#: package/contents/ui/SensorSource.qml:260
+msgid "%1 back to normal: %2"
+msgstr "%1 di nuovo normale: %2"
+
+#: package/contents/ui/SensorSource.qml:261
+msgid "The value is below the threshold again."
+msgstr "Il valore è di nuovo sotto la soglia."
+
+#: package/contents/ui/SensorTile.qml:150
+msgid "Fan %1 at %2"
+msgstr "Ventola %1 a %2"
+
+#: package/contents/ui/SensorTile.qml:160
+msgid "Now: %1"
+msgstr "Ora: %1"
+
+#: package/contents/ui/SensorTile.qml:175
+msgid "Critical – above the threshold of %1."
+msgstr "Critico – sopra la soglia di %1."
+
+#: package/contents/ui/SensorTile.qml:176
+msgid "Elevated – above the warning threshold of %1."
+msgstr "Elevato – sopra la soglia di avviso di %1."
+
+#: package/contents/ui/SensorTile.qml:177
+msgid "In the normal range · warning from %1, critical from %2."
+msgstr "Nell'intervallo normale · avviso da %1, critico da %2."
+
+#: package/contents/ui/SensorTile.qml:178
+msgid "In the normal range · warning from %1."
+msgstr "Nell'intervallo normale · avviso da %1."
+
+#: package/contents/ui/SensorTile.qml:178
+msgid "In the normal range · critical from %1."
+msgstr "Nell'intervallo normale · critico da %1."
+
+#: package/contents/ui/SetupWizard.qml:92
+msgid "Set up Sensor Deck"
+msgstr "Configura Sensor Deck"
+
+#: package/contents/ui/SetupWizard.qml:97
+msgid "Step %1 of 2"
+msgstr "Passo %1 di 2"
+
+#: package/contents/ui/SetupWizard.qml:126
+msgid "Which graphics cards should the widget show?"
+msgstr "Quali schede grafiche deve mostrare il widget?"
+
+#: package/contents/ui/SetupWizard.qml:127
+msgid "Which graphics card should the widget show?"
+msgstr "Quale scheda grafica deve mostrare il widget?"
+
+#: package/contents/ui/SetupWizard.qml:135
+msgid "You can choose several cards – each then gets its own colour-coded section."
+msgstr "Puoi scegliere più schede – ognuna riceve allora una propria sezione contrassegnata da un colore."
+
+#: package/contents/ui/SetupWizard.qml:136
+msgid "All tile values will then refer to this card."
+msgstr "Tutti i valori dei riquadri si riferiranno allora a questa scheda."
+
+#: package/contents/ui/SetupWizard.qml:145
+msgid "Searching for graphics cards …"
+msgstr "Ricerca delle schede grafiche …"
+
+#: package/contents/ui/SetupWizard.qml:152
+msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
+msgstr "Nessuna scheda grafica supportata trovata. Puoi comunque continuare e mostrare CPU, RAM ecc."
+
+#: package/contents/ui/SetupWizard.qml:213
+msgid "PCI %1 · driver %2"
+msgstr "PCI %1 · driver %2"
+
+#: package/contents/ui/SetupWizard.qml:245
+msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Sensor Deck directory). Without it this tile is left out."
+msgstr "Nota: la temperatura VRAM delle schede NVIDIA richiede il servizio gddr6 (istruzioni: cartella «gddr6-service» nella directory di Sensor Deck). Senza di esso questo riquadro viene omesso."
+
+#: package/contents/ui/SetupWizard.qml:257
+msgid "What should be shown besides the graphics card?"
+msgstr "Cosa mostrare oltre alla scheda grafica?"
+
+#: package/contents/ui/SetupWizard.qml:308
+msgid "%1 graphics cards – basic values"
+msgstr "%1 schede grafiche – valori di base"
+
+#: package/contents/ui/SetupWizard.qml:309
+msgid "Graphics card – basic values"
+msgstr "Scheda grafica – valori di base"
+
+#: package/contents/ui/SetupWizard.qml:309
+msgid "No graphics card"
+msgstr "Nessuna scheda grafica"
+
+#: package/contents/ui/SetupWizard.qml:310
+msgid "one section per card with temperatures, load, power, VRAM, PCIe"
+msgstr "una sezione per scheda con temperature, carico, consumo, VRAM, PCIe"
+
+#: package/contents/ui/SetupWizard.qml:311
+msgid "Temperatures, load, power, VRAM, PCIe"
+msgstr "Temperature, carico, consumo, VRAM, PCIe"
+
+#: package/contents/ui/SetupWizard.qml:311
+msgid "Only the selected areas are shown"
+msgstr "Vengono mostrate solo le aree selezionate"
+
+#: package/contents/ui/SetupWizard.qml:321
+msgid "Graphics cards – details (for each card)"
+msgstr "Schede grafiche – dettagli (per ogni scheda)"
+
+#: package/contents/ui/SetupWizard.qml:337
+msgid "Results in %1 tile – you can change the arrangement and details at any time later."
+msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
+msgstr[0] "Risulta in %1 riquadro – disposizione e dettagli si possono cambiare in qualsiasi momento."
+msgstr[1] "Risulta in %1 riquadri – disposizione e dettagli si possono cambiare in qualsiasi momento."
+
+#: package/contents/ui/SetupWizard.qml:350
+msgid "Cancel"
+msgstr "Annulla"
+
+#: package/contents/ui/SetupWizard.qml:356
+msgid "Back"
+msgstr "Indietro"
+
+#: package/contents/ui/SetupWizard.qml:364
+msgid "Next"
+msgstr "Avanti"
+
+#: package/contents/ui/SetupWizard.qml:371
+msgid "Finish"
+msgstr "Fine"
+
+#: package/contents/ui/SourceEditor.qml:28
+msgid "System sensor (ksystemstats)"
+msgstr "Sensore di sistema (ksystemstats)"
+
+#: package/contents/ui/SourceEditor.qml:29
+msgid "NVIDIA graphics card (nvidia-smi)"
+msgstr "Scheda grafica NVIDIA (nvidia-smi)"
+
+#: package/contents/ui/SourceEditor.qml:30
+msgid "PCIe link of the graphics card (kernel)"
+msgstr "Collegamento PCIe della scheda grafica (kernel)"
+
+#: package/contents/ui/SourceEditor.qml:31
+msgid "Intel graphics in the processor (kernel)"
+msgstr "Grafica Intel integrata nel processore (kernel)"
+
+#: package/contents/ui/SourceEditor.qml:32
+msgid "Shell command"
+msgstr "Comando shell"
+
+#: package/contents/ui/SourceEditor.qml:46
+msgid "Sensor:"
+msgstr "Sensore:"
+
+#: package/contents/ui/SourceEditor.qml:61 package/contents/ui/SourceEditor.qml:74
+msgid "Value:"
+msgstr "Valore:"
+
+#: package/contents/ui/SourceEditor.qml:69 package/contents/ui/SourceEditor.qml:85
+msgid "Please choose …"
+msgstr "Scegli …"
+
+#: package/contents/ui/SourceEditor.qml:90
+msgid "Device:"
+msgstr "Dispositivo:"
+
+#: package/contents/ui/SourceEditor.qml:98
+msgid "automatic (first graphics card)"
+msgstr "automatico (prima scheda grafica)"
+
+#: package/contents/ui/SourceEditor.qml:107
+msgid "Optionally a PCI address like “02:00.0” (see lspci). Shows the actual link together with the maximum the card and slot support."
+msgstr "Facoltativo: un indirizzo PCI come «02:00.0» (vedi lspci). Mostra il collegamento effettivo insieme al massimo supportato da scheda e slot."
+
+#: package/contents/ui/SourceEditor.qml:112
+msgid "Command:"
+msgstr "Comando:"
+
+#: package/contents/ui/SourceEditor.qml:125
+msgid "Unit"
+msgstr "Unità"

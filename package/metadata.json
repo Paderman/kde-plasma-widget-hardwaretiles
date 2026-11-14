@@ -1,0 +1,37 @@
+{
+    "KPlugin": {
+        "Id": "io.github.paderman.sensordeck",
+        "Name": "Sensor Deck",
+        "Description": "GPU & system monitor: VRAM temperature, throttling, PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans",
+        "Description[de]": "GPU- & System-Monitor: VRAM-Temperatur, Taktbremse, PCIe-Verbindung und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs und Lüfter",
+        "Description[fr]": "Moniteur GPU et système : température de la VRAM, bridage, liaison PCIe et courbe de ventilation auto-apprenante – plus processeur, mémoire, SSD et ventilateurs",
+        "Description[es]": "Monitor de GPU y sistema: temperatura de la VRAM, limitación, enlace PCIe y curva de ventiladores que aprende sola – además de procesador, memoria, SSD y ventiladores",
+        "Description[it]": "Monitor GPU e sistema: temperatura della VRAM, throttling, collegamento PCIe e curva delle ventole autoapprendente – più processore, memoria, SSD e ventole",
+        "Description[pt_BR]": "Monitor de GPU e sistema: temperatura da VRAM, limitação, conexão PCIe e curva de ventoinhas que aprende sozinha – além de processador, memória, SSDs e ventoinhas",
+        "Description[nl]": "GPU- en systeemmonitor: VRAM-temperatuur, throttling, PCIe-verbinding en een zelflerende ventilatorcurve – plus processor, geheugen, SSD's en ventilatoren",
+        "Description[pl]": "Monitor GPU i systemu: temperatura VRAM, dławienie, łącze PCIe i samoucząca się krzywa wentylatorów – a także procesor, pamięć, dyski SSD i wentylatory",
+        "Description[ru]": "Монитор GPU и системы: температура VRAM, троттлинг, соединение PCIe и самообучающаяся кривая вентиляторов – а также процессор, память, SSD и вентиляторы",
+        "Description[uk]": "Монітор GPU і системи: температура VRAM, тротлінг, з'єднання PCIe і самонавчальна крива вентиляторів – а також процесор, пам'ять, SSD і вентилятори",
+        "Description[ja]": "GPU とシステムのモニター: VRAM 温度、スロットリング、PCIe 接続、自己学習するファンカーブ – さらにプロセッサー、メモリ、SSD、ファン",
+        "Description[zh_CN]": "GPU 与系统监视器:显存温度、降频、PCIe 连接和自学习风扇曲线 – 以及处理器、内存、SSD 和风扇",
+        "Icon": "utilities-system-monitor",
+        "Category": "System Information",
+        "Authors": [
+            {
+                "Name": "Paderman",
+                "Website": "https://github.com/Paderman"
+            }
+        ],
+        "Copyright": "© 2026 Paderman",
+        "License": "GPL-2.0-or-later",
+        "Version": "1.0.0",
+        "Website": "https://github.com/Paderman/sensordeck",
+        "BugReportUrl": "https://github.com/Paderman/sensordeck/issues",
+        "FormFactors": [
+            "desktop",
+            "panel"
+        ]
+    },
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

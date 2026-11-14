@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Paderman -->
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+  <group name="General">
+    <!-- JSON array of tile definitions; empty = built-in defaults (Defaults.js) -->
+    <entry name="items" type="String"><default></default></entry>
+    <!-- PCI address of the graphics card this widget shows; empty = first discrete GPU -->
+    <entry name="gpuAddress" type="String"><default></default></entry>
+    <!-- false until the setup wizard ran (or an existing layout was found) -->
+    <entry name="setupDone" type="Bool"><default>false</default></entry>
+    <!-- layout template the tiles were last loaded from: system | allgpus | gpu | wizard | "" (own) -->
+    <entry name="layoutPreset" type="String"><default></default></entry>
+    <!-- fingerprint of the tiles right after loading it (Defaults.signature) – differs once tiles are changed -->
+    <entry name="layoutHash" type="String"><default></default></entry>
+    <!-- learned fan curves, kept across restarts: JSON {tileId: {pair: "x|y sources", bins: {°C: [y, n]}}} -->
+    <entry name="curveData" type="String"><default></default></entry>
+    <!-- "tileId@time": the tile menu's "bearbeiten" – the settings page scrolls to that tile
+         (only if set in the last 15 s, so an old value does nothing) -->
+    <entry name="editTile" type="String"><default></default></entry>
+    <!-- old switch (until v5): false = never group; read only for migration -->
+    <entry name="gpuSections" type="Bool"><default>true</default></entry>
+    <!-- sections per graphics card: "auto" (from two cards on) | "always" | "never"; "" = from gpuSections -->
+    <entry name="gpuSectionMode" type="String"><default></default></entry>
+    <!-- desktop: shrink tiles so everything fits without scrolling -->
+    <entry name="fitToSize" type="Bool"><default>true</default></entry>
+    <!-- 0 = automatic -->
+    <entry name="columns" type="Int"><default>0</default></entry>
+    <entry name="updateInterval" type="Int"><default>1500</default></entry>
+    <entry name="historyLength" type="Int"><default>60</default></entry>
+    <entry name="tileStyle" type="String"><default>glass</default></entry>
+    <entry name="tileScale" type="Int"><default>100</default></entry>
+    <entry name="panelShowLabels" type="Bool"><default>false</default></entry>
+    <entry name="panelShowRings" type="Bool"><default>true</default></entry>
+    <entry name="dragEnabled" type="Bool"><default>true</default></entry>
+    <!-- how a drag starts: "ctrl" = Ctrl+drag, "hold" = long press or Ctrl+drag (desktop: Plasma grabs long press to move the widget), "direct" = immediately -->
+    <entry name="dragMode" type="String"><default>ctrl</default></entry>
+    <entry name="dragHoldDelay" type="Int"><default>450</default></entry>
+    <!-- JSON array of tile ids: order before the first manual move (target of "reset") -->
+    <entry name="baseOrder" type="String"><default></default></entry>
+    <entry name="alertsEnabled" type="Bool"><default>true</default></entry>
+    <entry name="alertOnWarn" type="Bool"><default>false</default></entry>
+    <entry name="alertRecovery" type="Bool"><default>true</default></entry>
+    <entry name="alertDelay" type="Int"><default>5</default></entry>
+    <entry name="alertCooldown" type="Int"><default>10</default></entry>
+    <entry name="alertHysteresis" type="Int"><default>3</default></entry>
+    <!-- update check: off until the user agrees; updateAsked = the question was answered -->
+    <entry name="updateCheck" type="Bool"><default>false</default></entry>
+    <entry name="updateAsked" type="Bool"><default>false</default></entry>
+    <!-- unix time of the last automatic check, newest version found, version the user dismissed -->
+    <entry name="updateLastCheck" type="Int"><default>0</default></entry>
+    <entry name="updateLatest" type="String"><default></default></entry>
+    <entry name="updateUrl" type="String"><default></default></entry>
+    <entry name="updateDismissed" type="String"><default></default></entry>
+  </group>
+</kcfg>

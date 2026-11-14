@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Paderman
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Sensor Deck: let the group gpu-sensors READ the register window (BAR0) of
+# NVIDIA graphics cards – needed for the VRAM temperature, nothing else.
+# Only this file of the card, read-only; /dev/mem stays untouched.
+ACTION=="add|change|bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03*", \
+    RUN+="/bin/sh -c 'chgrp gpu-sensors /sys%p/resource0 && chmod 0640 /sys%p/resource0'"

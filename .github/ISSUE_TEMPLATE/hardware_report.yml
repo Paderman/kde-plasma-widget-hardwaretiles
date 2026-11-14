@@ -1,0 +1,42 @@
+name: Hardware report
+description: A sensor, fan or graphics card is missing or shows wrong values
+title: "Hardware: "
+labels: ["hardware"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping Sensor Deck support more hardware!
+        Please run the report script and attach the file it creates:
+        ```
+        ./tools/hardware-report.sh
+        ```
+        It contains your distribution, kernel and Plasma version, graphics cards,
+        mainboard name and sensor readings – no user name, host name or serial numbers.
+        Please look through it before attaching.
+  - type: input
+    id: hardware
+    attributes:
+      label: Mainboard / laptop and graphics card
+      placeholder: "e.g. MSI B650 Tomahawk, Radeon RX 7800 XT"
+    validations:
+      required: true
+  - type: textarea
+    id: missing
+    attributes:
+      label: What is missing or wrong?
+      placeholder: "e.g. the CPU fan is not offered in the setup wizard; the case temperature shows 0 °C"
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Hardware report
+      description: Drag sensordeck-hardware-report.md here, or paste its content.
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
+      description: "Output of `sensors` from another tool, what you already tried (e.g. sensors-detect) …"

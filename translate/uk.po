@@ -1,0 +1,1531 @@
+# Ukrainian translation of Sensor Deck.
+# SPDX-FileCopyrightText: 2026 Paderman
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+# Machine-assisted translation – corrections are welcome.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sensor Deck\n"
+"Report-Msgid-Bugs-To: https://github.com/Paderman/sensordeck/issues\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2026-11-14 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: package/contents/config/config.qml:9
+msgid "Sensors"
+msgstr "Датчики"
+
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:497
+msgid "Notifications"
+msgstr "Сповіщення"
+
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:466
+msgid "Appearance"
+msgstr "Вигляд"
+
+#: package/contents/config/config.qml:24
+msgid "About & updates"
+msgstr "Про програму та оновлення"
+
+#: package/contents/ui/ConfigAbout.qml:47
+msgid "Version:"
+msgstr "Версія:"
+
+#: package/contents/ui/ConfigAbout.qml:51
+msgid "Licence:"
+msgstr "Ліцензія:"
+
+#: package/contents/ui/ConfigAbout.qml:55
+msgid "Links:"
+msgstr "Посилання:"
+
+#: package/contents/ui/ConfigAbout.qml:57
+msgid "Website"
+msgstr "Вебсайт"
+
+#: package/contents/ui/ConfigAbout.qml:62
+msgid "Report a problem"
+msgstr "Повідомити про проблему"
+
+#: package/contents/ui/ConfigAbout.qml:67
+msgid "Hardware not detected"
+msgstr "Обладнання не розпізнано"
+
+#: package/contents/ui/ConfigAbout.qml:77
+msgid "Updates:"
+msgstr "Оновлення:"
+
+#: package/contents/ui/ConfigAbout.qml:78
+msgid "Look for new versions once a week"
+msgstr "Перевіряти наявність нових версій раз на тиждень"
+
+#: package/contents/ui/ConfigAbout.qml:83
+msgid "Check now"
+msgstr "Перевірити зараз"
+
+#: package/contents/ui/ConfigAbout.qml:97
+msgid "You have the latest version."
+msgstr "У вас остання версія."
+
+#: package/contents/ui/ConfigAbout.qml:98
+msgid "Version %1 is available."
+msgstr "Доступна версія %1."
+
+#: package/contents/ui/ConfigAbout.qml:99
+msgid "No version has been published yet."
+msgstr "Ще не опубліковано жодної версії."
+
+#: package/contents/ui/ConfigAbout.qml:100
+msgid "GitHub could not be reached (%1)."
+msgstr "Не вдалося зв'язатися з GitHub (%1)."
+
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:287
+msgid "Open download page"
+msgstr "Відкрити сторінку завантаження"
+
+#: package/contents/ui/ConfigAbout.qml:119
+msgid "Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Sensor Deck sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>."
+msgstr "Конфіденційність: перевірка виконується, лише якщо ви її дозволили або натиснули «Перевірити зараз». Комп'ютер запитує в api.github.com номер останньої версії. GitHub бачить вашу IP-адресу, як під час будь-якого відвідування сайту; Sensor Deck не надсилає жодних інших даних і не веде статистики. Докладніше: <a href=\"%1\">заява про конфіденційність GitHub</a>."
+
+#: package/contents/ui/ConfigAbout.qml:128
+msgid "Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you."
+msgstr "Встановлено через «Отримати нові віджети» або Discover? Тоді Discover сам встановлює оновлення – перевірка тут лише інформує."
+
+#: package/contents/ui/ConfigAlerts.qml:30
+msgid "Notifications:"
+msgstr "Сповіщення:"
+
+#: package/contents/ui/ConfigAlerts.qml:31
+msgid "Notify on critical values"
+msgstr "Сповіщати про критичні значення"
+
+#: package/contents/ui/ConfigAlerts.qml:36
+msgid "Also when the warning threshold is reached"
+msgstr "Також при досягненні порогу попередження"
+
+#: package/contents/ui/ConfigAlerts.qml:41
+msgid "All-clear when the value is back to normal"
+msgstr "Скасовувати тривогу, коли значення знову в нормі"
+
+#: package/contents/ui/ConfigAlerts.qml:50
+msgid "Trigger after:"
+msgstr "Спрацьовувати через:"
+
+#: package/contents/ui/ConfigAlerts.qml:52
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 секунду"
+msgstr[1] "%1 секунди"
+msgstr[2] "%1 секунд"
+
+#: package/contents/ui/ConfigAlerts.qml:59
+msgid "Warn again only:"
+msgstr "Повторно попереджати, лише коли:"
+
+#: package/contents/ui/ConfigAlerts.qml:61
+msgid "%1 below the threshold"
+msgstr "%1 нижче порогу"
+
+#: package/contents/ui/ConfigAlerts.qml:68
+msgid "Repeat at the earliest after:"
+msgstr "Повторювати не раніше ніж через:"
+
+#: package/contents/ui/ConfigAlerts.qml:70
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 хвилину"
+msgstr[1] "%1 хвилини"
+msgstr[2] "%1 хвилин"
+
+#: package/contents/ui/ConfigAlerts.qml:78
+msgid "A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page."
+msgstr "Сповіщення спрацьовує, коли значення залишається вище порогу протягом заданого часу – короткі сплески ігноруються. Повторне попередження з'явиться, лише якщо значення в проміжку опуститься нижче порогу на задану величину – в одиницях датчика, наприклад 3 °C або 3 %. Критичні сповіщення залишаються, доки ви їх не закриєте, і показуються навіть у режимі «Не турбувати». Пороги та перемикач «Сповіщати» задаються для кожного датчика на сторінці «Датчики»."
+
+#: package/contents/ui/ConfigAlerts.qml:85
+msgid "Send test notification"
+msgstr "Надіслати тестове сповіщення"
+
+#: package/contents/ui/ConfigAlerts.qml:94 package/contents/ui/ConfigAppearance.qml:164
+msgid "Restore defaults"
+msgstr "Відновити типові значення"
+
+#: package/contents/ui/ConfigAlerts.qml:105 package/contents/ui/ConfigAppearance.qml:175
+msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
+msgstr "Скинуто. Зміни набудуть чинності лише після «Застосувати» – «Скасувати» залишить усе як було."
+
+#: package/contents/ui/ConfigAlerts.qml:106
+msgid "Only affects the general settings on this page – your sensor tiles, their thresholds and the per-sensor “Notify” switch are kept."
+msgstr "Стосується лише загальних налаштувань на цій сторінці – плитки датчиків, їхні пороги та перемикач «Сповіщати» для кожного датчика зберігаються."
+
+#: package/contents/ui/ConfigAlerts.qml:116
+msgid "VRAM temperature critical: 102 °C"
+msgstr "Температура VRAM критична: 102 °C"
+
+#: package/contents/ui/ConfigAlerts.qml:117
+msgid ""
+"Critical threshold of 100 °C exceeded.\n"
+"(This is just a test from Sensor Deck.)"
+msgstr ""
+"Перевищено критичний поріг 100 °C.\n"
+"(Це лише тест Sensor Deck.)"
+
+#: package/contents/ui/ConfigAppearance.qml:40
+msgid "Columns:"
+msgstr "Стовпці:"
+
+#: package/contents/ui/ConfigAppearance.qml:42 package/contents/ui/ConfigAppearance.qml:43
+msgid "Automatic"
+msgstr "Автоматично"
+
+#: package/contents/ui/ConfigAppearance.qml:47
+msgid "On the desktop:"
+msgstr "На стільниці:"
+
+#: package/contents/ui/ConfigAppearance.qml:48
+msgid "Shrink tiles so everything fits without scrolling"
+msgstr "Зменшувати плитки, щоб усе вміщалося без прокручування"
+
+#: package/contents/ui/ConfigAppearance.qml:53
+msgid "Tile style:"
+msgstr "Стиль плиток:"
+
+#: package/contents/ui/ConfigAppearance.qml:56
+msgid "Glass (subtle)"
+msgstr "Скло (непомітний)"
+
+#: package/contents/ui/ConfigAppearance.qml:57
+msgid "Filled"
+msgstr "Заливка"
+
+#: package/contents/ui/ConfigAppearance.qml:58
+msgid "Outline (accent colour)"
+msgstr "Контур (колір акценту)"
+
+#: package/contents/ui/ConfigAppearance.qml:64
+msgid "Size:"
+msgstr "Розмір:"
+
+#: package/contents/ui/ConfigAppearance.qml:76
+msgid "Sections per graphics card:"
+msgstr "Розділи для кожної відеокарти:"
+
+#: package/contents/ui/ConfigAppearance.qml:79
+msgid "From two graphics cards"
+msgstr "Від двох відеокарт"
+
+#: package/contents/ui/ConfigAppearance.qml:80
+msgid "Always (even with one card)"
+msgstr "Завжди (навіть з однією картою)"
+
+#: package/contents/ui/ConfigAppearance.qml:81
+msgid "Never (several cards: coloured edge)"
+msgstr "Ніколи (кілька карт: кольорова кромка)"
+
+#: package/contents/ui/ConfigAppearance.qml:88
+msgid "Arrangement:"
+msgstr "Розташування:"
+
+#: package/contents/ui/ConfigAppearance.qml:89
+msgid "Move tiles by drag & drop"
+msgstr "Переміщувати плитки перетягуванням"
+
+#: package/contents/ui/ConfigAppearance.qml:94
+msgid "Start moving:"
+msgstr "Початок переміщення:"
+
+#: package/contents/ui/ConfigAppearance.qml:98
+msgid "Ctrl + drag"
+msgstr "Ctrl + перетягування"
+
+#: package/contents/ui/ConfigAppearance.qml:99
+msgid "Long press or Ctrl + drag (only useful in the panel popup)"
+msgstr "Довге натискання або Ctrl + перетягування (корисно лише у спливному вікні панелі)"
+
+#: package/contents/ui/ConfigAppearance.qml:100
+msgid "Immediately when dragging"
+msgstr "Одразу при перетягуванні"
+
+#: package/contents/ui/ConfigAppearance.qml:108
+msgid "Hold time:"
+msgstr "Час утримання:"
+
+#: package/contents/ui/ConfigAppearance.qml:111
+msgid "%1 ms"
+msgstr "%1 мс"
+
+#: package/contents/ui/ConfigAppearance.qml:119
+msgid "On the desktop a long press moves the whole widget (Plasma) – so arrange tiles with Ctrl + drag. Right-click the widget: “Undo last move” and “Restore original arrangement”."
+msgstr "На стільниці довге натискання переміщує весь віджет (Plasma) – тому розташовуйте плитки за допомогою Ctrl + перетягування. Правий клік по віджету: «Скасувати останнє переміщення» та «Відновити початкове розташування»."
+
+#: package/contents/ui/ConfigAppearance.qml:127
+msgid "Update:"
+msgstr "Оновлення:"
+
+#: package/contents/ui/ConfigAppearance.qml:129
+msgid "every %1 s"
+msgstr "кожні %1 с"
+
+#: package/contents/ui/ConfigAppearance.qml:135
+msgid "History in graphs:"
+msgstr "Історія на графіках:"
+
+#: package/contents/ui/ConfigAppearance.qml:137
+msgid "%1 s"
+msgstr "%1 с"
+
+#: package/contents/ui/ConfigAppearance.qml:141
+msgid "Panel"
+msgstr "Панель"
+
+#: package/contents/ui/ConfigAppearance.qml:145
+msgid "In the panel:"
+msgstr "На панелі:"
+
+#: package/contents/ui/ConfigAppearance.qml:146
+msgid "Show mini rings"
+msgstr "Показувати міні-кільця"
+
+#: package/contents/ui/ConfigAppearance.qml:150
+msgid "Show labels"
+msgstr "Показувати підписи"
+
+#: package/contents/ui/ConfigAppearance.qml:156
+msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
+msgstr "Які датчики з'являються на панелі, задається для кожного запису на сторінці «Датчики». Тло віджета на стільниці можна перемкнути в режимі редагування."
+
+#: package/contents/ui/ConfigAppearance.qml:176
+msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
+msgstr "Стосується лише налаштувань на цій сторінці – плитки датчиків і сповіщення зберігаються."
+
+#: package/contents/ui/ConfigSensors.qml:29 package/contents/ui/FullView.qml:470
+msgid "Ring"
+msgstr "Кільце"
+
+#: package/contents/ui/ConfigSensors.qml:30 package/contents/ui/FullView.qml:475
+msgid "Bar"
+msgstr "Смуга"
+
+#: package/contents/ui/ConfigSensors.qml:31 package/contents/ui/FullView.qml:480
+msgid "History graph"
+msgstr "Графік історії"
+
+#: package/contents/ui/ConfigSensors.qml:32 package/contents/ui/FullView.qml:485
+msgid "Value only"
+msgstr "Лише значення"
+
+#: package/contents/ui/ConfigSensors.qml:33
+msgid "Fan curve"
+msgstr "Крива вентиляторів"
+
+#: package/contents/ui/ConfigSensors.qml:106
+msgid "Main card (%1)"
+msgstr "Основна карта (%1)"
+
+#: package/contents/ui/ConfigSensors.qml:113
+msgid "System overview"
+msgstr "Огляд системи"
+
+#: package/contents/ui/ConfigSensors.qml:114
+msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
+msgstr "Типові плитки для вашого обладнання: відеокарта, процесор, пам'ять, SSD, вентилятори"
+
+#: package/contents/ui/ConfigSensors.qml:117
+msgid "All graphics cards"
+msgstr "Усі відеокарти"
+
+#: package/contents/ui/ConfigSensors.qml:118
+msgid "One section per graphics card, plus comparison tiles and system"
+msgstr "Окремий розділ для кожної відеокарти, а також плитки порівняння та система"
+
+#: package/contents/ui/ConfigSensors.qml:121
+msgid "GPU focus"
+msgstr "Фокус на GPU"
+
+#: package/contents/ui/ConfigSensors.qml:122
+msgid "Only the selected graphics card, with all of its values"
+msgstr "Лише вибрана відеокарта з усіма її значеннями"
+
+#: package/contents/ui/ConfigSensors.qml:127
+msgid "Setup wizard"
+msgstr "Майстер налаштування"
+
+#: package/contents/ui/ConfigSensors.qml:169
+msgid "Layout:"
+msgstr "Макет:"
+
+#: package/contents/ui/ConfigSensors.qml:179
+msgid "(modified)"
+msgstr "(змінено)"
+
+#: package/contents/ui/ConfigSensors.qml:185
+msgid "Is loaded and unchanged."
+msgstr "Завантажено й не змінено."
+
+#: package/contents/ui/ConfigSensors.qml:186
+msgid "Clicking restores the template – your changes will be lost."
+msgstr "Клік відновлює шаблон – ваші зміни буде втрачено."
+
+#: package/contents/ui/ConfigSensors.qml:187
+msgid "Clicking replaces all tiles with this template."
+msgstr "Клік замінює всі плитки цим шаблоном."
+
+#: package/contents/ui/ConfigSensors.qml:209
+msgid "Created by the setup wizard – unchanged."
+msgstr "Створено майстром налаштування – не змінено."
+
+#: package/contents/ui/ConfigSensors.qml:210
+msgid "Template “%1” is loaded – unchanged."
+msgstr "Шаблон «%1» завантажено – не змінено."
+
+#: package/contents/ui/ConfigSensors.qml:212
+msgid "Customised: based on “%1”, tiles have been changed."
+msgstr "Змінено: на основі «%1», плитки було змінено."
+
+#: package/contents/ui/ConfigSensors.qml:213
+msgid "Custom layout."
+msgstr "Власний макет."
+
+#: package/contents/ui/ConfigSensors.qml:221
+msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
+msgstr "Шаблон замінює всі плитки – «Огляд системи» відновлює типові плитки для вашого обладнання. Зміни набудуть чинності лише після «Застосувати», «Скасувати» залишить усе як було."
+
+#: package/contents/ui/ConfigSensors.qml:233
+msgid "Main card:"
+msgstr "Основна карта:"
+
+#: package/contents/ui/ConfigSensors.qml:233 package/contents/ui/ConfigSensors.qml:360
+msgid "Graphics card:"
+msgstr "Відеокарта:"
+
+#: package/contents/ui/ConfigSensors.qml:243
+msgid "Searching …"
+msgstr "Пошук …"
+
+#: package/contents/ui/ConfigSensors.qml:243
+msgid "No supported graphics card found"
+msgstr "Підтримувану відеокарту не знайдено"
+
+#: package/contents/ui/ConfigSensors.qml:249
+msgid "Search again"
+msgstr "Шукати знову"
+
+#: package/contents/ui/ConfigSensors.qml:259
+msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
+msgstr "Плитки GPU без власної прив'язки показують цю карту. Кожну плитку можна прив'язати до іншої карти нижче – або макет «Усі відеокарти» (вище) створить окремий розділ для кожної карти."
+
+#: package/contents/ui/ConfigSensors.qml:260
+msgid "All GPU tiles refer to this card."
+msgstr "Усі плитки GPU стосуються цієї карти."
+
+#: package/contents/ui/ConfigSensors.qml:266
+msgid "Start setup wizard"
+msgstr "Запустити майстер налаштування"
+
+#: package/contents/ui/ConfigSensors.qml:273
+msgid "Appears in the widget after “Apply”."
+msgstr "З'явиться у віджеті після «Застосувати»."
+
+#: package/contents/ui/ConfigSensors.qml:284
+msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be rearranged directly in the widget: Ctrl + drag."
+msgstr "Джерела: системні датчики (ksystemstats – CPU, вентилятори, NVMe, RAM …), значення NVIDIA безпосередньо з nvidia-smi або команда оболонки. На GPU AMD температура VRAM вказана як «amdgpu … mem». Плитки також можна переставляти прямо у віджеті: Ctrl + перетягування."
+
+#: package/contents/ui/ConfigSensors.qml:323
+msgid "Label (empty = automatic)"
+msgstr "Підпис (порожньо = автоматично)"
+
+#: package/contents/ui/ConfigSensors.qml:331
+msgid "Move up"
+msgstr "Вгору"
+
+#: package/contents/ui/ConfigSensors.qml:337
+msgid "Move down"
+msgstr "Вниз"
+
+#: package/contents/ui/ConfigSensors.qml:347
+msgid "Duplicate"
+msgstr "Дублювати"
+
+#: package/contents/ui/ConfigSensors.qml:352
+msgid "Remove"
+msgstr "Видалити"
+
+#: package/contents/ui/ConfigSensors.qml:373
+msgid "Not found (PCI %1)"
+msgstr "Не знайдено (PCI %1)"
+
+#: package/contents/ui/ConfigSensors.qml:377
+msgid "Compare all cards"
+msgstr "Порівнювати всі карти"
+
+#: package/contents/ui/ConfigSensors.qml:381
+msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
+msgstr "Показує значення кожної відеокарти в цій плитці – кільце: одна дуга на карту, графік: одна лінія на карту, смуга/значення: один рядок на карту."
+
+#: package/contents/ui/ConfigSensors.qml:389
+msgid "Temperature (X):"
+msgstr "Температура (X):"
+
+#: package/contents/ui/ConfigSensors.qml:389 package/contents/ui/SourceEditor.qml:19
+msgid "Source:"
+msgstr "Джерело:"
+
+#: package/contents/ui/ConfigSensors.qml:402
+msgid "Fan (Y):"
+msgstr "Вентилятор (Y):"
+
+#: package/contents/ui/ConfigSensors.qml:422
+msgid "Total value:"
+msgstr "Загальне значення:"
+
+#: package/contents/ui/ConfigSensors.qml:441
+msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
+msgstr "Необов'язково, наприклад «Усього VRAM» → показує «1,0 / 10 ГіБ» і задає максимум для смуги/кільця. Значення NVIDIA містять загальне значення автоматично."
+
+#: package/contents/ui/ConfigSensors.qml:449
+msgid "Style:"
+msgstr "Стиль:"
+
+#: package/contents/ui/ConfigSensors.qml:464 package/contents/ui/FullView.qml:490
+msgid "Double width"
+msgstr "Подвійна ширина"
+
+#: package/contents/ui/ConfigSensors.qml:469
+msgid "In panel"
+msgstr "На панелі"
+
+#: package/contents/ui/ConfigSensors.qml:474
+msgid "Notify"
+msgstr "Сповіщати"
+
+#: package/contents/ui/ConfigSensors.qml:478
+msgid "Desktop notification when a threshold is exceeded"
+msgstr "Сповіщення на стільниці при перевищенні порогу"
+
+#: package/contents/ui/ConfigSensors.qml:485
+msgid "Accent colour"
+msgstr "Колір акценту"
+
+#: package/contents/ui/ConfigSensors.qml:491
+msgid "Automatic colour"
+msgstr "Автоматичний колір"
+
+#: package/contents/ui/ConfigSensors.qml:495
+msgid "Temperature axis:"
+msgstr "Вісь температури:"
+
+#: package/contents/ui/ConfigSensors.qml:495
+msgid "Range:"
+msgstr "Діапазон:"
+
+#: package/contents/ui/ConfigSensors.qml:498
+msgid "Min"
+msgstr "Мін"
+
+#: package/contents/ui/ConfigSensors.qml:505
+msgid "Max"
+msgstr "Макс"
+
+#: package/contents/ui/ConfigSensors.qml:510 package/contents/ui/ConfigSensors.qml:511 package/contents/ui/ConfigSensors.qml:520 package/contents/ui/ConfigSensors.qml:521
+msgid "auto"
+msgstr "авто"
+
+#: package/contents/ui/ConfigSensors.qml:514
+msgid "Fan max"
+msgstr "Вентилятор макс"
+
+#: package/contents/ui/ConfigSensors.qml:526
+msgid "Thresholds:"
+msgstr "Пороги:"
+
+#: package/contents/ui/ConfigSensors.qml:534 package/contents/ui/ConfigSensors.qml:535 package/contents/ui/ConfigSensors.qml:543 package/contents/ui/ConfigSensors.qml:544
+msgid "off"
+msgstr "вимк."
+
+#: package/contents/ui/ConfigSensors.qml:549
+msgid "Reference curve:"
+msgstr "Опорна крива:"
+
+#: package/contents/ui/ConfigSensors.qml:566
+msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
+msgstr "Необов'язково: точки «температура:вентилятор», малюються пунктиром – наприклад, ваша крива з GreenWithEnvy або CoolerControl. Суцільну лінію віджет будує сам за вимірюваннями."
+
+#: package/contents/ui/ConfigSensors.qml:578
+msgid "Add sensor"
+msgstr "Додати датчик"
+
+#: package/contents/ui/ConfigSensors.qml:583
+msgid "Template …"
+msgstr "Шаблон …"
+
+#: package/contents/ui/ConfigSensors.qml:588
+msgid "GPU comparison: temperature (ring)"
+msgstr "Порівняння GPU: температура (кільце)"
+
+#: package/contents/ui/ConfigSensors.qml:590 package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
+msgid "GPU temperature"
+msgstr "Температура GPU"
+
+#: package/contents/ui/ConfigSensors.qml:593
+msgid "GPU comparison: load (graph)"
+msgstr "Порівняння GPU: навантаження (графік)"
+
+#: package/contents/ui/ConfigSensors.qml:595 package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332 package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+msgid "GPU load"
+msgstr "Навантаження GPU"
+
+#: package/contents/ui/ConfigSensors.qml:598
+msgid "GPU comparison: power (bar)"
+msgstr "Порівняння GPU: споживання (смуга)"
+
+#: package/contents/ui/ConfigSensors.qml:600 package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322 package/contents/ui/Hardware.js:329
+msgid "GPU power"
+msgstr "Споживання GPU"
+
+#: package/contents/ui/ConfigSensors.qml:602 package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
+msgid "GPU fan curve"
+msgstr "Крива вентиляторів GPU"
+
+#: package/contents/ui/ConfigSensors.qml:603
+msgid "VRAM temperature (gddr6, NVIDIA)"
+msgstr "Температура VRAM (gddr6, NVIDIA)"
+
+#: package/contents/ui/ConfigSensors.qml:603 package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
+msgid "VRAM temperature"
+msgstr "Температура VRAM"
+
+#: package/contents/ui/ConfigSensors.qml:604
+msgid "VRAM used / total (NVIDIA)"
+msgstr "VRAM зайнято / усього (NVIDIA)"
+
+#: package/contents/ui/ConfigSensors.qml:604 package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323 package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
+msgid "VRAM used"
+msgstr "VRAM зайнято"
+
+#: package/contents/ui/ConfigSensors.qml:605
+msgid "GPU throttling (NVIDIA)"
+msgstr "Тротлінг GPU (NVIDIA)"
+
+#: package/contents/ui/ConfigSensors.qml:605 package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
+msgid "Throttling"
+msgstr "Тротлінг"
+
+#: package/contents/ui/ConfigSensors.qml:606
+msgid "CPU temperature (max.)"
+msgstr "Температура CPU (макс.)"
+
+#: package/contents/ui/ConfigSensors.qml:606 package/contents/ui/Hardware.js:367
+msgid "CPU temperature"
+msgstr "Температура CPU"
+
+#: package/contents/ui/ConfigSensors.qml:607
+msgid "CPU power (power service)"
+msgstr "Споживання ЦП (служба споживання)"
+
+#: package/contents/ui/ConfigSensors.qml:607 package/contents/ui/Hardware.js:369
+msgid "CPU power"
+msgstr "Споживання ЦП"
+
+#: package/contents/ui/ConfigSensors.qml:608
+msgid "CPU usage (graph)"
+msgstr "Використання CPU (графік)"
+
+#: package/contents/ui/ConfigSensors.qml:608 package/contents/ui/Hardware.js:370
+msgid "CPU load"
+msgstr "Навантаження CPU"
+
+#: package/contents/ui/ConfigSensors.qml:609 package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
+msgid "Memory"
+msgstr "Пам'ять"
+
+#: package/contents/ui/ConfigSensors.qml:610
+msgid "Network download"
+msgstr "Завантаження з мережі"
+
+#: package/contents/ui/ConfigSensors.qml:610 package/contents/ui/Hardware.js:391
+msgid "Download"
+msgstr "Завантаження"
+
+#: package/contents/ui/Defaults.js:133
+msgid "NVMe · Temperature"
+msgstr "NVMe · Температура"
+
+#: package/contents/ui/Defaults.js:133
+msgid "%1-SSD · Temperature"
+msgstr "SSD %1 · Температура"
+
+#: package/contents/ui/Explain.js:31
+msgid "Shows how fast the graphics card fans spin at which temperature. The widget learns the line from the measurements; the dot is the current state."
+msgstr "Показує, наскільки швидко обертаються вентилятори відеокарти за тієї чи іншої температури. Лінію віджет будує за вимірюваннями; точка – поточний стан."
+
+#: package/contents/ui/Explain.js:33
+msgid "Current power draw of the graphics built into the processor. Near 0 W when idle, a few to about 15 W under load."
+msgstr "Поточне споживання графіки, вбудованої в процесор. У простої майже 0 Вт, під навантаженням від кількох до приблизно 15 Вт."
+
+#: package/contents/ui/Explain.js:35
+msgid "Current power draw of the processor, averaged over one second. Low when idle, much higher under full load – the maximum depends on the processor."
+msgstr "Поточне споживання процесора, усереднене за одну секунду. Низьке в простої, значно вище під повним навантаженням – максимум залежить від процесора."
+
+#: package/contents/ui/Explain.js:37
+msgid "How busy the 3D and compute unit of the graphics built into the processor is – games, desktop effects, browsers. Only programs of your user are counted."
+msgstr "Навантаження 3D- та обчислювального блока графіки, вбудованої в процесор, – ігри, ефекти стільниці, браузери. Враховуються лише програми вашого користувача."
+
+#: package/contents/ui/Explain.js:39
+msgid "How busy the video unit of the graphics built into the processor is – playing, recording or converting videos. Only programs of your user are counted."
+msgstr "Навантаження відеоблока графіки, вбудованої в процесор, – відтворення, запис або перетворення відео. Враховуються лише програми вашого користувача."
+
+#: package/contents/ui/Explain.js:41
+msgid "Graphics built into the processor have no memory of their own – they use part of the main memory. This shows how much the programs using them occupy right now."
+msgstr "Графіка, вбудована в процесор, не має власної пам’яті – вона використовує частину оперативної пам’яті. Показує, скільки зараз займають програми, що її використовують."
+
+#: package/contents/ui/Explain.js:43
+msgid "Current clock of the graphics built into the processor. 0 MHz means it is asleep – normal when it has nothing to do."
+msgstr "Поточна частота графіки, вбудованої в процесор. 0 МГц означає, що вона спить, – це нормально, коли їй нічого робити."
+
+#: package/contents/ui/Explain.js:45
+msgid "How busy the graphics built into the processor is. Measured as the share of time it is not asleep to save power – a good estimate, not an exact value."
+msgstr "Навантаження графіки, вбудованої в процесор. Вимірюється як частка часу, коли вона не перебуває в енергоощадному сні, – добра оцінка, а не точне значення."
+
+#: package/contents/ui/Explain.js:47
+msgid "Link between graphics card and mainboard: generation (Gen) and number of data lanes (×). When idle the card often drops to a lower generation to save power – that is normal."
+msgstr "З'єднання відеокарти з материнською платою: покоління (Gen) і кількість ліній даних (×). У простої карта часто переходить на нижче покоління для економії енергії – це нормально."
+
+#: package/contents/ui/Explain.js:51
+msgid "Temperature of the graphics memory (VRAM). It usually runs hotter than the graphics chip – 80–95 °C under load is common."
+msgstr "Температура відеопам'яті (VRAM). Зазвичай вона гарячіша за графічний чип – під навантаженням 80–95 °C – звичайна справа."
+
+#: package/contents/ui/Explain.js:53
+msgid "Hottest spot on the graphics chip. Usually 10–20 °C above the GPU temperature."
+msgstr "Найгарячіша точка графічного чипа. Зазвичай на 10–20 °C вища за температуру GPU."
+
+#: package/contents/ui/Explain.js:55
+msgid "Temperature of the graphics chip. 60–80 °C under load is normal."
+msgstr "Температура графічного чипа. Під навантаженням 60–80 °C – норма."
+
+#: package/contents/ui/Explain.js:57
+msgid "Speed of the graphics card fans. 0 when idle is normal – many cards switch the fans off completely then."
+msgstr "Швидкість вентиляторів відеокарти. 0 у простої – це нормально: багато карт тоді повністю вимикають вентилятори."
+
+#: package/contents/ui/Explain.js:59
+msgid "How busy the graphics chip is right now. 95–100 % while gaming is normal and desired."
+msgstr "Наскільки зараз зайнятий графічний чип. В іграх 95–100 % – це нормально й бажано."
+
+#: package/contents/ui/Explain.js:61
+msgid "Current power draw of the graphics card. The second value is its power limit – when it reaches it, it lowers its clock (see Throttling)."
+msgstr "Поточне енергоспоживання відеокарти. Друге значення – її ліміт потужності: досягнувши його, карта знижує частоту (див. Тротлінг)."
+
+#: package/contents/ui/Explain.js:63
+msgid "Maximum allowed power draw of the graphics card. Above it, the card lowers its clock."
+msgstr "Максимально допустиме енергоспоживання відеокарти. Вище нього карта знижує частоту."
+
+#: package/contents/ui/Explain.js:65
+msgid "Graphics memory (VRAM) for textures, images and compute data. When it is full, games have to fall back to slower system memory – that can cause stutter."
+msgstr "Відеопам'ять (VRAM) для текстур, зображень і обчислювальних даних. Коли вона заповнена, іграм доводиться використовувати повільнішу системну пам'ять – можливі підгальмовування."
+
+#: package/contents/ui/Explain.js:67
+msgid "Share of time in which the graphics memory is being read or written."
+msgstr "Частка часу, протягом якого відеопам'ять читається або записується."
+
+#: package/contents/ui/Explain.js:69
+msgid "Current clock of the graphics chip. It changes constantly: high under load, low when idle. The second value is the maximum clock."
+msgstr "Поточна частота графічного чипа. Вона постійно змінюється: висока під навантаженням, низька у простої. Друге значення – максимальна частота."
+
+#: package/contents/ui/Explain.js:71
+msgid "Clock of the graphics memory. When idle the card lowers it a lot to save power."
+msgstr "Частота відеопам'яті. У простої карта сильно її знижує для економії енергії."
+
+#: package/contents/ui/Explain.js:73
+msgid "Clock of the video units that encode and decode videos."
+msgstr "Частота відеоблоків, які кодують і декодують відео."
+
+#: package/contents/ui/Explain.js:75
+msgid "Load of the video encoder (NVENC). Active when recording the screen, streaming or exporting video, e.g. with OBS."
+msgstr "Навантаження відеокодера (NVENC). Активний під час запису екрана, стримінгу або експорту відео, наприклад в OBS."
+
+#: package/contents/ui/Explain.js:77
+msgid "Load of the video decoder (NVDEC). Active when playing videos, e.g. on YouTube or in a video player."
+msgstr "Навантаження відеодекодера (NVDEC). Активний під час відтворення відео, наприклад на YouTube або у відеоплеєрі."
+
+#: package/contents/ui/Explain.js:79
+msgid "Power state of the graphics card: P0 is full performance, P8 and above is idle power saving."
+msgstr "Енергетичний стан відеокарти: P0 – повна продуктивність, починаючи з P8 – енергозбереження у простої."
+
+#: package/contents/ui/Explain.js:81
+msgid "Shows whether and why the graphics card is currently running below its possible clock."
+msgstr "Показує, чи працює відеокарта зараз нижче можливої частоти і чому."
+
+#: package/contents/ui/Explain.js:85
+msgid "Temperature of the hottest processor core. 60–85 °C under load is normal."
+msgstr "Температура найгарячішого ядра процесора. Під навантаженням 60–85 °C – норма."
+
+#: package/contents/ui/Explain.js:87
+msgid "Combined usage of all processor cores."
+msgstr "Сумарне навантаження всіх ядер процесора."
+
+#: package/contents/ui/Explain.js:89
+msgid "Used system memory (RAM). When it runs low, the system swaps to disk and becomes noticeably slower."
+msgstr "Зайнята оперативна пам'ять (RAM). Коли її бракує, система використовує диск і помітно сповільнюється."
+
+#: package/contents/ui/Explain.js:91
+msgid "Used disk space. Above 90 % it is time to clean up – very full SSDs get slower."
+msgstr "Зайняте місце на диску. При заповненні понад 90 % час навести лад – сильно заповнені SSD працюють повільніше."
+
+#: package/contents/ui/Explain.js:93
+msgid "Temperature of the SSD. Up to about 70 °C is fine; above that it slows down to protect itself."
+msgstr "Температура SSD. Приблизно до 70 °C – без проблем; вище він сповільнюється для самозахисту."
+
+#: package/contents/ui/Explain.js:95
+msgid "Speed of this fan in revolutions per minute. 0 means it is standing still – intended for some fans when idle."
+msgstr "Швидкість цього вентилятора в обертах за хвилину. 0 означає, що він стоїть – для деяких вентиляторів у простої це задумано."
+
+#: package/contents/ui/Explain.js:97
+msgid "Temperature on the mainboard – a good indicator of the heat inside the case. 30–45 °C is common."
+msgstr "Температура на материнській платі – хороший показник тепла всередині корпусу. Зазвичай 30–45 °C."
+
+#: package/contents/ui/Explain.js:99
+msgid "Amount of data currently being received over all network connections."
+msgstr "Обсяг даних, що зараз надходять через усі мережеві з'єднання."
+
+#: package/contents/ui/Explain.js:101
+msgid "Amount of data currently being sent over all network connections."
+msgstr "Обсяг даних, що зараз надсилаються через усі мережеві з'єднання."
+
+#: package/contents/ui/Explain.js:108
+msgid "The card has reached its power limit – normal under load."
+msgstr "Карта досягла ліміту потужності – нормально під навантаженням."
+
+#: package/contents/ui/Explain.js:109
+msgid "The card holds its target temperature and clocks a little lower to do so. More airflow in the case helps."
+msgstr "Карта утримує цільову температуру і для цього трохи знижує частоту. Допомагає кращий потік повітря в корпусі."
+
+#: package/contents/ui/Explain.js:110
+msgid "The card is too hot and slows down heavily. Check the cooling: dust, fans, case ventilation."
+msgstr "Карта надто гаряча і сильно сповільнюється. Перевірте охолодження: пил, вентилятори, вентиляцію корпусу."
+
+#: package/contents/ui/Explain.js:111
+msgid "The hardware is slowing down – usually due to overheating or a power supply problem."
+msgstr "Обладнання сповільнюється – зазвичай через перегрів або проблему з живленням."
+
+#: package/contents/ui/Explain.js:112
+msgid "The power supply reports a problem – check the PSU and power cables."
+msgstr "Живлення повідомляє про проблему – перевірте блок живлення й кабелі."
+
+#: package/contents/ui/Explain.js:113
+msgid "The clock has been limited by a program or a setting."
+msgstr "Частоту обмежено програмою або налаштуванням."
+
+#: package/contents/ui/Explain.js:114
+msgid "The clock is synced to other graphics cards (only common in data centres)."
+msgstr "Частота вирівнюється за іншими відеокартами (зазвичай лише в центрах обробки даних)."
+
+#: package/contents/ui/Explain.js:115
+msgid "Limited by the display output clock."
+msgstr "Обмежено частотою виведення зображення."
+
+#: package/contents/ui/Explain.js:116
+msgid "Nothing to do – the card clocks down to save power."
+msgstr "Нічого робити – карта знижує частоту для економії енергії."
+
+#: package/contents/ui/Explain.js:117
+msgid "The card runs freely, without throttling."
+msgstr "Карта працює вільно, без тротлінгу."
+
+#: package/contents/ui/Explain.js:132
+msgid "Full performance."
+msgstr "Повна продуктивність."
+
+#: package/contents/ui/Explain.js:133
+msgid "High performance – typical under load or for compute tasks."
+msgstr "Висока продуктивність – типово під навантаженням або під час обчислень."
+
+#: package/contents/ui/Explain.js:134
+msgid "Medium level."
+msgstr "Середній рівень."
+
+#: package/contents/ui/Explain.js:135
+msgid "Power saving – the card has little to do right now."
+msgstr "Енергозбереження – у карти зараз мало роботи."
+
+#: package/contents/ui/FanCurve.qml:198
+msgid "So far only measured at %1 °C."
+msgstr "Поки виміряно лише при %1 °C."
+
+#: package/contents/ui/FanCurve.qml:199
+msgid "So far only %1–%2 °C measured."
+msgstr "Поки виміряно лише %1–%2 °C."
+
+#: package/contents/ui/FanCurve.qml:200
+msgid "The curve grows as the graphics card gets warmer, e.g. while gaming."
+msgstr "Крива зростає в міру нагрівання відеокарти, наприклад в іграх."
+
+#: package/contents/ui/FanCurve.qml:210
+msgid "No data from the sensors"
+msgstr "Немає даних від датчиків"
+
+#: package/contents/ui/FanCurve.qml:210
+msgid "Collecting data points …"
+msgstr "Збір точок вимірювання …"
+
+#: package/contents/ui/FullView.qml:146
+msgid "Comparison"
+msgstr "Порівняння"
+
+#: package/contents/ui/FullView.qml:148
+msgid "System"
+msgstr "Система"
+
+#: package/contents/ui/FullView.qml:270
+msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
+msgstr "Перевіряти наявність нових версій Sensor Deck раз на тиждень? Для цього виконується підключення до github.com – GitHub бачить вашу IP-адресу, як під час будь-якого відвідування сайту; більше нічого не надсилається. Це можна змінити будь-коли в налаштуваннях."
+
+#: package/contents/ui/FullView.qml:271
+msgid "Sensor Deck %1 is available (installed: %2)."
+msgstr "Доступний Sensor Deck %1 (встановлено: %2)."
+
+#: package/contents/ui/FullView.qml:275
+msgid "Yes, check weekly"
+msgstr "Так, перевіряти щотижня"
+
+#: package/contents/ui/FullView.qml:281
+msgid "No, thanks"
+msgstr "Ні, дякую"
+
+#: package/contents/ui/FullView.qml:459
+msgid "Edit in settings …"
+msgstr "Змінити в налаштуваннях …"
+
+#: package/contents/ui/FullView.qml:505
+msgid "Remove tile"
+msgstr "Видалити плитку"
+
+#: package/contents/ui/FullView.qml:510 package/contents/ui/main.qml:360
+msgid "Restore “%1”"
+msgstr "Відновити «%1»"
+
+#: package/contents/ui/FullView.qml:518
+msgid "Configure Sensor Deck …"
+msgstr "Налаштувати Sensor Deck …"
+
+#: package/contents/ui/FullView.qml:559
+msgid "No sensors configured"
+msgstr "Датчики не налаштовано"
+
+#: package/contents/ui/FullView.qml:565
+msgid "Configure …"
+msgstr "Налаштувати …"
+
+#: package/contents/ui/GpuSectionHeader.qml:111
+msgid "PCI address: %1"
+msgstr "Адреса PCI: %1"
+
+#: package/contents/ui/GpuSectionHeader.qml:111
+msgid "Driver: %1"
+msgstr "Драйвер: %1"
+
+#: package/contents/ui/GpuSectionHeader.qml:117
+msgid "PCIe link: %1"
+msgstr "З'єднання PCIe: %1"
+
+#: package/contents/ui/Hardware.js:176
+msgid "Fan %1"
+msgstr "Вентилятор %1"
+
+#: package/contents/ui/Hardware.js:207
+msgid "No fan sensors were found. Sensor Deck can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password."
+msgstr "Датчики вентиляторів не знайдено. Sensor Deck може налаштувати підтримку датчиків за вас: встановить пакунок «%1» і визначить чип датчиків вашої материнської плати. Буде запитано ваш пароль."
+
+#: package/contents/ui/Hardware.js:209
+msgid "No fan sensors were found. Sensor Deck can detect the sensor chip of your mainboard and load its driver. You will be asked for your password."
+msgstr "Датчики вентиляторів не знайдено. Sensor Deck може визначити чип датчиків вашої материнської плати й завантажити його драйвер. Буде запитано ваш пароль."
+
+#: package/contents/ui/Hardware.js:212
+msgid "No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
+msgstr "Датчики вентиляторів не знайдено. У цій системі програми встановлюються інакше (система на основі образу): додайте «lm-sensors», один раз виконайте «sudo sensors-detect» і перезапустіть комп'ютер – докладніше в README, розділ «Mainboard sensors»."
+
+#: package/contents/ui/Hardware.js:213
+msgid "No fan sensors were found. Install “lm-sensors” with your software center, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
+msgstr "Датчики вентиляторів не знайдено. Встановіть «lm-sensors» через центр програм, один раз виконайте «sudo sensors-detect» і перезапустіть комп'ютер – докладніше в README, розділ «Mainboard sensors»."
+
+#: package/contents/ui/Hardware.js:222
+msgid "Graphics card – details"
+msgstr "Відеокарта – подробиці"
+
+#: package/contents/ui/Hardware.js:222
+msgid "Fans & fan curve, clocks, throttling, video encoding …"
+msgstr "Вентилятори й крива, частоти, тротлінг, кодування відео …"
+
+#: package/contents/ui/Hardware.js:223
+msgid "Processor"
+msgstr "Процесор"
+
+#: package/contents/ui/Hardware.js:223
+msgid "Temperature and usage"
+msgstr "Температура й навантаження"
+
+#: package/contents/ui/Hardware.js:224
+msgid "Usage in percent"
+msgstr "Зайнятість у відсотках"
+
+#: package/contents/ui/Hardware.js:225
+msgid "SSDs & drives"
+msgstr "SSD і накопичувачі"
+
+#: package/contents/ui/Hardware.js:225
+msgid "NVMe temperatures, disk space"
+msgstr "Температури NVMe, місце на диску"
+
+#: package/contents/ui/Hardware.js:226
+msgid "Mainboard & fans"
+msgstr "Материнська плата й вентилятори"
+
+#: package/contents/ui/Hardware.js:226
+msgid "Case temperature, fan speeds"
+msgstr "Температура корпусу, швидкість вентиляторів"
+
+#: package/contents/ui/Hardware.js:227
+msgid "Network"
+msgstr "Мережа"
+
+#: package/contents/ui/Hardware.js:227
+msgid "Download and upload"
+msgstr "Завантаження й вивантаження"
+
+#: package/contents/ui/Hardware.js:229
+msgid "GPU comparison"
+msgstr "Порівняння GPU"
+
+#: package/contents/ui/Hardware.js:229
+msgid "Temperature, load, power and VRAM of all cards in shared tiles"
+msgstr "Температура, навантаження, споживання та VRAM усіх карт у спільних плитках"
+
+#: package/contents/ui/Hardware.js:319
+msgid "GPU hotspot"
+msgstr "Хотспот GPU"
+
+#: package/contents/ui/Hardware.js:338 package/contents/ui/Hardware.js:348
+msgid "GPU fan"
+msgstr "Вентилятор GPU"
+
+#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359 package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+msgid "GPU clock"
+msgstr "Частота GPU"
+
+#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352 package/contents/ui/NvidiaKeys.js:31
+msgid "Memory clock"
+msgstr "Частота пам'яті"
+
+#: package/contents/ui/Hardware.js:343
+msgid "Video encoding"
+msgstr "Кодування відео"
+
+#: package/contents/ui/Hardware.js:344
+msgid "Video decoding"
+msgstr "Декодування відео"
+
+#: package/contents/ui/Hardware.js:346
+msgid "Performance level"
+msgstr "Рівень продуктивності"
+
+#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+msgid "3D load"
+msgstr "Навантаження 3D"
+
+#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+msgid "Video load"
+msgstr "Навантаження відео"
+
+#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:81
+msgid "Graphics memory"
+msgstr "Графічна пам’ять"
+
+#: package/contents/ui/Hardware.js:362
+msgid "Graphics card · PCIe"
+msgstr "Відеокарта · PCIe"
+
+#: package/contents/ui/Hardware.js:380
+msgid "Disk used"
+msgstr "Зайнято на диску"
+
+#: package/contents/ui/Hardware.js:385
+msgid "Case temperature"
+msgstr "Температура корпусу"
+
+#: package/contents/ui/Hardware.js:392
+msgid "Upload"
+msgstr "Вивантаження"
+
+#: package/contents/ui/main.qml:53
+msgid "Graphics card"
+msgstr "Відеокарта"
+
+#: package/contents/ui/main.qml:54
+msgid "Graphics card %1 (not found)"
+msgstr "Відеокарта %1 (не знайдено)"
+
+#: package/contents/ui/main.qml:55
+msgid "Graphics card %1"
+msgstr "Відеокарта %1"
+
+#: package/contents/ui/main.qml:354
+msgid "Sensor Deck %1 is available – open download page"
+msgstr "Доступний Sensor Deck %1 – відкрити сторінку завантаження"
+
+#: package/contents/ui/main.qml:366
+msgid "Undo last move"
+msgstr "Скасувати останнє переміщення"
+
+#: package/contents/ui/main.qml:372
+msgid "Restore original arrangement"
+msgstr "Відновити початкове розташування"
+
+#: package/contents/ui/main.qml:385
+msgid "Sensor Deck"
+msgstr "Sensor Deck"
+
+#: package/contents/ui/NvidiaKeys.js:23
+msgid "Fan"
+msgstr "Вентилятор"
+
+#: package/contents/ui/NvidiaKeys.js:25
+msgid "VRAM activity"
+msgstr "Активність VRAM"
+
+#: package/contents/ui/NvidiaKeys.js:26
+msgid "Video encoding (NVENC)"
+msgstr "Кодування відео (NVENC)"
+
+#: package/contents/ui/NvidiaKeys.js:27
+msgid "Video decoding (NVDEC)"
+msgstr "Декодування відео (NVDEC)"
+
+#: package/contents/ui/NvidiaKeys.js:28
+msgid "Power draw"
+msgstr "Споживання"
+
+#: package/contents/ui/NvidiaKeys.js:29 package/contents/ui/NvidiaKeys.js:63
+msgid "Power limit"
+msgstr "Ліміт потужності"
+
+#: package/contents/ui/NvidiaKeys.js:32
+msgid "Video clock"
+msgstr "Частота відео"
+
+#: package/contents/ui/NvidiaKeys.js:34
+msgid "VRAM free"
+msgstr "VRAM вільно"
+
+#: package/contents/ui/NvidiaKeys.js:35
+msgid "VRAM total"
+msgstr "VRAM усього"
+
+#: package/contents/ui/NvidiaKeys.js:36
+msgid "Performance level (P-state)"
+msgstr "Рівень продуктивності (P-state)"
+
+#: package/contents/ui/NvidiaKeys.js:63
+msgid "Hardware slowdown"
+msgstr "Апаратне сповільнення"
+
+#: package/contents/ui/NvidiaKeys.js:63
+msgid "Temperature target"
+msgstr "Цільова температура"
+
+#: package/contents/ui/NvidiaKeys.js:63
+msgid "Overheating!"
+msgstr "Перегрів!"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Power supply slowdown"
+msgstr "Сповільнення через живлення"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Clock locked"
+msgstr "Частоту зафіксовано"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Synced to other GPU"
+msgstr "Вирівняно за іншим GPU"
+
+#: package/contents/ui/NvidiaKeys.js:64
+msgid "Display clock"
+msgstr "Частота дисплея"
+
+#: package/contents/ui/NvidiaKeys.js:78
+msgid "Maximum"
+msgstr "Максимум"
+
+#: package/contents/ui/NvidiaKeys.js:79
+msgid "High"
+msgstr "Високий"
+
+#: package/contents/ui/NvidiaKeys.js:80
+msgid "Medium"
+msgstr "Середній"
+
+#: package/contents/ui/NvidiaKeys.js:81
+msgid "Power saving"
+msgstr "Енергозбереження"
+
+#: package/contents/ui/NvidiaKeys.js:103
+msgid "Idle"
+msgstr "Простій"
+
+#: package/contents/ui/NvidiaKeys.js:103
+msgid "None"
+msgstr "Немає"
+
+#: package/contents/ui/Reader.qml:42
+msgid "In use by: %1"
+msgstr "Використовується: %1"
+
+#: package/contents/ui/Reader.qml:43
+msgid "Opened, but idle: %1"
+msgstr "Відкрито, але неактивно: %1"
+
+#: package/contents/ui/Reader.qml:70
+msgid "PCIe device %1 on slot port %2"
+msgstr "Пристрій PCIe %1 на порту слота %2"
+
+#: package/contents/ui/Reader.qml:71
+msgid "PCIe link"
+msgstr "З'єднання PCIe"
+
+#: package/contents/ui/Reader.qml:72
+msgid "Current clock of the graphics built into the processor (from the kernel driver)"
+msgstr "Поточна частота графіки, вбудованої в процесор (драйвер ядра)"
+
+#: package/contents/ui/Reader.qml:73
+msgid "Main memory used by programs on the graphics built into the processor"
+msgstr "Оперативна пам’ять, зайнята програмами на графіці, вбудованій у процесор"
+
+#: package/contents/ui/Reader.qml:74
+msgid "3D and compute unit of the graphics built into the processor"
+msgstr "3D- та обчислювальний блок графіки, вбудованої в процесор"
+
+#: package/contents/ui/Reader.qml:75
+msgid "Video unit (encoding/decoding) of the graphics built into the processor"
+msgstr "Відеоблок (кодування/декодування) графіки, вбудованої в процесор"
+
+#: package/contents/ui/Reader.qml:76
+msgid "Unit “%1” of the graphics built into the processor"
+msgstr "Блок «%1» графіки, вбудованої в процесор"
+
+#: package/contents/ui/Reader.qml:77
+msgid "Load of the graphics built into the processor (from the kernel driver)"
+msgstr "Навантаження графіки, вбудованої в процесор (драйвер ядра)"
+
+#: package/contents/ui/Reader.qml:84
+msgid "Memory temperature (VRAM), measured by the gddr6 service"
+msgstr "Температура пам'яті (VRAM), вимірюється службою gddr6"
+
+#: package/contents/ui/Reader.qml:85
+msgid "Graphics card PCI %1"
+msgstr "Відеокарта PCI %1"
+
+#: package/contents/ui/Reader.qml:87
+msgid "Power draw of the graphics built into the processor"
+msgstr "Споживання графіки, вбудованої в процесор"
+
+#: package/contents/ui/Reader.qml:88
+msgid "Power draw of the processor cores"
+msgstr "Споживання ядер процесора"
+
+#: package/contents/ui/Reader.qml:89
+msgid "Power draw of the memory"
+msgstr "Споживання пам’яті"
+
+#: package/contents/ui/Reader.qml:90
+msgid "Power draw of the whole processor"
+msgstr "Споживання всього процесора"
+
+#: package/contents/ui/Reader.qml:91
+msgid "measured by the processor, published by the Sensor Deck power service"
+msgstr "вимірюється процесором, публікується службою споживання Sensor Deck"
+
+#: package/contents/ui/Reader.qml:92
+msgid "Shell command: %1"
+msgstr "Команда оболонки: %1"
+
+#: package/contents/ui/Reader.qml:94
+msgid "PCIe"
+msgstr "PCIe"
+
+#: package/contents/ui/Reader.qml:185
+msgid "Gen %1 ×%2"
+msgstr "Gen %1 ×%2"
+
+#: package/contents/ui/Reader.qml:198
+msgid "Built into CPU"
+msgstr "Вбудована в ЦП"
+
+#: package/contents/ui/Reader.qml:198
+msgid "No link"
+msgstr "Немає з'єднання"
+
+#: package/contents/ui/Reader.qml:199
+msgid "Gen %1 · max %2 ×%3"
+msgstr "Gen %1 · макс. %2 ×%3"
+
+#: package/contents/ui/Reader.qml:202
+msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
+msgstr "Графіка, вбудована в процесор, – використовує оперативну пам’ять, без слота PCIe"
+
+#: package/contents/ui/Reader.qml:206
+msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
+msgstr "Лише ×%1 з ×%2 можливих ліній – перевірте контакт/слот"
+
+#: package/contents/ui/Reader.qml:208
+msgid "Max. %1 · currently power saving"
+msgstr "Макс. %1 · зараз енергозбереження"
+
+#: package/contents/ui/Reader.qml:210
+msgid "Maximum for this slot"
+msgstr "Максимум для цього слота"
+
+#: package/contents/ui/Reader.qml:211
+msgid "Card %1 · slot %2"
+msgstr "Карта %1 · слот %2"
+
+#: package/contents/ui/SensorSetup.qml:36
+msgid "Setting up sensor support … this can take a minute."
+msgstr "Налаштування підтримки датчиків … це може зайняти хвилину."
+
+#: package/contents/ui/SensorSetup.qml:40
+msgid "Done – sensor driver loaded (%1). The fans are now offered."
+msgstr "Готово – драйвер датчиків завантажено (%1). Тепер вентилятори доступні."
+
+#: package/contents/ui/SensorSetup.qml:41
+msgid "Sensor driver loaded (%1), but no fan reports a speed yet. Fans that stand still appear once they spin."
+msgstr "Драйвер датчиків завантажено (%1), але жоден вентилятор поки не повідомляє швидкість. Зупинені вентилятори з'являться, щойно почнуть обертатися."
+
+#: package/contents/ui/SensorSetup.qml:43
+msgid "No supported sensor chip was found. Some mainboards need an extra driver – see the instructions."
+msgstr "Підтримуваний чип датчиків не знайдено. Деяким материнським платам потрібен додатковий драйвер – див. інструкцію."
+
+#: package/contents/ui/SensorSetup.qml:46
+msgid "The installation did not work. Please install “%1” with your software center and try again."
+msgstr "Встановлення не вдалося. Встановіть «%1» через центр програм і спробуйте ще раз."
+
+#: package/contents/ui/SensorSetup.qml:48
+msgid "Cancelled – nothing was changed."
+msgstr "Скасовано – нічого не змінено."
+
+#: package/contents/ui/SensorSetup.qml:56
+msgid "Install sensor support"
+msgstr "Встановити підтримку датчиків"
+
+#: package/contents/ui/SensorSetup.qml:62
+msgid "Detect sensor chip"
+msgstr "Визначити чип датчиків"
+
+#: package/contents/ui/SensorSetup.qml:68
+msgid "Open instructions"
+msgstr "Відкрити інструкцію"
+
+#: package/contents/ui/SensorSource.qml:79
+msgid "Command"
+msgstr "Команда"
+
+#: package/contents/ui/SensorSource.qml:248
+msgid "%1 critical: %2"
+msgstr "%1 – критично: %2"
+
+#: package/contents/ui/SensorSource.qml:249
+msgid "Critical threshold of %1 exceeded."
+msgstr "Перевищено критичний поріг %1."
+
+#: package/contents/ui/SensorSource.qml:254
+msgid "%1 high: %2"
+msgstr "%1 – високо: %2"
+
+#: package/contents/ui/SensorSource.qml:255
+msgid "Warning threshold of %1 exceeded."
+msgstr "Перевищено поріг попередження %1."
+
+#: package/contents/ui/SensorSource.qml:260
+msgid "%1 back to normal: %2"
+msgstr "%1 знову в нормі: %2"
+
+#: package/contents/ui/SensorSource.qml:261
+msgid "The value is below the threshold again."
+msgstr "Значення знову нижче порогу."
+
+#: package/contents/ui/SensorTile.qml:150
+msgid "Fan %1 at %2"
+msgstr "Вентилятор %1 при %2"
+
+#: package/contents/ui/SensorTile.qml:160
+msgid "Now: %1"
+msgstr "Зараз: %1"
+
+#: package/contents/ui/SensorTile.qml:175
+msgid "Critical – above the threshold of %1."
+msgstr "Критично – вище порогу %1."
+
+#: package/contents/ui/SensorTile.qml:176
+msgid "Elevated – above the warning threshold of %1."
+msgstr "Підвищено – вище порогу попередження %1."
+
+#: package/contents/ui/SensorTile.qml:177
+msgid "In the normal range · warning from %1, critical from %2."
+msgstr "У нормі · попередження від %1, критично від %2."
+
+#: package/contents/ui/SensorTile.qml:178
+msgid "In the normal range · warning from %1."
+msgstr "У нормі · попередження від %1."
+
+#: package/contents/ui/SensorTile.qml:178
+msgid "In the normal range · critical from %1."
+msgstr "У нормі · критично від %1."
+
+#: package/contents/ui/SetupWizard.qml:92
+msgid "Set up Sensor Deck"
+msgstr "Налаштування Sensor Deck"
+
+#: package/contents/ui/SetupWizard.qml:97
+msgid "Step %1 of 2"
+msgstr "Крок %1 з 2"
+
+#: package/contents/ui/SetupWizard.qml:126
+msgid "Which graphics cards should the widget show?"
+msgstr "Які відеокарти має показувати віджет?"
+
+#: package/contents/ui/SetupWizard.qml:127
+msgid "Which graphics card should the widget show?"
+msgstr "Яку відеокарту має показувати віджет?"
+
+#: package/contents/ui/SetupWizard.qml:135
+msgid "You can choose several cards – each then gets its own colour-coded section."
+msgstr "Можна вибрати кілька карт – кожна отримає власний розділ із кольоровою позначкою."
+
+#: package/contents/ui/SetupWizard.qml:136
+msgid "All tile values will then refer to this card."
+msgstr "Усі значення плиток стосуватимуться цієї карти."
+
+#: package/contents/ui/SetupWizard.qml:145
+msgid "Searching for graphics cards …"
+msgstr "Пошук відеокарт …"
+
+#: package/contents/ui/SetupWizard.qml:152
+msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
+msgstr "Підтримувану відеокарту не знайдено. Можна все одно продовжити й показувати CPU, RAM тощо."
+
+#: package/contents/ui/SetupWizard.qml:213
+msgid "PCI %1 · driver %2"
+msgstr "PCI %1 · драйвер %2"
+
+#: package/contents/ui/SetupWizard.qml:245
+msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Sensor Deck directory). Without it this tile is left out."
+msgstr "Примітка: для температури VRAM карт NVIDIA потрібна служба gddr6 (інструкція: тека «gddr6-service» у каталозі Sensor Deck). Без неї ця плитка не показується."
+
+#: package/contents/ui/SetupWizard.qml:257
+msgid "What should be shown besides the graphics card?"
+msgstr "Що показувати, крім відеокарти?"
+
+#: package/contents/ui/SetupWizard.qml:308
+msgid "%1 graphics cards – basic values"
+msgstr "Відеокарт: %1 – основні значення"
+
+#: package/contents/ui/SetupWizard.qml:309
+msgid "Graphics card – basic values"
+msgstr "Відеокарта – основні значення"
+
+#: package/contents/ui/SetupWizard.qml:309
+msgid "No graphics card"
+msgstr "Немає відеокарти"
+
+#: package/contents/ui/SetupWizard.qml:310
+msgid "one section per card with temperatures, load, power, VRAM, PCIe"
+msgstr "по розділу на карту з температурами, навантаженням, споживанням, VRAM, PCIe"
+
+#: package/contents/ui/SetupWizard.qml:311
+msgid "Temperatures, load, power, VRAM, PCIe"
+msgstr "Температури, навантаження, споживання, VRAM, PCIe"
+
+#: package/contents/ui/SetupWizard.qml:311
+msgid "Only the selected areas are shown"
+msgstr "Показуються лише вибрані області"
+
+#: package/contents/ui/SetupWizard.qml:321
+msgid "Graphics cards – details (for each card)"
+msgstr "Відеокарти – подробиці (для кожної карти)"
+
+#: package/contents/ui/SetupWizard.qml:337
+msgid "Results in %1 tile – you can change the arrangement and details at any time later."
+msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
+msgstr[0] "Вийде %1 плитка – розташування й деталі можна змінити пізніше будь-коли."
+msgstr[1] "Вийде %1 плитки – розташування й деталі можна змінити пізніше будь-коли."
+msgstr[2] "Вийде %1 плиток – розташування й деталі можна змінити пізніше будь-коли."
+
+#: package/contents/ui/SetupWizard.qml:350
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: package/contents/ui/SetupWizard.qml:356
+msgid "Back"
+msgstr "Назад"
+
+#: package/contents/ui/SetupWizard.qml:364
+msgid "Next"
+msgstr "Далі"
+
+#: package/contents/ui/SetupWizard.qml:371
+msgid "Finish"
+msgstr "Готово"
+
+#: package/contents/ui/SourceEditor.qml:28
+msgid "System sensor (ksystemstats)"
+msgstr "Системний датчик (ksystemstats)"
+
+#: package/contents/ui/SourceEditor.qml:29
+msgid "NVIDIA graphics card (nvidia-smi)"
+msgstr "Відеокарта NVIDIA (nvidia-smi)"
+
+#: package/contents/ui/SourceEditor.qml:30
+msgid "PCIe link of the graphics card (kernel)"
+msgstr "З'єднання PCIe відеокарти (ядро)"
+
+#: package/contents/ui/SourceEditor.qml:31
+msgid "Intel graphics in the processor (kernel)"
+msgstr "Графіка Intel, вбудована в процесор (ядро)"
+
+#: package/contents/ui/SourceEditor.qml:32
+msgid "Shell command"
+msgstr "Команда оболонки"
+
+#: package/contents/ui/SourceEditor.qml:46
+msgid "Sensor:"
+msgstr "Датчик:"
+
+#: package/contents/ui/SourceEditor.qml:61 package/contents/ui/SourceEditor.qml:74
+msgid "Value:"
+msgstr "Значення:"
+
+#: package/contents/ui/SourceEditor.qml:69 package/contents/ui/SourceEditor.qml:85
+msgid "Please choose …"
+msgstr "Виберіть …"
+
+#: package/contents/ui/SourceEditor.qml:90
+msgid "Device:"
+msgstr "Пристрій:"
+
+#: package/contents/ui/SourceEditor.qml:98
+msgid "automatic (first graphics card)"
+msgstr "автоматично (перша відеокарта)"
+
+#: package/contents/ui/SourceEditor.qml:107
+msgid "Optionally a PCI address like “02:00.0” (see lspci). Shows the actual link together with the maximum the card and slot support."
+msgstr "Необов'язково: адреса PCI, наприклад «02:00.0» (див. lspci). Показує фактичне з'єднання та максимум, який підтримують карта й слот."
+
+#: package/contents/ui/SourceEditor.qml:112
+msgid "Command:"
+msgstr "Команда:"
+
+#: package/contents/ui/SourceEditor.qml:125
+msgid "Unit"
+msgstr "Одиниця"

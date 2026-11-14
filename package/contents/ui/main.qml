@@ -1,0 +1,398 @@
+// SPDX-FileCopyrightText: 2026 Paderman
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+import QtQuick
+import QtQuick.Layouts
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kirigami as Kirigami
+import "Defaults.js" as Defaults
+import "Hardware.js" as Hardware
+import "UpdateCheck.js" as UpdateCheck
+
+PlasmoidItem {
+    id: root
+
+    // ---- hardware & chosen GPU ----------------------------------------------
+    HardwareProbe { id: probe }
+    readonly property alias hardware: probe
+    readonly property var gpu: Hardware.pickGpu(probe.hw, Plasmoid.configuration.gpuAddress)
+    readonly property bool needsSetup: !Plasmoid.configuration.setupDone
+    // light colour scheme: warning colours get darker for contrast
+    readonly property bool lightTheme: Kirigami.ColorUtils.brightnessForColor(Kirigami.Theme.backgroundColor) === Kirigami.ColorUtils.Light
+
+    // tiles as stored (with {gpu} tokens) …
+    readonly property var rawItems: {
+        // guarantee unique ids even if the config was edited by hand
+        const seen = {};
+        return Defaults.parse(Plasmoid.configuration.items).map((it, i) => {
+            if (seen[it.id]) it.id = it.id + "-" + i;
+            seen[it.id] = true;
+            return it;
+        });
+    }
+    // graphics card of each tile: its own ("gpu" field), else the widget's main card;
+    // null for tiles that have nothing to do with a GPU
+    readonly property var tileGpus: rawItems.map(it => !Hardware.usesGpu(it) || it.compare ? null
+                                                   : it.gpu ? Hardware.gpuByAddr(probe.hw, it.gpu) : gpu)
+    readonly property bool hasCompare: rawItems.some(it => it.compare)
+    // cards that are actually shown, in hardware order: [{addr, gpu, tag, slot}]
+    readonly property var shownGpus: {
+        const addrs = {};
+        // compare tiles show every card
+        if (hasCompare) Hardware.supportedGpus(probe.hw).forEach(g => addrs[g.addr] = g);
+        rawItems.forEach((it, i) => {
+            if (!Hardware.usesGpu(it) || it.compare) return;
+            const g = tileGpus[i];
+            addrs[g ? g.addr : (it.gpu || "")] = g;
+        });
+        const known = Hardware.supportedGpus(probe.hw).filter(g => g.addr in addrs);
+        // cards that are configured but not (yet) found keep their place at the end
+        const missing = Object.keys(addrs).filter(a => !addrs[a])
+                              .map(a => ({ addr: a,
+                                           name: !a ? i18n("Graphics card")
+                                               : probe.ready ? i18n("Graphics card %1 (not found)", a.replace(/^0000:/, ""))
+                                               : i18n("Graphics card %1", a.replace(/^0000:/, "")),
+                                           missing: true }));
+        const list = known.concat(missing);
+        // short names, made unique ("RTX 3080 #1", "RTX 3080 #2")
+        const tags = list.map(g => g.missing ? g.name : Hardware.gpuTag(g));
+        return list.map((g, i) => {
+            const same = tags.filter(t => t === tags[i]).length > 1;
+            const n = tags.slice(0, i + 1).filter(t => t === tags[i]).length;
+            return { addr: g.addr, gpu: g.missing ? null : g, slot: i,
+                     tag: same ? tags[i] + " #" + n : tags[i] };
+        });
+    }
+    readonly property bool multiGpu: shownGpus.length > 1
+    function gpuInfo(addr) {
+        for (let i = 0; i < shownGpus.length; ++i) if (shownGpus[i].addr === addr) return shownGpus[i];
+        return null;
+    }
+
+    // … and resolved for their graphics card
+    readonly property var items: rawItems.map((it, i) => {
+        if (!Hardware.usesGpu(it) || it.compare) return Hardware.resolve(it, gpu, -1, "");
+        const g = tileGpus[i];
+        const info = gpuInfo(g ? g.addr : (it.gpu || ""));
+        return Hardware.resolve(it, g, multiGpu && info ? info.slot : -1, multiGpu && info ? info.tag : "");
+    })
+
+    // compare tiles: one resolved config per card (aligned with items, null = normal tile)
+    readonly property var compareCfgs: rawItems.map(it => {
+        if (!it.compare) return null;
+        const cards = shownGpus.filter(g => !!g.gpu);
+        if (!cards.length) return [Hardware.resolve(Hardware.forGpu(it, "", true), gpu, -1, "")];
+        return cards.map((g, k) => Hardware.resolve(Hardware.forGpu(it, g.addr, g.addr === (gpu ? gpu.addr : cards[0].addr)),
+                                                    g.gpu, multiGpu ? g.slot : -1, multiGpu ? g.tag : ""));
+    })
+    // every data source that has to exist (normal tiles + one per card of compare tiles)
+    readonly property var allCfgs: {
+        const out = [];
+        items.forEach((it, i) => { if (compareCfgs[i]) compareCfgs[i].forEach(c => out.push(c)); else out.push(it); });
+        return out;
+    }
+
+    // called by the setup wizard; gpuAddrs: one or more PCI addresses (first = main card)
+    function applySetup(gpuAddrs, opts) {
+        if (!Array.isArray(gpuAddrs)) gpuAddrs = gpuAddrs ? [gpuAddrs] : [];
+        const gs = gpuAddrs.map(a => Hardware.gpuByAddr(probe.hw, a)).filter(g => !!g);
+        const g = gs.length ? gs[0] : Hardware.pickGpu(probe.hw, "");
+        Plasmoid.configuration.gpuAddress = g ? g.addr : "";
+        Plasmoid.configuration.items = JSON.stringify(Hardware.build(gs.length > 1 ? gs : (gpuAddrs.length ? g : null), opts, probe.hw, (...a) => i18n(...a)));
+        Plasmoid.configuration.baseOrder = "";
+        Plasmoid.configuration.layoutPreset = "wizard";
+        Plasmoid.configuration.layoutHash = Defaults.signature(Plasmoid.configuration.items);
+        undoOrder = null;
+        Plasmoid.configuration.setupDone = true;
+    }
+
+    readonly property int interval: Math.max(250, Plasmoid.configuration.updateInterval)
+
+    // ---- shared nvidia-smi query (only runs if a tile needs it) ------------
+    NvidiaProvider {
+        id: nvidia
+        interval: root.interval
+        readonly property var users: root.allCfgs.filter(it => it.source === "nvidia"
+                                                        || (it.style === "curve" && it.ySource === "nvidia"))
+        indices: {
+            const out = [];
+            users.forEach(it => { if (it.nvIndex >= 0 && out.indexOf(it.nvIndex) < 0) out.push(it.nvIndex); });
+            return out.sort((a, b) => a - b);
+        }
+        active: indices.length > 0
+    }
+
+    // ---- data sources, keyed by tile id ------------------------------------
+    property var sourceMap: ({})
+    property int sourcesRevision: 0
+
+    Component {
+        id: sourceComponent
+        SensorSource { }
+    }
+
+    function syncSources() {
+        const keep = {};
+        allCfgs.forEach(it => {
+            let s = sourceMap[it.id];
+            if (!s) {
+                s = sourceComponent.createObject(root, {
+                    cfg: it,
+                    nvidia: nvidia,
+                    lightTheme: Qt.binding(() => root.lightTheme),
+                    interval: Qt.binding(() => root.interval),
+                    historyLength: Qt.binding(() => Plasmoid.configuration.historyLength),
+                    alertsEnabled: Qt.binding(() => Plasmoid.configuration.alertsEnabled),
+                    alertOnWarn: Qt.binding(() => Plasmoid.configuration.alertOnWarn),
+                    alertRecovery: Qt.binding(() => Plasmoid.configuration.alertRecovery),
+                    alertDelay: Qt.binding(() => Plasmoid.configuration.alertDelay * 1000),
+                    alertCooldown: Qt.binding(() => Plasmoid.configuration.alertCooldown * 60000),
+                    hysteresis: Qt.binding(() => Plasmoid.configuration.alertHysteresis)
+                });
+                sourceMap[it.id] = s;
+                if (s.isCurve) s.importCurve(storedCurves()[it.id]);
+            } else if (JSON.stringify(s.cfg) !== JSON.stringify(it)) {
+                // learned curve only makes sense for the same pair of sensors
+                const o = s.cfg;
+                if (o.source !== it.source || o.sensorId !== it.sensorId || o.key !== it.key || o.command !== it.command
+                    || o.ySource !== it.ySource || o.ySensorId !== it.ySensorId || o.yKey !== it.yKey || o.yCommand !== it.yCommand)
+                    s.resetCurve();
+                s.cfg = it;
+            }
+            keep[it.id] = true;
+        });
+        for (const id in sourceMap) {
+            if (!keep[id]) { sourceMap[id].destroy(); delete sourceMap[id]; }
+        }
+        sourcesRevision++;
+    }
+    onAllCfgsChanged: syncSources()
+    Component.onCompleted: {
+        // existing widgets already have a layout: don't show the wizard there
+        if (!Plasmoid.configuration.setupDone && Plasmoid.configuration.items !== "")
+            Plasmoid.configuration.setupDone = true;
+        syncSources();
+    }
+
+    // ---- learned fan curves survive restarts ---------------------------------
+    function storedCurves() {
+        try { return JSON.parse(Plasmoid.configuration.curveData || "{}") || {}; } catch (e) { return {}; }
+    }
+    function saveCurves() {
+        const out = {};
+        allCfgs.forEach(it => {
+            const s = sourceMap[it.id];
+            if (s && s.isCurve && Object.keys(s.bins).length) out[it.id] = s.exportCurve();
+        });
+        const json = JSON.stringify(out);
+        if (json !== (Plasmoid.configuration.curveData || "{}") && json !== "{}") Plasmoid.configuration.curveData = json;
+    }
+    Timer {
+        // every 2 minutes (only written when something new was learned)
+        interval: 120000
+        running: root.allCfgs.some(it => it.style === "curve")
+        repeat: true
+        onTriggered: root.saveCurves()
+    }
+    Component.onDestruction: saveCurves()
+
+    function source(i) {
+        sourcesRevision; // dependency
+        const it = items[i];
+        if (!it) return null;
+        // compare tile: the main card's source stands for the tile (label, colour …)
+        const c = compareCfgs[i];
+        if (c) return c.length ? (sourceMap[c[0].id] || null) : null;
+        return sourceMap[it.id] || null;
+    }
+    // compare tile: [{src, slot, tag}] for every card; [] for normal tiles
+    function compareSources(i) {
+        sourcesRevision;
+        const c = compareCfgs[i];
+        if (!c) return [];
+        const all = c.map(cfg => ({ src: sourceMap[cfg.id] || null, slot: cfg.gpuSlot, tag: cfg.gpuTag }))
+                     .filter(e => e.src !== null);
+        // leave out cards without any data for this value (bindings re-run when noData changes)
+        const withData = all.filter(e => !e.src.noData);
+        return withData.length ? withData : all;
+    }
+
+    // compare tile for several cards where only one card has data left: it would
+    // only repeat that card's own tile, so it is hidden (full view and panel)
+    function compareCollapsed(i) {
+        const it = items[i];
+        return !!(it && it.compare && (compareCfgs[i] || []).length > 1 && compareSources(i).length === 1);
+    }
+
+    // reorder tiles (drag & drop in the full view)
+    function moveItem(from, to) {
+        if (from === to || from < 0 || to < 0 || from >= items.length || to >= items.length) return;
+        const before = idsOf(rawItems);
+        // remember the original order once, before the first manual move
+        if (!Plasmoid.configuration.baseOrder)
+            Plasmoid.configuration.baseOrder = JSON.stringify(before);
+        undoOrder = before;
+        const arr = rawItems.slice();
+        const it = arr.splice(from, 1)[0];
+        arr.splice(to, 0, it);
+        Plasmoid.configuration.items = JSON.stringify(arr);
+    }
+
+    // ---- tile context menu: change or remove a single tile -------------------
+    function setTileProp(i, key, value) {
+        if (i < 0 || i >= rawItems.length) return;
+        const arr = rawItems.slice();
+        const it = Object.assign({}, arr[i]);
+        it[key] = value;
+        arr[i] = it;
+        Plasmoid.configuration.items = JSON.stringify(arr);
+    }
+    // undoRemove: { items: JSON before, after: JSON after, label } – only valid while
+    // nothing else changed the tiles in between
+    property var undoRemove: null
+    readonly property bool canUndoRemove: undoRemove !== null && undoRemove.after === Plasmoid.configuration.items
+    function removeTile(i, label) {
+        if (i < 0 || i >= rawItems.length) return;
+        const before = Plasmoid.configuration.items;
+        const arr = rawItems.slice();
+        arr.splice(i, 1);
+        Plasmoid.configuration.items = JSON.stringify(arr);
+        undoRemove = { items: before, after: Plasmoid.configuration.items, label: label || "" };
+    }
+    // open the settings at this tile (ConfigSensors reads editTile)
+    function editTile(i) {
+        const it = rawItems[i];
+        if (!it) return;
+        Plasmoid.configuration.editTile = it.id + "@" + Date.now();
+        Plasmoid.internalAction("configure").trigger();
+    }
+    function restoreRemoved() {
+        if (!canUndoRemove) return;
+        const json = undoRemove.items;
+        undoRemove = null;
+        Plasmoid.configuration.items = json;
+    }
+
+    // ---- undo / reset of the tile order ------------------------------------
+    property var undoOrder: null     // order before the last move (this session)
+
+    function idsOf(arr) { return arr.map(it => it.id); }
+
+    // order the reset goes back to: the snapshot from before the first move,
+    // otherwise the order the setup wizard / "Layout laden" created (s1, s2, …)
+    readonly property var resetTarget: {
+        try {
+            const a = JSON.parse(Plasmoid.configuration.baseOrder || "[]");
+            if (Array.isArray(a) && a.length) return a;
+        } catch (e) { }
+        const num = id => { const m = /^s(\d+)$/.exec(id); return m ? parseInt(m[1]) : Infinity; };
+        return rawItems.map((it, i) => ({ id: it.id, n: num(it.id), i: i }))
+                       .sort((a, b) => a.n - b.n || a.i - b.i)
+                       .map(o => o.id);
+    }
+    function sortedBy(ids) {
+        const pos = {};
+        ids.forEach((id, i) => pos[id] = i);
+        // tiles that are not in the list (added later) keep their relative order at the end
+        return rawItems.map((it, i) => ({ it: it, k: (it.id in pos) ? pos[it.id] : ids.length + i }))
+                       .sort((a, b) => a.k - b.k)
+                       .map(o => o.it);
+    }
+    readonly property bool orderChanged:
+        JSON.stringify(idsOf(sortedBy(resetTarget))) !== JSON.stringify(idsOf(rawItems))
+
+    function applyOrder(ids) {
+        Plasmoid.configuration.items = JSON.stringify(sortedBy(ids));
+    }
+    function undoMove() {
+        if (!undoOrder) return;
+        const ids = undoOrder;
+        undoOrder = null;
+        applyOrder(ids);
+    }
+    function resetOrder() {
+        undoOrder = idsOf(rawItems);   // the reset itself can be undone
+        applyOrder(resetTarget);
+        Plasmoid.configuration.baseOrder = "";
+    }
+
+    // ---- update check (only with the user's consent, see UpdateCheck.js)
+    readonly property bool updateAvailable: UpdateCheck.newer(Plasmoid.configuration.updateLatest, UpdateCheck.current)
+    readonly property bool updateBanner: updateAvailable && Plasmoid.configuration.updateLatest !== Plasmoid.configuration.updateDismissed
+    readonly property bool askUpdates: !Plasmoid.configuration.updateAsked && !needsSetup
+    function checkUpdates() {
+        Plasmoid.configuration.updateLastCheck = Math.floor(Date.now() / 1000);
+        UpdateCheck.fetchLatest(r => {
+            if (r.status !== "ok") return;
+            Plasmoid.configuration.updateLatest = r.version;
+            Plasmoid.configuration.updateUrl = r.url;
+        });
+    }
+    function answerUpdates(yes) {
+        Plasmoid.configuration.updateCheck = yes;
+        Plasmoid.configuration.updateAsked = true;
+        if (yes) checkUpdates();
+    }
+    function openUpdatePage() {
+        Qt.openUrlExternally(Plasmoid.configuration.updateUrl || UpdateCheck.releasesPage);
+    }
+    Timer {
+        // hourly look whether the weekly check is due (survives sleep and long uptimes)
+        interval: 3600 * 1000
+        repeat: true
+        triggeredOnStart: true
+        running: Plasmoid.configuration.updateCheck
+        onTriggered: {
+            if (Date.now() / 1000 - Plasmoid.configuration.updateLastCheck >= UpdateCheck.interval)
+                root.checkUpdates();
+        }
+    }
+
+    Plasmoid.contextualActions: [
+        PlasmaCore.Action {
+            text: root.updateAvailable ? i18n("Sensor Deck %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
+            icon.name: "update-none"
+            visible: root.updateAvailable
+            onTriggered: root.openUpdatePage()
+        },
+        PlasmaCore.Action {
+            text: root.canUndoRemove ? i18n("Restore “%1”", root.undoRemove.label) : ""
+            icon.name: "edit-undo"
+            visible: root.canUndoRemove
+            onTriggered: root.restoreRemoved()
+        },
+        PlasmaCore.Action {
+            text: i18n("Undo last move")
+            icon.name: "edit-undo"
+            visible: root.undoOrder !== null
+            onTriggered: root.undoMove()
+        },
+        PlasmaCore.Action {
+            text: i18n("Restore original arrangement")
+            icon.name: "edit-reset"
+            enabled: root.orderChanged
+            onTriggered: root.resetOrder()
+        }
+    ]
+
+    Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
+
+    preferredRepresentation: (Plasmoid.formFactor === PlasmaCore.Types.Horizontal
+                              || Plasmoid.formFactor === PlasmaCore.Types.Vertical)
+                             ? compactRepresentation : fullRepresentation
+
+    toolTipMainText: i18n("Sensor Deck")
+    toolTipSubText: {
+        sourcesRevision;
+        const lines = [];
+        allCfgs.forEach(c => {
+            const s = sourceMap[c.id];
+            if (s && s.cfg.style !== "curve") lines.push(s.longLabel + ": " + s.formatted);
+        });
+        return lines.join("\n");
+    }
+
+    compactRepresentation: CompactView { }
+    fullRepresentation: FullView { }
+}
