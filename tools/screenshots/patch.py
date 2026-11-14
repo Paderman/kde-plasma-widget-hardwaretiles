@@ -26,7 +26,7 @@ for mo in glob.glob(pkg + "/contents/locale/*/LC_MESSAGES/*.mo"):
     os.rename(mo, os.path.join(os.path.dirname(mo), "plasma_applet_" + ID + ".mo"))
 
 d = open(demo).read()
-if mode == "multi":
+if mode in ("multi", "cards"):
     d = d.replace("var multi = false;", "var multi = true;")
 open(ui + "Demo.js", "w").write(d)
 
@@ -79,7 +79,7 @@ s = open(ui + "FullView.qml").read()
 s = s.replace("    Layout.minimumWidth: Kirigami.Units.gridUnit * 8\n    Layout.minimumHeight: Kirigami.Units.gridUnit * 5\n", "", 1)
 open(ui + "FullView.qml", "w").write(s)
 
-# wizard: show step 2 (the area choices) – more telling than the single card of step 1
+# wizard: show step 2 (the area choices); "cards" shows step 1 (choosing graphics cards) with two cards
 if mode == "wizard":
     edit("SetupWizard.qml", [("    property int step: 0\n",
          "    property int step: 0\n    Timer { interval: 3000; running: true; onTriggered: wiz.step = 1 }\n")])
@@ -94,7 +94,7 @@ def setdef(xml, name, value):
     return pat.sub(lambda mm: mm.group(1) + escape(value) + mm.group(2), xml, count=1)
 p = pkg + "/contents/config/main.xml"
 x = open(p).read()
-wizard = mode == "wizard"
+wizard = mode in ("wizard", "cards")
 for k, v in {"items": "" if wizard else lay["items"], "curveData": lay["curveData"],
              "setupDone": "false" if wizard else "true", "layoutPreset": lay["preset"],
              "layoutHash": lay["hash"], "updateInterval": "400", "historyLength": "20",

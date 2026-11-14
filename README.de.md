@@ -6,19 +6,20 @@ Ein **GPU- & System-Monitor** als Widget für **KDE Plasma 6**: VRAM-Temperatur,
 PCIe-Verbindung und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs und Lüfter,
 als Ringe, Balken und Verlaufsgraphen.
 
-![Sensor Deck – Systemübersicht](docs/screenshots/overview-de-dark.png)
+![Sensor Deck – Systemübersicht](docs/screenshots/de/overview-de-dark.png)
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/screenshots/multi-de-dark.png" alt="Zwei Grafikkarten mit Vergleichskacheln"><br><sub>Zwei Grafikkarten: je Karte ein Abschnitt plus Vergleichskacheln</sub></td>
-    <td width="50%"><img src="docs/screenshots/overview-de-light.png" alt="Helles Farbschema"><br><sub>Folgt dem Plasma-Farbschema (hier Breeze Hell)</sub></td>
+    <td width="50%"><img src="docs/screenshots/de/multi-de-dark.png" alt="Zwei Grafikkarten mit Vergleichskacheln"><br><sub>Zwei Grafikkarten: je Karte ein Abschnitt plus Vergleichskacheln</sub></td>
+    <td width="50%"><img src="docs/screenshots/de/overview-de-light.png" alt="Helles Farbschema"><br><sub>Folgt dem Plasma-Farbschema (hier Breeze Hell)</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/wizard-de-dark.png" alt="Einrichtungsassistent"><br><sub>Einrichtungsassistent mit Hardware-Erkennung</sub></td>
-    <td valign="top"><sub>Die Bilder zeigen simulierte Werte, erzeugt mit
-    <code>tools/screenshots/make-screenshots.sh</code>.</sub></td>
+    <td valign="top"><img src="docs/screenshots/de/wizard-cards-de-dark.png" alt="Einrichtungsassistent, Schritt 1"><br><sub>Einrichtungsassistent, Schritt 1: Grafikkarten auswählen</sub></td>
+    <td valign="top"><img src="docs/screenshots/de/wizard-de-dark.png" alt="Einrichtungsassistent, Schritt 2"><br><sub>Schritt 2: Bereiche passend zur erkannten Hardware</sub></td>
   </tr>
 </table>
+
+<sub>Die Bilder zeigen simulierte Werte, erzeugt mit <code>tools/screenshots/make-screenshots.sh</code>.</sub>
 
 ## Funktionen
 
@@ -205,7 +206,7 @@ automatischen Prüfung zuzustimmen.
 | `packaging/rpm/build-rpm.sh` | `.rpm` (braucht `rpmbuild`) |
 | `packaging/arch/PKGBUILD` | Arch-Paket (`makepkg`) / AUR |
 
-Screenshots: `tools/screenshots/make-screenshots.sh` erzeugt `docs/screenshots/*.png` mit simulierter
+Screenshots: `tools/screenshots/make-screenshots.sh` erzeugt `docs/screenshots/<lang>/*.png` mit simulierter
 Hardware in einem unsichtbaren X-Server (braucht `xvfb-run`, `plasmoidviewer`, `node`, `python3-polib`).
 Das eigene Widget und seine Einstellungen bleiben unberührt.
 

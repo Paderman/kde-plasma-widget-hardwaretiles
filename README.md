@@ -5,19 +5,20 @@
 A **GPU & system monitor** widget for **KDE Plasma 6**: VRAM temperature, throttling,
 PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as rings, bars and graphs.
 
-![Sensor Deck – system overview](docs/screenshots/overview-en-dark.png)
+![Sensor Deck – system overview](docs/screenshots/en/overview-en-dark.png)
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/screenshots/multi-en-dark.png" alt="Two graphics cards with comparison tiles"><br><sub>Two graphics cards: one section per card plus comparison tiles</sub></td>
-    <td width="50%"><img src="docs/screenshots/overview-en-light.png" alt="Light colour scheme"><br><sub>Follows the Plasma colour scheme (here Breeze Light)</sub></td>
+    <td width="50%"><img src="docs/screenshots/en/multi-en-dark.png" alt="Two graphics cards with comparison tiles"><br><sub>Two graphics cards: one section per card plus comparison tiles</sub></td>
+    <td width="50%"><img src="docs/screenshots/en/overview-en-light.png" alt="Light colour scheme"><br><sub>Follows the Plasma colour scheme (here Breeze Light)</sub></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/wizard-en-dark.png" alt="Setup wizard"><br><sub>Setup wizard with hardware detection</sub></td>
-    <td valign="top"><sub>Screenshots show simulated values, rendered with
-    <code>tools/screenshots/make-screenshots.sh</code>.</sub></td>
+    <td valign="top"><img src="docs/screenshots/en/wizard-cards-en-dark.png" alt="Setup wizard, step 1"><br><sub>Setup wizard, step 1: choose the graphics cards</sub></td>
+    <td valign="top"><img src="docs/screenshots/en/wizard-en-dark.png" alt="Setup wizard, step 2"><br><sub>Step 2: areas matching the detected hardware</sub></td>
   </tr>
 </table>
+
+<sub>Screenshots show simulated values, rendered with <code>tools/screenshots/make-screenshots.sh</code>.</sub>
 
 ## Features
 
@@ -204,7 +205,7 @@ agreeing to the automatic check.
 | `packaging/rpm/build-rpm.sh` | `.rpm` (needs `rpmbuild`) |
 | `packaging/arch/PKGBUILD` | Arch package (`makepkg`) / AUR |
 
-Screenshots: `tools/screenshots/make-screenshots.sh` renders `docs/screenshots/*.png` with
+Screenshots: `tools/screenshots/make-screenshots.sh` renders `docs/screenshots/<lang>/*.png` with
 simulated hardware in an invisible X server (needs `xvfb-run`, `plasmoidviewer`, `node`,
 `python3-polib`). Your own widget and settings are not touched.
 
