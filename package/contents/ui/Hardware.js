@@ -439,6 +439,13 @@ function resolve(it, gpu, slot, tag) {
             else if (m[2] !== "name" && m[2] !== "totalVram") { r.sensorId = ""; r.refSensorId = ""; }
         }
     }
+    // NVIDIA: ksystemstats builds "usage" from the per-process list of nvidia-smi
+    // and adds up compute, video encoding and decoding – well above 100 % while
+    // encoding. The card's own load comes from nvidia-smi directly.
+    if (gpu && !gpu.integrated && gpu.nvIndex >= 0 && (!r.source || r.source === "sensor") && gpu.ksys
+            && r.sensorId === "gpu/" + gpu.ksys + "/usage") {
+        r.source = "nvidia"; r.key = "utilization.gpu"; r.sensorId = "";
+    }
     r.gpuAddr = gpu ? gpu.addr : (it.gpu || "");
     // unknown card: unbound tiles fall back to nvidia-smi index 0 (old behaviour),
     // tiles bound to a card that is missing show no value instead of another card's
