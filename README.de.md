@@ -28,10 +28,10 @@ und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs u
 - **Lüfterkurve**, die aus echten Messwerten lernt und Neustarts übersteht
 - **Gemessene GPU-Lüfterdrehzahl** (U/min, je Lüfter) – steht ein Lüfter still, obwohl die Karte ihn braucht, wird die Kachel rot und es kommt eine Benachrichtigung
 - **System**: Prozessor, Arbeitsspeicher, SSD-Temperaturen, Speicherplatz, Mainboard-Lüfter und -Temperatur, Netzwerk
-- **Einrichtungsassistent** mit Hardware-Erkennung sowie Layout-Vorlagen, die anzeigen, ob du sie verändert hast
+- **Einrichtungsassistent** mit Hardware-Erkennung sowie Layout-Vorlagen, die anzeigen, ob sie verändert wurden
 - **Desktop-Benachrichtigungen** bei kritischen Werten
 - **Verständliche Tooltips**, die erklären, was ein Wert bedeutet und ob er normal ist
-- **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen zum Verschieben, × zum Entfernen, + zum Hinzufügen aus Vorschlägen für deine Hardware
+- **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen zum Verschieben, × zum Entfernen, + zum Hinzufügen aus Vorschlägen für die eigene Hardware
 
 ## Installation
 
@@ -83,14 +83,14 @@ Sensorchip des Mainboards. Fehlen sie, bietet der Einrichtungsassistent einen Bu
 „Sensor-Unterstützung installieren“ an – ohne Terminal, nur mit Passwortabfrage. Viele Gigabyte-Boards brauchen zusätzlich den
 [it87-Treiber](https://github.com/frankcrawford/it87). Details in der [englischen README](README.md#mainboard-sensors).
 
-Fehlt etwas auf deiner Hardware? Dann bitte `./tools/hardware-report.sh` ausführen und die
+Fehlt etwas auf der eigenen Hardware? Dann bitte `./tools/hardware-report.sh` ausführen und die
 erzeugte Datei an einen
 [Hardware-Bericht](https://github.com/Paderman/kde-plasma-widget-sensordeck/issues/new?template=hardware_report.yml) anhängen.
 
 ## Updates
 
 Sensor Deck fragt einmal, ob es wöchentlich nach neuen Versionen suchen darf (standardmäßig aus).
-Dabei wird nur `api.github.com` nach der neuesten Versionsnummer gefragt – GitHub sieht deine
+Dabei wird nur `api.github.com` nach der neuesten Versionsnummer gefragt – GitHub sieht die
 IP-Adresse wie bei jedem Website-Besuch, sonst wird nichts gesendet. Manuell geht es jederzeit
 unter *Einrichten → Info & Updates → Jetzt prüfen*.
 

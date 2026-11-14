@@ -71,7 +71,7 @@ msgstr "Sprawdź teraz"
 
 #: package/contents/ui/ConfigAbout.qml:97
 msgid "You have the latest version."
-msgstr "Masz najnowszą wersję."
+msgstr "Zainstalowana jest najnowsza wersja."
 
 #: package/contents/ui/ConfigAbout.qml:98
 msgid "Version %1 is available."
@@ -91,11 +91,11 @@ msgstr "Otwórz stronę pobierania"
 
 #: package/contents/ui/ConfigAbout.qml:119
 msgid "Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Sensor Deck sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>."
-msgstr "Prywatność: sprawdzanie odbywa się tylko wtedy, gdy na to pozwolisz lub klikniesz „Sprawdź teraz”. Komputer pyta wtedy api.github.com o numer najnowszej wersji. GitHub widzi Twój adres IP, jak przy każdej wizycie na stronie; Sensor Deck nie wysyła żadnych innych danych i nie prowadzi statystyk. Szczegóły: <a href=\"%1\">oświadczenie o prywatności GitHuba</a>."
+msgstr "Prywatność: sprawdzanie odbywa się tylko wtedy, gdy jest dozwolone lub po kliknięciu „Sprawdź teraz”. Komputer pyta wtedy api.github.com o numer najnowszej wersji. GitHub widzi adres IP, jak przy każdej wizycie na stronie; Sensor Deck nie wysyła żadnych innych danych i nie prowadzi statystyk. Szczegóły: <a href=\"%1\">oświadczenie o prywatności GitHuba</a>."
 
 #: package/contents/ui/ConfigAbout.qml:128
 msgid "Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you."
-msgstr "Zainstalowano przez „Pobierz nowe widżety” lub Discover? Wtedy Discover instaluje aktualizacje za Ciebie – sprawdzanie tutaj tylko informuje."
+msgstr "Zainstalowano przez „Pobierz nowe widżety” lub Discover? Wtedy aktualizacje instaluje Discover – sprawdzanie tutaj tylko informuje."
 
 #: package/contents/ui/ConfigAlerts.qml:32
 msgid "Notifications:"
@@ -145,7 +145,7 @@ msgstr[2] "%1 minut"
 
 #: package/contents/ui/ConfigAlerts.qml:80
 msgid "A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page."
-msgstr "Powiadomienie jest wyzwalane, gdy wartość pozostaje powyżej progu przez ustawiony czas – krótkie skoki są ignorowane. Ponowne ostrzeżenie pojawia się dopiero wtedy, gdy wartość w międzyczasie spadnie poniżej progu o ustawiony margines – w jednostce czujnika, np. 3 °C lub 3 %. Powiadomienia krytyczne pozostają, dopóki ich nie zamkniesz, i pojawiają się także w trybie „Nie przeszkadzać”. Progi i przełącznik „Powiadamiaj” ustawia się dla każdego czujnika na stronie „Czujniki”."
+msgstr "Powiadomienie jest wyzwalane, gdy wartość pozostaje powyżej progu przez ustawiony czas – krótkie skoki są ignorowane. Ponowne ostrzeżenie pojawia się dopiero wtedy, gdy wartość w międzyczasie spadnie poniżej progu o ustawiony margines – w jednostce czujnika, np. 3 °C lub 3 %. Powiadomienia krytyczne pozostają do czasu ich zamknięcia i pojawiają się także w trybie „Nie przeszkadzać”. Progi i przełącznik „Powiadamiaj” ustawia się dla każdego czujnika na stronie „Czujniki”."
 
 #: package/contents/ui/ConfigAlerts.qml:83
 msgid "Graphics card fans"
@@ -347,7 +347,7 @@ msgstr "Przegląd systemu"
 
 #: package/contents/ui/ConfigSensors.qml:137
 msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
-msgstr "Domyślne kafelki dla twojego sprzętu: karta graficzna, procesor, pamięć, dyski SSD, wentylatory"
+msgstr "Domyślne kafelki dla tego sprzętu: karta graficzna, procesor, pamięć, dyski SSD, wentylatory"
 
 #: package/contents/ui/ConfigSensors.qml:140
 msgid "All graphics cards"
@@ -383,7 +383,7 @@ msgstr "Jest wczytany i niezmieniony."
 
 #: package/contents/ui/ConfigSensors.qml:209
 msgid "Clicking restores the template – your changes will be lost."
-msgstr "Kliknięcie przywraca szablon – twoje zmiany zostaną utracone."
+msgstr "Kliknięcie przywraca szablon – własne zmiany zostaną utracone."
 
 #: package/contents/ui/ConfigSensors.qml:210
 msgid "Clicking replaces all tiles with this template."
@@ -407,7 +407,7 @@ msgstr "Własny układ."
 
 #: package/contents/ui/ConfigSensors.qml:244
 msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
-msgstr "Szablon zastępuje wszystkie kafelki – „Przegląd systemu” przywraca domyślne kafelki dla twojego sprzętu. Zmiana obowiązuje dopiero po „Zastosuj”, „Anuluj” pozostawia wszystko bez zmian."
+msgstr "Szablon zastępuje wszystkie kafelki – „Przegląd systemu” przywraca domyślne kafelki dla tego sprzętu. Zmiana obowiązuje dopiero po „Zastosuj”, „Anuluj” pozostawia wszystko bez zmian."
 
 #: package/contents/ui/ConfigSensors.qml:256
 msgid "Main card:"
@@ -586,7 +586,7 @@ msgstr "Krzywa odniesienia:"
 
 #: package/contents/ui/ConfigSensors.qml:605
 msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
-msgstr "Opcjonalnie: punkty „temperatura:wentylator”, rysowane przerywaną linią – np. twoja krzywa z GreenWithEnvy lub CoolerControl. Ciągłej linii widżet uczy się sam z pomiarów."
+msgstr "Opcjonalnie: punkty „temperatura:wentylator”, rysowane przerywaną linią – np. krzywa z GreenWithEnvy lub CoolerControl. Ciągłej linii widżet uczy się sam z pomiarów."
 
 #: package/contents/ui/ConfigSensors.qml:617
 msgid "Add sensor"
@@ -728,11 +728,11 @@ msgstr "Bieżący pobór mocy procesora, uśredniony z jednej sekundy. Niski w s
 
 #: package/contents/ui/Explain.js:37
 msgid "How busy the 3D and compute unit of the graphics built into the processor is – games, desktop effects, browsers. Only programs of your user are counted."
-msgstr "Obciążenie jednostki 3D i obliczeniowej grafiki wbudowanej w procesor – gry, efekty pulpitu, przeglądarki. Liczone są tylko programy Twojego użytkownika."
+msgstr "Obciążenie jednostki 3D i obliczeniowej grafiki wbudowanej w procesor – gry, efekty pulpitu, przeglądarki. Liczone są tylko programy bieżącego użytkownika."
 
 #: package/contents/ui/Explain.js:39
 msgid "How busy the video unit of the graphics built into the processor is – playing, recording or converting videos. Only programs of your user are counted."
-msgstr "Obciążenie jednostki wideo grafiki wbudowanej w procesor – odtwarzanie, nagrywanie lub konwersja wideo. Liczone są tylko programy Twojego użytkownika."
+msgstr "Obciążenie jednostki wideo grafiki wbudowanej w procesor – odtwarzanie, nagrywanie lub konwersja wideo. Liczone są tylko programy bieżącego użytkownika."
 
 #: package/contents/ui/Explain.js:41
 msgid "Graphics built into the processor have no memory of their own – they use part of the main memory. This shows how much the programs using them occupy right now."
@@ -864,7 +864,7 @@ msgstr "Karta utrzymuje temperaturę docelową i w tym celu nieco obniża taktow
 
 #: package/contents/ui/Explain.js:112
 msgid "The card is too hot and slows down heavily. Check the cooling: dust, fans, case ventilation."
-msgstr "Karta jest zbyt gorąca i mocno zwalnia. Sprawdź chłodzenie: kurz, wentylatory, wentylację obudowy."
+msgstr "Karta jest zbyt gorąca i mocno zwalnia. Należy sprawdzić chłodzenie: kurz, wentylatory, wentylację obudowy."
 
 #: package/contents/ui/Explain.js:113
 msgid "The hardware is slowing down – usually due to overheating or a power supply problem."
@@ -872,7 +872,7 @@ msgstr "Sprzęt zwalnia – zwykle z powodu przegrzania lub problemu z zasilanie
 
 #: package/contents/ui/Explain.js:114
 msgid "The power supply reports a problem – check the PSU and power cables."
-msgstr "Zasilanie zgłasza problem – sprawdź zasilacz i kable zasilające."
+msgstr "Zasilanie zgłasza problem – należy sprawdzić zasilacz i kable zasilające."
 
 #: package/contents/ui/Explain.js:115
 msgid "The clock has been limited by a program or a setting."
@@ -940,7 +940,7 @@ msgstr "System"
 
 #: package/contents/ui/FullView.qml:281
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
-msgstr "Czy Sensor Deck ma szukać nowych wersji raz w tygodniu? Łączy się wtedy z github.com – GitHub widzi Twój adres IP, jak przy każdej wizycie na stronie; nic więcej nie jest wysyłane. Możesz to zmienić w dowolnym momencie w ustawieniach."
+msgstr "Czy Sensor Deck ma szukać nowych wersji raz w tygodniu? Łączy się wtedy z github.com – GitHub widzi adres IP, jak przy każdej wizycie na stronie; nic więcej nie jest wysyłane. Można to zmienić w dowolnym momencie w ustawieniach."
 
 #: package/contents/ui/FullView.qml:282
 msgid "Sensor Deck %1 is available (installed: %2)."
@@ -956,7 +956,7 @@ msgstr "Nie, dziękuję"
 
 #: package/contents/ui/FullView.qml:317
 msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
-msgstr "Przeciągnij kafelek, aby przesunąć go w obrębie jego sekcji. × usuwa kafelek, + dodaje nowy."
+msgstr "Przeciągnięcie kafelka przesuwa go w obrębie jego sekcji. × usuwa kafelek, + dodaje nowy."
 
 #: package/contents/ui/FullView.qml:321 package/contents/ui/FullView.qml:537
 #: package/contents/ui/main.qml:418
@@ -1010,7 +1010,7 @@ msgstr "Sekcje dla każdej karty graficznej"
 
 #: package/contents/ui/FullView.qml:612
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
-msgstr "Wskazówka: przytrzymaj puste miejsce – przesuń, zmień rozmiar, usuń widżet"
+msgstr "Wskazówka: przytrzymanie pustego miejsca – przesuwanie, zmiana rozmiaru, usuwanie widżetu"
 
 #: package/contents/ui/FullView.qml:643
 msgid "Edit in settings …"
@@ -1023,7 +1023,7 @@ msgstr "Sensor Deck"
 
 #: package/contents/ui/FullView.qml:720
 msgid "Suggestions for your hardware"
-msgstr "Propozycje dla Twojego sprzętu"
+msgstr "Propozycje dla tego sprzętu"
 
 #: package/contents/ui/FullView.qml:720
 msgid "No further suggestions"
@@ -1059,19 +1059,19 @@ msgstr "Wentylator %1"
 
 #: package/contents/ui/Hardware.js:212
 msgid "No fan sensors were found. Sensor Deck can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password."
-msgstr "Nie znaleziono czujników wentylatorów. Sensor Deck może skonfigurować obsługę czujników za Ciebie: zainstaluje pakiet „%1” i wykryje układ czujników płyty głównej. Zostaniesz poproszony o hasło."
+msgstr "Nie znaleziono czujników wentylatorów. Sensor Deck może skonfigurować obsługę czujników: zainstaluje pakiet „%1” i wykryje układ czujników płyty głównej. Wymagane będzie hasło."
 
 #: package/contents/ui/Hardware.js:214
 msgid "No fan sensors were found. Sensor Deck can detect the sensor chip of your mainboard and load its driver. You will be asked for your password."
-msgstr "Nie znaleziono czujników wentylatorów. Sensor Deck może wykryć układ czujników płyty głównej i załadować jego sterownik. Zostaniesz poproszony o hasło."
+msgstr "Nie znaleziono czujników wentylatorów. Sensor Deck może wykryć układ czujników płyty głównej i załadować jego sterownik. Wymagane będzie hasło."
 
 #: package/contents/ui/Hardware.js:217
 msgid "No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
-msgstr "Nie znaleziono czujników wentylatorów. W tym systemie programy instaluje się inaczej (system oparty na obrazie): dodaj „lm-sensors”, uruchom raz „sudo sensors-detect” i uruchom ponownie komputer – więcej w README, w sekcji „Mainboard sensors”."
+msgstr "Nie znaleziono czujników wentylatorów. W tym systemie programy instaluje się inaczej (system oparty na obrazie): należy dodać „lm-sensors”, raz uruchomić „sudo sensors-detect” i ponownie uruchomić komputer – więcej w README, w sekcji „Mainboard sensors”."
 
 #: package/contents/ui/Hardware.js:218
 msgid "No fan sensors were found. Install “lm-sensors” with your software center, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
-msgstr "Nie znaleziono czujników wentylatorów. Zainstaluj „lm-sensors” za pomocą menedżera oprogramowania, uruchom raz „sudo sensors-detect” i uruchom ponownie komputer – więcej w README, w sekcji „Mainboard sensors”."
+msgstr "Nie znaleziono czujników wentylatorów. Rozwiązanie: zainstalować „lm-sensors” za pomocą menedżera oprogramowania, raz uruchomić „sudo sensors-detect” i ponownie uruchomić komputer – więcej w README, w sekcji „Mainboard sensors”."
 
 #: package/contents/ui/Hardware.js:227
 msgid "Graphics card – details"
@@ -1440,7 +1440,7 @@ msgstr "Grafika wbudowana w procesor – korzysta z pamięci RAM, bez gniazda PC
 
 #: package/contents/ui/Reader.qml:234
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
-msgstr "Tylko ×%1 z ×%2 możliwych linii – sprawdź styk/gniazdo"
+msgstr "Tylko ×%1 z ×%2 możliwych linii – należy sprawdzić styk/gniazdo"
 
 #: package/contents/ui/Reader.qml:236
 msgid "Max. %1 · currently power saving"
@@ -1472,7 +1472,7 @@ msgstr "Nie znaleziono obsługiwanego układu czujników. Niektóre płyty głó
 
 #: package/contents/ui/SensorSetup.qml:46
 msgid "The installation did not work. Please install “%1” with your software center and try again."
-msgstr "Instalacja nie powiodła się. Zainstaluj „%1” za pomocą menedżera oprogramowania i spróbuj ponownie."
+msgstr "Instalacja nie powiodła się. Należy zainstalować „%1” za pomocą menedżera oprogramowania i spróbować ponownie."
 
 #: package/contents/ui/SensorSetup.qml:48
 msgid "Cancelled – nothing was changed."
@@ -1516,7 +1516,7 @@ msgstr "%1: wentylator się nie kręci"
 
 #: package/contents/ui/SensorSource.qml:294
 msgid "Check whether something blocks it or a cable came loose."
-msgstr "Sprawdź, czy coś go nie blokuje i czy nie odłączył się kabel."
+msgstr "Być może coś go blokuje lub odłączył się kabel."
 
 #: package/contents/ui/SensorSource.qml:299
 msgid "%1 critical: %2"
@@ -1592,7 +1592,7 @@ msgstr "Którą kartę graficzną ma pokazywać widżet?"
 
 #: package/contents/ui/SetupWizard.qml:135
 msgid "You can choose several cards – each then gets its own colour-coded section."
-msgstr "Możesz wybrać kilka kart – każda otrzyma wtedy własną sekcję oznaczoną kolorem."
+msgstr "Można wybrać kilka kart – każda otrzyma wtedy własną sekcję oznaczoną kolorem."
 
 #: package/contents/ui/SetupWizard.qml:136
 msgid "All tile values will then refer to this card."
@@ -1604,7 +1604,7 @@ msgstr "Wyszukiwanie kart graficznych …"
 
 #: package/contents/ui/SetupWizard.qml:152
 msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
-msgstr "Nie znaleziono obsługiwanej karty graficznej. Możesz mimo to kontynuować i pokazywać CPU, RAM itp."
+msgstr "Nie znaleziono obsługiwanej karty graficznej. Mimo to można kontynuować i pokazywać CPU, RAM itp."
 
 #: package/contents/ui/SetupWizard.qml:213
 msgid "PCI %1 · driver %2"
@@ -1701,7 +1701,7 @@ msgstr "Wartość:"
 #: package/contents/ui/SourceEditor.qml:69
 #: package/contents/ui/SourceEditor.qml:85
 msgid "Please choose …"
-msgstr "Wybierz …"
+msgstr "Proszę wybrać …"
 
 #: package/contents/ui/SourceEditor.qml:90
 msgid "Device:"
