@@ -16,7 +16,10 @@ Item {
     // ---- size & columns -------------------------------------------------------
     // columns: 0 = automatic. fitToSize (desktop only): shrink the tiles until
     // everything fits without scrolling – never above the configured size.
-    readonly property real userScale: Plasmoid.configuration.tileScale / 100
+    // size slider: while the settings are open their preview value wins
+    readonly property real userScale: (Plasmoid.configuration.tileScalePreview > 0
+                                       ? Plasmoid.configuration.tileScalePreview
+                                       : Plasmoid.configuration.tileScale) / 100
     readonly property bool inPopup: Plasmoid.formFactor === PlasmaCore.Types.Horizontal
                                     || Plasmoid.formFactor === PlasmaCore.Types.Vertical
     readonly property bool autoCols: Plasmoid.configuration.columns <= 0
@@ -559,6 +562,50 @@ Item {
         icon.name: "configure"
         onTriggered: Plasmoid.internalAction("configure").trigger()
     }
+    // submenu with one checkable entry per value of a setting; applies at once
+    component ChoiceMenu: QQC2.Menu {
+        id: choice
+        popupType: QQC2.Popup.Window
+        property var options: []         // [{ text, value }]
+        property string current: ""
+        signal chosen(string value)
+        Instantiator {
+            model: choice.options
+            delegate: QQC2.MenuItem {
+                id: opt
+                required property var modelData
+                text: modelData.text
+                checkable: true
+                checked: choice.current === modelData.value
+                // clicking breaks the binding – restore it
+                onTriggered: { choice.chosen(modelData.value); opt.checked = Qt.binding(() => choice.current === opt.modelData.value); }
+            }
+            onObjectAdded: (index, object) => choice.insertItem(index, object)
+            onObjectRemoved: (index, object) => choice.removeItem(object)
+        }
+    }
+    component TileStyleMenu: ChoiceMenu {
+        title: i18n("Tile style")
+        icon.name: "preferences-desktop-color"
+        options: [
+            { text: i18n("Glass (subtle)"), value: "glass" },
+            { text: i18n("Filled"), value: "solid" },
+            { text: i18n("Outline (accent colour)"), value: "outline" }
+        ]
+        current: Plasmoid.configuration.tileStyle || "glass"
+        onChosen: value => Plasmoid.configuration.tileStyle = value
+    }
+    component SectionsMenu: ChoiceMenu {
+        title: i18n("Sections per graphics card")
+        icon.name: "view-split-top-bottom"
+        options: [
+            { text: i18n("From two graphics cards"), value: "auto" },
+            { text: i18n("Always (even with one card)"), value: "always" },
+            { text: i18n("Never (several cards: coloured edge)"), value: "never" }
+        ]
+        current: full.sectionMode
+        onChosen: value => Plasmoid.configuration.gpuSectionMode = value
+    }
 
     // hint where Plasma's own widget actions are (only where its handle exists)
     component HandleHintItem: HidingItem {
@@ -648,6 +695,8 @@ Item {
         EditModeItem { }
         UndoMoveItem { }
         ResetOrderItem { }
+        TileStyleMenu { }
+        SectionsMenu { }
         ConfigureItem { }
         HandleHintItem { }
     }
@@ -708,6 +757,8 @@ Item {
         UndoMoveItem { }
         ResetOrderItem { }
         QQC2.MenuSeparator { }
+        TileStyleMenu { }
+        SectionsMenu { }
         ConfigureItem { }
         HandleHintItem { }
     }

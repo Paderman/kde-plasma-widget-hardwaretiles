@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "センサー"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:632
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:680
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:601
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:649
 msgid "Appearance"
 msgstr "外観"
 
@@ -195,14 +195,17 @@ msgid "Tile style:"
 msgstr "タイルのスタイル:"
 
 #: package/contents/ui/ConfigAppearance.qml:52
+#: package/contents/ui/FullView.qml:588
 msgid "Glass (subtle)"
 msgstr "ガラス(控えめ)"
 
 #: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/FullView.qml:589
 msgid "Filled"
 msgstr "塗りつぶし"
 
 #: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:590
 msgid "Outline (accent colour)"
 msgstr "枠線(アクセントカラー)"
 
@@ -215,14 +218,17 @@ msgid "Sections per graphics card:"
 msgstr "グラフィックカードごとのセクション:"
 
 #: package/contents/ui/ConfigAppearance.qml:75
+#: package/contents/ui/FullView.qml:599
 msgid "From two graphics cards"
 msgstr "グラフィックカードが 2 枚以上のとき"
 
 #: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/FullView.qml:600
 msgid "Always (even with one card)"
 msgstr "常に(1 枚でも)"
 
 #: package/contents/ui/ConfigAppearance.qml:77
+#: package/contents/ui/FullView.qml:601
 msgid "Never (several cards: coloured edge)"
 msgstr "表示しない(複数枚: 色付きの縁)"
 
@@ -271,22 +277,22 @@ msgid "Only affects the settings on this page – your sensor tiles and notifica
 msgstr "このページの設定のみが対象です – センサータイルと通知は保持されます。"
 
 #: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:653
 msgid "Ring"
 msgstr "リング"
 
 #: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:610
+#: package/contents/ui/FullView.qml:658
 msgid "Bar"
 msgstr "バー"
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:615
+#: package/contents/ui/FullView.qml:663
 msgid "History graph"
 msgstr "履歴グラフ"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:668
 msgid "Value only"
 msgstr "値のみ"
 
@@ -469,7 +475,7 @@ msgid "Style:"
 msgstr "スタイル:"
 
 #: package/contents/ui/ConfigSensors.qml:486
-#: package/contents/ui/FullView.qml:625
+#: package/contents/ui/FullView.qml:673
 msgid "Double width"
 msgstr "2 倍幅"
 
@@ -947,36 +953,44 @@ msgstr "元の配置に戻す"
 msgid "Configure Sensor Deck …"
 msgstr "Sensor Deck を設定 …"
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:585
+msgid "Tile style"
+msgstr "タイルのスタイル"
+
+#: package/contents/ui/FullView.qml:596
+msgid "Sections per graphics card"
+msgstr "グラフィックカードごとのセクション"
+
+#: package/contents/ui/FullView.qml:609
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "ヒント: 空いている場所を長押し – ウィジェットの移動・サイズ変更・削除"
 
-#: package/contents/ui/FullView.qml:594
+#: package/contents/ui/FullView.qml:640
 msgid "Edit in settings …"
 msgstr "設定で編集 …"
 
-#: package/contents/ui/FullView.qml:641 package/contents/ui/FullView.qml:696
+#: package/contents/ui/FullView.qml:689 package/contents/ui/FullView.qml:750
 #: package/contents/ui/main.qml:436
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "Suggestions for your hardware"
 msgstr "お使いのハードウェア向けの候補"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "No further suggestions"
 msgstr "これ以上の候補はありません"
 
-#: package/contents/ui/FullView.qml:684
+#: package/contents/ui/FullView.qml:736
 msgid "Own tile …"
 msgstr "カスタムタイル …"
 
-#: package/contents/ui/FullView.qml:765
+#: package/contents/ui/FullView.qml:821
 msgid "No sensors configured"
 msgstr "センサーが設定されていません"
 
-#: package/contents/ui/FullView.qml:771
+#: package/contents/ui/FullView.qml:827
 msgid "Configure …"
 msgstr "設定 …"
 

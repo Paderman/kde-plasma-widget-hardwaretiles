@@ -169,6 +169,8 @@ PlasmoidItem {
     }
     onAllCfgsChanged: syncSources()
     Component.onCompleted: {
+        // a size preview left over (settings were open when Plasma stopped)
+        Plasmoid.configuration.tileScalePreview = 0;
         // existing widgets already have a layout: don't show the wizard there
         if (!Plasmoid.configuration.setupDone && Plasmoid.configuration.items !== "")
             Plasmoid.configuration.setupDone = true;

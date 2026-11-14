@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensores"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:632
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:680
 msgid "Notifications"
 msgstr "Notificaciones"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:601
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:649
 msgid "Appearance"
 msgstr "Apariencia"
 
@@ -197,14 +197,17 @@ msgid "Tile style:"
 msgstr "Estilo de mosaico:"
 
 #: package/contents/ui/ConfigAppearance.qml:52
+#: package/contents/ui/FullView.qml:588
 msgid "Glass (subtle)"
 msgstr "Cristal (discreto)"
 
 #: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/FullView.qml:589
 msgid "Filled"
 msgstr "Relleno"
 
 #: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:590
 msgid "Outline (accent colour)"
 msgstr "Contorno (color de acento)"
 
@@ -217,14 +220,17 @@ msgid "Sections per graphics card:"
 msgstr "Secciones por tarjeta gráfica:"
 
 #: package/contents/ui/ConfigAppearance.qml:75
+#: package/contents/ui/FullView.qml:599
 msgid "From two graphics cards"
 msgstr "A partir de dos tarjetas gráficas"
 
 #: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/FullView.qml:600
 msgid "Always (even with one card)"
 msgstr "Siempre (incluso con una tarjeta)"
 
 #: package/contents/ui/ConfigAppearance.qml:77
+#: package/contents/ui/FullView.qml:601
 msgid "Never (several cards: coloured edge)"
 msgstr "Nunca (varias tarjetas: borde de color)"
 
@@ -273,22 +279,22 @@ msgid "Only affects the settings on this page – your sensor tiles and notifica
 msgstr "Solo afecta a la configuración de esta página; tus mosaicos de sensores y notificaciones se conservan."
 
 #: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:653
 msgid "Ring"
 msgstr "Anillo"
 
 #: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:610
+#: package/contents/ui/FullView.qml:658
 msgid "Bar"
 msgstr "Barra"
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:615
+#: package/contents/ui/FullView.qml:663
 msgid "History graph"
 msgstr "Gráfico de historial"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:668
 msgid "Value only"
 msgstr "Solo valor"
 
@@ -471,7 +477,7 @@ msgid "Style:"
 msgstr "Estilo:"
 
 #: package/contents/ui/ConfigSensors.qml:486
-#: package/contents/ui/FullView.qml:625
+#: package/contents/ui/FullView.qml:673
 msgid "Double width"
 msgstr "Doble ancho"
 
@@ -949,36 +955,44 @@ msgstr "Restaurar disposición original"
 msgid "Configure Sensor Deck …"
 msgstr "Configurar Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:585
+msgid "Tile style"
+msgstr "Estilo de mosaico"
+
+#: package/contents/ui/FullView.qml:596
+msgid "Sections per graphics card"
+msgstr "Secciones por tarjeta gráfica"
+
+#: package/contents/ui/FullView.qml:609
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Consejo: mantén pulsado un espacio vacío – mover, redimensionar, quitar el widget"
 
-#: package/contents/ui/FullView.qml:594
+#: package/contents/ui/FullView.qml:640
 msgid "Edit in settings …"
 msgstr "Editar en la configuración …"
 
-#: package/contents/ui/FullView.qml:641 package/contents/ui/FullView.qml:696
+#: package/contents/ui/FullView.qml:689 package/contents/ui/FullView.qml:750
 #: package/contents/ui/main.qml:436
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "Suggestions for your hardware"
 msgstr "Sugerencias para tu hardware"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "No further suggestions"
 msgstr "No hay más sugerencias"
 
-#: package/contents/ui/FullView.qml:684
+#: package/contents/ui/FullView.qml:736
 msgid "Own tile …"
 msgstr "Mosaico propio …"
 
-#: package/contents/ui/FullView.qml:765
+#: package/contents/ui/FullView.qml:821
 msgid "No sensors configured"
 msgstr "No hay sensores configurados"
 
-#: package/contents/ui/FullView.qml:771
+#: package/contents/ui/FullView.qml:827
 msgid "Configure …"
 msgstr "Configurar …"
 

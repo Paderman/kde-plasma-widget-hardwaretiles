@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Датчики"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:632
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:680
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:601
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:649
 msgid "Appearance"
 msgstr "Внешний вид"
 
@@ -199,14 +199,17 @@ msgid "Tile style:"
 msgstr "Стиль плиток:"
 
 #: package/contents/ui/ConfigAppearance.qml:52
+#: package/contents/ui/FullView.qml:588
 msgid "Glass (subtle)"
 msgstr "Стекло (неброский)"
 
 #: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/FullView.qml:589
 msgid "Filled"
 msgstr "Заливка"
 
 #: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:590
 msgid "Outline (accent colour)"
 msgstr "Контур (цвет акцента)"
 
@@ -219,14 +222,17 @@ msgid "Sections per graphics card:"
 msgstr "Разделы для каждой видеокарты:"
 
 #: package/contents/ui/ConfigAppearance.qml:75
+#: package/contents/ui/FullView.qml:599
 msgid "From two graphics cards"
 msgstr "От двух видеокарт"
 
 #: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/FullView.qml:600
 msgid "Always (even with one card)"
 msgstr "Всегда (даже с одной картой)"
 
 #: package/contents/ui/ConfigAppearance.qml:77
+#: package/contents/ui/FullView.qml:601
 msgid "Never (several cards: coloured edge)"
 msgstr "Никогда (несколько карт: цветная кромка)"
 
@@ -275,22 +281,22 @@ msgid "Only affects the settings on this page – your sensor tiles and notifica
 msgstr "Затрагивает только настройки на этой странице – плитки датчиков и уведомления сохраняются."
 
 #: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:653
 msgid "Ring"
 msgstr "Кольцо"
 
 #: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:610
+#: package/contents/ui/FullView.qml:658
 msgid "Bar"
 msgstr "Полоса"
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:615
+#: package/contents/ui/FullView.qml:663
 msgid "History graph"
 msgstr "График истории"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:668
 msgid "Value only"
 msgstr "Только значение"
 
@@ -473,7 +479,7 @@ msgid "Style:"
 msgstr "Стиль:"
 
 #: package/contents/ui/ConfigSensors.qml:486
-#: package/contents/ui/FullView.qml:625
+#: package/contents/ui/FullView.qml:673
 msgid "Double width"
 msgstr "Двойная ширина"
 
@@ -951,36 +957,44 @@ msgstr "Восстановить исходное расположение"
 msgid "Configure Sensor Deck …"
 msgstr "Настроить Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:585
+msgid "Tile style"
+msgstr "Стиль плиток"
+
+#: package/contents/ui/FullView.qml:596
+msgid "Sections per graphics card"
+msgstr "Разделы для каждой видеокарты"
+
+#: package/contents/ui/FullView.qml:609
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Совет: долгое нажатие на пустом месте – переместить, изменить размер, удалить виджет"
 
-#: package/contents/ui/FullView.qml:594
+#: package/contents/ui/FullView.qml:640
 msgid "Edit in settings …"
 msgstr "Изменить в настройках …"
 
-#: package/contents/ui/FullView.qml:641 package/contents/ui/FullView.qml:696
+#: package/contents/ui/FullView.qml:689 package/contents/ui/FullView.qml:750
 #: package/contents/ui/main.qml:436
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "Suggestions for your hardware"
 msgstr "Предложения для вашего оборудования"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "No further suggestions"
 msgstr "Других предложений нет"
 
-#: package/contents/ui/FullView.qml:684
+#: package/contents/ui/FullView.qml:736
 msgid "Own tile …"
 msgstr "Своя плитка …"
 
-#: package/contents/ui/FullView.qml:765
+#: package/contents/ui/FullView.qml:821
 msgid "No sensors configured"
 msgstr "Датчики не настроены"
 
-#: package/contents/ui/FullView.qml:771
+#: package/contents/ui/FullView.qml:827
 msgid "Configure …"
 msgstr "Настроить …"
 

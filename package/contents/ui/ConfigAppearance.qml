@@ -6,6 +6,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.plasma.plasmoid
 import "Defaults.js" as Defaults
 
 KCM.SimpleKCM {
@@ -62,6 +63,9 @@ KCM.SimpleKCM {
                 id: scale
                 from: 60; to: 180; stepSize: 5
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                // live preview in the widget; stored only with OK / Apply
+                onValueChanged: Plasmoid.configuration.tileScalePreview = Math.round(value)
+                Component.onDestruction: Plasmoid.configuration.tileScalePreview = 0
             }
             QQC2.Label { text: Math.round(scale.value) + " %" }
         }

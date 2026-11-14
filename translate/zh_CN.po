@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "传感器"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:632
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:680
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:601
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:649
 msgid "Appearance"
 msgstr "外观"
 
@@ -195,14 +195,17 @@ msgid "Tile style:"
 msgstr "磁贴样式:"
 
 #: package/contents/ui/ConfigAppearance.qml:52
+#: package/contents/ui/FullView.qml:588
 msgid "Glass (subtle)"
 msgstr "玻璃(低调)"
 
 #: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/FullView.qml:589
 msgid "Filled"
 msgstr "填充"
 
 #: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:590
 msgid "Outline (accent colour)"
 msgstr "轮廓(强调色)"
 
@@ -215,14 +218,17 @@ msgid "Sections per graphics card:"
 msgstr "每块显卡的分区:"
 
 #: package/contents/ui/ConfigAppearance.qml:75
+#: package/contents/ui/FullView.qml:599
 msgid "From two graphics cards"
 msgstr "两块及以上显卡时"
 
 #: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/FullView.qml:600
 msgid "Always (even with one card)"
 msgstr "始终(即使只有一块)"
 
 #: package/contents/ui/ConfigAppearance.qml:77
+#: package/contents/ui/FullView.qml:601
 msgid "Never (several cards: coloured edge)"
 msgstr "从不(多块显卡:彩色边缘)"
 
@@ -271,22 +277,22 @@ msgid "Only affects the settings on this page – your sensor tiles and notifica
 msgstr "仅影响此页面上的设置 – 传感器磁贴和通知将保留。"
 
 #: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:653
 msgid "Ring"
 msgstr "圆环"
 
 #: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:610
+#: package/contents/ui/FullView.qml:658
 msgid "Bar"
 msgstr "条形"
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:615
+#: package/contents/ui/FullView.qml:663
 msgid "History graph"
 msgstr "历史图表"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:668
 msgid "Value only"
 msgstr "仅数值"
 
@@ -469,7 +475,7 @@ msgid "Style:"
 msgstr "样式:"
 
 #: package/contents/ui/ConfigSensors.qml:486
-#: package/contents/ui/FullView.qml:625
+#: package/contents/ui/FullView.qml:673
 msgid "Double width"
 msgstr "双倍宽度"
 
@@ -947,36 +953,44 @@ msgstr "恢复原始排列"
 msgid "Configure Sensor Deck …"
 msgstr "配置 Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:585
+msgid "Tile style"
+msgstr "磁贴样式"
+
+#: package/contents/ui/FullView.qml:596
+msgid "Sections per graphics card"
+msgstr "每块显卡的分区"
+
+#: package/contents/ui/FullView.qml:609
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "提示:在空白处长按 – 移动、调整大小、移除小部件"
 
-#: package/contents/ui/FullView.qml:594
+#: package/contents/ui/FullView.qml:640
 msgid "Edit in settings …"
 msgstr "在设置中编辑 …"
 
-#: package/contents/ui/FullView.qml:641 package/contents/ui/FullView.qml:696
+#: package/contents/ui/FullView.qml:689 package/contents/ui/FullView.qml:750
 #: package/contents/ui/main.qml:436
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "Suggestions for your hardware"
 msgstr "适合您硬件的建议"
 
-#: package/contents/ui/FullView.qml:665
+#: package/contents/ui/FullView.qml:717
 msgid "No further suggestions"
 msgstr "没有更多建议"
 
-#: package/contents/ui/FullView.qml:684
+#: package/contents/ui/FullView.qml:736
 msgid "Own tile …"
 msgstr "自定义磁贴 …"
 
-#: package/contents/ui/FullView.qml:765
+#: package/contents/ui/FullView.qml:821
 msgid "No sensors configured"
 msgstr "未配置传感器"
 
-#: package/contents/ui/FullView.qml:771
+#: package/contents/ui/FullView.qml:827
 msgid "Configure …"
 msgstr "设置 …"
 
