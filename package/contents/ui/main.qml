@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 import "Defaults.js" as Defaults
 import "Hardware.js" as Hardware
 import "UpdateCheck.js" as UpdateCheck
+import "NvidiaKeys.js" as NK
 
 PlasmoidItem {
     id: root
@@ -121,6 +122,9 @@ PlasmoidItem {
             return out.sort((a, b) => a - b);
         }
         active: indices.length > 0
+        fanWatch: Plasmoid.configuration.fanWatch
+        fanSlowPercent: Plasmoid.configuration.fanSlowPercent
+        fansActive: users.some(it => it.source === "nvidia" && NK.fanNo(it.key) >= 0)
     }
 
     // ---- data sources, keyed by tile id ------------------------------------
@@ -295,6 +299,7 @@ PlasmoidItem {
         if (!probe.ready) return [];
         const opts = Hardware.defaultOptions();
         for (const k in opts) opts[k] = true;
+        opts.fansEach = true;
         const gpus = probe.gpus.length ? probe.gpus : [gpu];
         return Hardware.build(gpus.length > 1 ? gpus : gpus[0], opts, probe.hw, tr);
     }

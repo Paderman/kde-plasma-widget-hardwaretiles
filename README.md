@@ -27,6 +27,7 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
   (incl. whether card or slot limits it) – NVIDIA via `nvidia-smi`, AMD/Intel via ksystemstats
 - **Several graphics cards**: one colour-coded section per card, comparison tiles
 - **Fan curve** that learns from real measurements and is kept across restarts
+- **Measured GPU fan speeds** (RPM, per fan) – the tile turns red and notifies once if a fan stands still although the card wants it to turn
 - **System**: CPU, memory, SSD temperatures, disk usage, mainboard fans and temperature, network
 - **Setup wizard** that detects your hardware, plus layout templates
   (“System overview”, “GPU focus”, “All graphics cards”) that show whether you changed them
@@ -38,7 +39,8 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 ## Requirements
 
 - KDE Plasma 6 with **ksystemstats** (part of Plasma)
-- Optional: `nvidia-smi` (NVIDIA driver) for the detailed NVIDIA values
+- Optional: `nvidia-smi` (NVIDIA driver) for the detailed NVIDIA values, and `python3` for the
+  measured fan speeds of NVIDIA cards (read from the driver library, standard library only)
 - Optional: `lm-sensors` (`sensors`, for fan names from `sensors.conf` and `sensors-detect`) and
   `pciutils` (`lspci`, for graphics card names)
 - Optional: `gettext` to build the translations when installing from source

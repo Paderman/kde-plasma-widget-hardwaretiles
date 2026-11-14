@@ -26,6 +26,7 @@ und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs u
   (inkl. ob Karte oder Slot begrenzt) – NVIDIA über `nvidia-smi`, AMD/Intel über ksystemstats
 - **Mehrere Grafikkarten**: je Karte ein farbig markierter Abschnitt, Vergleichskacheln
 - **Lüfterkurve**, die aus echten Messwerten lernt und Neustarts übersteht
+- **Gemessene GPU-Lüfterdrehzahl** (U/min, je Lüfter) – steht ein Lüfter still, obwohl die Karte ihn braucht, wird die Kachel rot und es kommt eine Benachrichtigung
 - **System**: Prozessor, Arbeitsspeicher, SSD-Temperaturen, Speicherplatz, Mainboard-Lüfter und -Temperatur, Netzwerk
 - **Einrichtungsassistent** mit Hardware-Erkennung sowie Layout-Vorlagen, die anzeigen, ob du sie verändert hast
 - **Desktop-Benachrichtigungen** bei kritischen Werten

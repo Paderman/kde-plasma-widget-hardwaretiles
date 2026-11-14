@@ -52,8 +52,35 @@ Item {
     property real cmdValue: NaN
     property bool cmdOk: false
 
-    readonly property var nvDecoded: isNvidia && nvidia && gpuIndex >= 0 && nvidia.hasGpu(gpuIndex)
-                                     ? nvidia.decoded(key, gpuIndex) : ({ value: NaN, text: "" })
+    readonly property var nvDecoded: !isNvidia || !nvidia || gpuIndex < 0 ? ({ value: NaN, text: "" })
+        : nvMeta.nvml ? ({ value: nvidia.fanRpm(gpuIndex, fanNo), text: "" })
+        : nvidia.hasGpu(gpuIndex) ? nvidia.decoded(key, gpuIndex) : ({ value: NaN, text: "" })
+
+    // ---- fans of an NVIDIA card (fan.speed, fan.rpm, fan.rpm.N)
+    readonly property int fanNo: isNvidia ? NK.fanNo(key) : -1
+    readonly property var fanList: fanNo >= 0 && nvidia && gpuIndex >= 0 ? nvidia.fanList(gpuIndex) : []
+    // fans that should turn but stand still – nvidia-smi cannot see that
+    readonly property var stuckFans: fanNo >= 0 && nvidia && gpuIndex >= 0 ? nvidia.stuckFans(gpuIndex, fanNo) : []
+    readonly property string stuckText: !stuckFans.length ? ""
+        // xgettext:no-javascript-format
+        : fanList.length === 1 ? i18n("The fan is not turning, although the card wants %1 %.", stuckFans[0].target)
+        // xgettext:no-javascript-format
+        : stuckFans.length === 1 ? i18n("Fan %1 is not turning, although the card wants %2 %.", stuckFans[0].no, stuckFans[0].target)
+        : i18n("Fans %1 are not turning, although the card wants them to.", stuckFans.map(f => f.no).join(", "))
+    // fans that turn, but clearly slower than another fan of the card at the same target
+    readonly property var slowFans: fanNo >= 0 && nvidia && gpuIndex >= 0 && !stuckFans.length ? nvidia.slowFans(gpuIndex, fanNo) : []
+    function rpmText(v) { return Math.round(v).toLocaleString(Qt.locale(), "f", 0) + " " + i18n("RPM"); }
+    readonly property string slowText: !slowFans.length ? ""
+        : i18n("Fan %1 runs much slower than fan %2 (%3 instead of %4).", slowFans[0].fan.no, slowFans[0].ref.no,
+               rpmText(slowFans[0].fan.rpm), rpmText(slowFans[0].ref.rpm))
+    // what is wrong with the fans (shown under the value, used for notifications)
+    readonly property string fanText: stuckText || slowText
+    // tooltip: every fan with its measured speed
+    readonly property string fansText: {
+        const l = fanList.filter(f => f.rpm >= 0 && (fanNo <= 0 || f.no === fanNo));
+        if (!l.length || (fanNo > 0 && !nvMeta.nvml)) return "";
+        return l.map(f => i18n("Fan %1: %2", f.no, rpmText(f.rpm) + (f.pct >= 0 ? " (" + f.pct + " %)" : ""))).join("\n");
+    }
 
     readonly property real value: !enabled_ ? NaN
         : isPcie ? (pcie.ok ? pcie.curWidth : NaN)
@@ -101,7 +128,7 @@ Item {
     // key of an nvidia field that is the natural maximum (e.g. memory.total)
     readonly property string nvMaxKey: isNvidia && nvMeta.maxKey ? nvMeta.maxKey : ""
 
-    readonly property string effUnit: isCommand ? unit : isNvidia ? (nvMeta.unit || "") : isIgpu ? (igpuClock ? "MHz" : igpuMemory ? "MiB" : "%") : ""
+    readonly property string effUnit: isCommand ? unit : isNvidia ? (nvMeta.nvml ? i18n(nvMeta.unit) : (nvMeta.unit || "")) : isIgpu ? (igpuClock ? "MHz" : igpuMemory ? "MiB" : "%") : ""
 
     // unit text of a ksystemstats value, taken from its formatted string ("52 °C" -> "°C")
     readonly property string sensorUnit: {
@@ -130,13 +157,14 @@ Item {
     // texts like "P2" or "Power-Limit" are shown as-is
     readonly property bool isText: isPcie || (isNvidia && nvDecoded.text !== "")
     // extra line under the value (e.g. PCIe: what card and slot can do)
-    readonly property string detail: isPcie ? pcie.detail : ""
+    readonly property string detail: isPcie ? pcie.detail : fanText
     readonly property bool integrated: isPcie && pcie.integrated
     // device name shown above the value (PCIe: graphics card)
     readonly property string subtitle: isPcie ? pcie.gpuName : ""
     readonly property string subtitleInfo: isPcie ? pcie.gpuInfo : ""
     // -1 = none; otherwise forces at least this level (PCIe: missing lanes -> 1)
-    readonly property int forcedLevel: isPcie && pcie.ok && pcie.curWidth > 0 && pcie.curWidth < pcie.possibleWidth ? 1 : -1
+    readonly property int forcedLevel: isPcie && pcie.ok && pcie.curWidth > 0 && pcie.curWidth < pcie.possibleWidth ? 1
+                                     : stuckFans.length ? 2 : slowFans.length ? 1 : -1
 
     // ---------------------------------------------------------- ksystemstats
     Sensors.Sensor {

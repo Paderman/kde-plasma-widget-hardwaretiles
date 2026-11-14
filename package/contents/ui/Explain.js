@@ -53,6 +53,8 @@ function about(cfg, translate) {
         return tr("Hottest spot on the graphics chip. Usually 10–20 °C above the GPU temperature.");
     if (is(cfg, "temperature.gpu", /^gpu\/[^/]+\/temperature$/))
         return tr("Temperature of the graphics chip. 60–80 °C under load is normal.");
+    if (cfg.source === "nvidia" && /^fan\.rpm/.test(cfg.key || ""))
+        return tr("Measured speed of the graphics card fans in revolutions per minute. 0 when idle is normal for cards that switch their fans off – if the card wants them to turn and they do not, the tile turns red.");
     if (is(cfg, "fan.speed", /^lmsensors\/(\{gpuhwmon\}|amdgpu[^/]*)\/fan\d+$/))
         return tr("Speed of the graphics card fans. 0 when idle is normal – many cards switch the fans off completely then.");
     if (is(cfg, "utilization.gpu", /^gpu\/[^/]+\/usage$/))

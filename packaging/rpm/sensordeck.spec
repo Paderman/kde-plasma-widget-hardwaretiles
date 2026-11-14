@@ -17,6 +17,7 @@ BuildRequires:  gettext
 Requires:       (plasma-workspace >= 6.0 or plasma6-workspace)
 Recommends:     (lm_sensors or sensors)
 Recommends:     pciutils
+Suggests:       python3
 
 %description
 Sensor Deck shows the graphics card in detail – VRAM temperature, throttling

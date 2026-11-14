@@ -17,6 +17,8 @@ KCM.SimpleKCM {
     property alias cfg_alertDelay: delay.value
     property alias cfg_alertCooldown: cooldown.value
     property alias cfg_alertHysteresis: hyst.value
+    property alias cfg_fanWatch: fanBox.checked
+    property alias cfg_fanSlowPercent: fanSlow.value
 
     // only this page's values (thresholds per sensor stay); saved with "Anwenden"
     function resetToDefaults() {
@@ -76,6 +78,31 @@ KCM.SimpleKCM {
             wrapMode: Text.WordWrap
             opacity: 0.7
             text: i18n("A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page.")
+        }
+
+        Item { Kirigami.FormData.isSection: true; Kirigami.FormData.label: i18n("Graphics card fans") }
+
+        QQC2.CheckBox {
+            id: fanBox
+            Kirigami.FormData.label: i18n("Monitor fans:")
+            text: i18n("Warn when a fan stands still or runs too slowly")
+        }
+        QQC2.SpinBox {
+            wheelEnabled: false   // scrolling the page must not change the value
+            id: fanSlow
+            enabled: fanBox.checked
+            Kirigami.FormData.label: i18n("Too slow below:")
+            from: 0; to: 90; stepSize: 5
+            textFromValue: (v) => v === 0 ? i18n("Off (standstill only)")
+                // xgettext:no-javascript-format
+                : i18n("%1 % of the fastest fan", v)
+            valueFromText: (t) => parseInt(t) || 0
+        }
+        QQC2.Label {
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
+            wrapMode: Text.WordWrap
+            opacity: 0.7
+            text: i18n("For NVIDIA cards whose driver reports the measured fan speed. A fan that stands still for 15 seconds although the card wants it to turn is critical. A fan that runs clearly slower than the other fans of the card at the same setting for 30 seconds is a warning – the comparison needs at least two fans. Fans that the card switches off when idle do not trigger anything.")
         }
 
         Item { Kirigami.FormData.isSection: true }

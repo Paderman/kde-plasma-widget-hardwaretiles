@@ -157,6 +157,7 @@ Rectangle {
             }
             if (card.src.detailText) lines.push(card.src.detailText);
             if (card.src.reader.clientsText) lines.push(card.src.reader.clientsText);
+            if (card.src.reader.fansText) lines.push(card.src.reader.fansText);
             // plain-language part: what it measures, what the value means, thresholds
             const explain = [];
             if (about) explain.push(about);

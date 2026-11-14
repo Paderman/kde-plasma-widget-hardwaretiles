@@ -45,6 +45,10 @@
     <entry name="alertDelay" type="Int"><default>5</default></entry>
     <entry name="alertCooldown" type="Int"><default>10</default></entry>
     <entry name="alertHysteresis" type="Int"><default>3</default></entry>
+    <!-- graphics card fans (NVIDIA): warn when a fan stands still although the card wants it to turn,
+         or runs slower than fanSlowPercent % of the fastest fan of the card at the same target -->
+    <entry name="fanWatch" type="Bool"><default>true</default></entry>
+    <entry name="fanSlowPercent" type="Int"><default>50</default></entry>
     <!-- update check: off until the user agrees; updateAsked = the question was answered -->
     <entry name="updateCheck" type="Bool"><default>false</default></entry>
     <entry name="updateAsked" type="Bool"><default>false</default></entry>

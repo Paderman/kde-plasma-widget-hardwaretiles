@@ -36,7 +36,7 @@ Maintainer: Paderman <https://github.com/Paderman>
 Installed-Size: $SIZE
 Depends: plasma-workspace (>= 4:6.0) | plasma-workspace (>= 6.0)
 Recommends: lm-sensors, pciutils
-Suggests: nvidia-smi
+Suggests: nvidia-smi, python3
 Section: kde
 Priority: optional
 Homepage: https://github.com/Paderman/kde-plasma-widget-sensordeck

@@ -178,7 +178,8 @@ var settings = {
     },
     alerts: {
         alertsEnabled: true, alertOnWarn: false, alertRecovery: true,
-        alertDelay: 5, alertHysteresis: 3, alertCooldown: 10
+        alertDelay: 5, alertHysteresis: 3, alertCooldown: 10,
+        fanWatch: true, fanSlowPercent: 50
     }
 };
 

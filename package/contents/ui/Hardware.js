@@ -57,6 +57,7 @@ var supportedDrivers = ["nvidia", "amdgpu", "radeon", "i915", "xe", "nouveau"];
 function parse(out) {
     var hw = { gpus: [], nvmes: [], gddr6: false, power: false, lmTool: true, pm: "", pmPackage: "", distro: "", chips: {} };
     var parts = String(out || "").split(/\nSENSORS\n?/);
+    var nvFans = {};
     parts[0].split("\n").forEach(function (line) {
         var f = line.split("\t");
         if (f[0] === "GPU" && f.length >= 9) {
@@ -82,12 +83,16 @@ function parse(out) {
             hw.gddr6 = f[1] === "1";
         } else if (f[0] === "POWER") {
             hw.power = f[1] === "1";
+        } else if (f[0] === "NVFANS" && f.length >= 3) {
+            nvFans[parseInt(f[1])] = parseInt(f[2]) || 0;
         } else if (f[0] === "DISTRO") {
             hw.pm = f[1] || ""; hw.pmPackage = f[2] || ""; hw.distro = f[3] || "";
         } else if (f[0] === "LMTOOL") {
             hw.lmTool = f[1] === "1";
         }
     });
+    // fans of NVIDIA cards whose measured speed the driver reports
+    hw.gpus.forEach(function (g) { g.nvFans = g.nvIndex >= 0 ? (nvFans[g.nvIndex] || 0) : 0; });
     if (parts.length > 1) {
         try { hw.chips = JSON.parse(parts[1]) || {}; } catch (e) { hw.chips = {}; }
     }
@@ -283,7 +288,7 @@ function build(gpu, opts, hw, translate) {
     opts = opts || defaultOptions();
     var all = [];
     gpus.forEach(function (g, i) {
-        buildOne(g, { gpuDetails: !!opts.gpuDetails }, hw).forEach(function (t) {
+        buildOne(g, { gpuDetails: !!opts.gpuDetails, fansEach: !!opts.fansEach }, hw).forEach(function (t) {
             t.gpu = g.addr;
             if (i > 0 && t.command === VRAM_CMD) t.command = VRAM_CMD_STRICT;
             all.push(t);
@@ -336,6 +341,13 @@ function buildOne(gpu, opts, hw) {
         if (opts.gpuDetails) {
             if (nv) {
                 rings.push({ label: tr("GPU fan"), source: "nvidia", key: "fan.speed", style: "ring", max: 100, warn: 85 });
+                // measured speed; with several fans also one tile per fan (only offered as
+                // suggestions in edit mode – opts.fansEach is not a wizard category)
+                if (gpu.nvFans > 0)
+                    values.push({ label: tr("GPU fan speed"), source: "nvidia", key: "fan.rpm", style: "value" });
+                if (opts.fansEach && gpu.nvFans > 1)
+                    for (var fn = 1; fn <= Math.min(3, gpu.nvFans); ++fn)
+                        values.push({ label: tr("GPU fan %1", fn), source: "nvidia", key: "fan.rpm." + fn, style: "value" });
                 wide.push({ label: tr("GPU fan curve"), source: "nvidia", key: "temperature.gpu", style: "curve", min: 30, max: 90,
                             ySource: "nvidia", yKey: "fan.speed", yMax: 100, wide: true });
                 bars.push({ label: tr("GPU clock"), source: "nvidia", key: "clocks.gr", style: "bar" });

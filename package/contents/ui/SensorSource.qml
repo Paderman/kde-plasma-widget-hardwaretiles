@@ -123,8 +123,9 @@ Item {
         return isFinite(f) ? Math.max(0, Math.min(1, f)) : 0;
     }
     // 0 = ok, 1 = warn, 2 = critical
-    readonly property int level: !valid ? 0
-        : Math.max(main.forcedLevel, (crit > 0 && value >= crit) ? 2 : (warn > 0 && value >= warn) ? 1 : 0)
+    readonly property int thresholdLevel: (crit > 0 && value >= crit) ? 2 : (warn > 0 && value >= warn) ? 1 : 0
+    // a forced level (stuck or slow fan, missing PCIe lanes) counts even without a value
+    readonly property int level: Math.max(main.forcedLevel, valid ? thresholdLevel : 0)
     readonly property string detailText: main.detail
     readonly property string subtitleText: main.subtitle
     readonly property string subtitleInfo: main.subtitleInfo
@@ -206,13 +207,15 @@ Item {
 
     readonly property bool notifyAllowed: alertsEnabled && cfg.notify !== false
     // level we would like to alert for right now
-    readonly property int alertTarget: !notifyAllowed || !valid ? 0
+    readonly property int alertTarget: !notifyAllowed || (!valid && main.forcedLevel < 1) ? 0
                                      : level === 2 ? 2
-                                     : (level === 1 && alertOnWarn) ? 1 : 0
+                                     // a slow fan is a warning that always notifies
+                                     : (level === 1 && (alertOnWarn || (main.forcedLevel === 1 && main.slowText))) ? 1 : 0
     property int alertLevel: 0           // level currently "armed/alerted"
     property bool alertShown: false      // a notification is on screen for this sensor
     property double lastAlertAt: 0
     property int lastAlertLevel: 0
+    property bool alertForced: false     // the alert came from the source, not from a threshold
 
     function thresholdFor(l) { return l === 2 ? crit : warn; }
 
@@ -222,19 +225,24 @@ Item {
             if (alertLevel !== 0) { alertLevel = 0; closeActive(); }
             return;
         }
-        if (!valid) return;
+        if (!valid && main.forcedLevel < 1) return;
         if (alertTarget > alertLevel) {
             if (!confirmTimer.running) confirmTimer.restart();
             return;
         }
         confirmTimer.stop();
         // de-escalate only once the value is clearly below the threshold
-        if (alertLevel > 0 && value < thresholdFor(alertLevel) - hyst) {
+        const lim = thresholdFor(alertLevel);
+        const below = alertForced ? main.forcedLevel < alertLevel && (lim <= 0 || !valid || value < lim - hyst)
+                                  : value < lim - hyst;
+        if (alertLevel > 0 && below) {
             let next = 0;
             if (alertLevel === 2 && alertOnWarn && warn > 0 && value >= warn - hyst) next = 1;
+            const wasFan = alertForced && !!lastFanText;
             alertLevel = next;
+            alertForced = false;
             if (next === 0 && alertShown) {
-                if (alertRecovery) sendNote(0);
+                if (alertRecovery) sendNote(0, wasFan);
                 else closeActive();
                 alertShown = false;
             }
@@ -246,6 +254,9 @@ Item {
         const escalation = alertLevel > 0;           // e.g. warn -> crit: always tell
         const suppressed = !escalation && l <= lastAlertLevel && (now - lastAlertAt) < alertCooldown;
         alertLevel = l;
+        alertForced = main.forcedLevel >= l && thresholdLevel < l;
+        // a fan problem is shown on every tile of that fan – one notification is enough
+        if (alertForced && main.fanText && src.nvidia && !src.nvidia.claimFanNote(main.gpuIndex)) return;
         if (suppressed) return;
         lastAlertAt = now;
         lastAlertLevel = l;
@@ -264,13 +275,27 @@ Item {
 
     // One Notification object per event: KNotification sends asynchronously,
     // so re-using a single object could send stale/overwritten texts.
-    function sendNote(l) {
+    property string lastFanText: ""
+    function sendNote(l, wasFan) {
         const lim = thresholdFor(l);
         const limTxt = relThresholds ? main.format(lim) + " (" + percentOf(lim) + " %)"
                      : main.isSensor ? lim.toLocaleString(Qt.locale(), "f", Number.isInteger(lim) ? 0 : 1) + (unitText ? " " + unitText : "")
                      : main.format(lim);
         const p = {};
-        if (l === 2) {
+        lastFanText = l > 0 && alertForced ? main.fanText : "";
+        if (l === 1 && alertForced && main.slowText) {
+            p.title = i18n("%1: fan running slowly", longLabel);
+            p.text = main.slowText + "\n" + i18n("Its bearing may be stiff, or dust slows it down.");
+            p.iconName = "dialog-warning";
+            p.urgency = Notification.HighUrgency;
+            p.flags = Notification.CloseOnTimeout;
+        } else if (l === 2 && alertForced && main.stuckText) {
+            p.title = i18n("%1: fan not turning", longLabel);
+            p.text = main.stuckText + "\n" + i18n("Check whether something blocks it or a cable came loose.");
+            p.iconName = "dialog-warning";
+            p.urgency = Notification.CriticalUrgency;
+            p.flags = Notification.Persistent;
+        } else if (l === 2) {
             p.title = i18n("%1 critical: %2", longLabel, formatted);
             p.text = i18n("Critical threshold of %1 exceeded.", limTxt);
             p.iconName = "temperature-high";
@@ -284,7 +309,7 @@ Item {
             p.flags = Notification.CloseOnTimeout;
         } else {
             p.title = i18n("%1 back to normal: %2", longLabel, formatted);
-            p.text = i18n("The value is below the threshold again.");
+            p.text = wasFan ? i18n("The fans are running normally again.") : i18n("The value is below the threshold again.");
             p.iconName = "temperature-normal";
             p.urgency = Notification.LowUrgency;
             p.flags = Notification.CloseOnTimeout;

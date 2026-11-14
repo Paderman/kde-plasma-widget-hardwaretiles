@@ -13,7 +13,8 @@ depends=('plasma-workspace')
 makedepends=('gettext')
 optdepends=('lm_sensors: mainboard fans and fan names, sensor chip detection'
             'pciutils: graphics card names'
-            'nvidia-utils: detailed values of NVIDIA cards')
+            'nvidia-utils: detailed values of NVIDIA cards'
+            'python: measured fan speeds of NVIDIA cards')
 source=("sensordeck-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')   # replace with the real checksum when publishing to the AUR
 

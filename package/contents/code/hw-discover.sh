@@ -6,6 +6,7 @@
 #   NVME  <pci addr> <model>
 #   GDDR6 <1 if /run/gddr6/vram exists, else 0>
 #   POWER <1 if the power service publishes /run/sensordeck-power/cpu, else 0>
+#   NVFANS <nvidia-smi index> <number of fans whose speed the driver reports>
 #   SENSORS            (everything after this line is `sensors -j` output)
 
 T=$(printf '\t')
@@ -56,6 +57,10 @@ done
 
 if [ -e /run/gddr6/vram ]; then echo "GDDR6${T}1"; else echo "GDDR6${T}0"; fi
 if [ -e /run/sensordeck-power/cpu ]; then echo "POWER${T}1"; else echo "POWER${T}0"; fi
+# measured fan speeds of NVIDIA cards (driver library, needs python3)
+if [ -n "$nvmap" ] && command -v python3 >/dev/null 2>&1; then
+    python3 -I "$(dirname "$0")/nvml-fans.py" --probe 2>/dev/null
+fi
 
 # Fallback when the `sensors` program (package lm-sensors / lm_sensors) is missing:
 # read /sys/class/hwmon directly and print the same JSON shape as `sensors -j`.

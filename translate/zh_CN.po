@@ -97,75 +97,104 @@ msgstr "隐私:仅当您允许或点击“立即检查”时才会检查。届�
 msgid "Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you."
 msgstr "通过“获取新小部件”或 Discover 安装?那么 Discover 会为您安装更新 – 此处的检查仅作提示。"
 
-#: package/contents/ui/ConfigAlerts.qml:30
+#: package/contents/ui/ConfigAlerts.qml:32
 msgid "Notifications:"
 msgstr "通知:"
 
-#: package/contents/ui/ConfigAlerts.qml:31
+#: package/contents/ui/ConfigAlerts.qml:33
 msgid "Notify on critical values"
 msgstr "严重数值时通知"
 
-#: package/contents/ui/ConfigAlerts.qml:36
+#: package/contents/ui/ConfigAlerts.qml:38
 msgid "Also when the warning threshold is reached"
 msgstr "达到警告阈值时也通知"
 
-#: package/contents/ui/ConfigAlerts.qml:41
+#: package/contents/ui/ConfigAlerts.qml:43
 msgid "All-clear when the value is back to normal"
 msgstr "数值恢复正常时解除通知"
 
-#: package/contents/ui/ConfigAlerts.qml:50
+#: package/contents/ui/ConfigAlerts.qml:52
 msgid "Trigger after:"
 msgstr "触发延迟:"
 
-#: package/contents/ui/ConfigAlerts.qml:52
+#: package/contents/ui/ConfigAlerts.qml:54
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
 
-#: package/contents/ui/ConfigAlerts.qml:59
+#: package/contents/ui/ConfigAlerts.qml:61
 msgid "Warn again only:"
 msgstr "仅在以下情况再次警告:"
 
-#: package/contents/ui/ConfigAlerts.qml:61
+#: package/contents/ui/ConfigAlerts.qml:63
 msgid "%1 below the threshold"
 msgstr "低于阈值 %1"
 
-#: package/contents/ui/ConfigAlerts.qml:68
+#: package/contents/ui/ConfigAlerts.qml:70
 msgid "Repeat at the earliest after:"
 msgstr "最短重复间隔:"
 
-#: package/contents/ui/ConfigAlerts.qml:70
+#: package/contents/ui/ConfigAlerts.qml:72
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 分钟"
 
-#: package/contents/ui/ConfigAlerts.qml:78
+#: package/contents/ui/ConfigAlerts.qml:80
 msgid "A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page."
 msgstr "当数值在设定时间内持续高于阈值时触发通知 – 短暂峰值会被忽略。只有当数值在此期间回落到阈值以下设定幅度(以传感器单位计,例如 3 °C 或 3 %)时才会再次警告。严重通知会一直显示直到您关闭,即使在“请勿打扰”模式下也会显示。阈值和“通知”开关在“传感器”页面中为每个传感器单独设置。"
 
-#: package/contents/ui/ConfigAlerts.qml:85
+#: package/contents/ui/ConfigAlerts.qml:83
+msgid "Graphics card fans"
+msgstr "显卡风扇"
+
+#: package/contents/ui/ConfigAlerts.qml:87
+msgid "Monitor fans:"
+msgstr "监控风扇："
+
+#: package/contents/ui/ConfigAlerts.qml:88
+msgid "Warn when a fan stands still or runs too slowly"
+msgstr "风扇停转或转得太慢时发出警告"
+
+#: package/contents/ui/ConfigAlerts.qml:94
+msgid "Too slow below:"
+msgstr "低于此值视为过慢："
+
+#: package/contents/ui/ConfigAlerts.qml:96
+msgid "Off (standstill only)"
+msgstr "关闭（仅检测停转）"
+
+#: package/contents/ui/ConfigAlerts.qml:98
+#, no-javascript-format
+msgid "%1 % of the fastest fan"
+msgstr "最快风扇的 %1 %"
+
+#: package/contents/ui/ConfigAlerts.qml:105
+msgid "For NVIDIA cards whose driver reports the measured fan speed. A fan that stands still for 15 seconds although the card wants it to turn is critical. A fan that runs clearly slower than the other fans of the card at the same setting for 30 seconds is a warning – the comparison needs at least two fans. Fans that the card switches off when idle do not trigger anything."
+msgstr "适用于驱动程序会报告实测风扇转速的 NVIDIA 显卡。显卡需要风扇转动而风扇停转 15 秒属于严重情况。在相同设置下，风扇明显比显卡的其他风扇慢且持续 30 秒，会发出警告——比较需要至少两个风扇。显卡在空闲时关闭的风扇不会触发任何提醒。"
+
+#: package/contents/ui/ConfigAlerts.qml:112
 msgid "Send test notification"
 msgstr "发送测试通知"
 
-#: package/contents/ui/ConfigAlerts.qml:94
+#: package/contents/ui/ConfigAlerts.qml:121
 #: package/contents/ui/ConfigAppearance.qml:136
 msgid "Restore defaults"
 msgstr "恢复默认值"
 
-#: package/contents/ui/ConfigAlerts.qml:105
+#: package/contents/ui/ConfigAlerts.qml:132
 #: package/contents/ui/ConfigAppearance.qml:147
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "已重置。点击“应用”后才会生效 – “取消”将保持原样。"
 
-#: package/contents/ui/ConfigAlerts.qml:106
+#: package/contents/ui/ConfigAlerts.qml:133
 msgid "Only affects the general settings on this page – your sensor tiles, their thresholds and the per-sensor “Notify” switch are kept."
 msgstr "仅影响此页面上的通用设置 – 传感器磁贴、其阈值以及每个传感器的“通知”开关将保留。"
 
-#: package/contents/ui/ConfigAlerts.qml:116
+#: package/contents/ui/ConfigAlerts.qml:143
 msgid "VRAM temperature critical: 102 °C"
 msgstr "显存温度严重:102 °C"
 
-#: package/contents/ui/ConfigAlerts.qml:117
+#: package/contents/ui/ConfigAlerts.qml:144
 msgid ""
 "Critical threshold of 100 °C exceeded.\n"
 "(This is just a test from Sensor Deck.)"
@@ -568,9 +597,9 @@ msgid "GPU comparison: temperature (ring)"
 msgstr "GPU 对比:温度(圆环)"
 
 #: package/contents/ui/ConfigSensors.qml:629
-#: package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255
-#: package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318
-#: package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
+#: package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:260
+#: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
+#: package/contents/ui/Hardware.js:336 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
@@ -579,10 +608,10 @@ msgid "GPU comparison: load (graph)"
 msgstr "GPU 对比:负载(图表)"
 
 #: package/contents/ui/ConfigSensors.qml:634
-#: package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256
-#: package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321
-#: package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332
-#: package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94
+#: package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:261
+#: package/contents/ui/Hardware.js:319 package/contents/ui/Hardware.js:326
+#: package/contents/ui/Hardware.js:332 package/contents/ui/Hardware.js:337
+#: package/contents/ui/NvidiaKeys.js:29 package/contents/ui/Reader.qml:121
 #: package/contents/ui/SourceEditor.qml:79
 msgid "GPU load"
 msgstr "GPU 负载"
@@ -592,14 +621,14 @@ msgid "GPU comparison: power (bar)"
 msgstr "GPU 对比:功耗(条形)"
 
 #: package/contents/ui/ConfigSensors.qml:639
-#: package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257
-#: package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322
-#: package/contents/ui/Hardware.js:329
+#: package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:262
+#: package/contents/ui/Hardware.js:320 package/contents/ui/Hardware.js:327
+#: package/contents/ui/Hardware.js:334
 msgid "GPU power"
 msgstr "GPU 功耗"
 
 #: package/contents/ui/ConfigSensors.qml:641
-#: package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
+#: package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:361
 msgid "GPU fan curve"
 msgstr "GPU 风扇曲线"
 
@@ -608,7 +637,7 @@ msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "显存温度(gddr6,NVIDIA)"
 
 #: package/contents/ui/ConfigSensors.qml:642
-#: package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
+#: package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:325
 msgid "VRAM temperature"
 msgstr "显存温度"
 
@@ -617,9 +646,9 @@ msgid "VRAM used / total (NVIDIA)"
 msgstr "显存已用 / 总量(NVIDIA)"
 
 #: package/contents/ui/ConfigSensors.qml:643
-#: package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258
-#: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
-#: package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
+#: package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:263
+#: package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:328
+#: package/contents/ui/Hardware.js:338 package/contents/ui/NvidiaKeys.js:38
 msgid "VRAM used"
 msgstr "显存已用"
 
@@ -628,7 +657,7 @@ msgid "GPU throttling (NVIDIA)"
 msgstr "GPU 降频(NVIDIA)"
 
 #: package/contents/ui/ConfigSensors.qml:644
-#: package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
+#: package/contents/ui/Hardware.js:357 package/contents/ui/NvidiaKeys.js:42
 msgid "Throttling"
 msgstr "降频"
 
@@ -637,7 +666,7 @@ msgid "CPU temperature (max.)"
 msgstr "CPU 温度(最高)"
 
 #: package/contents/ui/ConfigSensors.qml:645
-#: package/contents/ui/Hardware.js:367
+#: package/contents/ui/Hardware.js:379
 msgid "CPU temperature"
 msgstr "CPU 温度"
 
@@ -646,7 +675,7 @@ msgid "CPU power (power service)"
 msgstr "CPU 功耗（功耗服务）"
 
 #: package/contents/ui/ConfigSensors.qml:646
-#: package/contents/ui/Hardware.js:369
+#: package/contents/ui/Hardware.js:381
 msgid "CPU power"
 msgstr "CPU 功耗"
 
@@ -655,12 +684,12 @@ msgid "CPU usage (graph)"
 msgstr "CPU 占用(图表)"
 
 #: package/contents/ui/ConfigSensors.qml:647
-#: package/contents/ui/Hardware.js:370
+#: package/contents/ui/Hardware.js:382
 msgid "CPU load"
 msgstr "CPU 负载"
 
 #: package/contents/ui/ConfigSensors.qml:648
-#: package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
+#: package/contents/ui/Hardware.js:229 package/contents/ui/Hardware.js:386
 msgid "Memory"
 msgstr "内存"
 
@@ -669,7 +698,7 @@ msgid "Network download"
 msgstr "网络下载"
 
 #: package/contents/ui/ConfigSensors.qml:649
-#: package/contents/ui/Hardware.js:391
+#: package/contents/ui/Hardware.js:403
 msgid "Download"
 msgstr "下载"
 
@@ -730,146 +759,150 @@ msgid "Temperature of the graphics chip. 60–80 °C under load is normal."
 msgstr "图形芯片温度。负载时 60–80 °C 属正常。"
 
 #: package/contents/ui/Explain.js:57
+msgid "Measured speed of the graphics card fans in revolutions per minute. 0 when idle is normal for cards that switch their fans off – if the card wants them to turn and they do not, the tile turns red."
+msgstr "显卡风扇的实测转速（每分钟转数）。对于会关闭风扇的显卡，空闲时为 0 是正常的——如果显卡要求风扇转动而风扇没有转，磁贴会变红。"
+
+#: package/contents/ui/Explain.js:59
 msgid "Speed of the graphics card fans. 0 when idle is normal – many cards switch the fans off completely then."
 msgstr "显卡风扇转速。空闲时为 0 是正常的:许多显卡此时会完全停转风扇。"
 
-#: package/contents/ui/Explain.js:59
+#: package/contents/ui/Explain.js:61
 msgid "How busy the graphics chip is right now. 95–100 % while gaming is normal and desired."
 msgstr "图形芯片当前的繁忙程度。游戏时 95–100 % 是正常且理想的。"
 
-#: package/contents/ui/Explain.js:61
+#: package/contents/ui/Explain.js:63
 msgid "Current power draw of the graphics card. The second value is its power limit – when it reaches it, it lowers its clock (see Throttling)."
 msgstr "显卡当前功耗。第二个数值为其功耗上限:达到后显卡会降低频率(参见“降频”)。"
 
-#: package/contents/ui/Explain.js:63
+#: package/contents/ui/Explain.js:65
 msgid "Maximum allowed power draw of the graphics card. Above it, the card lowers its clock."
 msgstr "显卡允许的最大功耗。超过后显卡会降低频率。"
 
-#: package/contents/ui/Explain.js:65
+#: package/contents/ui/Explain.js:67
 msgid "Graphics memory (VRAM) for textures, images and compute data. When it is full, games have to fall back to slower system memory – that can cause stutter."
 msgstr "用于纹理、图像和计算数据的显存(VRAM)。显存满时游戏只能使用较慢的系统内存 – 可能出现卡顿。"
 
-#: package/contents/ui/Explain.js:67
+#: package/contents/ui/Explain.js:69
 msgid "Share of time in which the graphics memory is being read or written."
 msgstr "显存进行读写的时间占比。"
 
-#: package/contents/ui/Explain.js:69
+#: package/contents/ui/Explain.js:71
 msgid "Current clock of the graphics chip. It changes constantly: high under load, low when idle. The second value is the maximum clock."
 msgstr "图形芯片当前频率。它不断变化:负载时高,空闲时低。第二个数值为最高频率。"
 
-#: package/contents/ui/Explain.js:71
+#: package/contents/ui/Explain.js:73
 msgid "Clock of the graphics memory. When idle the card lowers it a lot to save power."
 msgstr "显存频率。空闲时显卡会大幅降低以节能。"
 
-#: package/contents/ui/Explain.js:73
+#: package/contents/ui/Explain.js:75
 msgid "Clock of the video units that encode and decode videos."
 msgstr "负责视频编码和解码的视频单元的频率。"
 
-#: package/contents/ui/Explain.js:75
+#: package/contents/ui/Explain.js:77
 msgid "Load of the video encoder (NVENC). Active when recording the screen, streaming or exporting video, e.g. with OBS."
 msgstr "视频编码器(NVENC)负载。在录屏、直播或导出视频时工作,例如 OBS。"
 
-#: package/contents/ui/Explain.js:77
+#: package/contents/ui/Explain.js:79
 msgid "Load of the video decoder (NVDEC). Active when playing videos, e.g. on YouTube or in a video player."
 msgstr "视频解码器(NVDEC)负载。在播放视频时工作,例如 YouTube 或视频播放器。"
 
-#: package/contents/ui/Explain.js:79
+#: package/contents/ui/Explain.js:81
 msgid "Power state of the graphics card: P0 is full performance, P8 and above is idle power saving."
 msgstr "显卡的能耗状态:P0 = 全性能,P8 起 = 空闲节能。"
 
-#: package/contents/ui/Explain.js:81
+#: package/contents/ui/Explain.js:83
 msgid "Shows whether and why the graphics card is currently running below its possible clock."
 msgstr "显示显卡当前是否运行在低于可达频率的状态及其原因。"
 
-#: package/contents/ui/Explain.js:85
+#: package/contents/ui/Explain.js:87
 msgid "Temperature of the hottest processor core. 60–85 °C under load is normal."
 msgstr "处理器最热核心的温度。负载时 60–85 °C 属正常。"
 
-#: package/contents/ui/Explain.js:87
+#: package/contents/ui/Explain.js:89
 msgid "Combined usage of all processor cores."
 msgstr "处理器所有核心的总负载。"
 
-#: package/contents/ui/Explain.js:89
+#: package/contents/ui/Explain.js:91
 msgid "Used system memory (RAM). When it runs low, the system swaps to disk and becomes noticeably slower."
 msgstr "已用内存(RAM)。不足时系统会使用磁盘,速度明显变慢。"
 
-#: package/contents/ui/Explain.js:91
+#: package/contents/ui/Explain.js:93
 msgid "Used disk space. Above 90 % it is time to clean up – very full SSDs get slower."
 msgstr "磁盘已用空间。超过 90 % 时应清理 – 非常满的 SSD 会变慢。"
 
-#: package/contents/ui/Explain.js:93
+#: package/contents/ui/Explain.js:95
 msgid "Temperature of the SSD. Up to about 70 °C is fine; above that it slows down to protect itself."
 msgstr "SSD 温度。约 70 °C 以内没有问题;更高时会降速自我保护。"
 
-#: package/contents/ui/Explain.js:95
+#: package/contents/ui/Explain.js:97
 msgid "Speed of this fan in revolutions per minute. 0 means it is standing still – intended for some fans when idle."
 msgstr "此风扇的转速(每分钟转数)。0 表示停转 – 部分风扇在空闲时有意停转。"
 
-#: package/contents/ui/Explain.js:97
+#: package/contents/ui/Explain.js:99
 msgid "Temperature on the mainboard – a good indicator of the heat inside the case. 30–45 °C is common."
 msgstr "主板上的温度 – 机箱内热量的良好参考。通常 30–45 °C。"
 
-#: package/contents/ui/Explain.js:99
+#: package/contents/ui/Explain.js:101
 msgid "Amount of data currently being received over all network connections."
 msgstr "当前通过所有网络连接接收的数据量。"
 
-#: package/contents/ui/Explain.js:101
+#: package/contents/ui/Explain.js:103
 msgid "Amount of data currently being sent over all network connections."
 msgstr "当前通过所有网络连接发送的数据量。"
 
-#: package/contents/ui/Explain.js:108
+#: package/contents/ui/Explain.js:110
 msgid "The card has reached its power limit – normal under load."
 msgstr "显卡已达到功耗上限 – 负载时属正常。"
 
-#: package/contents/ui/Explain.js:109
+#: package/contents/ui/Explain.js:111
 msgid "The card holds its target temperature and clocks a little lower to do so. More airflow in the case helps."
 msgstr "显卡为保持目标温度而略微降低频率。改善机箱风道会有帮助。"
 
-#: package/contents/ui/Explain.js:110
+#: package/contents/ui/Explain.js:112
 msgid "The card is too hot and slows down heavily. Check the cooling: dust, fans, case ventilation."
 msgstr "显卡过热并大幅降速。请检查散热:灰尘、风扇、机箱通风。"
 
-#: package/contents/ui/Explain.js:111
+#: package/contents/ui/Explain.js:113
 msgid "The hardware is slowing down – usually due to overheating or a power supply problem."
 msgstr "硬件正在降速 – 通常由过热或供电问题引起。"
 
-#: package/contents/ui/Explain.js:112
+#: package/contents/ui/Explain.js:114
 msgid "The power supply reports a problem – check the PSU and power cables."
 msgstr "供电报告了问题 – 请检查电源和线缆。"
 
-#: package/contents/ui/Explain.js:113
+#: package/contents/ui/Explain.js:115
 msgid "The clock has been limited by a program or a setting."
 msgstr "频率受软件或设置限制。"
 
-#: package/contents/ui/Explain.js:114
+#: package/contents/ui/Explain.js:116
 msgid "The clock is synced to other graphics cards (only common in data centres)."
 msgstr "频率与其他显卡同步(通常仅在数据中心)。"
 
-#: package/contents/ui/Explain.js:115
+#: package/contents/ui/Explain.js:117
 msgid "Limited by the display output clock."
 msgstr "受显示输出频率限制。"
 
-#: package/contents/ui/Explain.js:116
+#: package/contents/ui/Explain.js:118
 msgid "Nothing to do – the card clocks down to save power."
 msgstr "无任务 – 显卡降低频率以节能。"
 
-#: package/contents/ui/Explain.js:117
+#: package/contents/ui/Explain.js:119
 msgid "The card runs freely, without throttling."
 msgstr "显卡自由运行,无降频。"
 
-#: package/contents/ui/Explain.js:132
+#: package/contents/ui/Explain.js:134
 msgid "Full performance."
 msgstr "全性能。"
 
-#: package/contents/ui/Explain.js:133
+#: package/contents/ui/Explain.js:135
 msgid "High performance – typical under load or for compute tasks."
 msgstr "高性能 – 负载或计算时常见。"
 
-#: package/contents/ui/Explain.js:134
+#: package/contents/ui/Explain.js:136
 msgid "Medium level."
 msgstr "中等。"
 
-#: package/contents/ui/Explain.js:135
+#: package/contents/ui/Explain.js:137
 msgid "Power saving – the card has little to do right now."
 msgstr "节能 – 显卡当前工作很少。"
 
@@ -922,12 +955,12 @@ msgid "Drag a tile to move it within its section. × removes a tile, + adds one.
 msgstr "拖动磁贴可在其分区内移动。× 移除磁贴，+ 添加磁贴。"
 
 #: package/contents/ui/FullView.qml:321 package/contents/ui/FullView.qml:537
-#: package/contents/ui/main.qml:413
+#: package/contents/ui/main.qml:418
 msgid "Restore “%1”"
 msgstr "恢复“%1”"
 
 #: package/contents/ui/FullView.qml:327 package/contents/ui/FullView.qml:549
-#: package/contents/ui/main.qml:419
+#: package/contents/ui/main.qml:424
 msgid "Undo last move"
 msgstr "撤销上次移动"
 
@@ -943,7 +976,7 @@ msgstr "添加磁贴"
 msgid "Remove tile"
 msgstr "删除磁贴"
 
-#: package/contents/ui/FullView.qml:531 package/contents/ui/main.qml:407
+#: package/contents/ui/FullView.qml:531 package/contents/ui/main.qml:412
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Sensor Deck %1 可用 – 打开下载页面"
 
@@ -955,7 +988,7 @@ msgstr "完成编辑"
 msgid "Edit tiles"
 msgstr "编辑磁贴"
 
-#: package/contents/ui/FullView.qml:555 package/contents/ui/main.qml:425
+#: package/contents/ui/FullView.qml:555 package/contents/ui/main.qml:430
 msgid "Restore original arrangement"
 msgstr "恢复原始排列"
 
@@ -980,7 +1013,7 @@ msgid "Edit in settings …"
 msgstr "在设置中编辑 …"
 
 #: package/contents/ui/FullView.qml:692 package/contents/ui/FullView.qml:753
-#: package/contents/ui/main.qml:438
+#: package/contents/ui/main.qml:443
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
@@ -1016,150 +1049,158 @@ msgstr "驱动:%1"
 msgid "PCIe link: %1"
 msgstr "PCIe 连接:%1"
 
-#: package/contents/ui/Hardware.js:176
+#: package/contents/ui/Hardware.js:181
 msgid "Fan %1"
 msgstr "风扇 %1"
 
-#: package/contents/ui/Hardware.js:207
+#: package/contents/ui/Hardware.js:212
 msgid "No fan sensors were found. Sensor Deck can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password."
 msgstr "未找到风扇传感器。Sensor Deck 可以为您设置传感器支持:安装软件包“%1”并检测主板的传感器芯片。系统会要求您输入密码。"
 
-#: package/contents/ui/Hardware.js:209
+#: package/contents/ui/Hardware.js:214
 msgid "No fan sensors were found. Sensor Deck can detect the sensor chip of your mainboard and load its driver. You will be asked for your password."
 msgstr "未找到风扇传感器。Sensor Deck 可以检测主板的传感器芯片并加载其驱动。系统会要求您输入密码。"
 
-#: package/contents/ui/Hardware.js:212
+#: package/contents/ui/Hardware.js:217
 msgid "No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
 msgstr "未找到风扇传感器。此系统的程序安装方式不同(基于镜像的系统):请添加“lm-sensors”,运行一次“sudo sensors-detect”并重启 – 详见 README 中的“Mainboard sensors”。"
 
-#: package/contents/ui/Hardware.js:213
+#: package/contents/ui/Hardware.js:218
 msgid "No fan sensors were found. Install “lm-sensors” with your software center, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
 msgstr "未找到风扇传感器。请通过软件中心安装“lm-sensors”,运行一次“sudo sensors-detect”并重启 – 详见 README 中的“Mainboard sensors”。"
 
-#: package/contents/ui/Hardware.js:222
+#: package/contents/ui/Hardware.js:227
 msgid "Graphics card – details"
 msgstr "显卡 – 详细信息"
 
-#: package/contents/ui/Hardware.js:222
+#: package/contents/ui/Hardware.js:227
 msgid "Fans & fan curve, clocks, throttling, video encoding …"
 msgstr "风扇与曲线、频率、降频、视频编码 …"
 
-#: package/contents/ui/Hardware.js:223
+#: package/contents/ui/Hardware.js:228
 msgid "Processor"
 msgstr "处理器"
 
-#: package/contents/ui/Hardware.js:223
+#: package/contents/ui/Hardware.js:228
 msgid "Temperature and usage"
 msgstr "温度和负载"
 
-#: package/contents/ui/Hardware.js:224
+#: package/contents/ui/Hardware.js:229
 msgid "Usage in percent"
 msgstr "占用百分比"
 
-#: package/contents/ui/Hardware.js:225
+#: package/contents/ui/Hardware.js:230
 msgid "SSDs & drives"
 msgstr "SSD 与驱动器"
 
-#: package/contents/ui/Hardware.js:225
+#: package/contents/ui/Hardware.js:230
 msgid "NVMe temperatures, disk space"
 msgstr "NVMe 温度、磁盘空间"
 
-#: package/contents/ui/Hardware.js:226
+#: package/contents/ui/Hardware.js:231
 msgid "Mainboard & fans"
 msgstr "主板与风扇"
 
-#: package/contents/ui/Hardware.js:226
+#: package/contents/ui/Hardware.js:231
 msgid "Case temperature, fan speeds"
 msgstr "机箱温度、风扇转速"
 
-#: package/contents/ui/Hardware.js:227
+#: package/contents/ui/Hardware.js:232
 msgid "Network"
 msgstr "网络"
 
-#: package/contents/ui/Hardware.js:227
+#: package/contents/ui/Hardware.js:232
 msgid "Download and upload"
 msgstr "下载与上传"
 
-#: package/contents/ui/Hardware.js:229
+#: package/contents/ui/Hardware.js:234
 msgid "GPU comparison"
 msgstr "GPU 对比"
 
-#: package/contents/ui/Hardware.js:229
+#: package/contents/ui/Hardware.js:234
 msgid "Temperature, load, power and VRAM of all cards in shared tiles"
 msgstr "所有显卡的温度、负载、功耗和显存显示在共同磁贴中"
 
-#: package/contents/ui/Hardware.js:319
+#: package/contents/ui/Hardware.js:324
 msgid "GPU hotspot"
 msgstr "GPU 热点"
 
-#: package/contents/ui/Hardware.js:338 package/contents/ui/Hardware.js:348
+#: package/contents/ui/Hardware.js:343 package/contents/ui/Hardware.js:360
 msgid "GPU fan"
 msgstr "GPU 风扇"
 
-#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351
-#: package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359
-#: package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94
+#: package/contents/ui/Hardware.js:347
+msgid "GPU fan speed"
+msgstr "GPU 风扇转速"
+
+#: package/contents/ui/Hardware.js:350
+msgid "GPU fan %1"
+msgstr "GPU 风扇 %1"
+
+#: package/contents/ui/Hardware.js:353 package/contents/ui/Hardware.js:363
+#: package/contents/ui/Hardware.js:366 package/contents/ui/Hardware.js:371
+#: package/contents/ui/NvidiaKeys.js:35 package/contents/ui/Reader.qml:121
 #: package/contents/ui/SourceEditor.qml:79
 msgid "GPU clock"
 msgstr "GPU 频率"
 
-#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352
-#: package/contents/ui/NvidiaKeys.js:31
+#: package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:364
+#: package/contents/ui/NvidiaKeys.js:36
 msgid "Memory clock"
 msgstr "显存频率"
 
-#: package/contents/ui/Hardware.js:343
+#: package/contents/ui/Hardware.js:355
 msgid "Video encoding"
 msgstr "视频编码"
 
-#: package/contents/ui/Hardware.js:344
+#: package/contents/ui/Hardware.js:356
 msgid "Video decoding"
 msgstr "视频解码"
 
-#: package/contents/ui/Hardware.js:346
+#: package/contents/ui/Hardware.js:358
 msgid "Performance level"
 msgstr "性能级别"
 
-#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94
+#: package/contents/ui/Hardware.js:367 package/contents/ui/Reader.qml:121
 #: package/contents/ui/SourceEditor.qml:80
 msgid "3D load"
 msgstr "3D 负载"
 
-#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94
+#: package/contents/ui/Hardware.js:368 package/contents/ui/Reader.qml:121
 #: package/contents/ui/SourceEditor.qml:80
 msgid "Video load"
 msgstr "视频负载"
 
-#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94
+#: package/contents/ui/Hardware.js:369 package/contents/ui/Reader.qml:121
 #: package/contents/ui/SourceEditor.qml:81
 msgid "Graphics memory"
 msgstr "显存"
 
-#: package/contents/ui/Hardware.js:362
+#: package/contents/ui/Hardware.js:374
 msgid "Graphics card · PCIe"
 msgstr "显卡 · PCIe"
 
-#: package/contents/ui/Hardware.js:380
+#: package/contents/ui/Hardware.js:392
 msgid "Disk used"
 msgstr "磁盘已用"
 
-#: package/contents/ui/Hardware.js:385
+#: package/contents/ui/Hardware.js:397
 msgid "Case temperature"
 msgstr "机箱温度"
 
-#: package/contents/ui/Hardware.js:392
+#: package/contents/ui/Hardware.js:404
 msgid "Upload"
 msgstr "上传"
 
-#: package/contents/ui/main.qml:53
+#: package/contents/ui/main.qml:54
 msgid "Graphics card"
 msgstr "显卡"
 
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:55
 msgid "Graphics card %1 (not found)"
 msgstr "显卡 %1(未找到)"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:56
 msgid "Graphics card %1"
 msgstr "显卡 %1"
 
@@ -1168,90 +1209,110 @@ msgid "Fan"
 msgstr "风扇"
 
 #: package/contents/ui/NvidiaKeys.js:25
+msgid "Fan speed (all fans)"
+msgstr "风扇转速（全部风扇）"
+
+#: package/contents/ui/NvidiaKeys.js:26
+msgid "Fan 1 speed"
+msgstr "风扇 1 转速"
+
+#: package/contents/ui/NvidiaKeys.js:27
+msgid "Fan 2 speed"
+msgstr "风扇 2 转速"
+
+#: package/contents/ui/NvidiaKeys.js:28
+msgid "Fan 3 speed"
+msgstr "风扇 3 转速"
+
+#: package/contents/ui/NvidiaKeys.js:30
 msgid "VRAM activity"
 msgstr "显存活动"
 
-#: package/contents/ui/NvidiaKeys.js:26
+#: package/contents/ui/NvidiaKeys.js:31
 msgid "Video encoding (NVENC)"
 msgstr "视频编码(NVENC)"
 
-#: package/contents/ui/NvidiaKeys.js:27
+#: package/contents/ui/NvidiaKeys.js:32
 msgid "Video decoding (NVDEC)"
 msgstr "视频解码(NVDEC)"
 
-#: package/contents/ui/NvidiaKeys.js:28
+#: package/contents/ui/NvidiaKeys.js:33
 msgid "Power draw"
 msgstr "功耗"
 
-#: package/contents/ui/NvidiaKeys.js:29 package/contents/ui/NvidiaKeys.js:63
+#: package/contents/ui/NvidiaKeys.js:34 package/contents/ui/NvidiaKeys.js:69
 msgid "Power limit"
 msgstr "功耗上限"
 
-#: package/contents/ui/NvidiaKeys.js:32
+#: package/contents/ui/NvidiaKeys.js:37
 msgid "Video clock"
 msgstr "视频频率"
 
-#: package/contents/ui/NvidiaKeys.js:34
+#: package/contents/ui/NvidiaKeys.js:39
 msgid "VRAM free"
 msgstr "显存可用"
 
-#: package/contents/ui/NvidiaKeys.js:35
+#: package/contents/ui/NvidiaKeys.js:40
 msgid "VRAM total"
 msgstr "显存总量"
 
-#: package/contents/ui/NvidiaKeys.js:36
+#: package/contents/ui/NvidiaKeys.js:41
 msgid "Performance level (P-state)"
 msgstr "性能级别(P-state)"
 
-#: package/contents/ui/NvidiaKeys.js:63
+#: package/contents/ui/NvidiaKeys.js:68 package/contents/ui/Reader.qml:72
+msgid "RPM"
+msgstr "转/分"
+
+#: package/contents/ui/NvidiaKeys.js:69
 msgid "Hardware slowdown"
 msgstr "硬件降速"
 
-#: package/contents/ui/NvidiaKeys.js:63
+#: package/contents/ui/NvidiaKeys.js:69
 msgid "Temperature target"
 msgstr "目标温度"
 
-#: package/contents/ui/NvidiaKeys.js:63
+#: package/contents/ui/NvidiaKeys.js:69
 msgid "Overheating!"
 msgstr "过热!"
 
-#: package/contents/ui/NvidiaKeys.js:64
+#: package/contents/ui/NvidiaKeys.js:70
 msgid "Power supply slowdown"
 msgstr "供电降速"
 
-#: package/contents/ui/NvidiaKeys.js:64
+#: package/contents/ui/NvidiaKeys.js:70
 msgid "Clock locked"
 msgstr "频率已锁定"
 
-#: package/contents/ui/NvidiaKeys.js:64
+#: package/contents/ui/NvidiaKeys.js:70
 msgid "Synced to other GPU"
 msgstr "与其他 GPU 同步"
 
-#: package/contents/ui/NvidiaKeys.js:64
+#: package/contents/ui/NvidiaKeys.js:70
 msgid "Display clock"
 msgstr "显示频率"
 
-#: package/contents/ui/NvidiaKeys.js:78
+#: package/contents/ui/NvidiaKeys.js:84
 msgid "Maximum"
 msgstr "最高"
 
-#: package/contents/ui/NvidiaKeys.js:79
+#: package/contents/ui/NvidiaKeys.js:85
 msgid "High"
 msgstr "高"
 
-#: package/contents/ui/NvidiaKeys.js:80
+#: package/contents/ui/NvidiaKeys.js:86
 msgid "Medium"
 msgstr "中"
 
-#: package/contents/ui/NvidiaKeys.js:81
+#: package/contents/ui/NvidiaKeys.js:87
 msgid "Power saving"
 msgstr "节能"
 
-#: package/contents/ui/NvidiaKeys.js:103
+#: package/contents/ui/NvidiaKeys.js:109
 msgid "Idle"
 msgstr "空闲"
 
-#: package/contents/ui/NvidiaKeys.js:103
+#: package/contents/ui/NvidiaKeys.js:109
 msgid "None"
 msgstr "无"
 
@@ -1263,107 +1324,129 @@ msgstr "正在使用：%1"
 msgid "Opened, but idle: %1"
 msgstr "已打开但空闲：%1"
 
-#: package/contents/ui/Reader.qml:70
+#: package/contents/ui/Reader.qml:66
+#, no-javascript-format
+msgid "The fan is not turning, although the card wants %1 %."
+msgstr "风扇没有转动，但显卡要求 %1 %。"
+
+#: package/contents/ui/Reader.qml:68
+#, no-javascript-format
+msgid "Fan %1 is not turning, although the card wants %2 %."
+msgstr "风扇 %1 没有转动，但显卡要求 %2 %。"
+
+#: package/contents/ui/Reader.qml:69
+msgid "Fans %1 are not turning, although the card wants them to."
+msgstr "风扇 %1 没有转动，但显卡要求转动。"
+
+#: package/contents/ui/Reader.qml:74
+msgid "Fan %1 runs much slower than fan %2 (%3 instead of %4)."
+msgstr "风扇 %1 比风扇 %2 慢得多（%3，而不是 %4）。"
+
+#: package/contents/ui/Reader.qml:82
+msgid "Fan %1: %2"
+msgstr "风扇 %1：%2"
+
+#: package/contents/ui/Reader.qml:97
 msgid "PCIe device %1 on slot port %2"
 msgstr "插槽端口 %2 上的 PCIe 设备 %1"
 
-#: package/contents/ui/Reader.qml:71
+#: package/contents/ui/Reader.qml:98
 msgid "PCIe link"
 msgstr "PCIe 连接"
 
-#: package/contents/ui/Reader.qml:72
+#: package/contents/ui/Reader.qml:99
 msgid "Current clock of the graphics built into the processor (from the kernel driver)"
 msgstr "处理器集成显卡的当前频率（内核驱动）"
 
-#: package/contents/ui/Reader.qml:73
+#: package/contents/ui/Reader.qml:100
 msgid "Main memory used by programs on the graphics built into the processor"
 msgstr "程序在处理器集成显卡上占用的系统内存"
 
-#: package/contents/ui/Reader.qml:74
+#: package/contents/ui/Reader.qml:101
 msgid "3D and compute unit of the graphics built into the processor"
 msgstr "处理器集成显卡的 3D 与计算单元"
 
-#: package/contents/ui/Reader.qml:75
+#: package/contents/ui/Reader.qml:102
 msgid "Video unit (encoding/decoding) of the graphics built into the processor"
 msgstr "处理器集成显卡的视频单元（编码/解码）"
 
-#: package/contents/ui/Reader.qml:76
+#: package/contents/ui/Reader.qml:103
 msgid "Unit “%1” of the graphics built into the processor"
 msgstr "处理器集成显卡的单元“%1”"
 
-#: package/contents/ui/Reader.qml:77
+#: package/contents/ui/Reader.qml:104
 msgid "Load of the graphics built into the processor (from the kernel driver)"
 msgstr "处理器集成显卡的负载（内核驱动）"
 
-#: package/contents/ui/Reader.qml:84
+#: package/contents/ui/Reader.qml:111
 msgid "Memory temperature (VRAM), measured by the gddr6 service"
 msgstr "显存(VRAM)温度,由 gddr6 服务测量"
 
-#: package/contents/ui/Reader.qml:85
+#: package/contents/ui/Reader.qml:112
 msgid "Graphics card PCI %1"
 msgstr "显卡 PCI %1"
 
-#: package/contents/ui/Reader.qml:87
+#: package/contents/ui/Reader.qml:114
 msgid "Power draw of the graphics built into the processor"
 msgstr "处理器集成显卡的功耗"
 
-#: package/contents/ui/Reader.qml:88
+#: package/contents/ui/Reader.qml:115
 msgid "Power draw of the processor cores"
 msgstr "处理器核心的功耗"
 
-#: package/contents/ui/Reader.qml:89
+#: package/contents/ui/Reader.qml:116
 msgid "Power draw of the memory"
 msgstr "内存的功耗"
 
-#: package/contents/ui/Reader.qml:90
+#: package/contents/ui/Reader.qml:117
 msgid "Power draw of the whole processor"
 msgstr "整个处理器的功耗"
 
-#: package/contents/ui/Reader.qml:91
+#: package/contents/ui/Reader.qml:118
 msgid "measured by the processor, published by the Sensor Deck power service"
 msgstr "由处理器测量，由 Sensor Deck 功耗服务提供"
 
-#: package/contents/ui/Reader.qml:92
+#: package/contents/ui/Reader.qml:119
 msgid "Shell command: %1"
 msgstr "Shell 命令:%1"
 
-#: package/contents/ui/Reader.qml:94
+#: package/contents/ui/Reader.qml:121
 msgid "PCIe"
 msgstr "PCIe"
 
-#: package/contents/ui/Reader.qml:185
+#: package/contents/ui/Reader.qml:213
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:198
+#: package/contents/ui/Reader.qml:226
 msgid "Built into CPU"
 msgstr "CPU 集成"
 
-#: package/contents/ui/Reader.qml:198
+#: package/contents/ui/Reader.qml:226
 msgid "No link"
 msgstr "无连接"
 
-#: package/contents/ui/Reader.qml:199
+#: package/contents/ui/Reader.qml:227
 msgid "Gen %1 · max %2 ×%3"
 msgstr "Gen %1 · 最高 %2 ×%3"
 
-#: package/contents/ui/Reader.qml:202
+#: package/contents/ui/Reader.qml:230
 msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
 msgstr "处理器集成显卡 – 使用系统内存，不占用 PCIe 插槽"
 
-#: package/contents/ui/Reader.qml:206
+#: package/contents/ui/Reader.qml:234
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
 msgstr "仅 ×%1(可达 ×%2)通道 – 请检查接触/插槽"
 
-#: package/contents/ui/Reader.qml:208
+#: package/contents/ui/Reader.qml:236
 msgid "Max. %1 · currently power saving"
 msgstr "最高 %1 · 当前节能中"
 
-#: package/contents/ui/Reader.qml:210
+#: package/contents/ui/Reader.qml:238
 msgid "Maximum for this slot"
 msgstr "此插槽的最大值"
 
-#: package/contents/ui/Reader.qml:211
+#: package/contents/ui/Reader.qml:239
 msgid "Card %1 · slot %2"
 msgstr "显卡 %1 · 插槽 %2"
 
@@ -1415,27 +1498,47 @@ msgstr "交换空间 (swap):未设置"
 msgid "Command"
 msgstr "命令"
 
-#: package/contents/ui/SensorSource.qml:274
+#: package/contents/ui/SensorSource.qml:287
+msgid "%1: fan running slowly"
+msgstr "%1：风扇转得太慢"
+
+#: package/contents/ui/SensorSource.qml:288
+msgid "Its bearing may be stiff, or dust slows it down."
+msgstr "可能是轴承发涩，或灰尘拖慢了它。"
+
+#: package/contents/ui/SensorSource.qml:293
+msgid "%1: fan not turning"
+msgstr "%1：风扇不转"
+
+#: package/contents/ui/SensorSource.qml:294
+msgid "Check whether something blocks it or a cable came loose."
+msgstr "请检查是否有东西卡住风扇，或者线缆是否松脱。"
+
+#: package/contents/ui/SensorSource.qml:299
 msgid "%1 critical: %2"
 msgstr "%1 严重:%2"
 
-#: package/contents/ui/SensorSource.qml:275
+#: package/contents/ui/SensorSource.qml:300
 msgid "Critical threshold of %1 exceeded."
 msgstr "已超过严重阈值 %1。"
 
-#: package/contents/ui/SensorSource.qml:280
+#: package/contents/ui/SensorSource.qml:305
 msgid "%1 high: %2"
 msgstr "%1 偏高:%2"
 
-#: package/contents/ui/SensorSource.qml:281
+#: package/contents/ui/SensorSource.qml:306
 msgid "Warning threshold of %1 exceeded."
 msgstr "已超过警告阈值 %1。"
 
-#: package/contents/ui/SensorSource.qml:286
+#: package/contents/ui/SensorSource.qml:311
 msgid "%1 back to normal: %2"
 msgstr "%1 已恢复正常:%2"
 
-#: package/contents/ui/SensorSource.qml:287
+#: package/contents/ui/SensorSource.qml:312
+msgid "The fans are running normally again."
+msgstr "风扇已恢复正常运转。"
+
+#: package/contents/ui/SensorSource.qml:312
 msgid "The value is below the threshold again."
 msgstr "数值已回落到阈值以下。"
 
@@ -1443,27 +1546,27 @@ msgstr "数值已回落到阈值以下。"
 msgid "Fan %1 at %2"
 msgstr "风扇 %1,温度 %2"
 
-#: package/contents/ui/SensorTile.qml:164
+#: package/contents/ui/SensorTile.qml:165
 msgid "Now: %1"
 msgstr "当前:%1"
 
-#: package/contents/ui/SensorTile.qml:180
+#: package/contents/ui/SensorTile.qml:181
 msgid "Critical – above the threshold of %1."
 msgstr "严重 – 高于阈值 %1。"
 
-#: package/contents/ui/SensorTile.qml:181
+#: package/contents/ui/SensorTile.qml:182
 msgid "Elevated – above the warning threshold of %1."
 msgstr "偏高 – 高于警告阈值 %1。"
 
-#: package/contents/ui/SensorTile.qml:182
+#: package/contents/ui/SensorTile.qml:183
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "正常 · 警告自 %1 起,严重自 %2 起。"
 
-#: package/contents/ui/SensorTile.qml:183
+#: package/contents/ui/SensorTile.qml:184
 msgid "In the normal range · warning from %1."
 msgstr "正常 · 警告自 %1 起。"
 
-#: package/contents/ui/SensorTile.qml:183
+#: package/contents/ui/SensorTile.qml:184
 msgid "In the normal range · critical from %1."
 msgstr "正常 · 严重自 %1 起。"
 

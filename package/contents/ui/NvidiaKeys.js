@@ -21,6 +21,11 @@ function tr(s) {
 var keys = [
     { key: "temperature.gpu",          label: tr("GPU temperature"),        unit: "°C",  max: 100 },
     { key: "fan.speed",                label: tr("Fan"),                unit: "%",   max: 100 },
+    // measured speed from the driver library (code/nvml-fans.py), not from nvidia-smi
+    { key: "fan.rpm",                  label: tr("Fan speed (all fans)"), unit: "RPM", nvml: true },
+    { key: "fan.rpm.1",                label: tr("Fan 1 speed"),          unit: "RPM", nvml: true },
+    { key: "fan.rpm.2",                label: tr("Fan 2 speed"),          unit: "RPM", nvml: true },
+    { key: "fan.rpm.3",                label: tr("Fan 3 speed"),          unit: "RPM", nvml: true },
     { key: "utilization.gpu",          label: tr("GPU load"),              unit: "%",   max: 100 },
     { key: "utilization.memory",       label: tr("VRAM activity"),        unit: "%",   max: 100 },
     { key: "utilization.encoder",      label: tr("Video encoding (NVENC)"),  unit: "%",   max: 100 },
@@ -43,7 +48,7 @@ var helperKeys = ["clocks.max.gr", "clocks.max.mem", "power.max_limit", "name"];
 
 function allQueryKeys() {
     var out = [];
-    keys.forEach(function (k) { if (out.indexOf(k.key) < 0) out.push(k.key); });
+    keys.forEach(function (k) { if (!k.nvml && out.indexOf(k.key) < 0) out.push(k.key); });
     helperKeys.forEach(function (k) { if (out.indexOf(k) < 0) out.push(k); });
     return out;
 }
@@ -60,6 +65,7 @@ function indexOf(key) {
 
 // bit -> text (nvmlClocksEventReasons); English, translated in decode().
 // For the translation template only:
+function _units() { return [tr("RPM")]; }
 function _throttleNames() { return [tr("Power limit"), tr("Hardware slowdown"), tr("Temperature target"), tr("Overheating!"),
                                    tr("Power supply slowdown"), tr("Clock locked"), tr("Synced to other GPU"), tr("Display clock")]; }
 var throttleBits = [
@@ -112,4 +118,10 @@ function decode(key, raw, all, translate) {
     }
     var v = parseFloat(raw);
     return { value: v, text: "" };
+}
+
+// "fan.rpm.2" -> 2, "fan.rpm" / "fan.speed" -> 0 (all fans), others -> -1
+function fanNo(key) {
+    var m = /^fan\.(?:rpm|speed)(?:\.(\d+))?$/.exec(key || "");
+    return m ? (m[1] ? parseInt(m[1]) : 0) : -1;
 }
