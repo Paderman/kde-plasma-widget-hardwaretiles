@@ -127,13 +127,15 @@ Rectangle {
     // native Plasma tooltip: its own window, never clipped by the widget
     // true while the tile's context menu is open – the tooltip would cover it
     property bool menuOpen: false
+    // "Edit tiles" mode: no tooltips while editing
+    property bool arranging: false
     onMenuOpenChanged: if (menuOpen) tip.hideImmediately()
 
     PlasmaCore.ToolTipArea {
         id: tip
         anchors.fill: parent
         z: 100
-        active: card.ready && !card.dragging && !card.menuOpen
+        active: card.ready && !card.dragging && !card.menuOpen && !card.arranging
         mainText: card.ready ? card.src.label : ""
         subText: {
             if (!card.ready) return "";

@@ -274,6 +274,57 @@ PlasmoidItem {
         Plasmoid.configuration.items = json;
     }
 
+    // ---- adding tiles in the widget ("Edit tiles" mode) ---------------------
+    // section of a tile, as FullView groups them: card address, "~compare" or "~system"
+    function tileGroup(it) {
+        if (it.compare) return "~compare";
+        if (!Hardware.usesGpu(it)) return "~system";
+        return it.gpu || (gpu ? gpu.addr : "");
+    }
+    // what makes two tiles "the same" (label, style and colours don't count)
+    function tileKey(it) {
+        return [it.source || "sensor", it.sensorId, it.key, it.command, it.ySensorId, it.yKey,
+                it.compare ? 1 : 0, it.compare ? "" : tileGroup(it)].join("|");
+    }
+    function tr(...a) { return i18n(...a); }
+    // every tile the hardware detection can offer (like the "System overview" /
+    // "All graphics cards" templates with all categories) …
+    readonly property var catalog: {
+        if (!probe.ready) return [];
+        const opts = Hardware.defaultOptions();
+        for (const k in opts) opts[k] = true;
+        const gpus = probe.gpus.length ? probe.gpus : [gpu];
+        return Hardware.build(gpus.length > 1 ? gpus : gpus[0], opts, probe.hw, tr);
+    }
+    // … minus the tiles that are already in the deck: [{ tile, group }].
+    // Same source, or same name in the same section (older tiles may read the
+    // same value from another source, e.g. "GPU load" via ksystemstats).
+    readonly property var suggestions: {
+        const have = {};
+        rawItems.forEach(it => {
+            have[tileKey(it)] = true;
+            have[tileGroup(it) + "#" + it.label] = true;
+        });
+        return catalog.filter(it => !have[tileKey(it)] && !have[tileGroup(it) + "#" + it.label])
+                      .map(it => ({ tile: it, group: tileGroup(it) }));
+    }
+    // returns the index of the new tile
+    function addTile(tile) {
+        const it = Object.assign({}, tile);
+        it.id = Defaults.newId();
+        const arr = rawItems.slice();
+        arr.push(Defaults.normalize(it, arr.length));
+        Plasmoid.configuration.items = JSON.stringify(arr);
+        return arr.length - 1;
+    }
+    // own tile: the settings add it as an unsaved change (Cancel leaves nothing
+    // behind) and jump to it; group = section it was asked for (card address)
+    function addCustomTile(group) {
+        const addr = group && group.charAt(0) !== "~" && (!gpu || group !== gpu.addr) ? group : "";
+        Plasmoid.configuration.editTile = "new:" + addr + "@" + Date.now();
+        Plasmoid.internalAction("configure").trigger();
+    }
+
     // ---- undo / reset of the tile order ------------------------------------
     property var undoOrder: null     // order before the last move (this session)
 

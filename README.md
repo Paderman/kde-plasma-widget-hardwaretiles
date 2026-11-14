@@ -32,7 +32,8 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
   (“System overview”, “GPU focus”, “All graphics cards”) that show whether you changed them
 - **Desktop notifications** for critical values (delay, hysteresis, cooldown)
 - **Plain-language tooltips** that explain what a value means and whether it is normal
-- Fits itself to the widget size, drag & drop arrangement (Ctrl + drag), panel mode with mini rings
+- **Edit tiles right in the widget** (right-click → *Edit tiles*): drag to move, × to remove, + to add from suggestions for your hardware
+- Fits itself to the widget size, panel mode with mini rings
 
 ## Requirements
 

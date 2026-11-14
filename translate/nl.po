@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensoren"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:532
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:632
 msgid "Notifications"
 msgstr "Meldingen"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:501
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:601
 msgid "Appearance"
 msgstr "Uiterlijk"
 
@@ -85,7 +85,7 @@ msgstr "Er is nog geen versie gepubliceerd."
 msgid "GitHub could not be reached (%1)."
 msgstr "GitHub was niet bereikbaar (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:287
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:295
 msgid "Open download page"
 msgstr "Downloadpagina openen"
 
@@ -150,12 +150,12 @@ msgid "Send test notification"
 msgstr "Testmelding versturen"
 
 #: package/contents/ui/ConfigAlerts.qml:94
-#: package/contents/ui/ConfigAppearance.qml:164
+#: package/contents/ui/ConfigAppearance.qml:132
 msgid "Restore defaults"
 msgstr "Standaardwaarden herstellen"
 
 #: package/contents/ui/ConfigAlerts.qml:105
-#: package/contents/ui/ConfigAppearance.qml:175
+#: package/contents/ui/ConfigAppearance.qml:143
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Teruggezet. Wordt pas toegepast na ‘Toepassen’ – ‘Annuleren’ laat alles zoals het was."
 
@@ -175,152 +175,120 @@ msgstr ""
 "Kritieke drempel van 100 °C overschreden.\n"
 "(Dit is slechts een test van Sensor Deck.)"
 
-#: package/contents/ui/ConfigAppearance.qml:40
+#: package/contents/ui/ConfigAppearance.qml:36
 msgid "Columns:"
 msgstr "Kolommen:"
 
-#: package/contents/ui/ConfigAppearance.qml:42
-#: package/contents/ui/ConfigAppearance.qml:43
+#: package/contents/ui/ConfigAppearance.qml:38
+#: package/contents/ui/ConfigAppearance.qml:39
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: package/contents/ui/ConfigAppearance.qml:47
+#: package/contents/ui/ConfigAppearance.qml:43
 msgid "On the desktop:"
 msgstr "Op het bureaublad:"
 
-#: package/contents/ui/ConfigAppearance.qml:48
+#: package/contents/ui/ConfigAppearance.qml:44
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "Tegels verkleinen zodat alles zonder scrollen past"
 
-#: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/ConfigAppearance.qml:49
 msgid "Tile style:"
 msgstr "Tegelstijl:"
 
-#: package/contents/ui/ConfigAppearance.qml:56
+#: package/contents/ui/ConfigAppearance.qml:52
 msgid "Glass (subtle)"
 msgstr "Glas (subtiel)"
 
-#: package/contents/ui/ConfigAppearance.qml:57
+#: package/contents/ui/ConfigAppearance.qml:53
 msgid "Filled"
 msgstr "Gevuld"
 
-#: package/contents/ui/ConfigAppearance.qml:58
+#: package/contents/ui/ConfigAppearance.qml:54
 msgid "Outline (accent colour)"
 msgstr "Omtrek (accentkleur)"
 
-#: package/contents/ui/ConfigAppearance.qml:64
+#: package/contents/ui/ConfigAppearance.qml:60
 msgid "Size:"
 msgstr "Grootte:"
 
-#: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/ConfigAppearance.qml:72
 msgid "Sections per graphics card:"
 msgstr "Secties per grafische kaart:"
 
-#: package/contents/ui/ConfigAppearance.qml:79
+#: package/contents/ui/ConfigAppearance.qml:75
 msgid "From two graphics cards"
 msgstr "Vanaf twee grafische kaarten"
 
-#: package/contents/ui/ConfigAppearance.qml:80
+#: package/contents/ui/ConfigAppearance.qml:76
 msgid "Always (even with one card)"
 msgstr "Altijd (ook bij één kaart)"
 
-#: package/contents/ui/ConfigAppearance.qml:81
+#: package/contents/ui/ConfigAppearance.qml:77
 msgid "Never (several cards: coloured edge)"
 msgstr "Nooit (meerdere kaarten: gekleurde rand)"
 
-#: package/contents/ui/ConfigAppearance.qml:88
-msgid "Arrangement:"
-msgstr "Indeling:"
+#: package/contents/ui/ConfigAppearance.qml:87
+msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
+msgstr "Tegels direct in het widget verplaatsen, verwijderen of toevoegen: rechtsklik → ‘Tegels bewerken’."
 
-#: package/contents/ui/ConfigAppearance.qml:89
-msgid "Move tiles by drag & drop"
-msgstr "Tegels verplaatsen met slepen en neerzetten"
-
-#: package/contents/ui/ConfigAppearance.qml:94
-msgid "Start moving:"
-msgstr "Verplaatsen starten:"
-
-#: package/contents/ui/ConfigAppearance.qml:98
-msgid "Ctrl + drag"
-msgstr "Ctrl + slepen"
-
-#: package/contents/ui/ConfigAppearance.qml:99
-msgid "Long press or Ctrl + drag (only useful in the panel popup)"
-msgstr "Lang indrukken of Ctrl + slepen (alleen zinvol in de paneelpop-up)"
-
-#: package/contents/ui/ConfigAppearance.qml:100
-msgid "Immediately when dragging"
-msgstr "Direct bij het slepen"
-
-#: package/contents/ui/ConfigAppearance.qml:108
-msgid "Hold time:"
-msgstr "Houdtijd:"
-
-#: package/contents/ui/ConfigAppearance.qml:111
-msgid "%1 ms"
-msgstr "%1 ms"
-
-#: package/contents/ui/ConfigAppearance.qml:119
-msgid "On the desktop a long press moves the whole widget (Plasma) – so arrange tiles with Ctrl + drag. Right-click the widget: “Undo last move” and “Restore original arrangement”."
-msgstr "Op het bureaublad verplaatst lang indrukken het hele widget (Plasma) – rangschik tegels daarom met Ctrl + slepen. Rechtsklik op het widget: ‘Laatste verplaatsing ongedaan maken’ en ‘Oorspronkelijke indeling herstellen’."
-
-#: package/contents/ui/ConfigAppearance.qml:127
+#: package/contents/ui/ConfigAppearance.qml:95
 msgid "Update:"
 msgstr "Bijwerken:"
 
-#: package/contents/ui/ConfigAppearance.qml:129
+#: package/contents/ui/ConfigAppearance.qml:97
 msgid "every %1 s"
 msgstr "elke %1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:135
+#: package/contents/ui/ConfigAppearance.qml:103
 msgid "History in graphs:"
 msgstr "Geschiedenis in grafieken:"
 
-#: package/contents/ui/ConfigAppearance.qml:137
+#: package/contents/ui/ConfigAppearance.qml:105
 msgid "%1 s"
 msgstr "%1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:141
+#: package/contents/ui/ConfigAppearance.qml:109
 msgid "Panel"
 msgstr "Paneel"
 
-#: package/contents/ui/ConfigAppearance.qml:145
+#: package/contents/ui/ConfigAppearance.qml:113
 msgid "In the panel:"
 msgstr "In het paneel:"
 
-#: package/contents/ui/ConfigAppearance.qml:146
+#: package/contents/ui/ConfigAppearance.qml:114
 msgid "Show mini rings"
 msgstr "Mini-ringen tonen"
 
-#: package/contents/ui/ConfigAppearance.qml:150
+#: package/contents/ui/ConfigAppearance.qml:118
 msgid "Show labels"
 msgstr "Labels tonen"
 
-#: package/contents/ui/ConfigAppearance.qml:156
+#: package/contents/ui/ConfigAppearance.qml:124
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "Welke sensoren in het paneel verschijnen, stel je per item in op de pagina ‘Sensoren’. De achtergrond van het widget op het bureaublad kun je in de bewerkmodus wijzigen."
 
-#: package/contents/ui/ConfigAppearance.qml:176
+#: package/contents/ui/ConfigAppearance.qml:144
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Geldt alleen voor de instellingen op deze pagina – je sensortegels en meldingen blijven behouden."
 
 #: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:505
+#: package/contents/ui/FullView.qml:605
 msgid "Ring"
 msgstr "Ring"
 
 #: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:510
+#: package/contents/ui/FullView.qml:610
 msgid "Bar"
 msgstr "Balk"
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:515
+#: package/contents/ui/FullView.qml:615
 msgid "History graph"
 msgstr "Geschiedenisgrafiek"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:520
+#: package/contents/ui/FullView.qml:620
 msgid "Value only"
 msgstr "Alleen waarde"
 
@@ -328,271 +296,275 @@ msgstr "Alleen waarde"
 msgid "Fan curve"
 msgstr "Ventilatorcurve"
 
-#: package/contents/ui/ConfigSensors.qml:106
+#: package/contents/ui/ConfigSensors.qml:49
+msgid "New tile"
+msgstr "Nieuwe tegel"
+
+#: package/contents/ui/ConfigSensors.qml:128
 msgid "Main card (%1)"
 msgstr "Hoofdkaart (%1)"
 
-#: package/contents/ui/ConfigSensors.qml:113
+#: package/contents/ui/ConfigSensors.qml:135
 msgid "System overview"
 msgstr "Systeemoverzicht"
 
-#: package/contents/ui/ConfigSensors.qml:114
+#: package/contents/ui/ConfigSensors.qml:136
 msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
 msgstr "Standaardtegels voor je hardware: grafische kaart, processor, geheugen, SSD's, ventilatoren"
 
-#: package/contents/ui/ConfigSensors.qml:117
+#: package/contents/ui/ConfigSensors.qml:139
 msgid "All graphics cards"
 msgstr "Alle grafische kaarten"
 
-#: package/contents/ui/ConfigSensors.qml:118
+#: package/contents/ui/ConfigSensors.qml:140
 msgid "One section per graphics card, plus comparison tiles and system"
 msgstr "Eén sectie per grafische kaart, plus vergelijkingstegels en systeem"
 
-#: package/contents/ui/ConfigSensors.qml:121
+#: package/contents/ui/ConfigSensors.qml:143
 msgid "GPU focus"
 msgstr "GPU-focus"
 
-#: package/contents/ui/ConfigSensors.qml:122
+#: package/contents/ui/ConfigSensors.qml:144
 msgid "Only the selected graphics card, with all of its values"
 msgstr "Alleen de gekozen grafische kaart, met al haar waarden"
 
-#: package/contents/ui/ConfigSensors.qml:127
+#: package/contents/ui/ConfigSensors.qml:149
 msgid "Setup wizard"
 msgstr "Installatie-assistent"
 
-#: package/contents/ui/ConfigSensors.qml:169
+#: package/contents/ui/ConfigSensors.qml:191
 msgid "Layout:"
 msgstr "Indeling:"
 
-#: package/contents/ui/ConfigSensors.qml:179
+#: package/contents/ui/ConfigSensors.qml:201
 msgid "(modified)"
 msgstr "(gewijzigd)"
 
-#: package/contents/ui/ConfigSensors.qml:185
+#: package/contents/ui/ConfigSensors.qml:207
 msgid "Is loaded and unchanged."
 msgstr "Is geladen en ongewijzigd."
 
-#: package/contents/ui/ConfigSensors.qml:186
+#: package/contents/ui/ConfigSensors.qml:208
 msgid "Clicking restores the template – your changes will be lost."
 msgstr "Klikken herstelt het sjabloon – je wijzigingen gaan verloren."
 
-#: package/contents/ui/ConfigSensors.qml:187
+#: package/contents/ui/ConfigSensors.qml:209
 msgid "Clicking replaces all tiles with this template."
 msgstr "Klikken vervangt alle tegels door dit sjabloon."
 
-#: package/contents/ui/ConfigSensors.qml:209
+#: package/contents/ui/ConfigSensors.qml:231
 msgid "Created by the setup wizard – unchanged."
 msgstr "Gemaakt door de installatie-assistent – ongewijzigd."
 
-#: package/contents/ui/ConfigSensors.qml:210
+#: package/contents/ui/ConfigSensors.qml:232
 msgid "Template “%1” is loaded – unchanged."
 msgstr "Sjabloon ‘%1’ is geladen – ongewijzigd."
 
-#: package/contents/ui/ConfigSensors.qml:212
+#: package/contents/ui/ConfigSensors.qml:234
 msgid "Customised: based on “%1”, tiles have been changed."
 msgstr "Aangepast: gebaseerd op ‘%1’, tegels zijn gewijzigd."
 
-#: package/contents/ui/ConfigSensors.qml:213
+#: package/contents/ui/ConfigSensors.qml:235
 msgid "Custom layout."
 msgstr "Eigen indeling."
 
-#: package/contents/ui/ConfigSensors.qml:221
+#: package/contents/ui/ConfigSensors.qml:243
 msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
 msgstr "Een sjabloon vervangt alle tegels – ‘Systeemoverzicht’ herstelt de standaardtegels voor je hardware. Wordt pas toegepast na ‘Toepassen’, ‘Annuleren’ laat alles zoals het was."
 
-#: package/contents/ui/ConfigSensors.qml:233
+#: package/contents/ui/ConfigSensors.qml:255
 msgid "Main card:"
 msgstr "Hoofdkaart:"
 
-#: package/contents/ui/ConfigSensors.qml:233
-#: package/contents/ui/ConfigSensors.qml:360
+#: package/contents/ui/ConfigSensors.qml:255
+#: package/contents/ui/ConfigSensors.qml:382
 msgid "Graphics card:"
 msgstr "Grafische kaart:"
 
-#: package/contents/ui/ConfigSensors.qml:243
+#: package/contents/ui/ConfigSensors.qml:265
 msgid "Searching …"
 msgstr "Zoeken …"
 
-#: package/contents/ui/ConfigSensors.qml:243
+#: package/contents/ui/ConfigSensors.qml:265
 msgid "No supported graphics card found"
 msgstr "Geen ondersteunde grafische kaart gevonden"
 
-#: package/contents/ui/ConfigSensors.qml:249
+#: package/contents/ui/ConfigSensors.qml:271
 msgid "Search again"
 msgstr "Opnieuw zoeken"
 
-#: package/contents/ui/ConfigSensors.qml:259
+#: package/contents/ui/ConfigSensors.qml:281
 msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
 msgstr "GPU-tegels zonder eigen toewijzing tonen deze kaart. Elke tegel kan hieronder aan een andere kaart worden toegewezen – of de indeling ‘Alle grafische kaarten’ (boven) maakt voor elke kaart een eigen sectie."
 
-#: package/contents/ui/ConfigSensors.qml:260
+#: package/contents/ui/ConfigSensors.qml:282
 msgid "All GPU tiles refer to this card."
 msgstr "Alle GPU-tegels hebben betrekking op deze kaart."
 
-#: package/contents/ui/ConfigSensors.qml:266
+#: package/contents/ui/ConfigSensors.qml:288
 msgid "Start setup wizard"
 msgstr "Installatie-assistent starten"
 
-#: package/contents/ui/ConfigSensors.qml:273
+#: package/contents/ui/ConfigSensors.qml:295
 msgid "Appears in the widget after “Apply”."
 msgstr "Verschijnt in het widget na ‘Toepassen’."
 
-#: package/contents/ui/ConfigSensors.qml:284
-msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be rearranged directly in the widget: Ctrl + drag."
-msgstr "Bronnen: systeemsensoren (ksystemstats – CPU, ventilatoren, NVMe, RAM …), NVIDIA-waarden rechtstreeks van nvidia-smi of een shell-opdracht. Bij AMD-GPU's staat de VRAM-temperatuur onder ‘amdgpu … mem’. Tegels kunnen ook direct in het widget worden verplaatst: Ctrl + slepen."
+#: package/contents/ui/ConfigSensors.qml:306
+msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”."
+msgstr "Bronnen: systeemsensoren (ksystemstats – CPU, ventilatoren, NVMe, RAM …), NVIDIA-waarden rechtstreeks van nvidia-smi of een shell-opdracht. Bij AMD-GPU's staat de VRAM-temperatuur onder ‘amdgpu … mem’. Tegels kunnen ook direct in het widget worden bewerkt: rechtsklik → ‘Tegels bewerken’."
 
-#: package/contents/ui/ConfigSensors.qml:323
+#: package/contents/ui/ConfigSensors.qml:345
 msgid "Label (empty = automatic)"
 msgstr "Label (leeg = automatisch)"
 
-#: package/contents/ui/ConfigSensors.qml:331
+#: package/contents/ui/ConfigSensors.qml:353
 msgid "Move up"
 msgstr "Omhoog"
 
-#: package/contents/ui/ConfigSensors.qml:337
+#: package/contents/ui/ConfigSensors.qml:359
 msgid "Move down"
 msgstr "Omlaag"
 
-#: package/contents/ui/ConfigSensors.qml:347
+#: package/contents/ui/ConfigSensors.qml:369
 msgid "Duplicate"
 msgstr "Dupliceren"
 
-#: package/contents/ui/ConfigSensors.qml:352
+#: package/contents/ui/ConfigSensors.qml:374
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: package/contents/ui/ConfigSensors.qml:373
+#: package/contents/ui/ConfigSensors.qml:395
 msgid "Not found (PCI %1)"
 msgstr "Niet gevonden (PCI %1)"
 
-#: package/contents/ui/ConfigSensors.qml:377
+#: package/contents/ui/ConfigSensors.qml:399
 msgid "Compare all cards"
 msgstr "Alle kaarten vergelijken"
 
-#: package/contents/ui/ConfigSensors.qml:381
+#: package/contents/ui/ConfigSensors.qml:403
 msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
 msgstr "Toont de waarde van elke grafische kaart in deze tegel – ring: één boog per kaart, grafiek: één lijn per kaart, balk/waarde: één rij per kaart."
 
-#: package/contents/ui/ConfigSensors.qml:389
+#: package/contents/ui/ConfigSensors.qml:411
 msgid "Temperature (X):"
 msgstr "Temperatuur (X):"
 
-#: package/contents/ui/ConfigSensors.qml:389
+#: package/contents/ui/ConfigSensors.qml:411
 #: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "Bron:"
 
-#: package/contents/ui/ConfigSensors.qml:402
+#: package/contents/ui/ConfigSensors.qml:424
 msgid "Fan (Y):"
 msgstr "Ventilator (Y):"
 
-#: package/contents/ui/ConfigSensors.qml:422
+#: package/contents/ui/ConfigSensors.qml:444
 msgid "Total value:"
 msgstr "Totale waarde:"
 
-#: package/contents/ui/ConfigSensors.qml:441
+#: package/contents/ui/ConfigSensors.qml:463
 msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
 msgstr "Optioneel, bijv. ‘Totaal VRAM’ → toont ‘1,0 / 10 GiB’ en stelt het maximum voor balk/ring in. NVIDIA-waarden brengen hun totaal automatisch mee."
 
-#: package/contents/ui/ConfigSensors.qml:449
+#: package/contents/ui/ConfigSensors.qml:471
 msgid "Style:"
 msgstr "Stijl:"
 
-#: package/contents/ui/ConfigSensors.qml:464
-#: package/contents/ui/FullView.qml:525
+#: package/contents/ui/ConfigSensors.qml:486
+#: package/contents/ui/FullView.qml:625
 msgid "Double width"
 msgstr "Dubbele breedte"
 
-#: package/contents/ui/ConfigSensors.qml:469
+#: package/contents/ui/ConfigSensors.qml:491
 msgid "In panel"
 msgstr "In paneel"
 
-#: package/contents/ui/ConfigSensors.qml:474
+#: package/contents/ui/ConfigSensors.qml:496
 msgid "Notify"
 msgstr "Melden"
 
-#: package/contents/ui/ConfigSensors.qml:478
+#: package/contents/ui/ConfigSensors.qml:500
 msgid "Desktop notification when a threshold is exceeded"
 msgstr "Bureaubladmelding wanneer een drempel wordt overschreden"
 
-#: package/contents/ui/ConfigSensors.qml:485
+#: package/contents/ui/ConfigSensors.qml:507
 msgid "Accent colour"
 msgstr "Accentkleur"
 
-#: package/contents/ui/ConfigSensors.qml:491
+#: package/contents/ui/ConfigSensors.qml:513
 msgid "Automatic colour"
 msgstr "Automatische kleur"
 
-#: package/contents/ui/ConfigSensors.qml:495
+#: package/contents/ui/ConfigSensors.qml:517
 msgid "Temperature axis:"
 msgstr "Temperatuuras:"
 
-#: package/contents/ui/ConfigSensors.qml:495
+#: package/contents/ui/ConfigSensors.qml:517
 msgid "Range:"
 msgstr "Bereik:"
 
-#: package/contents/ui/ConfigSensors.qml:498
+#: package/contents/ui/ConfigSensors.qml:520
 msgid "Min"
 msgstr "Min"
 
-#: package/contents/ui/ConfigSensors.qml:505
+#: package/contents/ui/ConfigSensors.qml:527
 msgid "Max"
 msgstr "Max"
 
-#: package/contents/ui/ConfigSensors.qml:510
-#: package/contents/ui/ConfigSensors.qml:511
-#: package/contents/ui/ConfigSensors.qml:520
-#: package/contents/ui/ConfigSensors.qml:521
+#: package/contents/ui/ConfigSensors.qml:532
+#: package/contents/ui/ConfigSensors.qml:533
+#: package/contents/ui/ConfigSensors.qml:542
+#: package/contents/ui/ConfigSensors.qml:543
 msgid "auto"
 msgstr "auto"
 
-#: package/contents/ui/ConfigSensors.qml:514
+#: package/contents/ui/ConfigSensors.qml:536
 msgid "Fan max"
 msgstr "Ventilator max"
 
-#: package/contents/ui/ConfigSensors.qml:526
+#: package/contents/ui/ConfigSensors.qml:548
 msgid "Thresholds:"
 msgstr "Drempels:"
 
-#: package/contents/ui/ConfigSensors.qml:534
-#: package/contents/ui/ConfigSensors.qml:535
-#: package/contents/ui/ConfigSensors.qml:543
-#: package/contents/ui/ConfigSensors.qml:544
+#: package/contents/ui/ConfigSensors.qml:556
+#: package/contents/ui/ConfigSensors.qml:557
+#: package/contents/ui/ConfigSensors.qml:565
+#: package/contents/ui/ConfigSensors.qml:566
 msgid "off"
 msgstr "uit"
 
-#: package/contents/ui/ConfigSensors.qml:549
+#: package/contents/ui/ConfigSensors.qml:571
 msgid "Reference curve:"
 msgstr "Referentiecurve:"
 
-#: package/contents/ui/ConfigSensors.qml:566
+#: package/contents/ui/ConfigSensors.qml:588
 msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
 msgstr "Optioneel: punten ‘temperatuur:ventilator’, gestippeld getekend – bijv. je curve uit GreenWithEnvy of CoolerControl. De doorgetrokken lijn leert het widget zelf uit de metingen."
 
-#: package/contents/ui/ConfigSensors.qml:578
+#: package/contents/ui/ConfigSensors.qml:600
 msgid "Add sensor"
 msgstr "Sensor toevoegen"
 
-#: package/contents/ui/ConfigSensors.qml:583
+#: package/contents/ui/ConfigSensors.qml:605
 msgid "Template …"
 msgstr "Sjabloon …"
 
-#: package/contents/ui/ConfigSensors.qml:588
+#: package/contents/ui/ConfigSensors.qml:610
 msgid "GPU comparison: temperature (ring)"
 msgstr "GPU-vergelijking: temperatuur (ring)"
 
-#: package/contents/ui/ConfigSensors.qml:590
+#: package/contents/ui/ConfigSensors.qml:612
 #: package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255
 #: package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318
 #: package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU-temperatuur"
 
-#: package/contents/ui/ConfigSensors.qml:593
+#: package/contents/ui/ConfigSensors.qml:615
 msgid "GPU comparison: load (graph)"
 msgstr "GPU-vergelijking: belasting (grafiek)"
 
-#: package/contents/ui/ConfigSensors.qml:595
+#: package/contents/ui/ConfigSensors.qml:617
 #: package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256
 #: package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321
 #: package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332
@@ -601,88 +573,88 @@ msgstr "GPU-vergelijking: belasting (grafiek)"
 msgid "GPU load"
 msgstr "GPU-belasting"
 
-#: package/contents/ui/ConfigSensors.qml:598
+#: package/contents/ui/ConfigSensors.qml:620
 msgid "GPU comparison: power (bar)"
 msgstr "GPU-vergelijking: verbruik (balk)"
 
-#: package/contents/ui/ConfigSensors.qml:600
+#: package/contents/ui/ConfigSensors.qml:622
 #: package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257
 #: package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322
 #: package/contents/ui/Hardware.js:329
 msgid "GPU power"
 msgstr "GPU-verbruik"
 
-#: package/contents/ui/ConfigSensors.qml:602
+#: package/contents/ui/ConfigSensors.qml:624
 #: package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
 msgid "GPU fan curve"
 msgstr "GPU-ventilatorcurve"
 
-#: package/contents/ui/ConfigSensors.qml:603
+#: package/contents/ui/ConfigSensors.qml:625
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "VRAM-temperatuur (gddr6, NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:603
+#: package/contents/ui/ConfigSensors.qml:625
 #: package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
 msgid "VRAM temperature"
 msgstr "VRAM-temperatuur"
 
-#: package/contents/ui/ConfigSensors.qml:604
+#: package/contents/ui/ConfigSensors.qml:626
 msgid "VRAM used / total (NVIDIA)"
 msgstr "VRAM gebruikt / totaal (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:604
+#: package/contents/ui/ConfigSensors.qml:626
 #: package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258
 #: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
 #: package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
 msgid "VRAM used"
 msgstr "VRAM gebruikt"
 
-#: package/contents/ui/ConfigSensors.qml:605
+#: package/contents/ui/ConfigSensors.qml:627
 msgid "GPU throttling (NVIDIA)"
 msgstr "GPU-throttling (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:605
+#: package/contents/ui/ConfigSensors.qml:627
 #: package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
 msgid "Throttling"
 msgstr "Throttling"
 
-#: package/contents/ui/ConfigSensors.qml:606
+#: package/contents/ui/ConfigSensors.qml:628
 msgid "CPU temperature (max.)"
 msgstr "CPU-temperatuur (max.)"
 
-#: package/contents/ui/ConfigSensors.qml:606
+#: package/contents/ui/ConfigSensors.qml:628
 #: package/contents/ui/Hardware.js:367
 msgid "CPU temperature"
 msgstr "CPU-temperatuur"
 
-#: package/contents/ui/ConfigSensors.qml:607
+#: package/contents/ui/ConfigSensors.qml:629
 msgid "CPU power (power service)"
 msgstr "CPU-verbruik (verbruiksdienst)"
 
-#: package/contents/ui/ConfigSensors.qml:607
+#: package/contents/ui/ConfigSensors.qml:629
 #: package/contents/ui/Hardware.js:369
 msgid "CPU power"
 msgstr "CPU-verbruik"
 
-#: package/contents/ui/ConfigSensors.qml:608
+#: package/contents/ui/ConfigSensors.qml:630
 msgid "CPU usage (graph)"
 msgstr "CPU-gebruik (grafiek)"
 
-#: package/contents/ui/ConfigSensors.qml:608
+#: package/contents/ui/ConfigSensors.qml:630
 #: package/contents/ui/Hardware.js:370
 msgid "CPU load"
 msgstr "CPU-belasting"
 
-#: package/contents/ui/ConfigSensors.qml:609
+#: package/contents/ui/ConfigSensors.qml:631
 #: package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
 msgid "Memory"
 msgstr "Geheugen"
 
-#: package/contents/ui/ConfigSensors.qml:610
+#: package/contents/ui/ConfigSensors.qml:632
 msgid "Network download"
 msgstr "Netwerkdownload"
 
-#: package/contents/ui/ConfigSensors.qml:610
+#: package/contents/ui/ConfigSensors.qml:632
 #: package/contents/ui/Hardware.js:391
 msgid "Download"
 msgstr "Download"
@@ -907,72 +879,106 @@ msgstr "Geen gegevens van de sensoren"
 msgid "Collecting data points …"
 msgstr "Meetpunten verzamelen …"
 
-#: package/contents/ui/FullView.qml:146
+#: package/contents/ui/FullView.qml:150
 msgid "Comparison"
 msgstr "Vergelijking"
 
-#: package/contents/ui/FullView.qml:148
+#: package/contents/ui/FullView.qml:152
 msgid "System"
 msgstr "Systeem"
 
-#: package/contents/ui/FullView.qml:270
+#: package/contents/ui/FullView.qml:278
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Moet Sensor Deck eens per week naar nieuwe versies zoeken? Daarvoor wordt verbinding gemaakt met github.com – GitHub ziet je IP-adres, zoals bij elk websitebezoek; verder wordt niets verstuurd. Je kunt dit altijd wijzigen in de instellingen."
 
-#: package/contents/ui/FullView.qml:271
+#: package/contents/ui/FullView.qml:279
 msgid "Sensor Deck %1 is available (installed: %2)."
 msgstr "Sensor Deck %1 is beschikbaar (geïnstalleerd: %2)."
 
-#: package/contents/ui/FullView.qml:275
+#: package/contents/ui/FullView.qml:283
 msgid "Yes, check weekly"
 msgstr "Ja, wekelijks controleren"
 
-#: package/contents/ui/FullView.qml:281
+#: package/contents/ui/FullView.qml:289
 msgid "No, thanks"
 msgstr "Nee, bedankt"
 
-#: package/contents/ui/FullView.qml:434 package/contents/ui/main.qml:354
-msgid "Sensor Deck %1 is available – open download page"
-msgstr "Sensor Deck %1 is beschikbaar – downloadpagina openen"
+#: package/contents/ui/FullView.qml:314
+msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
+msgstr "Sleep een tegel om hem binnen zijn sectie te verplaatsen. × verwijdert een tegel, + voegt er een toe."
 
-#: package/contents/ui/FullView.qml:440 package/contents/ui/main.qml:360
+#: package/contents/ui/FullView.qml:318 package/contents/ui/FullView.qml:534
+#: package/contents/ui/main.qml:411
 msgid "Restore “%1”"
 msgstr "‘%1’ herstellen"
 
-#: package/contents/ui/FullView.qml:446 package/contents/ui/main.qml:366
+#: package/contents/ui/FullView.qml:324 package/contents/ui/FullView.qml:546
+#: package/contents/ui/main.qml:417
 msgid "Undo last move"
 msgstr "Laatste verplaatsing ongedaan maken"
 
-#: package/contents/ui/FullView.qml:452 package/contents/ui/main.qml:372
-msgid "Restore original arrangement"
-msgstr "Oorspronkelijke indeling herstellen"
+#: package/contents/ui/FullView.qml:329
+msgid "Done"
+msgstr "Klaar"
 
-#: package/contents/ui/FullView.qml:458
-msgid "Configure Sensor Deck …"
-msgstr "Sensor Deck instellen …"
+#: package/contents/ui/FullView.qml:399 package/contents/ui/FullView.qml:422
+msgid "Add tile"
+msgstr "Tegel toevoegen"
 
-#: package/contents/ui/FullView.qml:465
-msgid "Tip: press and hold an empty spot – move, resize, remove widget"
-msgstr "Tip: houd een lege plek ingedrukt – widget verplaatsen, vergroten/verkleinen, verwijderen"
-
-#: package/contents/ui/FullView.qml:494
-msgid "Edit in settings …"
-msgstr "Bewerken in de instellingen …"
-
-#: package/contents/ui/FullView.qml:540
+#: package/contents/ui/FullView.qml:496 package/contents/ui/FullView.qml:513
 msgid "Remove tile"
 msgstr "Tegel verwijderen"
 
-#: package/contents/ui/FullView.qml:547 package/contents/ui/FullView.qml:561
-#: package/contents/ui/main.qml:385
+#: package/contents/ui/FullView.qml:528 package/contents/ui/main.qml:405
+msgid "Sensor Deck %1 is available – open download page"
+msgstr "Sensor Deck %1 is beschikbaar – downloadpagina openen"
+
+#: package/contents/ui/FullView.qml:540
+msgid "Finish editing"
+msgstr "Bewerken beëindigen"
+
+#: package/contents/ui/FullView.qml:540
+msgid "Edit tiles"
+msgstr "Tegels bewerken"
+
+#: package/contents/ui/FullView.qml:552 package/contents/ui/main.qml:423
+msgid "Restore original arrangement"
+msgstr "Oorspronkelijke indeling herstellen"
+
+#: package/contents/ui/FullView.qml:558
+msgid "Configure Sensor Deck …"
+msgstr "Sensor Deck instellen …"
+
+#: package/contents/ui/FullView.qml:565
+msgid "Tip: press and hold an empty spot – move, resize, remove widget"
+msgstr "Tip: houd een lege plek ingedrukt – widget verplaatsen, vergroten/verkleinen, verwijderen"
+
+#: package/contents/ui/FullView.qml:594
+msgid "Edit in settings …"
+msgstr "Bewerken in de instellingen …"
+
+#: package/contents/ui/FullView.qml:641 package/contents/ui/FullView.qml:696
+#: package/contents/ui/main.qml:436
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:629
+#: package/contents/ui/FullView.qml:665
+msgid "Suggestions for your hardware"
+msgstr "Suggesties voor je hardware"
+
+#: package/contents/ui/FullView.qml:665
+msgid "No further suggestions"
+msgstr "Geen verdere suggesties"
+
+#: package/contents/ui/FullView.qml:684
+msgid "Own tile …"
+msgstr "Eigen tegel …"
+
+#: package/contents/ui/FullView.qml:765
 msgid "No sensors configured"
 msgstr "Geen sensoren ingesteld"
 
-#: package/contents/ui/FullView.qml:635
+#: package/contents/ui/FullView.qml:771
 msgid "Configure …"
 msgstr "Instellen …"
 
@@ -1403,31 +1409,31 @@ msgstr "%1 weer normaal: %2"
 msgid "The value is below the threshold again."
 msgstr "De waarde ligt weer onder de drempel."
 
-#: package/contents/ui/SensorTile.qml:150
+#: package/contents/ui/SensorTile.qml:152
 msgid "Fan %1 at %2"
 msgstr "Ventilator %1 op %2"
 
-#: package/contents/ui/SensorTile.qml:160
+#: package/contents/ui/SensorTile.qml:162
 msgid "Now: %1"
 msgstr "Nu: %1"
 
-#: package/contents/ui/SensorTile.qml:175
+#: package/contents/ui/SensorTile.qml:177
 msgid "Critical – above the threshold of %1."
 msgstr "Kritiek – boven de drempel van %1."
 
-#: package/contents/ui/SensorTile.qml:176
+#: package/contents/ui/SensorTile.qml:178
 msgid "Elevated – above the warning threshold of %1."
 msgstr "Verhoogd – boven de waarschuwingsdrempel van %1."
 
-#: package/contents/ui/SensorTile.qml:177
+#: package/contents/ui/SensorTile.qml:179
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "In het normale bereik · waarschuwing vanaf %1, kritiek vanaf %2."
 
-#: package/contents/ui/SensorTile.qml:178
+#: package/contents/ui/SensorTile.qml:180
 msgid "In the normal range · warning from %1."
 msgstr "In het normale bereik · waarschuwing vanaf %1."
 
-#: package/contents/ui/SensorTile.qml:178
+#: package/contents/ui/SensorTile.qml:180
 msgid "In the normal range · critical from %1."
 msgstr "In het normale bereik · kritiek vanaf %1."
 

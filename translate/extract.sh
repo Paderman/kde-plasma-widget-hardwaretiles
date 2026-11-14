@@ -21,5 +21,7 @@ sed -i 's/^"POT-Creation-Date: .*\\n"$/"POT-Creation-Date: \\n"/' template.pot
 for po in *.po; do
     [ -e "$po" ] || continue
     msgmerge --quiet --no-wrap --update --backup=none "$po" template.pot
+    # removed texts are not kept as "#~" entries
+    msgattrib --no-wrap --no-obsolete -o "$po" "$po"
 done
 echo "template.pot: $(grep -c '^msgid ' template.pot) entries (incl. header)"

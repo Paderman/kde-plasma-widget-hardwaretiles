@@ -161,7 +161,6 @@ var settings = {
     appearance: {
         columns: 0, fitToSize: true, tileStyle: "glass", tileScale: 100,
         gpuSectionMode: "auto", gpuSections: true,
-        dragEnabled: true, dragMode: "ctrl", dragHoldDelay: 450,
         updateInterval: 1500, historyLength: 60,
         panelShowRings: true, panelShowLabels: false
     },

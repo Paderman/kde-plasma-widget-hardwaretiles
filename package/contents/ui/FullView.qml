@@ -134,7 +134,11 @@ Item {
                                    : sectionMode === "never" ? false : root.multiGpu
     readonly property var entries: {
         const its = root.items;
-        if (!sections) return its.map((it, i) => ({ idx: i, group: "" })).filter(e => !root.compareCollapsed(e.idx));
+        if (!sections) {
+            const flat = its.map((it, i) => ({ idx: i, group: "" })).filter(e => !root.compareCollapsed(e.idx));
+            if (editing) flat.push({ add: true, group: "" });
+            return flat;
+        }
         const groups = root.shownGpus.map(g => ({
             key: g.addr, title: g.tag, slot: g.slot,
             addr: g.gpu ? g.addr : "", driver: g.gpu ? g.gpu.driver : "",
@@ -162,6 +166,7 @@ Item {
             if (!g.idxs.length) return;
             out.push({ header: true, group: g.key, title: g.title, info: g.info, slot: g.slot, addr: g.addr, driver: g.driver });
             g.idxs.forEach(i => out.push({ idx: i, group: g.key }));
+            if (editing) out.push({ add: true, group: g.key });
         });
         return out;
     }
@@ -188,9 +193,12 @@ Item {
         });
         return out;
     }
-    readonly property bool dragEnabled: Plasmoid.configuration.dragEnabled && !Plasmoid.immutable
-    readonly property string dragMode: Plasmoid.configuration.dragMode || "ctrl"
-    readonly property int holdDelay: Math.max(150, Plasmoid.configuration.dragHoldDelay)
+    // "Edit tiles" mode (context menu): drag tiles to move them, × removes,
+    // + adds – until it is ended. Not stored: closing the popup ends it too.
+    property bool editing: false
+    onVisibleChanged: if (!visible) editing = false
+    readonly property bool canEdit: !Plasmoid.immutable && !root.needsSetup
+    onCanEditChanged: if (!canEdit) editing = false
 
     Layout.minimumWidth: Kirigami.Units.gridUnit * 8
     Layout.minimumHeight: Kirigami.Units.gridUnit * 5
@@ -205,7 +213,7 @@ Item {
     function tileIndexAt(p) {
         for (let i = 0; i < tiles.count; ++i) {
             const t = tiles.itemAt(i);
-            if (!t || !entries[i] || entries[i].header) continue;
+            if (!t || !entries[i] || entries[i].idx === undefined) continue;
             const q = t.mapToItem(full, 0, 0);
             if (p.x >= q.x && p.x < q.x + t.width && p.y >= q.y && p.y < q.y + t.height) return i;
         }
@@ -293,12 +301,45 @@ Item {
             Plasmoid.configuration.updateDismissed = Plasmoid.configuration.updateLatest
     }
 
+    // shown while the "Edit tiles" mode is on
+    Kirigami.InlineMessage {
+        id: editBanner
+        anchors {
+            left: parent.left; right: parent.right; margins: full.gap
+            top: banner.visible ? banner.bottom : parent.top
+        }
+        visible: full.editing
+        type: Kirigami.MessageType.Positive
+        icon.source: "document-edit"
+        text: i18n("Drag a tile to move it within its section. × removes a tile, + adds one.")
+        actions: [
+            Kirigami.Action {
+                visible: root.canUndoRemove
+                text: root.canUndoRemove ? i18n("Restore “%1”", root.undoRemove.label) : ""
+                icon.name: "edit-undo"
+                onTriggered: root.restoreRemoved()
+            },
+            Kirigami.Action {
+                visible: root.undoOrder !== null
+                text: i18n("Undo last move")
+                icon.name: "edit-undo"
+                onTriggered: root.undoMove()
+            },
+            Kirigami.Action {
+                text: i18n("Done")
+                icon.name: "dialog-ok-apply"
+                onTriggered: full.editing = false
+            }
+        ]
+    }
+
     QQC2.ScrollView {
         id: scroll
         visible: !root.needsSetup
         anchors.fill: parent
         anchors.margins: full.gap
-        anchors.topMargin: banner.visible ? banner.height + full.gap * 2 : full.gap
+        anchors.topMargin: full.gap + (banner.visible ? banner.height + full.gap : 0)
+                           + (editBanner.visible ? editBanner.height + full.gap : 0)
         contentWidth: availableWidth
         QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
@@ -310,7 +351,7 @@ Item {
                 let m = Infinity, e = 0;
                 for (let i = 0; i < tiles.count; ++i) {
                     const l = tiles.itemAt(i);
-                    const t = l && !l.isHeader ? l.item : null;
+                    const t = l && l.isTile ? l.item : null;
                     if (t && t.style === "ring" && !t.comparing && t.ringNatural > 0) {
                         m = Math.min(m, t.ringNatural);
                         e = Math.max(e, t.ringExtra);
@@ -338,6 +379,8 @@ Item {
                     required property var modelData
                     required property int index
                     readonly property bool isHeader: modelData.header === true
+                    readonly property bool isAdd: modelData.add === true
+                    readonly property bool isTile: !isHeader && !isAdd
                     Layout.columnSpan: full.spans[index] || 1
                     Layout.fillWidth: true
                     Layout.fillHeight: !isHeader
@@ -345,7 +388,45 @@ Item {
                     Layout.minimumHeight: item ? item.implicitHeight : 0
                     Layout.maximumHeight: isHeader && item ? item.implicitHeight : Number.POSITIVE_INFINITY
                     Layout.topMargin: isHeader && index > 0 ? full.gap * 0.6 : 0
-                    sourceComponent: isHeader ? headerComponent : tileComponent
+                    sourceComponent: isHeader ? headerComponent : isAdd ? addComponent : tileComponent
+
+                    // "+" field at the end of a section (edit mode): opens the suggestions
+                    property Component addComponent: QQC2.AbstractButton {
+                        id: addField
+                        implicitWidth: full.u * 7.5
+                        implicitHeight: full.u * 5.4
+                        hoverEnabled: true
+                        Accessible.name: i18n("Add tile")
+                        onClicked: addMenu.openFor(entry.modelData.group, addField)
+                        background: Rectangle {
+                            radius: Kirigami.Units.cornerRadius * 2
+                            color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b,
+                                           addField.down ? 0.22 : addField.hovered ? 0.14 : 0.06)
+                            border.width: 1
+                            border.color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b,
+                                                  addField.hovered ? 0.8 : 0.45)
+                        }
+                        contentItem: ColumnLayout {
+                            spacing: Kirigami.Units.smallSpacing
+                            Item { Layout.fillHeight: true }
+                            Kirigami.Icon {
+                                Layout.alignment: Qt.AlignHCenter
+                                source: "list-add"
+                                implicitWidth: Math.round(full.u * 1.6)
+                                implicitHeight: implicitWidth
+                                color: Kirigami.Theme.highlightColor
+                            }
+                            QQC2.Label {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: addField.width - Kirigami.Units.smallSpacing * 2
+                                text: i18n("Add tile")
+                                font.pixelSize: Math.max(9, Math.round(full.u * 0.75))
+                                elide: Text.ElideRight
+                                opacity: 0.85
+                            }
+                            Item { Layout.fillHeight: true }
+                        }
+                    }
 
                     property Component headerComponent: GpuSectionHeader {
                         title: entry.modelData.title
@@ -374,51 +455,64 @@ Item {
                                   : Hardware.gpuColor((root.items[itemIndex] || {}).gpuSlot, root.lightTheme)
                         dropTarget: full.dragTo === entry.index
                         inSection: full.sections
+                        arranging: full.editing
 
-                        // Drag starts after a long press (tile "lifts"), with Ctrl + drag,
-                        // or immediately – depending on the "dragMode" setting.
+                        // edit mode: a plain left drag moves the tile
                         MouseArea {
                             anchors.fill: parent
-                            enabled: full.dragEnabled
+                            enabled: full.editing
                             acceptedButtons: Qt.LeftButton
                             preventStealing: true
-                            pressAndHoldInterval: full.holdDelay
-                            cursorShape: full.dragFrom === entry.index ? Qt.ClosedHandCursor : Qt.ArrowCursor
+                            cursorShape: full.dragFrom === entry.index ? Qt.ClosedHandCursor : Qt.OpenHandCursor
 
                             property point pressPos
-                            property bool withCtrl: false
-                            property bool movedEarly: false   // moved before the long press fired
                             readonly property bool mine: full.dragFrom === entry.index
 
-                            function begin() {
-                                full.startDrag(entry.index, tileDelegate, pressPos);
-                            }
-                            onPressed: mouse => {
-                                pressPos = Qt.point(mouse.x, mouse.y);
-                                withCtrl = (mouse.modifiers & Qt.ControlModifier) !== 0;
-                                movedEarly = false;
-                                if (full.dragMode === "ctrl" && !withCtrl) mouse.accepted = false;
-                            }
-                            onPressAndHold: {
-                                if (full.dragMode !== "ctrl" && !movedEarly && full.dragFrom < 0) begin();
-                            }
+                            onPressed: mouse => pressPos = Qt.point(mouse.x, mouse.y)
                             onPositionChanged: mouse => {
                                 if (mine) {
                                     full.updateDrag(mapToItem(full, mouse.x, mouse.y));
                                     return;
                                 }
-                                if (full.dragFrom >= 0 || movedEarly) return;
+                                if (full.dragFrom >= 0) return;
                                 if (Math.hypot(mouse.x - pressPos.x, mouse.y - pressPos.y) < Qt.styleHints.startDragDistance)
                                     return;
-                                if (withCtrl || full.dragMode === "direct") {
-                                    begin();
-                                    full.updateDrag(mapToItem(full, mouse.x, mouse.y));
-                                } else {
-                                    movedEarly = true;   // plain drag without holding: ignore
-                                }
+                                full.startDrag(entry.index, tileDelegate, pressPos);
+                                full.updateDrag(mapToItem(full, mouse.x, mouse.y));
                             }
                             onReleased: if (mine) full.finishDrag()
                             onCanceled: if (mine) full.cancelDrag()
+                        }
+
+                        // edit mode: small red × in the top right corner removes the tile
+                        QQC2.AbstractButton {
+                            id: removeBtn
+                            visible: full.editing && full.dragFrom < 0
+                            z: 200
+                            width: Math.round(Math.max(Kirigami.Units.iconSizes.small + 6, full.u * 1.3))
+                            height: width
+                            anchors { top: parent.top; right: parent.right; margins: Math.round(full.u * 0.25) }
+                            hoverEnabled: true
+                            Accessible.name: i18n("Remove tile")
+                            onClicked: root.removeTile(tileDelegate.itemIndex, tileDelegate.src ? tileDelegate.src.label : "")
+                            background: Rectangle {
+                                radius: width / 2
+                                color: removeBtn.down ? Qt.darker(Kirigami.Theme.negativeTextColor, 1.25)
+                                       : removeBtn.hovered ? Qt.lighter(Kirigami.Theme.negativeTextColor, 1.1)
+                                       : Kirigami.Theme.negativeTextColor
+                                border.width: 1
+                                border.color: Qt.rgba(0, 0, 0, 0.25)
+                            }
+                            contentItem: Kirigami.Icon {
+                                source: "window-close"
+                                color: "white"
+                                isMask: true
+                                implicitWidth: Math.round(removeBtn.width * 0.6)
+                                implicitHeight: implicitWidth
+                            }
+                            QQC2.ToolTip.text: i18n("Remove tile")
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
                     }
                 }
@@ -441,6 +535,12 @@ Item {
         icon.name: "edit-undo"
         visible: root.canUndoRemove
         onTriggered: root.restoreRemoved()
+    }
+    component EditModeItem: HidingItem {
+        text: full.editing ? i18n("Finish editing") : i18n("Edit tiles")
+        icon.name: full.editing ? "dialog-ok-apply" : "document-edit"
+        visible: full.canEdit
+        onTriggered: full.editing = !full.editing
     }
     component UndoMoveItem: HidingItem {
         text: i18n("Undo last move")
@@ -471,6 +571,8 @@ Item {
     // ---- context menu of a tile -------------------------------------------------
     QQC2.Menu {
         id: tileMenu
+        // own window: the compositor keeps it on screen and above the panel
+        popupType: QQC2.Popup.Window
         property int idx: -1
         property string name: ""
         readonly property var it: root.rawItems[idx] || ({})
@@ -498,6 +600,8 @@ Item {
         QQC2.MenuSeparator { }
         QQC2.Menu {
             id: styleMenu
+            // own window: the compositor keeps it on screen and above the panel
+            popupType: QQC2.Popup.Window
             title: i18n("Appearance")
             enabled: tileMenu.it.style !== "curve"
             QQC2.MenuItem {
@@ -535,21 +639,58 @@ Item {
             checked: !!tileMenu.it.notify
             onTriggered: { root.setTileProp(tileMenu.idx, "notify", !tileMenu.it.notify); tileMenu.rebind(miNotify, () => !!tileMenu.it.notify); }
         }
-        QQC2.MenuSeparator { }
-        QQC2.MenuItem {
-            text: i18n("Remove tile")
-            icon.name: "edit-delete-remove"
-            onTriggered: root.removeTile(tileMenu.idx, tileMenu.name)
-        }
-        RestoreRemovedItem { }
-        // ---- widget-wide entries (same as the menu on the empty area)
+        // ---- widget-wide entries (same as the menu on the empty area);
+        // removing tiles is done in the "Edit tiles" mode (×)
         QQC2.MenuSeparator { }
         QQC2.MenuItem { text: i18n("Sensor Deck"); enabled: false }
         UpdateItem { }
+        RestoreRemovedItem { }
+        EditModeItem { }
         UndoMoveItem { }
         ResetOrderItem { }
         ConfigureItem { }
         HandleHintItem { }
+    }
+
+    // ---- "+" field: suggestions for its section, then an own tile ---------------
+    QQC2.Menu {
+        id: addMenu
+        // own window: the compositor keeps it on screen and above the panel
+        popupType: QQC2.Popup.Window
+        property string group: ""
+        // suggestions of this section (all of them without sections), sorted by name
+        readonly property var list: root.suggestions
+            .filter(s => !full.sections || s.group === group)
+            .filter(s => !(full.sections && s.tile.source === "pcie"))   // shown in the section header
+            .slice().sort((a, b) => a.tile.label.localeCompare(b.tile.label))
+        function openFor(g, field) {
+            group = g;
+            popup(field, 0, field.height);
+        }
+        QQC2.MenuItem {
+            text: addMenu.list.length ? i18n("Suggestions for your hardware") : i18n("No further suggestions")
+            enabled: false
+        }
+        Instantiator {
+            model: addMenu.list
+            delegate: QQC2.MenuItem {
+                required property var modelData
+                text: modelData.tile.label
+                      + (root.multiGpu && !full.sections && modelData.group.charAt(0) !== "~"
+                         ? "  ·  " + ((root.gpuInfo(modelData.group) || {}).tag || "") : "")
+                icon.name: ({ ring: "view-statistics", graph: "office-chart-line", bar: "office-chart-bar",
+                              curve: "office-chart-area", value: "format-number" })[modelData.tile.style] || "list-add"
+                onTriggered: root.addTile(modelData.tile)
+            }
+            onObjectAdded: (index, object) => addMenu.insertItem(index + 1, object)
+            onObjectRemoved: (index, object) => addMenu.removeItem(object)
+        }
+        QQC2.MenuSeparator { }
+        QQC2.MenuItem {
+            text: i18n("Own tile …")
+            icon.name: "document-new"
+            onTriggered: root.addCustomTile(addMenu.group)
+        }
     }
 
     // ---- context menu of the empty area (gaps, headers, margins) ------------------
@@ -558,9 +699,12 @@ Item {
     // alternatives stay with Plasma's handle (long press on the widget).
     QQC2.Menu {
         id: deckMenu
+        // own window: the compositor keeps it on screen and above the panel
+        popupType: QQC2.Popup.Window
         QQC2.MenuItem { text: i18n("Sensor Deck"); enabled: false }
         UpdateItem { }
         RestoreRemovedItem { }
+        EditModeItem { }
         UndoMoveItem { }
         ResetOrderItem { }
         QQC2.MenuSeparator { }
@@ -578,7 +722,7 @@ Item {
             if (!scroll.visible || !scroll.contains(scroll.mapFromItem(full, x, y))) return null;
             for (let i = 0; i < tiles.count; ++i) {
                 const l = tiles.itemAt(i);
-                const t = l && !l.isHeader ? l.item : null;
+                const t = l && l.isTile ? l.item : null;
                 if (t && t.contains(t.mapFromItem(full, x, y))) return t;
             }
             return null;

@@ -30,6 +30,7 @@ und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs u
 - **Einrichtungsassistent** mit Hardware-Erkennung sowie Layout-Vorlagen, die anzeigen, ob du sie verändert hast
 - **Desktop-Benachrichtigungen** bei kritischen Werten
 - **Verständliche Tooltips**, die erklären, was ein Wert bedeutet und ob er normal ist
+- **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen zum Verschieben, × zum Entfernen, + zum Hinzufügen aus Vorschlägen für deine Hardware
 
 ## Installation
 

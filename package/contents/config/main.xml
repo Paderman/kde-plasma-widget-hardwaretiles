@@ -35,10 +35,6 @@
     <entry name="tileScale" type="Int"><default>100</default></entry>
     <entry name="panelShowLabels" type="Bool"><default>false</default></entry>
     <entry name="panelShowRings" type="Bool"><default>true</default></entry>
-    <entry name="dragEnabled" type="Bool"><default>true</default></entry>
-    <!-- how a drag starts: "ctrl" = Ctrl+drag, "hold" = long press or Ctrl+drag (desktop: Plasma grabs long press to move the widget), "direct" = immediately -->
-    <entry name="dragMode" type="String"><default>ctrl</default></entry>
-    <entry name="dragHoldDelay" type="Int"><default>450</default></entry>
     <!-- JSON array of tile ids: order before the first manual move (target of "reset") -->
     <entry name="baseOrder" type="String"><default></default></entry>
     <entry name="alertsEnabled" type="Bool"><default>true</default></entry>

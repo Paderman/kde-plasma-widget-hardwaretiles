@@ -17,9 +17,6 @@ KCM.SimpleKCM {
     property string cfg_tileStyle
     property alias cfg_panelShowLabels: panelLabels.checked
     property alias cfg_panelShowRings: panelRings.checked
-    property alias cfg_dragEnabled: dragBox.checked
-    property string cfg_dragMode
-    property alias cfg_dragHoldDelay: holdDelay.value
     property bool cfg_gpuSections
     property string cfg_gpuSectionMode
     property alias cfg_fitToSize: fitBox.checked
@@ -30,7 +27,6 @@ KCM.SimpleKCM {
         for (const k in d) page["cfg_" + k] = d[k];
         styleBox.currentIndex = Math.max(0, styleBox.indexOfValue(cfg_tileStyle));
         sectionBox.currentIndex = Math.max(0, sectionBox.indexOfValue(cfg_gpuSectionMode));
-        modeBox.currentIndex = Math.max(0, modeBox.indexOfValue(cfg_dragMode));
     }
 
     Kirigami.FormLayout {
@@ -83,40 +79,12 @@ KCM.SimpleKCM {
             Component.onCompleted: currentIndex = Math.max(0, indexOfValue(cfg_gpuSectionMode || (cfg_gpuSections ? "auto" : "never")))
             onActivated: cfg_gpuSectionMode = currentValue
         }
-        QQC2.CheckBox {
-            id: dragBox
-            Kirigami.FormData.label: i18n("Arrangement:")
-            text: i18n("Move tiles by drag & drop")
-        }
-        QQC2.ComboBox {
-            wheelEnabled: false   // scrolling the page must not change the value
-            id: modeBox
-            Kirigami.FormData.label: i18n("Start moving:")
-            enabled: dragBox.checked
-            textRole: "text"; valueRole: "value"
-            model: [
-                { text: i18n("Ctrl + drag"), value: "ctrl" },
-                { text: i18n("Long press or Ctrl + drag (only useful in the panel popup)"), value: "hold" },
-                { text: i18n("Immediately when dragging"), value: "direct" }
-            ]
-            Component.onCompleted: currentIndex = Math.max(0, indexOfValue(cfg_dragMode))
-            onActivated: cfg_dragMode = currentValue
-        }
-        QQC2.SpinBox {
-            wheelEnabled: false   // scrolling the page must not change the value
-            id: holdDelay
-            Kirigami.FormData.label: i18n("Hold time:")
-            enabled: dragBox.checked && modeBox.currentValue === "hold"
-            from: 150; to: 2000; stepSize: 50
-            textFromValue: (v) => i18n("%1 ms", v)
-            valueFromText: (t) => parseInt(t)
-        }
         QQC2.Label {
             Layout.maximumWidth: Kirigami.Units.gridUnit * 20
             wrapMode: Text.WordWrap
             opacity: 0.6
             font: Kirigami.Theme.smallFont
-            text: i18n("On the desktop a long press moves the whole widget (Plasma) – so arrange tiles with Ctrl + drag. Right-click the widget: “Undo last move” and “Restore original arrangement”.")
+            text: i18n("Move, remove or add tiles right in the widget: right-click → “Edit tiles”.")
         }
 
         Item { Kirigami.FormData.isSection: true }

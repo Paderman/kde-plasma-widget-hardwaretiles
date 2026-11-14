@@ -39,27 +39,49 @@ KCM.SimpleKCM {
     property bool loading: true
     Component.onCompleted: {
         load(Defaults.parse(cfg_items), false);
-        // opened from a tile's menu ("In den Einstellungen bearbeiten …"): go to that tile
         const m = /^(.*)@(\d+)$/.exec(cfg_editTile || "");
-        if (m && Date.now() - parseInt(m[2]) < 15000) {
-            for (let i = 0; i < itemsModel.count; ++i)
-                if (itemsModel.get(i).id === m[1]) { jumpTimer.target = i; jumpTimer.start(); break; }
+        if (!m || Date.now() - parseInt(m[2]) >= 15000) return;
+        const nw = /^new:(.*)$/.exec(m[1]);
+        if (nw) {
+            // "+ → Own tile …" in the widget: a new tile as an unsaved change –
+            // "Cancel" leaves nothing behind. The request is used up right away.
+            cfg_editTile = "";
+            page.add({ label: i18n("New tile"), style: "ring", gpu: nw[1] });
+            page.jumpTo(itemsModel.count - 1);
+            return;
         }
+        // opened from a tile's menu ("In den Einstellungen bearbeiten …"): go to that tile
+        for (let i = 0; i < itemsModel.count; ++i)
+            if (itemsModel.get(i).id === m[1]) { page.jumpTo(i); break; }
+    }
+    function jumpTo(i) {
+        jumpTimer.target = i;
+        jumpTimer.tries = 0;
+        jumpTimer.lastY = -1;
+        jumpTimer.start();
     }
     // index of the tile to scroll to / that flashes briefly (-1 = none)
     property int flashIndex: -1
+    // The cards above the target still grow while the page builds up, so the
+    // position is set again a few times until it no longer changes.
     Timer {
         id: jumpTimer
         property int target: -1
-        interval: 250   // let the cards get their final positions first
+        property int tries: 0
+        property real lastY: -1
+        interval: 200
         onTriggered: {
             const card = cards.itemAt(target);
             const f = page.flickable;
-            if (!card || !f) return;
-            const y = card.mapToItem(f.contentItem, 0, 0).y - Kirigami.Units.largeSpacing;
-            f.contentY = Math.max(0, Math.min(y, f.contentHeight - f.height));
-            page.flashIndex = target;
-            flashTimer.restart();
+            if (card && f) {
+                const y = Math.max(0, Math.min(card.mapToItem(f.contentItem, 0, 0).y - Kirigami.Units.largeSpacing,
+                                               f.contentHeight - f.height));
+                f.contentY = y;
+                if (tries === 0) { page.flashIndex = target; flashTimer.restart(); }
+                if (Math.abs(y - lastY) < 1 && tries >= 2) return;   // settled
+                lastY = y;
+            }
+            if (++tries < 12) restart();
         }
     }
     Timer { id: flashTimer; interval: 2500; onTriggered: page.flashIndex = -1 }
@@ -281,7 +303,7 @@ KCM.SimpleKCM {
             Layout.fillWidth: true
             visible: true
             type: Kirigami.MessageType.Information
-            text: i18n("Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be rearranged directly in the widget: Ctrl + drag.")
+            text: i18n("Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”.")
         }
 
         Repeater {
