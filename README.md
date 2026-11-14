@@ -1,6 +1,6 @@
 # Sensor Deck
 
-*[Deutsch](README.de.md)*
+*[Deutsche Version](README.de.md)*
 
 A **GPU & system monitor** widget for **KDE Plasma 6**: VRAM temperature, throttling,
 PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as rings, bars and graphs.
@@ -27,8 +27,9 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
   (incl. whether card or slot limits it) – NVIDIA via `nvidia-smi`, AMD/Intel via ksystemstats
 - **Several graphics cards**: one colour-coded section per card, comparison tiles
 - **Fan curve** that learns from real measurements and is kept across restarts
-- **Measured GPU fan speeds** (RPM, per fan) – the tile turns red and notifies once if a fan stands still although the card wants it to turn
-- **System**: CPU, memory, SSD temperatures, disk usage, mainboard fans and temperature, network
+- **Measured GPU fan speeds** (RPM, per fan) – if a fan stands still although the card needs it, the tile
+  turns red; if it runs clearly slower than the others, yellow – each with one notification
+- **System**: CPU, memory (used / total, swap in the tooltip), SSD temperatures, disk usage, mainboard fans and temperature, network
 - **Setup wizard** that detects your hardware, plus layout templates
   (“System overview”, “GPU focus”, “All graphics cards”) that show whether you changed them
 - **Desktop notifications** for critical values (delay, hysteresis, cooldown)
@@ -147,7 +148,7 @@ asked for your password). By hand:
 2. Run `sudo sensors-detect` once, answer the questions with the defaults and
    let it add the modules. Restart.
 3. Check with `sensors` that fans appear, then run the setup wizard again
-   (right-click the widget → *Configure* → *Setup wizard*).
+   (right-click the widget → *Configure Sensor Deck …* → *Start setup wizard*).
 
 Known extra drivers:
 - **Many Gigabyte boards** (ITE IT8686/IT8688/IT8689 chips): the `it87` driver in the
@@ -190,7 +191,7 @@ cp translate/template.pot translate/xx.po   # start a new language (xx = languag
 Sensor Deck asks once whether it may look for new versions (weekly, off by default).
 If you agree, it asks `api.github.com` for the newest version number – GitHub sees your
 IP address as with any website visit; nothing else is sent, no statistics are kept.
-You can also check by hand under *Configure → About & updates → Check now*, without
+You can also check by hand under *Configure Sensor Deck … → About & updates → Check now*, without
 agreeing to the automatic check.
 
 ## Packaging
