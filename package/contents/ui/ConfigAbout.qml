@@ -17,7 +17,7 @@ KCM.SimpleKCM {
     property string cfg_updateUrl
     property string cfg_updateDismissed
 
-    readonly property string site: "https://github.com/Paderman/sensordeck"
+    readonly property string site: "https://github.com/Paderman/kde-plasma-widget-sensordeck"
 
     // result of "Check now": "" | busy | latest | newer | none | error
     property string checkState: ""

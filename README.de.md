@@ -37,15 +37,15 @@ und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs u
 **Neue Widgets holen** → **Neue Plasma-Widgets herunterladen**, nach „Sensor Deck“ suchen und
 *Installieren* klicken. Updates kommen dann über Discover.
 
-**Als Paket** von der [Release-Seite](https://github.com/Paderman/sensordeck/releases)
+**Als Paket** von der [Release-Seite](https://github.com/Paderman/kde-plasma-widget-sensordeck/releases)
 (Doppelklick öffnet die Softwareverwaltung): `.deb` für Kubuntu/KDE neon/Debian/Mint,
 `.rpm` für Fedora/openSUSE, PKGBUILD für Arch, `.plasmoid` für jedes Plasma-6-System.
 
 **Aus dem Quellcode:**
 
 ```bash
-git clone https://github.com/Paderman/sensordeck.git
-cd sensordeck
+git clone https://github.com/Paderman/kde-plasma-widget-sensordeck.git
+cd kde-plasma-widget-sensordeck
 ./install.sh
 ```
 
@@ -83,7 +83,7 @@ Sensorchip des Mainboards. Fehlen sie, bietet der Einrichtungsassistent einen Bu
 
 Fehlt etwas auf deiner Hardware? Dann bitte `./tools/hardware-report.sh` ausführen und die
 erzeugte Datei an einen
-[Hardware-Bericht](https://github.com/Paderman/sensordeck/issues/new?template=hardware_report.yml) anhängen.
+[Hardware-Bericht](https://github.com/Paderman/kde-plasma-widget-sensordeck/issues/new?template=hardware_report.yml) anhängen.
 
 ## Updates
 
@@ -101,7 +101,7 @@ Außer Deutsch sind die Übersetzungen maschinell unterstützt erstellt – Korr
 
 ## Hilfe & Fehler melden
 
-<https://github.com/Paderman/sensordeck/issues>
+<https://github.com/Paderman/kde-plasma-widget-sensordeck/issues>
 
 ## Lizenz
 

@@ -7,7 +7,7 @@ pkgver=1.0.0
 pkgrel=1
 pkgdesc="GPU & system monitor widget for KDE Plasma 6 (VRAM temperature, throttling, fan curve, CPU, SSDs, fans)"
 arch=('any')
-url="https://github.com/Paderman/sensordeck"
+url="https://github.com/Paderman/kde-plasma-widget-sensordeck"
 license=('GPL-2.0-or-later')
 depends=('plasma-workspace')
 makedepends=('gettext')
@@ -18,7 +18,7 @@ source=("sensordeck-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')   # replace with the real checksum when publishing to the AUR
 
 package() {
-    cd "sensordeck-$pkgver"
+    cd "kde-plasma-widget-sensordeck-$pkgver"
     sh packaging/stage.sh "$pkgdir"
     rm -rf "$pkgdir/usr/share/doc/sensordeck/README.de.md"
 }

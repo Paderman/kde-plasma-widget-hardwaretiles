@@ -16,7 +16,7 @@ rm -rf "$ROOT/usr/share/licenses"
 cat > "$ROOT/usr/share/doc/sensordeck/copyright" <<EOT
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Sensor Deck
-Source: https://github.com/Paderman/sensordeck
+Source: https://github.com/Paderman/kde-plasma-widget-sensordeck
 
 Files: *
 Copyright: 2026 Paderman
@@ -39,7 +39,7 @@ Recommends: lm-sensors, pciutils
 Suggests: nvidia-smi
 Section: kde
 Priority: optional
-Homepage: https://github.com/Paderman/sensordeck
+Homepage: https://github.com/Paderman/kde-plasma-widget-sensordeck
 Description: GPU & system monitor widget for KDE Plasma 6
  Sensor Deck shows the graphics card in detail – VRAM temperature, throttling
  reason, PCIe link and a self-learning fan curve – plus CPU, memory, SSDs,

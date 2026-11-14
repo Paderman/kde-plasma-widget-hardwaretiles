@@ -25,8 +25,8 @@
         "Copyright": "© 2026 Paderman",
         "License": "GPL-2.0-or-later",
         "Version": "1.0.0",
-        "Website": "https://github.com/Paderman/sensordeck",
-        "BugReportUrl": "https://github.com/Paderman/sensordeck/issues",
+        "Website": "https://github.com/Paderman/kde-plasma-widget-sensordeck",
+        "BugReportUrl": "https://github.com/Paderman/kde-plasma-widget-sensordeck/issues",
         "FormFactors": [
             "desktop",
             "panel"

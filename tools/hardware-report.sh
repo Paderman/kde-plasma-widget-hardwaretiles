@@ -4,7 +4,7 @@
 #
 # Collects what Sensor Deck needs to support your hardware and writes it to
 # sensordeck-hardware-report.md – attach that file to a "Hardware report" issue:
-# https://github.com/Paderman/sensordeck/issues/new?template=hardware_report.yml
+# https://github.com/Paderman/kde-plasma-widget-sensordeck/issues/new?template=hardware_report.yml
 #
 # Contains: distribution, kernel and Plasma version, graphics cards, mainboard
 # name, sensor chips and their readings. No user name, host name or serial numbers.
@@ -73,4 +73,4 @@ endsection() { printf '```\n</details>\n'; }
 
 echo "Report written to: $(readlink -f "$OUT")"
 echo "Please check it and attach it to a new issue:"
-echo "https://github.com/Paderman/sensordeck/issues/new?template=hardware_report.yml"
+echo "https://github.com/Paderman/kde-plasma-widget-sensordeck/issues/new?template=hardware_report.yml"

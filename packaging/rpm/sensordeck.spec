@@ -10,7 +10,7 @@ Version:        %{?version_override}%{!?version_override:1.0.0}
 Release:        1%{?dist}
 Summary:        GPU & system monitor widget for KDE Plasma 6
 License:        GPL-2.0-or-later
-URL:            https://github.com/Paderman/sensordeck
+URL:            https://github.com/Paderman/kde-plasma-widget-sensordeck
 Source0:        sensordeck-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  gettext

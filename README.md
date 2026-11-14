@@ -48,7 +48,7 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 **Get New Widgets** → **Download New Plasma Widgets**, search for “Sensor Deck” and click
 *Install*. Updates then come through Discover.
 
-**As a package** from the [releases page](https://github.com/Paderman/sensordeck/releases)
+**As a package** from the [releases page](https://github.com/Paderman/kde-plasma-widget-sensordeck/releases)
 (double-click opens your software center):
 
 | System | File |
@@ -64,8 +64,8 @@ your user, that copy takes precedence – remove it with the command below.
 **From source:**
 
 ```bash
-git clone https://github.com/Paderman/sensordeck.git
-cd sensordeck
+git clone https://github.com/Paderman/kde-plasma-widget-sensordeck.git
+cd kde-plasma-widget-sensordeck
 ./install.sh
 ```
 
@@ -123,7 +123,7 @@ processors (whole processor only).
 
 So far Sensor Deck has been tested on one PC only (ASUS Z370 board, RTX 3080).
 **If something is missing on your hardware, please send a
-[hardware report](https://github.com/Paderman/sensordeck/issues/new?template=hardware_report.yml)**:
+[hardware report](https://github.com/Paderman/kde-plasma-widget-sensordeck/issues/new?template=hardware_report.yml)**:
 
 ```bash
 ./tools/hardware-report.sh    # writes sensordeck-hardware-report.md – attach it to the issue
@@ -208,7 +208,7 @@ draft release.
 
 ## Help & bug reports
 
-Please open an issue: <https://github.com/Paderman/sensordeck/issues>
+Please open an issue: <https://github.com/Paderman/kde-plasma-widget-sensordeck/issues>
 
 ## Credits
 
