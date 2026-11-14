@@ -1282,8 +1282,8 @@ msgid "Temperature and usage"
 msgstr "温度和负载"
 
 #: package/contents/ui/Hardware.js:229
-msgid "Usage in percent"
-msgstr "占用百分比"
+msgid "Used and total, swap space"
+msgstr "已用和总量、交换空间"
 
 #: package/contents/ui/Hardware.js:230
 msgid "SSDs & drives"

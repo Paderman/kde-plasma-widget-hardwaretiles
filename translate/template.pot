@@ -1287,7 +1287,7 @@ msgid "Temperature and usage"
 msgstr ""
 
 #: package/contents/ui/Hardware.js:229
-msgid "Usage in percent"
+msgid "Used and total, swap space"
 msgstr ""
 
 #: package/contents/ui/Hardware.js:230

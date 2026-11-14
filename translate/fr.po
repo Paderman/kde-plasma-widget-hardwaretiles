@@ -1288,8 +1288,8 @@ msgid "Temperature and usage"
 msgstr "Température et utilisation"
 
 #: package/contents/ui/Hardware.js:229
-msgid "Usage in percent"
-msgstr "Occupation en pourcentage"
+msgid "Used and total, swap space"
+msgstr "Utilisée et totale, espace d’échange"
 
 #: package/contents/ui/Hardware.js:230
 msgid "SSDs & drives"

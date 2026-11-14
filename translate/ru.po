@@ -1294,8 +1294,8 @@ msgid "Temperature and usage"
 msgstr "Температура и загрузка"
 
 #: package/contents/ui/Hardware.js:229
-msgid "Usage in percent"
-msgstr "Занятость в процентах"
+msgid "Used and total, swap space"
+msgstr "Занято и всего, файл подкачки"
 
 #: package/contents/ui/Hardware.js:230
 msgid "SSDs & drives"

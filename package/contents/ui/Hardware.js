@@ -226,7 +226,7 @@ function sensorSetupText(hw, translate) {
 var categories = [
     { key: "gpuDetails", label: tr("Graphics card – details"), hint: tr("Fans & fan curve, clocks, throttling, video encoding …"), icon: "preferences-system-performance", def: true },
     { key: "cpu",        label: tr("Processor"),            hint: tr("Temperature and usage"), icon: "cpu", def: true },
-    { key: "ram",        label: tr("Memory"),      hint: tr("Usage in percent"), icon: "memory", def: true },
+    { key: "ram",        label: tr("Memory"),      hint: tr("Used and total, swap space"), icon: "memory", def: true },
     { key: "storage",    label: tr("SSDs & drives"),   hint: tr("NVMe temperatures, disk space"), icon: "drive-harddisk", def: true },
     { key: "board",      label: tr("Mainboard & fans"),   hint: tr("Case temperature, fan speeds"), icon: "preferences-system-power-management", def: false },
     { key: "network",    label: tr("Network"),             hint: tr("Download and upload"), icon: "applications-internet", def: false },

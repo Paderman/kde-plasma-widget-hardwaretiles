@@ -53,6 +53,8 @@ edit("NvidiaProvider.qml", [
     ('import "NvidiaKeys.js" as NK', 'import "NvidiaKeys.js" as NK\nimport "Demo.js" as Demo'),
     ("onTriggered: provider._exec.connectSource(provider.cmd)",
      "onTriggered: provider._exec.newData(\"demo\", { \"exit code\": 0, \"stdout\": Demo.nvidiaStdout(provider.queryKeys) })"),
+    ("onTriggered: provider._fanExec.connectSource(\"python3 -I '\" + provider.fanScript + \"'\")",
+     "onTriggered: provider._fanExec.newData(\"demo\", { \"exit code\": 0, \"stdout\": Demo.nvmlFans() })"),
 ])
 edit("HardwareProbe.qml", [
     ('import "Hardware.js" as Hardware', 'import "Hardware.js" as Hardware\nimport "Demo.js" as Demo'),

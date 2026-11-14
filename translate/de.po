@@ -1286,8 +1286,8 @@ msgid "Temperature and usage"
 msgstr "Temperatur und Auslastung"
 
 #: package/contents/ui/Hardware.js:229
-msgid "Usage in percent"
-msgstr "Belegung in Prozent"
+msgid "Used and total, swap space"
+msgstr "Belegt und gesamt, Auslagerungsspeicher"
 
 #: package/contents/ui/Hardware.js:230
 msgid "SSDs & drives"
@@ -1845,8 +1845,8 @@ msgstr "Grafikkarten – Details (für jede Karte)"
 #: package/contents/ui/SetupWizard.qml:337
 msgid "Results in %1 tile – you can change the arrangement and details at any time later."
 msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
-msgstr[0] "Ergibt %1 Kachel – Anordnung und Details kannst du später jederzeit ändern."
-msgstr[1] "Ergibt %1 Kacheln – Anordnung und Details kannst du später jederzeit ändern."
+msgstr[0] "Ergibt %1 Kachel – Anordnung und Details lassen sich später jederzeit ändern."
+msgstr[1] "Ergibt %1 Kacheln – Anordnung und Details lassen sich später jederzeit ändern."
 
 #: package/contents/ui/SetupWizard.qml:356
 msgid "Back"

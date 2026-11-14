@@ -25,6 +25,8 @@ function hwDiscover() {
         out.push(["GPU", "0000:05:00.0", "0x10de", "nvidia", "2", "1", "NVIDIA Corporation", "GA104 [GeForce RTX 3060 Ti]", ""].join(T));
     out.push(["NVME", "0000:03:00.0", "Samsung SSD 990 PRO 2TB"].join(T));
     out.push("GDDR6" + T + "1");
+    out.push(["NVFANS", "0", "2"].join(T));
+    if (multi) out.push(["NVFANS", "1", "2"].join(T));
     out.push(["DISTRO", "apt", "lm-sensors", "Demo"].join(T));
     out.push("LMTOOL" + T + "1");
     out.push("SENSORS");
@@ -86,6 +88,18 @@ function nvidiaStdout(keys) {
     return lines.join("\n");
 }
 
+// output of code/nvml-fans.py: measured fan speeds, two fans per card
+function nvmlFans() {
+    var T = "\t", out = [];
+    for (var i = 0; i < (multi ? 2 : 1); ++i) {
+        var pct = Math.round(gpu(i)["fan.speed"]);
+        var rpm = Math.round(pct * (i === 0 ? 31 : 28));
+        out.push(["FAN", i, 1, rpm + Math.round(j(8 + i, 12)), pct, pct].join(T));
+        out.push(["FAN", i, 2, rpm - 15 + Math.round(j(9 + i, 12)), pct, pct].join(T));
+    }
+    return out.join("\n") + "\n";
+}
+
 // output of code/pcie-info.sh for a card
 function pcieInfo(addr) {
     var second = multi && /05:00/.test(addr || "");
@@ -106,6 +120,10 @@ function sensor(id, german) {
     case "cpu/all/maximumTemperature": return { value: 61 + 9 * w(70, 0.5) + j(4, 1), unit: "°C", max: 100 };
     case "cpu/all/usage":              return { value: 32 + 22 * w(20, 1) + j(5, 6), unit: "%", max: 100 };
     case "memory/physical/usedPercent": return { value: 47 + 2 * w(200), unit: "%", max: 100 };
+    case "memory/physical/used":        return { value: 14.6 + 0.6 * w(200), unit: "GiB" };
+    case "memory/physical/total":       return { value: 31.3, unit: "GiB" };
+    case "memory/swap/used":            return { value: 0.3, unit: "GiB" };
+    case "memory/swap/total":           return { value: 8, unit: "GiB" };
     case "disk/all/usedPercent":        return { value: 63.4, unit: "%", max: 100 };
     case "network/all/download":        return { value: Math.max(0.1, 2.2 + 2.5 * w(15, 2) + j(6, 0.8)), unit: "MiB/s", max: 8 };
     case "network/all/upload":          return { value: Math.max(0.05, 0.35 + 0.25 * w(25) + j(7, 0.08)), unit: "MiB/s", max: 2 };
