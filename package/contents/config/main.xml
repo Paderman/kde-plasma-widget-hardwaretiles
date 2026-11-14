@@ -21,6 +21,9 @@
     <!-- "tileId@time": the tile menu's "bearbeiten" – the settings page scrolls to that tile
          (only if set in the last 15 s, so an old value does nothing) -->
     <entry name="editTile" type="String"><default></default></entry>
+    <!-- "page@time": open the settings on that page (e.g. "ConfigProfiles.qml") – Plasma always
+         starts on the first page, which then switches (only if set in the last 15 s) -->
+    <entry name="openPage" type="String"><default></default></entry>
     <!-- old switch (until v5): false = never group; read only for migration -->
     <entry name="gpuSections" type="Bool"><default>true</default></entry>
     <!-- sections per graphics card: "auto" (from two cards on) | "always" | "never"; "" = from gpuSections -->
@@ -49,6 +52,11 @@
          or runs slower than fanSlowPercent % of the fastest fan of the card at the same target -->
     <entry name="fanWatch" type="Bool"><default>true</default></entry>
     <entry name="fanSlowPercent" type="Int"><default>50</default></entry>
+    <!-- profiles (Profiles.js): JSON [{name, saved, hw, data}]; name of the profile loaded last;
+         the view before the last profile was loaded: JSON {name, data} ("" = none) -->
+    <entry name="profiles" type="String"><default></default></entry>
+    <entry name="activeProfile" type="String"><default></default></entry>
+    <entry name="profileBackup" type="String"><default></default></entry>
     <!-- update check: off until the user agrees; updateAsked = the question was answered -->
     <entry name="updateCheck" type="Bool"><default>false</default></entry>
     <entry name="updateAsked" type="Bool"><default>false</default></entry>

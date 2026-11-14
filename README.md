@@ -34,6 +34,8 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 - **Desktop notifications** for critical values (delay, hysteresis, cooldown)
 - **Plain-language tooltips** that explain what a value means and whether it is normal
 - **Edit tiles right in the widget** (right-click → *Edit tiles*): drag to move, × to remove, + to add from suggestions for your hardware
+- **Profiles**: save the current view (tiles, appearance, notifications) under a name, switch with a right-click,
+  export and import them as a file – commands in imported profiles are shown before anything is stored
 - Fits itself to the widget size, panel mode with mini rings
 
 ## Requirements

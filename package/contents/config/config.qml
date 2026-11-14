@@ -21,6 +21,11 @@ ConfigModel {
         source: "ConfigAppearance.qml"
     }
     ConfigCategory {
+        name: i18n("Profiles")
+        icon: "bookmarks"
+        source: "ConfigProfiles.qml"
+    }
+    ConfigCategory {
         name: i18n("About & updates")
         icon: "help-about"
         source: "ConfigAbout.qml"

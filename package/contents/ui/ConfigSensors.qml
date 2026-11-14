@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
 import org.kde.ksysguard.faces as Faces
 import org.kde.kquickcontrols as KQC
+import org.kde.plasma.plasmoid
 import "Defaults.js" as Defaults
 import "Hardware.js" as Hardware
 import "NvidiaKeys.js" as NK
@@ -38,7 +39,55 @@ KCM.SimpleKCM {
     ListModel { id: itemsModel }
 
     property bool loading: true
+    // Plasma always opens the settings on the first page (this one); "Manage profiles …"
+    // in the widget asks for another page via the setting openPage ("file@time").
+    // The page is placed in the dialog only after it was created – so the switch
+    // is tried a few times; if it does not work, this page simply loads.
+    readonly property string requestedPage: {
+        const m = /^(.+)@(\d+)$/.exec(Plasmoid.configuration.openPage || "");
+        return m && Date.now() - parseInt(m[2]) < 15000 ? m[1] : "";
+    }
+    function trySwitch() {
+        // the dialog: the ancestor with open(category); its categories: configDialog.configModel
+        let dlg = page.parent;
+        while (dlg && !(typeof dlg.open === "function" && "currentSource" in dlg)) dlg = dlg.parent;
+        if (!dlg) return false;
+        const model = typeof configDialog !== "undefined" && configDialog ? configDialog.configModel : null;
+        for (let i = 0; model && i < model.count; ++i) {
+            const cat = model.get(i);
+            if (String(cat.source).endsWith(switchTimer.file)) { dlg.open(cat); return true; }
+        }
+        // without the model: name and file are all open() needs
+        dlg.open({ name: switchTimer.title, source: Qt.resolvedUrl(switchTimer.file) });
+        return true;
+    }
+    Timer {
+        id: switchTimer
+        property string file: ""
+        readonly property string title: file === "ConfigProfiles.qml" ? i18n("Profiles") : ""
+        property int tries: 0
+        interval: 50
+        repeat: true
+        onTriggered: {
+            if (page.trySwitch()) { stop(); return; }
+            if (++tries >= 20) {
+                stop();
+                console.warn("Sensor Deck: could not open the settings page", file);
+                page.startPage();
+            }
+        }
+    }
+
     Component.onCompleted: {
+        if (requestedPage) {
+            switchTimer.file = requestedPage;
+            Plasmoid.configuration.openPage = "";           // used up right away
+            switchTimer.start();
+            return;
+        }
+        startPage();
+    }
+    function startPage() {
         load(Defaults.parse(cfg_items), false);
         const m = /^(.*)@(\d+)$/.exec(cfg_editTile || "");
         if (!m || Date.now() - parseInt(m[2]) >= 15000) return;

@@ -10,6 +10,7 @@ import "Defaults.js" as Defaults
 import "Hardware.js" as Hardware
 import "UpdateCheck.js" as UpdateCheck
 import "NvidiaKeys.js" as NK
+import "Profiles.js" as Profiles
 
 PlasmoidItem {
     id: root
@@ -333,6 +334,19 @@ PlasmoidItem {
     }
 
     // ---- undo / reset of the tile order ------------------------------------
+    // ---- profiles (Profiles.js) ---------------------------------------------------
+    readonly property var profiles: Profiles.list(Plasmoid.configuration.profiles)
+    readonly property string activeProfile: Profiles.find(profiles, Plasmoid.configuration.activeProfile)
+                                            ? Plasmoid.configuration.activeProfile : ""
+    readonly property var profileBackup: { Plasmoid.configuration.profileBackup; return Profiles.backup(Plasmoid.configuration); }
+    // the current view differs from the loaded profile
+    readonly property bool profileChanged: {
+        Plasmoid.configuration.items; Plasmoid.configuration.tileStyle; Plasmoid.configuration.tileScale;
+        return activeProfile !== "" && !Profiles.sameAs(Plasmoid.configuration, Profiles.find(profiles, activeProfile));
+    }
+    function loadProfile(name) { undoOrder = null; return Profiles.load(Plasmoid.configuration, name, probe.gpus); }
+    function undoProfileChange() { undoOrder = null; Profiles.undo(Plasmoid.configuration); }
+
     property var undoOrder: null     // order before the last move (this session)
 
     function idsOf(arr) { return arr.map(it => it.id); }

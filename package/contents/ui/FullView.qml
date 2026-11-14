@@ -607,6 +607,48 @@ Item {
         onChosen: value => Plasmoid.configuration.gpuSectionMode = value
     }
 
+    // saved views (Settings → Profiles): load with one click
+    component ProfilesMenu: QQC2.Menu {
+        id: pm
+        popupType: QQC2.Popup.Window
+        title: i18n("Profile")
+        icon.name: "bookmarks"
+        QQC2.MenuItem {
+            text: i18n("No profiles saved yet")
+            enabled: false
+            visible: root.profiles.length === 0
+            height: visible ? implicitHeight : 0
+        }
+        Instantiator {
+            model: root.profiles
+            delegate: QQC2.MenuItem {
+                id: pi
+                required property var modelData
+                text: modelData.name + (modelData.name === root.activeProfile && root.profileChanged ? "  ·  " + i18n("changed") : "")
+                checkable: true
+                checked: modelData.name === root.activeProfile
+                onTriggered: { root.loadProfile(modelData.name); pi.checked = Qt.binding(() => pi.modelData.name === root.activeProfile); }
+            }
+            onObjectAdded: (index, object) => pm.insertItem(index + 1, object)
+            onObjectRemoved: (index, object) => pm.removeItem(object)
+        }
+        QQC2.MenuSeparator { }
+        HidingItem {
+            text: i18n("Undo profile change")
+            icon.name: "edit-undo"
+            visible: root.profileBackup !== null
+            onTriggered: root.undoProfileChange()
+        }
+        QQC2.MenuItem {
+            text: i18n("Manage profiles …")
+            icon.name: "configure"
+            onTriggered: {
+                Plasmoid.configuration.openPage = "ConfigProfiles.qml@" + Date.now();
+                Plasmoid.internalAction("configure").trigger();
+            }
+        }
+    }
+
     // hint where Plasma's own widget actions are (only where its handle exists)
     component HandleHintItem: HidingItem {
         text: i18n("Tip: press and hold an empty spot – move, resize, remove widget")
@@ -697,6 +739,7 @@ Item {
         ResetOrderItem { }
         TileStyleMenu { }
         SectionsMenu { }
+        ProfilesMenu { }
         ConfigureItem { }
         HandleHintItem { }
     }
@@ -759,6 +802,7 @@ Item {
         QQC2.MenuSeparator { }
         TileStyleMenu { }
         SectionsMenu { }
+        ProfilesMenu { }
         ConfigureItem { }
         HandleHintItem { }
     }
