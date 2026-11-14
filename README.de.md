@@ -54,9 +54,10 @@ als Ringe, Balken und Verlaufsgraphen.
 
 ## Installation
 
-**Am einfachsten – ohne Terminal** *(sobald Sensor Deck im KDE Store ist – noch nicht)*: Rechtsklick auf den Desktop → **Widgets hinzufügen** →
+**Am einfachsten – ohne Terminal** ([KDE Store](https://store.kde.org/p/2381890/)): Rechtsklick auf den Desktop → **Widgets hinzufügen** →
 **Neue Widgets holen** → **Neue Plasma-Widgets herunterladen**, nach „Sensor Deck“ suchen und
-*Installieren* klicken. Updates kommen dann über Discover.
+bei „Sensor Deck - GPU and System Monitor“ auf *Installieren* klicken (ein anderes Widget heißt ähnlich).
+Updates kommen dann über Discover.
 
 **Als Paket** von der [Release-Seite](https://github.com/Paderman/kde-plasma-widget-sensordeck/releases)
 (Doppelklick öffnet die Softwareverwaltung):

@@ -50,9 +50,10 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 
 ## Installation
 
-**Easiest – without a terminal** *(once Sensor Deck is in the KDE Store – not yet)*: right-click the desktop → **Add Widgets** →
+**Easiest – without a terminal** ([KDE Store](https://store.kde.org/p/2381890/)): right-click the desktop → **Add Widgets** →
 **Get New Widgets** → **Download New Plasma Widgets**, search for “Sensor Deck” and click
-*Install*. Updates then come through Discover.
+*Install* on “Sensor Deck - GPU and System Monitor” (another widget has a similar name).
+Updates then come through Discover.
 
 **As a package** from the [releases page](https://github.com/Paderman/kde-plasma-widget-sensordeck/releases)
 (double-click opens your software center):
