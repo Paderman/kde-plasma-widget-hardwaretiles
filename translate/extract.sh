@@ -13,13 +13,13 @@ files=$(cd .. && find package -name '*.qml' -o -name '*.js' | sort)
     -ki18n:1 -ki18np:1,2 -ki18nc:1c,2 -ktr:1 \
     --package-name="Sensor Deck" \
     --msgid-bugs-address="https://github.com/Paderman/kde-plasma-widget-sensordeck/issues" \
-    --add-comments=TRANSLATORS: \
+    --add-comments=TRANSLATORS: --no-wrap \
     -o translate/template.pot $files)
 # a stable header date keeps diffs small
 sed -i 's/^"POT-Creation-Date: .*\\n"$/"POT-Creation-Date: \\n"/' template.pot
 
 for po in *.po; do
     [ -e "$po" ] || continue
-    msgmerge --quiet --update --backup=none "$po" template.pot
+    msgmerge --quiet --no-wrap --update --backup=none "$po" template.pot
 done
 echo "template.pot: $(grep -c '^msgid ' template.pot) entries (incl. header)"

@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "传感器"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:497
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:532
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:466
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:501
 msgid "Appearance"
 msgstr "外观"
 
@@ -147,11 +147,13 @@ msgstr "当数值在设定时间内持续高于阈值时触发通知 – 短暂�
 msgid "Send test notification"
 msgstr "发送测试通知"
 
-#: package/contents/ui/ConfigAlerts.qml:94 package/contents/ui/ConfigAppearance.qml:164
+#: package/contents/ui/ConfigAlerts.qml:94
+#: package/contents/ui/ConfigAppearance.qml:164
 msgid "Restore defaults"
 msgstr "恢复默认值"
 
-#: package/contents/ui/ConfigAlerts.qml:105 package/contents/ui/ConfigAppearance.qml:175
+#: package/contents/ui/ConfigAlerts.qml:105
+#: package/contents/ui/ConfigAppearance.qml:175
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "已重置。点击“应用”后才会生效 – “取消”将保持原样。"
 
@@ -175,7 +177,8 @@ msgstr ""
 msgid "Columns:"
 msgstr "列数:"
 
-#: package/contents/ui/ConfigAppearance.qml:42 package/contents/ui/ConfigAppearance.qml:43
+#: package/contents/ui/ConfigAppearance.qml:42
+#: package/contents/ui/ConfigAppearance.qml:43
 msgid "Automatic"
 msgstr "自动"
 
@@ -299,19 +302,23 @@ msgstr "哪些传感器显示在面板中,可在“传感器”页面为每个�
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "仅影响此页面上的设置 – 传感器磁贴和通知将保留。"
 
-#: package/contents/ui/ConfigSensors.qml:29 package/contents/ui/FullView.qml:470
+#: package/contents/ui/ConfigSensors.qml:29
+#: package/contents/ui/FullView.qml:505
 msgid "Ring"
 msgstr "圆环"
 
-#: package/contents/ui/ConfigSensors.qml:30 package/contents/ui/FullView.qml:475
+#: package/contents/ui/ConfigSensors.qml:30
+#: package/contents/ui/FullView.qml:510
 msgid "Bar"
 msgstr "条形"
 
-#: package/contents/ui/ConfigSensors.qml:31 package/contents/ui/FullView.qml:480
+#: package/contents/ui/ConfigSensors.qml:31
+#: package/contents/ui/FullView.qml:515
 msgid "History graph"
 msgstr "历史图表"
 
-#: package/contents/ui/ConfigSensors.qml:32 package/contents/ui/FullView.qml:485
+#: package/contents/ui/ConfigSensors.qml:32
+#: package/contents/ui/FullView.qml:520
 msgid "Value only"
 msgstr "仅数值"
 
@@ -395,7 +402,8 @@ msgstr "模板会替换所有磁贴 – “系统概览”可恢复适合您硬�
 msgid "Main card:"
 msgstr "主显卡:"
 
-#: package/contents/ui/ConfigSensors.qml:233 package/contents/ui/ConfigSensors.qml:360
+#: package/contents/ui/ConfigSensors.qml:233
+#: package/contents/ui/ConfigSensors.qml:360
 msgid "Graphics card:"
 msgstr "显卡:"
 
@@ -467,7 +475,8 @@ msgstr "在此磁贴中显示每块显卡的数值 – 圆环:每块显卡一条
 msgid "Temperature (X):"
 msgstr "温度(X):"
 
-#: package/contents/ui/ConfigSensors.qml:389 package/contents/ui/SourceEditor.qml:19
+#: package/contents/ui/ConfigSensors.qml:389
+#: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "来源:"
 
@@ -487,7 +496,8 @@ msgstr "可选,例如“显存总量”→ 显示“1.0 / 10 GiB”并设定条�
 msgid "Style:"
 msgstr "样式:"
 
-#: package/contents/ui/ConfigSensors.qml:464 package/contents/ui/FullView.qml:490
+#: package/contents/ui/ConfigSensors.qml:464
+#: package/contents/ui/FullView.qml:525
 msgid "Double width"
 msgstr "双倍宽度"
 
@@ -527,7 +537,10 @@ msgstr "最小"
 msgid "Max"
 msgstr "最大"
 
-#: package/contents/ui/ConfigSensors.qml:510 package/contents/ui/ConfigSensors.qml:511 package/contents/ui/ConfigSensors.qml:520 package/contents/ui/ConfigSensors.qml:521
+#: package/contents/ui/ConfigSensors.qml:510
+#: package/contents/ui/ConfigSensors.qml:511
+#: package/contents/ui/ConfigSensors.qml:520
+#: package/contents/ui/ConfigSensors.qml:521
 msgid "auto"
 msgstr "自动"
 
@@ -539,7 +552,10 @@ msgstr "风扇最大"
 msgid "Thresholds:"
 msgstr "阈值:"
 
-#: package/contents/ui/ConfigSensors.qml:534 package/contents/ui/ConfigSensors.qml:535 package/contents/ui/ConfigSensors.qml:543 package/contents/ui/ConfigSensors.qml:544
+#: package/contents/ui/ConfigSensors.qml:534
+#: package/contents/ui/ConfigSensors.qml:535
+#: package/contents/ui/ConfigSensors.qml:543
+#: package/contents/ui/ConfigSensors.qml:544
 msgid "off"
 msgstr "关"
 
@@ -563,7 +579,10 @@ msgstr "模板 …"
 msgid "GPU comparison: temperature (ring)"
 msgstr "GPU 对比:温度(圆环)"
 
-#: package/contents/ui/ConfigSensors.qml:590 package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
+#: package/contents/ui/ConfigSensors.qml:590
+#: package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255
+#: package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318
+#: package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
@@ -571,7 +590,12 @@ msgstr "GPU 温度"
 msgid "GPU comparison: load (graph)"
 msgstr "GPU 对比:负载(图表)"
 
-#: package/contents/ui/ConfigSensors.qml:595 package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332 package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+#: package/contents/ui/ConfigSensors.qml:595
+#: package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256
+#: package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321
+#: package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332
+#: package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:79
 msgid "GPU load"
 msgstr "GPU 负载"
 
@@ -579,11 +603,15 @@ msgstr "GPU 负载"
 msgid "GPU comparison: power (bar)"
 msgstr "GPU 对比:功耗(条形)"
 
-#: package/contents/ui/ConfigSensors.qml:600 package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322 package/contents/ui/Hardware.js:329
+#: package/contents/ui/ConfigSensors.qml:600
+#: package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257
+#: package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322
+#: package/contents/ui/Hardware.js:329
 msgid "GPU power"
 msgstr "GPU 功耗"
 
-#: package/contents/ui/ConfigSensors.qml:602 package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
+#: package/contents/ui/ConfigSensors.qml:602
+#: package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
 msgid "GPU fan curve"
 msgstr "GPU 风扇曲线"
 
@@ -591,7 +619,8 @@ msgstr "GPU 风扇曲线"
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "显存温度(gddr6,NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:603 package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
+#: package/contents/ui/ConfigSensors.qml:603
+#: package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
 msgid "VRAM temperature"
 msgstr "显存温度"
 
@@ -599,7 +628,10 @@ msgstr "显存温度"
 msgid "VRAM used / total (NVIDIA)"
 msgstr "显存已用 / 总量(NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:604 package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323 package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
+#: package/contents/ui/ConfigSensors.qml:604
+#: package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258
+#: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
+#: package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
 msgid "VRAM used"
 msgstr "显存已用"
 
@@ -607,7 +639,8 @@ msgstr "显存已用"
 msgid "GPU throttling (NVIDIA)"
 msgstr "GPU 降频(NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:605 package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
+#: package/contents/ui/ConfigSensors.qml:605
+#: package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
 msgid "Throttling"
 msgstr "降频"
 
@@ -615,7 +648,8 @@ msgstr "降频"
 msgid "CPU temperature (max.)"
 msgstr "CPU 温度(最高)"
 
-#: package/contents/ui/ConfigSensors.qml:606 package/contents/ui/Hardware.js:367
+#: package/contents/ui/ConfigSensors.qml:606
+#: package/contents/ui/Hardware.js:367
 msgid "CPU temperature"
 msgstr "CPU 温度"
 
@@ -623,7 +657,8 @@ msgstr "CPU 温度"
 msgid "CPU power (power service)"
 msgstr "CPU 功耗（功耗服务）"
 
-#: package/contents/ui/ConfigSensors.qml:607 package/contents/ui/Hardware.js:369
+#: package/contents/ui/ConfigSensors.qml:607
+#: package/contents/ui/Hardware.js:369
 msgid "CPU power"
 msgstr "CPU 功耗"
 
@@ -631,11 +666,13 @@ msgstr "CPU 功耗"
 msgid "CPU usage (graph)"
 msgstr "CPU 占用(图表)"
 
-#: package/contents/ui/ConfigSensors.qml:608 package/contents/ui/Hardware.js:370
+#: package/contents/ui/ConfigSensors.qml:608
+#: package/contents/ui/Hardware.js:370
 msgid "CPU load"
 msgstr "CPU 负载"
 
-#: package/contents/ui/ConfigSensors.qml:609 package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
+#: package/contents/ui/ConfigSensors.qml:609
+#: package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
 msgid "Memory"
 msgstr "内存"
 
@@ -643,7 +680,8 @@ msgstr "内存"
 msgid "Network download"
 msgstr "网络下载"
 
-#: package/contents/ui/ConfigSensors.qml:610 package/contents/ui/Hardware.js:391
+#: package/contents/ui/ConfigSensors.qml:610
+#: package/contents/ui/Hardware.js:391
 msgid "Download"
 msgstr "下载"
 
@@ -891,27 +929,48 @@ msgstr "是,每周检查"
 msgid "No, thanks"
 msgstr "不,谢谢"
 
-#: package/contents/ui/FullView.qml:459
-msgid "Edit in settings …"
-msgstr "在设置中编辑 …"
+#: package/contents/ui/FullView.qml:434 package/contents/ui/main.qml:354
+msgid "Sensor Deck %1 is available – open download page"
+msgstr "Sensor Deck %1 可用 – 打开下载页面"
 
-#: package/contents/ui/FullView.qml:505
-msgid "Remove tile"
-msgstr "删除磁贴"
-
-#: package/contents/ui/FullView.qml:510 package/contents/ui/main.qml:360
+#: package/contents/ui/FullView.qml:440 package/contents/ui/main.qml:360
 msgid "Restore “%1”"
 msgstr "恢复“%1”"
 
-#: package/contents/ui/FullView.qml:518
+#: package/contents/ui/FullView.qml:446 package/contents/ui/main.qml:366
+msgid "Undo last move"
+msgstr "撤销上次移动"
+
+#: package/contents/ui/FullView.qml:452 package/contents/ui/main.qml:372
+msgid "Restore original arrangement"
+msgstr "恢复原始排列"
+
+#: package/contents/ui/FullView.qml:458
 msgid "Configure Sensor Deck …"
 msgstr "配置 Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:559
+#: package/contents/ui/FullView.qml:465
+msgid "Tip: press and hold an empty spot – move, resize, remove widget"
+msgstr "提示:在空白处长按 – 移动、调整大小、移除小部件"
+
+#: package/contents/ui/FullView.qml:494
+msgid "Edit in settings …"
+msgstr "在设置中编辑 …"
+
+#: package/contents/ui/FullView.qml:540
+msgid "Remove tile"
+msgstr "删除磁贴"
+
+#: package/contents/ui/FullView.qml:547 package/contents/ui/FullView.qml:561
+#: package/contents/ui/main.qml:385
+msgid "Sensor Deck"
+msgstr "Sensor Deck"
+
+#: package/contents/ui/FullView.qml:629
 msgid "No sensors configured"
 msgstr "未配置传感器"
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:635
 msgid "Configure …"
 msgstr "设置 …"
 
@@ -1007,11 +1066,15 @@ msgstr "GPU 热点"
 msgid "GPU fan"
 msgstr "GPU 风扇"
 
-#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359 package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351
+#: package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359
+#: package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:79
 msgid "GPU clock"
 msgstr "GPU 频率"
 
-#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352 package/contents/ui/NvidiaKeys.js:31
+#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352
+#: package/contents/ui/NvidiaKeys.js:31
 msgid "Memory clock"
 msgstr "显存频率"
 
@@ -1027,15 +1090,18 @@ msgstr "视频解码"
 msgid "Performance level"
 msgstr "性能级别"
 
-#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:80
 msgid "3D load"
 msgstr "3D 负载"
 
-#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:80
 msgid "Video load"
 msgstr "视频负载"
 
-#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:81
+#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:81
 msgid "Graphics memory"
 msgstr "显存"
 
@@ -1066,22 +1132,6 @@ msgstr "显卡 %1(未找到)"
 #: package/contents/ui/main.qml:55
 msgid "Graphics card %1"
 msgstr "显卡 %1"
-
-#: package/contents/ui/main.qml:354
-msgid "Sensor Deck %1 is available – open download page"
-msgstr "Sensor Deck %1 可用 – 打开下载页面"
-
-#: package/contents/ui/main.qml:366
-msgid "Undo last move"
-msgstr "撤销上次移动"
-
-#: package/contents/ui/main.qml:372
-msgid "Restore original arrangement"
-msgstr "恢复原始排列"
-
-#: package/contents/ui/main.qml:385
-msgid "Sensor Deck"
-msgstr "Sensor Deck"
 
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
@@ -1496,11 +1546,13 @@ msgstr "Shell 命令"
 msgid "Sensor:"
 msgstr "传感器:"
 
-#: package/contents/ui/SourceEditor.qml:61 package/contents/ui/SourceEditor.qml:74
+#: package/contents/ui/SourceEditor.qml:61
+#: package/contents/ui/SourceEditor.qml:74
 msgid "Value:"
 msgstr "数值:"
 
-#: package/contents/ui/SourceEditor.qml:69 package/contents/ui/SourceEditor.qml:85
+#: package/contents/ui/SourceEditor.qml:69
+#: package/contents/ui/SourceEditor.qml:85
 msgid "Please choose …"
 msgstr "请选择 …"
 

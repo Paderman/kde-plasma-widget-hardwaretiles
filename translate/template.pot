@@ -22,11 +22,11 @@ msgstr ""
 msgid "Sensors"
 msgstr ""
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:497
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:532
 msgid "Notifications"
 msgstr ""
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:466
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:501
 msgid "Appearance"
 msgstr ""
 
@@ -91,18 +91,11 @@ msgid "Open download page"
 msgstr ""
 
 #: package/contents/ui/ConfigAbout.qml:119
-msgid ""
-"Privacy: the check only runs when you allow it or click “Check now”. Your "
-"computer then asks api.github.com for the newest version number. GitHub sees "
-"your IP address, as with any website visit; Sensor Deck sends no other data "
-"and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</"
-"a>."
+msgid "Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Sensor Deck sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>."
 msgstr ""
 
 #: package/contents/ui/ConfigAbout.qml:128
-msgid ""
-"Installed via “Get New Widgets” or Discover? Then Discover installs updates "
-"for you – the check here only informs you."
+msgid "Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you."
 msgstr ""
 
 #: package/contents/ui/ConfigAlerts.qml:30
@@ -150,13 +143,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: package/contents/ui/ConfigAlerts.qml:78
-msgid ""
-"A notification is triggered when a value stays above its threshold for the "
-"set time – short spikes are ignored. You are warned again only after the "
-"value has dropped below the threshold by the set margin in between – in the "
-"sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close "
-"them and also appear in “Do not disturb” mode. Thresholds and the “Notify” "
-"switch are set per sensor on the “Sensors” page."
+msgid "A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page."
 msgstr ""
 
 #: package/contents/ui/ConfigAlerts.qml:85
@@ -170,15 +157,11 @@ msgstr ""
 
 #: package/contents/ui/ConfigAlerts.qml:105
 #: package/contents/ui/ConfigAppearance.qml:175
-msgid ""
-"Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it "
-"was."
+msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr ""
 
 #: package/contents/ui/ConfigAlerts.qml:106
-msgid ""
-"Only affects the general settings on this page – your sensor tiles, their "
-"thresholds and the per-sensor “Notify” switch are kept."
+msgid "Only affects the general settings on this page – your sensor tiles, their thresholds and the per-sensor “Notify” switch are kept."
 msgstr ""
 
 #: package/contents/ui/ConfigAlerts.qml:116
@@ -277,10 +260,7 @@ msgid "%1 ms"
 msgstr ""
 
 #: package/contents/ui/ConfigAppearance.qml:119
-msgid ""
-"On the desktop a long press moves the whole widget (Plasma) – so arrange "
-"tiles with Ctrl + drag. Right-click the widget: “Undo last move” and "
-"“Restore original arrangement”."
+msgid "On the desktop a long press moves the whole widget (Plasma) – so arrange tiles with Ctrl + drag. Right-click the widget: “Undo last move” and “Restore original arrangement”."
 msgstr ""
 
 #: package/contents/ui/ConfigAppearance.qml:127
@@ -316,34 +296,30 @@ msgid "Show labels"
 msgstr ""
 
 #: package/contents/ui/ConfigAppearance.qml:156
-msgid ""
-"Which sensors appear in the panel is set per entry on the “Sensors” page. "
-"The widget's background on the desktop can be switched in edit mode."
+msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr ""
 
 #: package/contents/ui/ConfigAppearance.qml:176
-msgid ""
-"Only affects the settings on this page – your sensor tiles and notifications "
-"are kept."
+msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:470
+#: package/contents/ui/FullView.qml:505
 msgid "Ring"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:475
+#: package/contents/ui/FullView.qml:510
 msgid "Bar"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:480
+#: package/contents/ui/FullView.qml:515
 msgid "History graph"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:485
+#: package/contents/ui/FullView.qml:520
 msgid "Value only"
 msgstr ""
 
@@ -360,8 +336,7 @@ msgid "System overview"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:114
-msgid ""
-"Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
+msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:117
@@ -421,10 +396,7 @@ msgid "Custom layout."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:221
-msgid ""
-"A template replaces all tiles – “System overview” restores the default tiles "
-"for your hardware. It takes effect only after “Apply”, “Cancel” keeps "
-"everything as it was."
+msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:233
@@ -449,10 +421,7 @@ msgid "Search again"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:259
-msgid ""
-"GPU tiles without their own assignment show this card. Each tile can be set "
-"to another card below – or the “All graphics cards” layout (above) creates a "
-"separate section for each card."
+msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:260
@@ -468,11 +437,7 @@ msgid "Appears in the widget after “Apply”."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:284
-msgid ""
-"Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA "
-"values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM "
-"temperature is listed under “amdgpu … mem”. Tiles can also be rearranged "
-"directly in the widget: Ctrl + drag."
+msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be rearranged directly in the widget: Ctrl + drag."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:323
@@ -504,9 +469,7 @@ msgid "Compare all cards"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:381
-msgid ""
-"Shows the value of every graphics card in this tile – ring: one arc per "
-"card, graph: one line per card, bar/value: one row per card."
+msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:389
@@ -527,9 +490,7 @@ msgid "Total value:"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:441
-msgid ""
-"Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for "
-"bar/ring. NVIDIA values bring their total automatically."
+msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:449
@@ -537,7 +498,7 @@ msgid "Style:"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:464
-#: package/contents/ui/FullView.qml:490
+#: package/contents/ui/FullView.qml:525
 msgid "Double width"
 msgstr ""
 
@@ -604,10 +565,7 @@ msgid "Reference curve:"
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:566
-msgid ""
-"Optional: points “temperature:fan”, drawn dashed – e.g. your curve from "
-"GreenWithEnvy or CoolerControl. The solid line is learned by the widget from "
-"the measurements."
+msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
 msgstr ""
 
 #: package/contents/ui/ConfigSensors.qml:578
@@ -737,72 +695,47 @@ msgid "%1-SSD · Temperature"
 msgstr ""
 
 #: package/contents/ui/Explain.js:31
-msgid ""
-"Shows how fast the graphics card fans spin at which temperature. The widget "
-"learns the line from the measurements; the dot is the current state."
+msgid "Shows how fast the graphics card fans spin at which temperature. The widget learns the line from the measurements; the dot is the current state."
 msgstr ""
 
 #: package/contents/ui/Explain.js:33
-msgid ""
-"Current power draw of the graphics built into the processor. Near 0 W when "
-"idle, a few to about 15 W under load."
+msgid "Current power draw of the graphics built into the processor. Near 0 W when idle, a few to about 15 W under load."
 msgstr ""
 
 #: package/contents/ui/Explain.js:35
-msgid ""
-"Current power draw of the processor, averaged over one second. Low when "
-"idle, much higher under full load – the maximum depends on the processor."
+msgid "Current power draw of the processor, averaged over one second. Low when idle, much higher under full load – the maximum depends on the processor."
 msgstr ""
 
 #: package/contents/ui/Explain.js:37
-msgid ""
-"How busy the 3D and compute unit of the graphics built into the processor is "
-"– games, desktop effects, browsers. Only programs of your user are counted."
+msgid "How busy the 3D and compute unit of the graphics built into the processor is – games, desktop effects, browsers. Only programs of your user are counted."
 msgstr ""
 
 #: package/contents/ui/Explain.js:39
-msgid ""
-"How busy the video unit of the graphics built into the processor is – "
-"playing, recording or converting videos. Only programs of your user are "
-"counted."
+msgid "How busy the video unit of the graphics built into the processor is – playing, recording or converting videos. Only programs of your user are counted."
 msgstr ""
 
 #: package/contents/ui/Explain.js:41
-msgid ""
-"Graphics built into the processor have no memory of their own – they use "
-"part of the main memory. This shows how much the programs using them occupy "
-"right now."
+msgid "Graphics built into the processor have no memory of their own – they use part of the main memory. This shows how much the programs using them occupy right now."
 msgstr ""
 
 #: package/contents/ui/Explain.js:43
-msgid ""
-"Current clock of the graphics built into the processor. 0 MHz means it is "
-"asleep – normal when it has nothing to do."
+msgid "Current clock of the graphics built into the processor. 0 MHz means it is asleep – normal when it has nothing to do."
 msgstr ""
 
 #: package/contents/ui/Explain.js:45
-msgid ""
-"How busy the graphics built into the processor is. Measured as the share of "
-"time it is not asleep to save power – a good estimate, not an exact value."
+msgid "How busy the graphics built into the processor is. Measured as the share of time it is not asleep to save power – a good estimate, not an exact value."
 msgstr ""
 
 #: package/contents/ui/Explain.js:47
-msgid ""
-"Link between graphics card and mainboard: generation (Gen) and number of "
-"data lanes (×). When idle the card often drops to a lower generation to save "
-"power – that is normal."
+msgid "Link between graphics card and mainboard: generation (Gen) and number of data lanes (×). When idle the card often drops to a lower generation to save power – that is normal."
 msgstr ""
 
 #: package/contents/ui/Explain.js:51
-msgid ""
-"Temperature of the graphics memory (VRAM). It usually runs hotter than the "
-"graphics chip – 80–95 °C under load is common."
+msgid "Temperature of the graphics memory (VRAM). It usually runs hotter than the graphics chip – 80–95 °C under load is common."
 msgstr ""
 
 #: package/contents/ui/Explain.js:53
-msgid ""
-"Hottest spot on the graphics chip. Usually 10–20 °C above the GPU "
-"temperature."
+msgid "Hottest spot on the graphics chip. Usually 10–20 °C above the GPU temperature."
 msgstr ""
 
 #: package/contents/ui/Explain.js:55
@@ -810,34 +743,23 @@ msgid "Temperature of the graphics chip. 60–80 °C under load is normal."
 msgstr ""
 
 #: package/contents/ui/Explain.js:57
-msgid ""
-"Speed of the graphics card fans. 0 when idle is normal – many cards switch "
-"the fans off completely then."
+msgid "Speed of the graphics card fans. 0 when idle is normal – many cards switch the fans off completely then."
 msgstr ""
 
 #: package/contents/ui/Explain.js:59
-msgid ""
-"How busy the graphics chip is right now. 95–100 % while gaming is normal and "
-"desired."
+msgid "How busy the graphics chip is right now. 95–100 % while gaming is normal and desired."
 msgstr ""
 
 #: package/contents/ui/Explain.js:61
-msgid ""
-"Current power draw of the graphics card. The second value is its power limit "
-"– when it reaches it, it lowers its clock (see Throttling)."
+msgid "Current power draw of the graphics card. The second value is its power limit – when it reaches it, it lowers its clock (see Throttling)."
 msgstr ""
 
 #: package/contents/ui/Explain.js:63
-msgid ""
-"Maximum allowed power draw of the graphics card. Above it, the card lowers "
-"its clock."
+msgid "Maximum allowed power draw of the graphics card. Above it, the card lowers its clock."
 msgstr ""
 
 #: package/contents/ui/Explain.js:65
-msgid ""
-"Graphics memory (VRAM) for textures, images and compute data. When it is "
-"full, games have to fall back to slower system memory – that can cause "
-"stutter."
+msgid "Graphics memory (VRAM) for textures, images and compute data. When it is full, games have to fall back to slower system memory – that can cause stutter."
 msgstr ""
 
 #: package/contents/ui/Explain.js:67
@@ -845,15 +767,11 @@ msgid "Share of time in which the graphics memory is being read or written."
 msgstr ""
 
 #: package/contents/ui/Explain.js:69
-msgid ""
-"Current clock of the graphics chip. It changes constantly: high under load, "
-"low when idle. The second value is the maximum clock."
+msgid "Current clock of the graphics chip. It changes constantly: high under load, low when idle. The second value is the maximum clock."
 msgstr ""
 
 #: package/contents/ui/Explain.js:71
-msgid ""
-"Clock of the graphics memory. When idle the card lowers it a lot to save "
-"power."
+msgid "Clock of the graphics memory. When idle the card lowers it a lot to save power."
 msgstr ""
 
 #: package/contents/ui/Explain.js:73
@@ -861,32 +779,23 @@ msgid "Clock of the video units that encode and decode videos."
 msgstr ""
 
 #: package/contents/ui/Explain.js:75
-msgid ""
-"Load of the video encoder (NVENC). Active when recording the screen, "
-"streaming or exporting video, e.g. with OBS."
+msgid "Load of the video encoder (NVENC). Active when recording the screen, streaming or exporting video, e.g. with OBS."
 msgstr ""
 
 #: package/contents/ui/Explain.js:77
-msgid ""
-"Load of the video decoder (NVDEC). Active when playing videos, e.g. on "
-"YouTube or in a video player."
+msgid "Load of the video decoder (NVDEC). Active when playing videos, e.g. on YouTube or in a video player."
 msgstr ""
 
 #: package/contents/ui/Explain.js:79
-msgid ""
-"Power state of the graphics card: P0 is full performance, P8 and above is "
-"idle power saving."
+msgid "Power state of the graphics card: P0 is full performance, P8 and above is idle power saving."
 msgstr ""
 
 #: package/contents/ui/Explain.js:81
-msgid ""
-"Shows whether and why the graphics card is currently running below its "
-"possible clock."
+msgid "Shows whether and why the graphics card is currently running below its possible clock."
 msgstr ""
 
 #: package/contents/ui/Explain.js:85
-msgid ""
-"Temperature of the hottest processor core. 60–85 °C under load is normal."
+msgid "Temperature of the hottest processor core. 60–85 °C under load is normal."
 msgstr ""
 
 #: package/contents/ui/Explain.js:87
@@ -894,33 +803,23 @@ msgid "Combined usage of all processor cores."
 msgstr ""
 
 #: package/contents/ui/Explain.js:89
-msgid ""
-"Used system memory (RAM). When it runs low, the system swaps to disk and "
-"becomes noticeably slower."
+msgid "Used system memory (RAM). When it runs low, the system swaps to disk and becomes noticeably slower."
 msgstr ""
 
 #: package/contents/ui/Explain.js:91
-msgid ""
-"Used disk space. Above 90 % it is time to clean up – very full SSDs get "
-"slower."
+msgid "Used disk space. Above 90 % it is time to clean up – very full SSDs get slower."
 msgstr ""
 
 #: package/contents/ui/Explain.js:93
-msgid ""
-"Temperature of the SSD. Up to about 70 °C is fine; above that it slows down "
-"to protect itself."
+msgid "Temperature of the SSD. Up to about 70 °C is fine; above that it slows down to protect itself."
 msgstr ""
 
 #: package/contents/ui/Explain.js:95
-msgid ""
-"Speed of this fan in revolutions per minute. 0 means it is standing still – "
-"intended for some fans when idle."
+msgid "Speed of this fan in revolutions per minute. 0 means it is standing still – intended for some fans when idle."
 msgstr ""
 
 #: package/contents/ui/Explain.js:97
-msgid ""
-"Temperature on the mainboard – a good indicator of the heat inside the case. "
-"30–45 °C is common."
+msgid "Temperature on the mainboard – a good indicator of the heat inside the case. 30–45 °C is common."
 msgstr ""
 
 #: package/contents/ui/Explain.js:99
@@ -936,21 +835,15 @@ msgid "The card has reached its power limit – normal under load."
 msgstr ""
 
 #: package/contents/ui/Explain.js:109
-msgid ""
-"The card holds its target temperature and clocks a little lower to do so. "
-"More airflow in the case helps."
+msgid "The card holds its target temperature and clocks a little lower to do so. More airflow in the case helps."
 msgstr ""
 
 #: package/contents/ui/Explain.js:110
-msgid ""
-"The card is too hot and slows down heavily. Check the cooling: dust, fans, "
-"case ventilation."
+msgid "The card is too hot and slows down heavily. Check the cooling: dust, fans, case ventilation."
 msgstr ""
 
 #: package/contents/ui/Explain.js:111
-msgid ""
-"The hardware is slowing down – usually due to overheating or a power supply "
-"problem."
+msgid "The hardware is slowing down – usually due to overheating or a power supply problem."
 msgstr ""
 
 #: package/contents/ui/Explain.js:112
@@ -962,8 +855,7 @@ msgid "The clock has been limited by a program or a setting."
 msgstr ""
 
 #: package/contents/ui/Explain.js:114
-msgid ""
-"The clock is synced to other graphics cards (only common in data centres)."
+msgid "The clock is synced to other graphics cards (only common in data centres)."
 msgstr ""
 
 #: package/contents/ui/Explain.js:115
@@ -1023,10 +915,7 @@ msgid "System"
 msgstr ""
 
 #: package/contents/ui/FullView.qml:270
-msgid ""
-"Should Sensor Deck look for new versions once a week? It then connects to "
-"github.com – GitHub sees your IP address, as with any website visit; nothing "
-"else is sent. You can change this any time in the settings."
+msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr ""
 
 #: package/contents/ui/FullView.qml:271
@@ -1041,27 +930,48 @@ msgstr ""
 msgid "No, thanks"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:459
-msgid "Edit in settings …"
+#: package/contents/ui/FullView.qml:434 package/contents/ui/main.qml:354
+msgid "Sensor Deck %1 is available – open download page"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:505
-msgid "Remove tile"
-msgstr ""
-
-#: package/contents/ui/FullView.qml:510 package/contents/ui/main.qml:360
+#: package/contents/ui/FullView.qml:440 package/contents/ui/main.qml:360
 msgid "Restore “%1”"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:518
+#: package/contents/ui/FullView.qml:446 package/contents/ui/main.qml:366
+msgid "Undo last move"
+msgstr ""
+
+#: package/contents/ui/FullView.qml:452 package/contents/ui/main.qml:372
+msgid "Restore original arrangement"
+msgstr ""
+
+#: package/contents/ui/FullView.qml:458
 msgid "Configure Sensor Deck …"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:559
+#: package/contents/ui/FullView.qml:465
+msgid "Tip: press and hold an empty spot – move, resize, remove widget"
+msgstr ""
+
+#: package/contents/ui/FullView.qml:494
+msgid "Edit in settings …"
+msgstr ""
+
+#: package/contents/ui/FullView.qml:540
+msgid "Remove tile"
+msgstr ""
+
+#: package/contents/ui/FullView.qml:547 package/contents/ui/FullView.qml:561
+#: package/contents/ui/main.qml:385
+msgid "Sensor Deck"
+msgstr ""
+
+#: package/contents/ui/FullView.qml:629
 msgid "No sensors configured"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:635
 msgid "Configure …"
 msgstr ""
 
@@ -1082,30 +992,19 @@ msgid "Fan %1"
 msgstr ""
 
 #: package/contents/ui/Hardware.js:207
-msgid ""
-"No fan sensors were found. Sensor Deck can set up the sensor support for "
-"you: it installs the package “%1” and detects the sensor chip of your "
-"mainboard. You will be asked for your password."
+msgid "No fan sensors were found. Sensor Deck can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password."
 msgstr ""
 
 #: package/contents/ui/Hardware.js:209
-msgid ""
-"No fan sensors were found. Sensor Deck can detect the sensor chip of your "
-"mainboard and load its driver. You will be asked for your password."
+msgid "No fan sensors were found. Sensor Deck can detect the sensor chip of your mainboard and load its driver. You will be asked for your password."
 msgstr ""
 
 #: package/contents/ui/Hardware.js:212
-msgid ""
-"No fan sensors were found. On this system, programs are installed "
-"differently (image-based system): add “lm-sensors”, run “sudo sensors-"
-"detect” once and restart – more in the README under “Mainboard sensors”."
+msgid "No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
 msgstr ""
 
 #: package/contents/ui/Hardware.js:213
-msgid ""
-"No fan sensors were found. Install “lm-sensors” with your software center, "
-"run “sudo sensors-detect” once and restart – more in the README under "
-"“Mainboard sensors”."
+msgid "No fan sensors were found. Install “lm-sensors” with your software center, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
 msgstr ""
 
 #: package/contents/ui/Hardware.js:222
@@ -1235,22 +1134,6 @@ msgstr ""
 msgid "Graphics card %1"
 msgstr ""
 
-#: package/contents/ui/main.qml:354
-msgid "Sensor Deck %1 is available – open download page"
-msgstr ""
-
-#: package/contents/ui/main.qml:366
-msgid "Undo last move"
-msgstr ""
-
-#: package/contents/ui/main.qml:372
-msgid "Restore original arrangement"
-msgstr ""
-
-#: package/contents/ui/main.qml:385
-msgid "Sensor Deck"
-msgstr ""
-
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr ""
@@ -1360,9 +1243,7 @@ msgid "PCIe link"
 msgstr ""
 
 #: package/contents/ui/Reader.qml:72
-msgid ""
-"Current clock of the graphics built into the processor (from the kernel "
-"driver)"
+msgid "Current clock of the graphics built into the processor (from the kernel driver)"
 msgstr ""
 
 #: package/contents/ui/Reader.qml:73
@@ -1466,21 +1347,15 @@ msgid "Done – sensor driver loaded (%1). The fans are now offered."
 msgstr ""
 
 #: package/contents/ui/SensorSetup.qml:41
-msgid ""
-"Sensor driver loaded (%1), but no fan reports a speed yet. Fans that stand "
-"still appear once they spin."
+msgid "Sensor driver loaded (%1), but no fan reports a speed yet. Fans that stand still appear once they spin."
 msgstr ""
 
 #: package/contents/ui/SensorSetup.qml:43
-msgid ""
-"No supported sensor chip was found. Some mainboards need an extra driver – "
-"see the instructions."
+msgid "No supported sensor chip was found. Some mainboards need an extra driver – see the instructions."
 msgstr ""
 
 #: package/contents/ui/SensorSetup.qml:46
-msgid ""
-"The installation did not work. Please install “%1” with your software center "
-"and try again."
+msgid "The installation did not work. Please install “%1” with your software center and try again."
 msgstr ""
 
 #: package/contents/ui/SensorSetup.qml:48
@@ -1572,8 +1447,7 @@ msgid "Which graphics card should the widget show?"
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:135
-msgid ""
-"You can choose several cards – each then gets its own colour-coded section."
+msgid "You can choose several cards – each then gets its own colour-coded section."
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:136
@@ -1585,9 +1459,7 @@ msgid "Searching for graphics cards …"
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:152
-msgid ""
-"No supported graphics card found. You can still continue and show CPU, RAM & "
-"co."
+msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:213
@@ -1595,10 +1467,7 @@ msgid "PCI %1 · driver %2"
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:245
-msgid ""
-"Note: the VRAM temperature of NVIDIA cards needs the gddr6 service "
-"(instructions: folder “gddr6-service” in the Sensor Deck directory). Without "
-"it this tile is left out."
+msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Sensor Deck directory). Without it this tile is left out."
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:257
@@ -1634,12 +1503,8 @@ msgid "Graphics cards – details (for each card)"
 msgstr ""
 
 #: package/contents/ui/SetupWizard.qml:337
-msgid ""
-"Results in %1 tile – you can change the arrangement and details at any time "
-"later."
-msgid_plural ""
-"Results in %1 tiles – you can change the arrangement and details at any time "
-"later."
+msgid "Results in %1 tile – you can change the arrangement and details at any time later."
+msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1702,9 +1567,7 @@ msgid "automatic (first graphics card)"
 msgstr ""
 
 #: package/contents/ui/SourceEditor.qml:107
-msgid ""
-"Optionally a PCI address like “02:00.0” (see lspci). Shows the actual link "
-"together with the maximum the card and slot support."
+msgid "Optionally a PCI address like “02:00.0” (see lspci). Shows the actual link together with the maximum the card and slot support."
 msgstr ""
 
 #: package/contents/ui/SourceEditor.qml:112

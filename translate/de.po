@@ -19,11 +19,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensoren"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:497
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:532
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:466
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:501
 msgid "Appearance"
 msgstr "Darstellung"
 
@@ -147,11 +147,13 @@ msgstr "Ausgelöst wird, wenn ein Wert die Schwelle für die eingestellte Zeit �
 msgid "Send test notification"
 msgstr "Test-Benachrichtigung senden"
 
-#: package/contents/ui/ConfigAlerts.qml:94 package/contents/ui/ConfigAppearance.qml:164
+#: package/contents/ui/ConfigAlerts.qml:94
+#: package/contents/ui/ConfigAppearance.qml:164
 msgid "Restore defaults"
 msgstr "Standardwerte wiederherstellen"
 
-#: package/contents/ui/ConfigAlerts.qml:105 package/contents/ui/ConfigAppearance.qml:175
+#: package/contents/ui/ConfigAlerts.qml:105
+#: package/contents/ui/ConfigAppearance.qml:175
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Zurückgesetzt. Übernommen wird es erst mit „Anwenden“ – „Abbrechen“ lässt alles beim Alten."
 
@@ -175,7 +177,8 @@ msgstr ""
 msgid "Columns:"
 msgstr "Spalten:"
 
-#: package/contents/ui/ConfigAppearance.qml:42 package/contents/ui/ConfigAppearance.qml:43
+#: package/contents/ui/ConfigAppearance.qml:42
+#: package/contents/ui/ConfigAppearance.qml:43
 msgid "Automatic"
 msgstr "Automatisch"
 
@@ -299,19 +302,23 @@ msgstr "Welche Sensoren im Panel erscheinen, legst du auf der Seite „Sensoren�
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Betrifft nur die Einstellungen dieser Seite – deine Sensor-Kacheln und Benachrichtigungen bleiben erhalten."
 
-#: package/contents/ui/ConfigSensors.qml:29 package/contents/ui/FullView.qml:470
+#: package/contents/ui/ConfigSensors.qml:29
+#: package/contents/ui/FullView.qml:505
 msgid "Ring"
 msgstr "Ring"
 
-#: package/contents/ui/ConfigSensors.qml:30 package/contents/ui/FullView.qml:475
+#: package/contents/ui/ConfigSensors.qml:30
+#: package/contents/ui/FullView.qml:510
 msgid "Bar"
 msgstr "Balken"
 
-#: package/contents/ui/ConfigSensors.qml:31 package/contents/ui/FullView.qml:480
+#: package/contents/ui/ConfigSensors.qml:31
+#: package/contents/ui/FullView.qml:515
 msgid "History graph"
 msgstr "Verlaufsgraph"
 
-#: package/contents/ui/ConfigSensors.qml:32 package/contents/ui/FullView.qml:485
+#: package/contents/ui/ConfigSensors.qml:32
+#: package/contents/ui/FullView.qml:520
 msgid "Value only"
 msgstr "Nur Wert"
 
@@ -395,7 +402,8 @@ msgstr "Eine Vorlage ersetzt alle Kacheln – „Systemübersicht“ stellt die 
 msgid "Main card:"
 msgstr "Hauptkarte:"
 
-#: package/contents/ui/ConfigSensors.qml:233 package/contents/ui/ConfigSensors.qml:360
+#: package/contents/ui/ConfigSensors.qml:233
+#: package/contents/ui/ConfigSensors.qml:360
 msgid "Graphics card:"
 msgstr "Grafikkarte:"
 
@@ -467,7 +475,8 @@ msgstr "Zeigt den Wert jeder Grafikkarte in dieser Kachel – Ring: ein Bogen pr
 msgid "Temperature (X):"
 msgstr "Temperatur (X):"
 
-#: package/contents/ui/ConfigSensors.qml:389 package/contents/ui/SourceEditor.qml:19
+#: package/contents/ui/ConfigSensors.qml:389
+#: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "Quelle:"
 
@@ -487,7 +496,8 @@ msgstr "Optional, z. B. „Gesamter VRAM“ → Anzeige „1,0 / 10 GiB“ und M
 msgid "Style:"
 msgstr "Darstellung:"
 
-#: package/contents/ui/ConfigSensors.qml:464 package/contents/ui/FullView.qml:490
+#: package/contents/ui/ConfigSensors.qml:464
+#: package/contents/ui/FullView.qml:525
 msgid "Double width"
 msgstr "Doppelt breit"
 
@@ -527,7 +537,10 @@ msgstr "Min"
 msgid "Max"
 msgstr "Max"
 
-#: package/contents/ui/ConfigSensors.qml:510 package/contents/ui/ConfigSensors.qml:511 package/contents/ui/ConfigSensors.qml:520 package/contents/ui/ConfigSensors.qml:521
+#: package/contents/ui/ConfigSensors.qml:510
+#: package/contents/ui/ConfigSensors.qml:511
+#: package/contents/ui/ConfigSensors.qml:520
+#: package/contents/ui/ConfigSensors.qml:521
 msgid "auto"
 msgstr "auto"
 
@@ -539,7 +552,10 @@ msgstr "Lüfter max"
 msgid "Thresholds:"
 msgstr "Schwellen:"
 
-#: package/contents/ui/ConfigSensors.qml:534 package/contents/ui/ConfigSensors.qml:535 package/contents/ui/ConfigSensors.qml:543 package/contents/ui/ConfigSensors.qml:544
+#: package/contents/ui/ConfigSensors.qml:534
+#: package/contents/ui/ConfigSensors.qml:535
+#: package/contents/ui/ConfigSensors.qml:543
+#: package/contents/ui/ConfigSensors.qml:544
 msgid "off"
 msgstr "aus"
 
@@ -563,7 +579,10 @@ msgstr "Vorlage …"
 msgid "GPU comparison: temperature (ring)"
 msgstr "GPU-Vergleich: Temperatur (Ring)"
 
-#: package/contents/ui/ConfigSensors.qml:590 package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
+#: package/contents/ui/ConfigSensors.qml:590
+#: package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255
+#: package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318
+#: package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU-Temperatur"
 
@@ -571,7 +590,12 @@ msgstr "GPU-Temperatur"
 msgid "GPU comparison: load (graph)"
 msgstr "GPU-Vergleich: Last (Graph)"
 
-#: package/contents/ui/ConfigSensors.qml:595 package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332 package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+#: package/contents/ui/ConfigSensors.qml:595
+#: package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256
+#: package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321
+#: package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332
+#: package/contents/ui/NvidiaKeys.js:24 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:79
 msgid "GPU load"
 msgstr "GPU-Last"
 
@@ -579,11 +603,15 @@ msgstr "GPU-Last"
 msgid "GPU comparison: power (bar)"
 msgstr "GPU-Vergleich: Verbrauch (Balken)"
 
-#: package/contents/ui/ConfigSensors.qml:600 package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322 package/contents/ui/Hardware.js:329
+#: package/contents/ui/ConfigSensors.qml:600
+#: package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257
+#: package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322
+#: package/contents/ui/Hardware.js:329
 msgid "GPU power"
 msgstr "GPU-Verbrauch"
 
-#: package/contents/ui/ConfigSensors.qml:602 package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
+#: package/contents/ui/ConfigSensors.qml:602
+#: package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
 msgid "GPU fan curve"
 msgstr "GPU-Lüfterkurve"
 
@@ -591,7 +619,8 @@ msgstr "GPU-Lüfterkurve"
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "VRAM-Temperatur (gddr6, NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:603 package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
+#: package/contents/ui/ConfigSensors.qml:603
+#: package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
 msgid "VRAM temperature"
 msgstr "VRAM-Temperatur"
 
@@ -599,7 +628,10 @@ msgstr "VRAM-Temperatur"
 msgid "VRAM used / total (NVIDIA)"
 msgstr "VRAM belegt / gesamt (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:604 package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323 package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
+#: package/contents/ui/ConfigSensors.qml:604
+#: package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258
+#: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
+#: package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
 msgid "VRAM used"
 msgstr "VRAM belegt"
 
@@ -607,7 +639,8 @@ msgstr "VRAM belegt"
 msgid "GPU throttling (NVIDIA)"
 msgstr "GPU-Taktbremse (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:605 package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
+#: package/contents/ui/ConfigSensors.qml:605
+#: package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
 msgid "Throttling"
 msgstr "Taktbremse"
 
@@ -615,7 +648,8 @@ msgstr "Taktbremse"
 msgid "CPU temperature (max.)"
 msgstr "CPU-Temperatur (max.)"
 
-#: package/contents/ui/ConfigSensors.qml:606 package/contents/ui/Hardware.js:367
+#: package/contents/ui/ConfigSensors.qml:606
+#: package/contents/ui/Hardware.js:367
 msgid "CPU temperature"
 msgstr "CPU-Temperatur"
 
@@ -623,7 +657,8 @@ msgstr "CPU-Temperatur"
 msgid "CPU power (power service)"
 msgstr "CPU-Verbrauch (Verbrauchs-Dienst)"
 
-#: package/contents/ui/ConfigSensors.qml:607 package/contents/ui/Hardware.js:369
+#: package/contents/ui/ConfigSensors.qml:607
+#: package/contents/ui/Hardware.js:369
 msgid "CPU power"
 msgstr "CPU-Verbrauch"
 
@@ -631,11 +666,13 @@ msgstr "CPU-Verbrauch"
 msgid "CPU usage (graph)"
 msgstr "CPU-Auslastung (Graph)"
 
-#: package/contents/ui/ConfigSensors.qml:608 package/contents/ui/Hardware.js:370
+#: package/contents/ui/ConfigSensors.qml:608
+#: package/contents/ui/Hardware.js:370
 msgid "CPU load"
 msgstr "CPU-Last"
 
-#: package/contents/ui/ConfigSensors.qml:609 package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
+#: package/contents/ui/ConfigSensors.qml:609
+#: package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
 msgid "Memory"
 msgstr "Arbeitsspeicher"
 
@@ -643,7 +680,8 @@ msgstr "Arbeitsspeicher"
 msgid "Network download"
 msgstr "Netzwerk Download"
 
-#: package/contents/ui/ConfigSensors.qml:610 package/contents/ui/Hardware.js:391
+#: package/contents/ui/ConfigSensors.qml:610
+#: package/contents/ui/Hardware.js:391
 msgid "Download"
 msgstr "Download"
 
@@ -891,27 +929,48 @@ msgstr "Ja, wöchentlich prüfen"
 msgid "No, thanks"
 msgstr "Nein, danke"
 
-#: package/contents/ui/FullView.qml:459
-msgid "Edit in settings …"
-msgstr "In den Einstellungen bearbeiten …"
+#: package/contents/ui/FullView.qml:434 package/contents/ui/main.qml:354
+msgid "Sensor Deck %1 is available – open download page"
+msgstr "Sensor Deck %1 ist verfügbar – Download-Seite öffnen"
 
-#: package/contents/ui/FullView.qml:505
-msgid "Remove tile"
-msgstr "Kachel entfernen"
-
-#: package/contents/ui/FullView.qml:510 package/contents/ui/main.qml:360
+#: package/contents/ui/FullView.qml:440 package/contents/ui/main.qml:360
 msgid "Restore “%1”"
 msgstr "„%1“ wiederherstellen"
 
-#: package/contents/ui/FullView.qml:518
+#: package/contents/ui/FullView.qml:446 package/contents/ui/main.qml:366
+msgid "Undo last move"
+msgstr "Letzte Verschiebung rückgängig"
+
+#: package/contents/ui/FullView.qml:452 package/contents/ui/main.qml:372
+msgid "Restore original arrangement"
+msgstr "Ursprüngliche Anordnung wiederherstellen"
+
+#: package/contents/ui/FullView.qml:458
 msgid "Configure Sensor Deck …"
 msgstr "Sensor Deck einrichten …"
 
-#: package/contents/ui/FullView.qml:559
+#: package/contents/ui/FullView.qml:465
+msgid "Tip: press and hold an empty spot – move, resize, remove widget"
+msgstr "Tipp: Lange auf eine freie Stelle drücken – Widget verschieben, Größe ändern, entfernen"
+
+#: package/contents/ui/FullView.qml:494
+msgid "Edit in settings …"
+msgstr "In den Einstellungen bearbeiten …"
+
+#: package/contents/ui/FullView.qml:540
+msgid "Remove tile"
+msgstr "Kachel entfernen"
+
+#: package/contents/ui/FullView.qml:547 package/contents/ui/FullView.qml:561
+#: package/contents/ui/main.qml:385
+msgid "Sensor Deck"
+msgstr "Sensor Deck"
+
+#: package/contents/ui/FullView.qml:629
 msgid "No sensors configured"
 msgstr "Keine Sensoren konfiguriert"
 
-#: package/contents/ui/FullView.qml:565
+#: package/contents/ui/FullView.qml:635
 msgid "Configure …"
 msgstr "Einrichten …"
 
@@ -1007,11 +1066,15 @@ msgstr "GPU-Hotspot"
 msgid "GPU fan"
 msgstr "GPU-Lüfter"
 
-#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359 package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:79
+#: package/contents/ui/Hardware.js:341 package/contents/ui/Hardware.js:351
+#: package/contents/ui/Hardware.js:354 package/contents/ui/Hardware.js:359
+#: package/contents/ui/NvidiaKeys.js:30 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:79
 msgid "GPU clock"
 msgstr "GPU-Takt"
 
-#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352 package/contents/ui/NvidiaKeys.js:31
+#: package/contents/ui/Hardware.js:342 package/contents/ui/Hardware.js:352
+#: package/contents/ui/NvidiaKeys.js:31
 msgid "Memory clock"
 msgstr "Speichertakt"
 
@@ -1027,15 +1090,18 @@ msgstr "Video-Dekodierung"
 msgid "Performance level"
 msgstr "Leistungsstufe"
 
-#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+#: package/contents/ui/Hardware.js:355 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:80
 msgid "3D load"
 msgstr "3D-Last"
 
-#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:80
+#: package/contents/ui/Hardware.js:356 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:80
 msgid "Video load"
 msgstr "Video-Last"
 
-#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94 package/contents/ui/SourceEditor.qml:81
+#: package/contents/ui/Hardware.js:357 package/contents/ui/Reader.qml:94
+#: package/contents/ui/SourceEditor.qml:81
 msgid "Graphics memory"
 msgstr "Grafikspeicher"
 
@@ -1066,22 +1132,6 @@ msgstr "Grafikkarte %1 (nicht gefunden)"
 #: package/contents/ui/main.qml:55
 msgid "Graphics card %1"
 msgstr "Grafikkarte %1"
-
-#: package/contents/ui/main.qml:354
-msgid "Sensor Deck %1 is available – open download page"
-msgstr "Sensor Deck %1 ist verfügbar – Download-Seite öffnen"
-
-#: package/contents/ui/main.qml:366
-msgid "Undo last move"
-msgstr "Letzte Verschiebung rückgängig"
-
-#: package/contents/ui/main.qml:372
-msgid "Restore original arrangement"
-msgstr "Ursprüngliche Anordnung wiederherstellen"
-
-#: package/contents/ui/main.qml:385
-msgid "Sensor Deck"
-msgstr "Sensor Deck"
 
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
@@ -1497,11 +1547,13 @@ msgstr "Shell-Befehl"
 msgid "Sensor:"
 msgstr "Sensor:"
 
-#: package/contents/ui/SourceEditor.qml:61 package/contents/ui/SourceEditor.qml:74
+#: package/contents/ui/SourceEditor.qml:61
+#: package/contents/ui/SourceEditor.qml:74
 msgid "Value:"
 msgstr "Wert:"
 
-#: package/contents/ui/SourceEditor.qml:69 package/contents/ui/SourceEditor.qml:85
+#: package/contents/ui/SourceEditor.qml:69
+#: package/contents/ui/SourceEditor.qml:85
 msgid "Please choose …"
 msgstr "Bitte wählen …"
 

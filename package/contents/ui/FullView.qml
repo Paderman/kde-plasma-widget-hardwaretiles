@@ -375,13 +375,6 @@ Item {
                         dropTarget: full.dragTo === entry.index
                         inSection: full.sections
 
-                        // right click: menu for this tile (below the drag area, which only takes the left button)
-                        MouseArea {
-                            anchors.fill: parent
-                            acceptedButtons: Qt.RightButton
-                            onPressed: mouse => tileMenu.openFor(tileDelegate.itemIndex, tileDelegate.src, tileDelegate)
-                        }
-
                         // Drag starts after a long press (tile "lifts"), with Ctrl + drag,
                         // or immediately – depending on the "dragMode" setting.
                         MouseArea {
@@ -431,6 +424,48 @@ Item {
                 }
             }
         }
+    }
+
+    // ---- menu entries shared by the tile menu and the widget menu
+    component HidingItem: QQC2.MenuItem {
+        height: visible ? implicitHeight : 0
+    }
+    component UpdateItem: HidingItem {
+        text: root.updateAvailable ? i18n("Sensor Deck %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
+        icon.name: "update-none"
+        visible: root.updateAvailable
+        onTriggered: root.openUpdatePage()
+    }
+    component RestoreRemovedItem: HidingItem {
+        text: root.canUndoRemove ? i18n("Restore “%1”", root.undoRemove.label) : ""
+        icon.name: "edit-undo"
+        visible: root.canUndoRemove
+        onTriggered: root.restoreRemoved()
+    }
+    component UndoMoveItem: HidingItem {
+        text: i18n("Undo last move")
+        icon.name: "edit-undo"
+        visible: root.undoOrder !== null
+        onTriggered: root.undoMove()
+    }
+    component ResetOrderItem: QQC2.MenuItem {
+        text: i18n("Restore original arrangement")
+        icon.name: "edit-reset"
+        enabled: root.orderChanged
+        onTriggered: root.resetOrder()
+    }
+    component ConfigureItem: QQC2.MenuItem {
+        text: i18n("Configure Sensor Deck …")
+        icon.name: "configure"
+        onTriggered: Plasmoid.internalAction("configure").trigger()
+    }
+
+    // hint where Plasma's own widget actions are (only where its handle exists)
+    component HandleHintItem: HidingItem {
+        text: i18n("Tip: press and hold an empty spot – move, resize, remove widget")
+        icon.name: "help-hint"
+        enabled: false
+        visible: !full.inPopup && !Plasmoid.immutable
     }
 
     // ---- context menu of a tile -------------------------------------------------
@@ -506,18 +541,53 @@ Item {
             icon.name: "edit-delete-remove"
             onTriggered: root.removeTile(tileMenu.idx, tileMenu.name)
         }
-        QQC2.MenuItem {
-            text: root.canUndoRemove ? i18n("Restore “%1”", root.undoRemove.label) : ""
-            icon.name: "edit-undo"
-            visible: root.canUndoRemove
-            height: visible ? implicitHeight : 0
-            onTriggered: root.restoreRemoved()
-        }
+        RestoreRemovedItem { }
+        // ---- widget-wide entries (same as the menu on the empty area)
         QQC2.MenuSeparator { }
-        QQC2.MenuItem {
-            text: i18n("Configure Sensor Deck …")
-            icon.name: "configure"
-            onTriggered: Plasmoid.internalAction("configure").trigger()
+        QQC2.MenuItem { text: i18n("Sensor Deck"); enabled: false }
+        UpdateItem { }
+        UndoMoveItem { }
+        ResetOrderItem { }
+        ConfigureItem { }
+        HandleHintItem { }
+    }
+
+    // ---- context menu of the empty area (gaps, headers, margins) ------------------
+    // Plasma's own widget menu does not appear there because the scroll area takes
+    // the click – so Sensor Deck offers its own entries. Removing, resizing and
+    // alternatives stay with Plasma's handle (long press on the widget).
+    QQC2.Menu {
+        id: deckMenu
+        QQC2.MenuItem { text: i18n("Sensor Deck"); enabled: false }
+        UpdateItem { }
+        RestoreRemovedItem { }
+        UndoMoveItem { }
+        ResetOrderItem { }
+        QQC2.MenuSeparator { }
+        ConfigureItem { }
+        HandleHintItem { }
+    }
+
+    // one right-click area over the whole widget: a tile gets its own menu,
+    // everything else the widget menu (left clicks, hover and wheel pass through)
+    MouseArea {
+        anchors.fill: parent
+        z: 2000
+        acceptedButtons: Qt.RightButton
+        function tileAt(x, y) {
+            if (!scroll.visible || !scroll.contains(scroll.mapFromItem(full, x, y))) return null;
+            for (let i = 0; i < tiles.count; ++i) {
+                const l = tiles.itemAt(i);
+                const t = l && !l.isHeader ? l.item : null;
+                if (t && t.contains(t.mapFromItem(full, x, y))) return t;
+            }
+            return null;
+        }
+        onPressed: mouse => {
+            if (full.dragFrom >= 0) return;
+            const t = tileAt(mouse.x, mouse.y);
+            if (t) tileMenu.openFor(t.itemIndex, t.src, t);
+            else deckMenu.popup();
         }
     }
 
