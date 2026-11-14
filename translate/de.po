@@ -19,11 +19,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensoren"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:680
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:683
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:649
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:652
 msgid "Appearance"
 msgstr "Darstellung"
 
@@ -83,7 +83,7 @@ msgstr "Es wurde noch keine Version veröffentlicht."
 msgid "GitHub could not be reached (%1)."
 msgstr "GitHub war nicht erreichbar (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:295
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:298
 msgid "Open download page"
 msgstr "Download-Seite öffnen"
 
@@ -148,12 +148,12 @@ msgid "Send test notification"
 msgstr "Test-Benachrichtigung senden"
 
 #: package/contents/ui/ConfigAlerts.qml:94
-#: package/contents/ui/ConfigAppearance.qml:132
+#: package/contents/ui/ConfigAppearance.qml:136
 msgid "Restore defaults"
 msgstr "Standardwerte wiederherstellen"
 
 #: package/contents/ui/ConfigAlerts.qml:105
-#: package/contents/ui/ConfigAppearance.qml:143
+#: package/contents/ui/ConfigAppearance.qml:147
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Zurückgesetzt. Übernommen wird es erst mit „Anwenden“ – „Abbrechen“ lässt alles beim Alten."
 
@@ -173,402 +173,412 @@ msgstr ""
 "Kritische Schwelle von 100 °C überschritten.\n"
 "(Das ist nur ein Test von Sensor Deck.)"
 
-#: package/contents/ui/ConfigAppearance.qml:36
+#: package/contents/ui/ConfigAppearance.qml:37
 msgid "Columns:"
 msgstr "Spalten:"
 
-#: package/contents/ui/ConfigAppearance.qml:38
 #: package/contents/ui/ConfigAppearance.qml:39
+#: package/contents/ui/ConfigAppearance.qml:40
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: package/contents/ui/ConfigAppearance.qml:43
+#: package/contents/ui/ConfigAppearance.qml:44
 msgid "On the desktop:"
 msgstr "Auf dem Desktop:"
 
-#: package/contents/ui/ConfigAppearance.qml:44
+#: package/contents/ui/ConfigAppearance.qml:45
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "Kacheln verkleinern, damit alles ohne Scrollen passt"
 
-#: package/contents/ui/ConfigAppearance.qml:49
+#: package/contents/ui/ConfigAppearance.qml:50
 msgid "Tile style:"
 msgstr "Kachelstil:"
 
-#: package/contents/ui/ConfigAppearance.qml:52
-#: package/contents/ui/FullView.qml:588
+#: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/FullView.qml:591
 msgid "Glass (subtle)"
 msgstr "Glas (dezent)"
 
-#: package/contents/ui/ConfigAppearance.qml:53
-#: package/contents/ui/FullView.qml:589
+#: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:592
 msgid "Filled"
 msgstr "Gefüllt"
 
-#: package/contents/ui/ConfigAppearance.qml:54
-#: package/contents/ui/FullView.qml:590
+#: package/contents/ui/ConfigAppearance.qml:55
+#: package/contents/ui/FullView.qml:593
 msgid "Outline (accent colour)"
 msgstr "Kontur (Akzentfarbe)"
 
-#: package/contents/ui/ConfigAppearance.qml:60
+#: package/contents/ui/ConfigAppearance.qml:61
 msgid "Size:"
 msgstr "Größe:"
 
-#: package/contents/ui/ConfigAppearance.qml:72
+#: package/contents/ui/ConfigAppearance.qml:76
 msgid "Sections per graphics card:"
 msgstr "Abschnitte je Grafikkarte:"
 
-#: package/contents/ui/ConfigAppearance.qml:75
-#: package/contents/ui/FullView.qml:599
+#: package/contents/ui/ConfigAppearance.qml:79
+#: package/contents/ui/FullView.qml:602
 msgid "From two graphics cards"
 msgstr "Ab zwei Grafikkarten"
 
-#: package/contents/ui/ConfigAppearance.qml:76
-#: package/contents/ui/FullView.qml:600
+#: package/contents/ui/ConfigAppearance.qml:80
+#: package/contents/ui/FullView.qml:603
 msgid "Always (even with one card)"
 msgstr "Immer (auch bei einer Karte)"
 
-#: package/contents/ui/ConfigAppearance.qml:77
-#: package/contents/ui/FullView.qml:601
+#: package/contents/ui/ConfigAppearance.qml:81
+#: package/contents/ui/FullView.qml:604
 msgid "Never (several cards: coloured edge)"
 msgstr "Nie (mehrere Karten: farbiger Rand)"
 
-#: package/contents/ui/ConfigAppearance.qml:87
+#: package/contents/ui/ConfigAppearance.qml:91
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "Kacheln direkt im Widget verschieben, entfernen oder hinzufügen: Rechtsklick → „Kacheln bearbeiten“."
 
-#: package/contents/ui/ConfigAppearance.qml:95
+#: package/contents/ui/ConfigAppearance.qml:99
 msgid "Update:"
 msgstr "Aktualisierung:"
 
-#: package/contents/ui/ConfigAppearance.qml:97
+#: package/contents/ui/ConfigAppearance.qml:101
 msgid "every %1 s"
 msgstr "alle %1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:103
+#: package/contents/ui/ConfigAppearance.qml:107
 msgid "History in graphs:"
 msgstr "Verlauf im Graph:"
 
-#: package/contents/ui/ConfigAppearance.qml:105
+#: package/contents/ui/ConfigAppearance.qml:109
 msgid "%1 s"
 msgstr "%1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:109
+#: package/contents/ui/ConfigAppearance.qml:113
 msgid "Panel"
 msgstr "Panel"
 
-#: package/contents/ui/ConfigAppearance.qml:113
+#: package/contents/ui/ConfigAppearance.qml:117
 msgid "In the panel:"
 msgstr "Im Panel:"
 
-#: package/contents/ui/ConfigAppearance.qml:114
+#: package/contents/ui/ConfigAppearance.qml:118
 msgid "Show mini rings"
 msgstr "Mini-Ringe anzeigen"
 
-#: package/contents/ui/ConfigAppearance.qml:118
+#: package/contents/ui/ConfigAppearance.qml:122
 msgid "Show labels"
 msgstr "Beschriftungen anzeigen"
 
-#: package/contents/ui/ConfigAppearance.qml:124
+#: package/contents/ui/ConfigAppearance.qml:128
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "Welche Sensoren im Panel erscheinen, legst du auf der Seite „Sensoren“ pro Eintrag fest. Den Hintergrund des Widgets auf dem Desktop kannst du im Bearbeitungsmodus umschalten."
 
-#: package/contents/ui/ConfigAppearance.qml:144
+#: package/contents/ui/ConfigAppearance.qml:148
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Betrifft nur die Einstellungen dieser Seite – deine Sensor-Kacheln und Benachrichtigungen bleiben erhalten."
 
-#: package/contents/ui/ConfigSensors.qml:29
-#: package/contents/ui/FullView.qml:653
+#: package/contents/ui/ConfigSensors.qml:30
+#: package/contents/ui/FullView.qml:656
 msgid "Ring"
 msgstr "Ring"
 
-#: package/contents/ui/ConfigSensors.qml:30
-#: package/contents/ui/FullView.qml:658
+#: package/contents/ui/ConfigSensors.qml:31
+#: package/contents/ui/FullView.qml:661
 msgid "Bar"
 msgstr "Balken"
 
-#: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:663
+#: package/contents/ui/ConfigSensors.qml:32
+#: package/contents/ui/FullView.qml:666
 msgid "History graph"
 msgstr "Verlaufsgraph"
 
-#: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:668
+#: package/contents/ui/ConfigSensors.qml:33
+#: package/contents/ui/FullView.qml:671
 msgid "Value only"
 msgstr "Nur Wert"
 
-#: package/contents/ui/ConfigSensors.qml:33
+#: package/contents/ui/ConfigSensors.qml:34
 msgid "Fan curve"
 msgstr "Lüfterkurve"
 
-#: package/contents/ui/ConfigSensors.qml:49
+#: package/contents/ui/ConfigSensors.qml:50
 msgid "New tile"
 msgstr "Neue Kachel"
 
-#: package/contents/ui/ConfigSensors.qml:128
+#: package/contents/ui/ConfigSensors.qml:129
 msgid "Main card (%1)"
 msgstr "Hauptkarte (%1)"
 
-#: package/contents/ui/ConfigSensors.qml:135
+#: package/contents/ui/ConfigSensors.qml:136
 msgid "System overview"
 msgstr "Systemübersicht"
 
-#: package/contents/ui/ConfigSensors.qml:136
+#: package/contents/ui/ConfigSensors.qml:137
 msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
 msgstr "Standard-Kacheln für deine Hardware: Grafikkarte, Prozessor, Arbeitsspeicher, SSDs, Lüfter"
 
-#: package/contents/ui/ConfigSensors.qml:139
+#: package/contents/ui/ConfigSensors.qml:140
 msgid "All graphics cards"
 msgstr "Alle Grafikkarten"
 
-#: package/contents/ui/ConfigSensors.qml:140
+#: package/contents/ui/ConfigSensors.qml:141
 msgid "One section per graphics card, plus comparison tiles and system"
 msgstr "Je Grafikkarte ein eigener Abschnitt, dazu Vergleichskacheln und System"
 
-#: package/contents/ui/ConfigSensors.qml:143
+#: package/contents/ui/ConfigSensors.qml:144
 msgid "GPU focus"
 msgstr "GPU-Fokus"
 
-#: package/contents/ui/ConfigSensors.qml:144
+#: package/contents/ui/ConfigSensors.qml:145
 msgid "Only the selected graphics card, with all of its values"
 msgstr "Nur die gewählte Grafikkarte, mit allen ihren Werten"
 
-#: package/contents/ui/ConfigSensors.qml:149
+#: package/contents/ui/ConfigSensors.qml:150
 msgid "Setup wizard"
 msgstr "Einrichtungsassistent"
 
-#: package/contents/ui/ConfigSensors.qml:191
+#: package/contents/ui/ConfigSensors.qml:192
 msgid "Layout:"
 msgstr "Layout:"
 
-#: package/contents/ui/ConfigSensors.qml:201
+#: package/contents/ui/ConfigSensors.qml:202
 msgid "(modified)"
 msgstr "(geändert)"
 
-#: package/contents/ui/ConfigSensors.qml:207
+#: package/contents/ui/ConfigSensors.qml:208
 msgid "Is loaded and unchanged."
 msgstr "Ist geladen und unverändert."
 
-#: package/contents/ui/ConfigSensors.qml:208
+#: package/contents/ui/ConfigSensors.qml:209
 msgid "Clicking restores the template – your changes will be lost."
 msgstr "Klicken stellt die Vorlage wieder her – deine Änderungen gehen dabei verloren."
 
-#: package/contents/ui/ConfigSensors.qml:209
+#: package/contents/ui/ConfigSensors.qml:210
 msgid "Clicking replaces all tiles with this template."
 msgstr "Klicken ersetzt alle Kacheln durch diese Vorlage."
 
-#: package/contents/ui/ConfigSensors.qml:231
+#: package/contents/ui/ConfigSensors.qml:232
 msgid "Created by the setup wizard – unchanged."
 msgstr "Vom Einrichtungsassistenten erstellt – unverändert."
 
-#: package/contents/ui/ConfigSensors.qml:232
+#: package/contents/ui/ConfigSensors.qml:233
 msgid "Template “%1” is loaded – unchanged."
 msgstr "Vorlage „%1“ ist geladen – unverändert."
 
-#: package/contents/ui/ConfigSensors.qml:234
+#: package/contents/ui/ConfigSensors.qml:235
 msgid "Customised: based on “%1”, tiles have been changed."
 msgstr "Angepasst: basiert auf „%1“, Kacheln wurden geändert."
 
-#: package/contents/ui/ConfigSensors.qml:235
+#: package/contents/ui/ConfigSensors.qml:236
 msgid "Custom layout."
 msgstr "Eigenes Layout."
 
-#: package/contents/ui/ConfigSensors.qml:243
+#: package/contents/ui/ConfigSensors.qml:244
 msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
 msgstr "Eine Vorlage ersetzt alle Kacheln – „Systemübersicht“ stellt die Standard-Kacheln für deine Hardware wieder her. Übernommen wird sie erst mit „Anwenden“, „Abbrechen“ lässt alles beim Alten."
 
-#: package/contents/ui/ConfigSensors.qml:255
+#: package/contents/ui/ConfigSensors.qml:256
 msgid "Main card:"
 msgstr "Hauptkarte:"
 
-#: package/contents/ui/ConfigSensors.qml:255
-#: package/contents/ui/ConfigSensors.qml:382
+#: package/contents/ui/ConfigSensors.qml:256
+#: package/contents/ui/ConfigSensors.qml:383
 msgid "Graphics card:"
 msgstr "Grafikkarte:"
 
-#: package/contents/ui/ConfigSensors.qml:265
+#: package/contents/ui/ConfigSensors.qml:266
 msgid "Searching …"
 msgstr "Suche …"
 
-#: package/contents/ui/ConfigSensors.qml:265
+#: package/contents/ui/ConfigSensors.qml:266
 msgid "No supported graphics card found"
 msgstr "Keine unterstützte Grafikkarte gefunden"
 
-#: package/contents/ui/ConfigSensors.qml:271
+#: package/contents/ui/ConfigSensors.qml:272
 msgid "Search again"
 msgstr "Erneut suchen"
 
-#: package/contents/ui/ConfigSensors.qml:281
+#: package/contents/ui/ConfigSensors.qml:282
 msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
 msgstr "GPU-Kacheln ohne eigene Zuordnung zeigen diese Karte. Jede Kachel kann unten auf eine andere Karte gestellt werden – oder das Layout „Alle Grafikkarten“ (oben) legt für jede Karte einen eigenen Abschnitt an."
 
-#: package/contents/ui/ConfigSensors.qml:282
+#: package/contents/ui/ConfigSensors.qml:283
 msgid "All GPU tiles refer to this card."
 msgstr "Alle GPU-Kacheln beziehen sich auf diese Karte."
 
-#: package/contents/ui/ConfigSensors.qml:288
+#: package/contents/ui/ConfigSensors.qml:289
 msgid "Start setup wizard"
 msgstr "Einrichtungsassistent starten"
 
-#: package/contents/ui/ConfigSensors.qml:295
+#: package/contents/ui/ConfigSensors.qml:296
 msgid "Appears in the widget after “Apply”."
 msgstr "Erscheint nach „Anwenden“ im Widget."
 
-#: package/contents/ui/ConfigSensors.qml:306
+#: package/contents/ui/ConfigSensors.qml:307
 msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”."
 msgstr "Quellen: Systemsensoren (ksystemstats – CPU, Lüfter, NVMe, RAM …), NVIDIA-Werte direkt von nvidia-smi oder ein Shell-Befehl. Bei AMD-GPUs liegt die VRAM-Temperatur unter „amdgpu … mem“. Kacheln lassen sich auch direkt im Widget bearbeiten: Rechtsklick → „Kacheln bearbeiten“."
 
-#: package/contents/ui/ConfigSensors.qml:345
+#: package/contents/ui/ConfigSensors.qml:346
 msgid "Label (empty = automatic)"
 msgstr "Bezeichnung (leer = automatisch)"
 
-#: package/contents/ui/ConfigSensors.qml:353
+#: package/contents/ui/ConfigSensors.qml:354
 msgid "Move up"
 msgstr "Nach oben"
 
-#: package/contents/ui/ConfigSensors.qml:359
+#: package/contents/ui/ConfigSensors.qml:360
 msgid "Move down"
 msgstr "Nach unten"
 
-#: package/contents/ui/ConfigSensors.qml:369
+#: package/contents/ui/ConfigSensors.qml:370
 msgid "Duplicate"
 msgstr "Duplizieren"
 
-#: package/contents/ui/ConfigSensors.qml:374
+#: package/contents/ui/ConfigSensors.qml:375
 msgid "Remove"
 msgstr "Entfernen"
 
-#: package/contents/ui/ConfigSensors.qml:395
+#: package/contents/ui/ConfigSensors.qml:396
 msgid "Not found (PCI %1)"
 msgstr "Nicht gefunden (PCI %1)"
 
-#: package/contents/ui/ConfigSensors.qml:399
+#: package/contents/ui/ConfigSensors.qml:400
 msgid "Compare all cards"
 msgstr "Alle Karten vergleichen"
 
-#: package/contents/ui/ConfigSensors.qml:403
+#: package/contents/ui/ConfigSensors.qml:404
 msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
 msgstr "Zeigt den Wert jeder Grafikkarte in dieser Kachel – Ring: ein Bogen pro Karte, Graph: eine Linie pro Karte, Balken/Wert: eine Zeile pro Karte."
 
-#: package/contents/ui/ConfigSensors.qml:411
+#: package/contents/ui/ConfigSensors.qml:412
 msgid "Temperature (X):"
 msgstr "Temperatur (X):"
 
-#: package/contents/ui/ConfigSensors.qml:411
+#: package/contents/ui/ConfigSensors.qml:412
 #: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "Quelle:"
 
-#: package/contents/ui/ConfigSensors.qml:424
+#: package/contents/ui/ConfigSensors.qml:425
 msgid "Fan (Y):"
 msgstr "Lüfter (Y):"
 
-#: package/contents/ui/ConfigSensors.qml:444
+#: package/contents/ui/ConfigSensors.qml:445
 msgid "Total value:"
 msgstr "Gesamtwert:"
 
-#: package/contents/ui/ConfigSensors.qml:463
+#: package/contents/ui/ConfigSensors.qml:464
 msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
 msgstr "Optional, z. B. „Gesamter VRAM“ → Anzeige „1,0 / 10 GiB“ und Maximum für Balken/Ring. NVIDIA-Werte bringen ihren Gesamtwert automatisch mit."
 
-#: package/contents/ui/ConfigSensors.qml:471
+#: package/contents/ui/ConfigSensors.qml:472
 msgid "Style:"
 msgstr "Darstellung:"
 
-#: package/contents/ui/ConfigSensors.qml:486
-#: package/contents/ui/FullView.qml:673
+#: package/contents/ui/ConfigSensors.qml:487
+#: package/contents/ui/FullView.qml:676
 msgid "Double width"
 msgstr "Doppelt breit"
 
-#: package/contents/ui/ConfigSensors.qml:491
+#: package/contents/ui/ConfigSensors.qml:492
 msgid "In panel"
 msgstr "Im Panel"
 
-#: package/contents/ui/ConfigSensors.qml:496
+#: package/contents/ui/ConfigSensors.qml:497
 msgid "Notify"
 msgstr "Benachrichtigen"
 
-#: package/contents/ui/ConfigSensors.qml:500
+#: package/contents/ui/ConfigSensors.qml:501
 msgid "Desktop notification when a threshold is exceeded"
 msgstr "Desktop-Benachrichtigung, wenn eine Schwelle überschritten wird"
 
-#: package/contents/ui/ConfigSensors.qml:507
+#: package/contents/ui/ConfigSensors.qml:508
 msgid "Accent colour"
 msgstr "Akzentfarbe"
 
-#: package/contents/ui/ConfigSensors.qml:513
+#: package/contents/ui/ConfigSensors.qml:514
 msgid "Automatic colour"
 msgstr "Automatische Farbe"
 
-#: package/contents/ui/ConfigSensors.qml:517
+#: package/contents/ui/ConfigSensors.qml:518
 msgid "Temperature axis:"
 msgstr "Temperatur-Achse:"
 
-#: package/contents/ui/ConfigSensors.qml:517
+#: package/contents/ui/ConfigSensors.qml:518
 msgid "Range:"
 msgstr "Bereich:"
 
-#: package/contents/ui/ConfigSensors.qml:520
+#: package/contents/ui/ConfigSensors.qml:521
 msgid "Min"
 msgstr "Min"
 
-#: package/contents/ui/ConfigSensors.qml:527
+#: package/contents/ui/ConfigSensors.qml:528
 msgid "Max"
 msgstr "Max"
 
-#: package/contents/ui/ConfigSensors.qml:532
 #: package/contents/ui/ConfigSensors.qml:533
-#: package/contents/ui/ConfigSensors.qml:542
+#: package/contents/ui/ConfigSensors.qml:534
 #: package/contents/ui/ConfigSensors.qml:543
+#: package/contents/ui/ConfigSensors.qml:544
 msgid "auto"
 msgstr "auto"
 
-#: package/contents/ui/ConfigSensors.qml:536
+#: package/contents/ui/ConfigSensors.qml:537
 msgid "Fan max"
 msgstr "Lüfter max"
 
-#: package/contents/ui/ConfigSensors.qml:548
+#: package/contents/ui/ConfigSensors.qml:549
 msgid "Thresholds:"
 msgstr "Schwellen:"
 
-#: package/contents/ui/ConfigSensors.qml:556
-#: package/contents/ui/ConfigSensors.qml:557
-#: package/contents/ui/ConfigSensors.qml:565
-#: package/contents/ui/ConfigSensors.qml:566
+#: package/contents/ui/ConfigSensors.qml:562
+#: package/contents/ui/ConfigSensors.qml:563
+#: package/contents/ui/ConfigSensors.qml:571
+#: package/contents/ui/ConfigSensors.qml:572
 msgid "off"
 msgstr "aus"
 
-#: package/contents/ui/ConfigSensors.qml:571
+#: package/contents/ui/ConfigSensors.qml:578
+#, no-javascript-format
+msgid "in % of the total value"
+msgstr "in % des Gesamtwerts"
+
+#: package/contents/ui/ConfigSensors.qml:582
+#, no-javascript-format
+msgid "The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size."
+msgstr "Die Schwellwerte gelten als Anteil am Gesamtwert – z. B. 85 % des eingebauten Arbeitsspeichers. So passen sie zu jedem Rechner, egal wie viel er hat."
+
+#: package/contents/ui/ConfigSensors.qml:588
 msgid "Reference curve:"
 msgstr "Referenzkurve:"
 
-#: package/contents/ui/ConfigSensors.qml:588
+#: package/contents/ui/ConfigSensors.qml:605
 msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
 msgstr "Optional: Punkte „Temperatur:Lüfter“, gestrichelt eingezeichnet – z. B. deine Kurve aus GreenWithEnvy oder CoolerControl. Die durchgezogene Linie lernt das Widget selbst aus den Messwerten."
 
-#: package/contents/ui/ConfigSensors.qml:600
+#: package/contents/ui/ConfigSensors.qml:617
 msgid "Add sensor"
 msgstr "Sensor hinzufügen"
 
-#: package/contents/ui/ConfigSensors.qml:605
+#: package/contents/ui/ConfigSensors.qml:622
 msgid "Template …"
 msgstr "Vorlage …"
 
-#: package/contents/ui/ConfigSensors.qml:610
+#: package/contents/ui/ConfigSensors.qml:627
 msgid "GPU comparison: temperature (ring)"
 msgstr "GPU-Vergleich: Temperatur (Ring)"
 
-#: package/contents/ui/ConfigSensors.qml:612
+#: package/contents/ui/ConfigSensors.qml:629
 #: package/contents/ui/Hardware.js:250 package/contents/ui/Hardware.js:255
 #: package/contents/ui/Hardware.js:311 package/contents/ui/Hardware.js:318
 #: package/contents/ui/Hardware.js:331 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU-Temperatur"
 
-#: package/contents/ui/ConfigSensors.qml:615
+#: package/contents/ui/ConfigSensors.qml:632
 msgid "GPU comparison: load (graph)"
 msgstr "GPU-Vergleich: Last (Graph)"
 
-#: package/contents/ui/ConfigSensors.qml:617
+#: package/contents/ui/ConfigSensors.qml:634
 #: package/contents/ui/Hardware.js:251 package/contents/ui/Hardware.js:256
 #: package/contents/ui/Hardware.js:314 package/contents/ui/Hardware.js:321
 #: package/contents/ui/Hardware.js:327 package/contents/ui/Hardware.js:332
@@ -577,97 +587,97 @@ msgstr "GPU-Vergleich: Last (Graph)"
 msgid "GPU load"
 msgstr "GPU-Last"
 
-#: package/contents/ui/ConfigSensors.qml:620
+#: package/contents/ui/ConfigSensors.qml:637
 msgid "GPU comparison: power (bar)"
 msgstr "GPU-Vergleich: Verbrauch (Balken)"
 
-#: package/contents/ui/ConfigSensors.qml:622
+#: package/contents/ui/ConfigSensors.qml:639
 #: package/contents/ui/Hardware.js:252 package/contents/ui/Hardware.js:257
 #: package/contents/ui/Hardware.js:315 package/contents/ui/Hardware.js:322
 #: package/contents/ui/Hardware.js:329
 msgid "GPU power"
 msgstr "GPU-Verbrauch"
 
-#: package/contents/ui/ConfigSensors.qml:624
+#: package/contents/ui/ConfigSensors.qml:641
 #: package/contents/ui/Hardware.js:339 package/contents/ui/Hardware.js:349
 msgid "GPU fan curve"
 msgstr "GPU-Lüfterkurve"
 
-#: package/contents/ui/ConfigSensors.qml:625
+#: package/contents/ui/ConfigSensors.qml:642
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "VRAM-Temperatur (gddr6, NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:625
+#: package/contents/ui/ConfigSensors.qml:642
 #: package/contents/ui/Hardware.js:313 package/contents/ui/Hardware.js:320
 msgid "VRAM temperature"
 msgstr "VRAM-Temperatur"
 
-#: package/contents/ui/ConfigSensors.qml:626
+#: package/contents/ui/ConfigSensors.qml:643
 msgid "VRAM used / total (NVIDIA)"
 msgstr "VRAM belegt / gesamt (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:626
+#: package/contents/ui/ConfigSensors.qml:643
 #: package/contents/ui/Hardware.js:253 package/contents/ui/Hardware.js:258
 #: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
 #: package/contents/ui/Hardware.js:333 package/contents/ui/NvidiaKeys.js:33
 msgid "VRAM used"
 msgstr "VRAM belegt"
 
-#: package/contents/ui/ConfigSensors.qml:627
+#: package/contents/ui/ConfigSensors.qml:644
 msgid "GPU throttling (NVIDIA)"
 msgstr "GPU-Taktbremse (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:627
+#: package/contents/ui/ConfigSensors.qml:644
 #: package/contents/ui/Hardware.js:345 package/contents/ui/NvidiaKeys.js:37
 msgid "Throttling"
 msgstr "Taktbremse"
 
-#: package/contents/ui/ConfigSensors.qml:628
+#: package/contents/ui/ConfigSensors.qml:645
 msgid "CPU temperature (max.)"
 msgstr "CPU-Temperatur (max.)"
 
-#: package/contents/ui/ConfigSensors.qml:628
+#: package/contents/ui/ConfigSensors.qml:645
 #: package/contents/ui/Hardware.js:367
 msgid "CPU temperature"
 msgstr "CPU-Temperatur"
 
-#: package/contents/ui/ConfigSensors.qml:629
+#: package/contents/ui/ConfigSensors.qml:646
 msgid "CPU power (power service)"
 msgstr "CPU-Verbrauch (Verbrauchs-Dienst)"
 
-#: package/contents/ui/ConfigSensors.qml:629
+#: package/contents/ui/ConfigSensors.qml:646
 #: package/contents/ui/Hardware.js:369
 msgid "CPU power"
 msgstr "CPU-Verbrauch"
 
-#: package/contents/ui/ConfigSensors.qml:630
+#: package/contents/ui/ConfigSensors.qml:647
 msgid "CPU usage (graph)"
 msgstr "CPU-Auslastung (Graph)"
 
-#: package/contents/ui/ConfigSensors.qml:630
+#: package/contents/ui/ConfigSensors.qml:647
 #: package/contents/ui/Hardware.js:370
 msgid "CPU load"
 msgstr "CPU-Last"
 
-#: package/contents/ui/ConfigSensors.qml:631
+#: package/contents/ui/ConfigSensors.qml:648
 #: package/contents/ui/Hardware.js:224 package/contents/ui/Hardware.js:374
 msgid "Memory"
 msgstr "Arbeitsspeicher"
 
-#: package/contents/ui/ConfigSensors.qml:632
+#: package/contents/ui/ConfigSensors.qml:649
 msgid "Network download"
 msgstr "Netzwerk Download"
 
-#: package/contents/ui/ConfigSensors.qml:632
+#: package/contents/ui/ConfigSensors.qml:649
 #: package/contents/ui/Hardware.js:391
 msgid "Download"
 msgstr "Download"
 
-#: package/contents/ui/Defaults.js:133
+#: package/contents/ui/Defaults.js:145
 msgid "NVMe · Temperature"
 msgstr "NVMe · Temperatur"
 
-#: package/contents/ui/Defaults.js:133
+#: package/contents/ui/Defaults.js:145
 msgid "%1-SSD · Temperature"
 msgstr "%1-SSD · Temperatur"
 
@@ -883,114 +893,114 @@ msgstr "Keine Daten von den Sensoren"
 msgid "Collecting data points …"
 msgstr "Sammle Messpunkte …"
 
-#: package/contents/ui/FullView.qml:150
+#: package/contents/ui/FullView.qml:153
 msgid "Comparison"
 msgstr "Vergleich"
 
-#: package/contents/ui/FullView.qml:152
+#: package/contents/ui/FullView.qml:155
 msgid "System"
 msgstr "System"
 
-#: package/contents/ui/FullView.qml:278
+#: package/contents/ui/FullView.qml:281
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Soll Sensor Deck einmal pro Woche nach neuen Versionen suchen? Dafür wird github.com kontaktiert – GitHub sieht deine IP-Adresse, wie bei jedem Website-Besuch; sonst wird nichts gesendet. Du kannst das jederzeit in den Einstellungen ändern."
 
-#: package/contents/ui/FullView.qml:279
+#: package/contents/ui/FullView.qml:282
 msgid "Sensor Deck %1 is available (installed: %2)."
 msgstr "Sensor Deck %1 ist verfügbar (installiert: %2)."
 
-#: package/contents/ui/FullView.qml:283
+#: package/contents/ui/FullView.qml:286
 msgid "Yes, check weekly"
 msgstr "Ja, wöchentlich prüfen"
 
-#: package/contents/ui/FullView.qml:289
+#: package/contents/ui/FullView.qml:292
 msgid "No, thanks"
 msgstr "Nein, danke"
 
-#: package/contents/ui/FullView.qml:314
+#: package/contents/ui/FullView.qml:317
 msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
 msgstr "Kachel ziehen, um sie innerhalb ihres Abschnitts zu verschieben. × entfernt eine Kachel, + fügt eine hinzu."
 
-#: package/contents/ui/FullView.qml:318 package/contents/ui/FullView.qml:534
-#: package/contents/ui/main.qml:411
+#: package/contents/ui/FullView.qml:321 package/contents/ui/FullView.qml:537
+#: package/contents/ui/main.qml:413
 msgid "Restore “%1”"
 msgstr "„%1“ wiederherstellen"
 
-#: package/contents/ui/FullView.qml:324 package/contents/ui/FullView.qml:546
-#: package/contents/ui/main.qml:417
+#: package/contents/ui/FullView.qml:327 package/contents/ui/FullView.qml:549
+#: package/contents/ui/main.qml:419
 msgid "Undo last move"
 msgstr "Letzte Verschiebung rückgängig"
 
-#: package/contents/ui/FullView.qml:329
+#: package/contents/ui/FullView.qml:332
 msgid "Done"
 msgstr "Fertig"
 
-#: package/contents/ui/FullView.qml:399 package/contents/ui/FullView.qml:422
+#: package/contents/ui/FullView.qml:402 package/contents/ui/FullView.qml:425
 msgid "Add tile"
 msgstr "Kachel hinzufügen"
 
-#: package/contents/ui/FullView.qml:496 package/contents/ui/FullView.qml:513
+#: package/contents/ui/FullView.qml:499 package/contents/ui/FullView.qml:516
 msgid "Remove tile"
 msgstr "Kachel entfernen"
 
-#: package/contents/ui/FullView.qml:528 package/contents/ui/main.qml:405
+#: package/contents/ui/FullView.qml:531 package/contents/ui/main.qml:407
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Sensor Deck %1 ist verfügbar – Download-Seite öffnen"
 
-#: package/contents/ui/FullView.qml:540
+#: package/contents/ui/FullView.qml:543
 msgid "Finish editing"
 msgstr "Bearbeiten beenden"
 
-#: package/contents/ui/FullView.qml:540
+#: package/contents/ui/FullView.qml:543
 msgid "Edit tiles"
 msgstr "Kacheln bearbeiten"
 
-#: package/contents/ui/FullView.qml:552 package/contents/ui/main.qml:423
+#: package/contents/ui/FullView.qml:555 package/contents/ui/main.qml:425
 msgid "Restore original arrangement"
 msgstr "Ursprüngliche Anordnung wiederherstellen"
 
-#: package/contents/ui/FullView.qml:558
+#: package/contents/ui/FullView.qml:561
 msgid "Configure Sensor Deck …"
 msgstr "Sensor Deck einrichten …"
 
-#: package/contents/ui/FullView.qml:585
+#: package/contents/ui/FullView.qml:588
 msgid "Tile style"
 msgstr "Kachelstil"
 
-#: package/contents/ui/FullView.qml:596
+#: package/contents/ui/FullView.qml:599
 msgid "Sections per graphics card"
 msgstr "Abschnitte je Grafikkarte"
 
-#: package/contents/ui/FullView.qml:609
+#: package/contents/ui/FullView.qml:612
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Tipp: Lange auf eine freie Stelle drücken – Widget verschieben, Größe ändern, entfernen"
 
-#: package/contents/ui/FullView.qml:640
+#: package/contents/ui/FullView.qml:643
 msgid "Edit in settings …"
 msgstr "In den Einstellungen bearbeiten …"
 
-#: package/contents/ui/FullView.qml:689 package/contents/ui/FullView.qml:750
-#: package/contents/ui/main.qml:436
+#: package/contents/ui/FullView.qml:692 package/contents/ui/FullView.qml:753
+#: package/contents/ui/main.qml:438
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:717
+#: package/contents/ui/FullView.qml:720
 msgid "Suggestions for your hardware"
 msgstr "Vorschläge für deine Hardware"
 
-#: package/contents/ui/FullView.qml:717
+#: package/contents/ui/FullView.qml:720
 msgid "No further suggestions"
 msgstr "Keine weiteren Vorschläge"
 
-#: package/contents/ui/FullView.qml:736
+#: package/contents/ui/FullView.qml:739
 msgid "Own tile …"
 msgstr "Eigene Kachel …"
 
-#: package/contents/ui/FullView.qml:821
+#: package/contents/ui/FullView.qml:824
 msgid "No sensors configured"
 msgstr "Keine Sensoren konfiguriert"
 
-#: package/contents/ui/FullView.qml:827
+#: package/contents/ui/FullView.qml:830
 msgid "Configure …"
 msgstr "Einrichten …"
 
@@ -1393,31 +1403,39 @@ msgstr "Sensorchip erkennen"
 msgid "Open instructions"
 msgstr "Anleitung öffnen"
 
-#: package/contents/ui/SensorSource.qml:79
+#: package/contents/ui/SensorSource.qml:64
+msgid "Swap space: %1 / %2"
+msgstr "Auslagerungsspeicher (Swap): %1 / %2"
+
+#: package/contents/ui/SensorSource.qml:65
+msgid "Swap space: none set up"
+msgstr "Auslagerungsspeicher (Swap): keiner eingerichtet"
+
+#: package/contents/ui/SensorSource.qml:98
 msgid "Command"
 msgstr "Befehl"
 
-#: package/contents/ui/SensorSource.qml:248
+#: package/contents/ui/SensorSource.qml:274
 msgid "%1 critical: %2"
 msgstr "%1 kritisch: %2"
 
-#: package/contents/ui/SensorSource.qml:249
+#: package/contents/ui/SensorSource.qml:275
 msgid "Critical threshold of %1 exceeded."
 msgstr "Kritische Schwelle von %1 überschritten."
 
-#: package/contents/ui/SensorSource.qml:254
+#: package/contents/ui/SensorSource.qml:280
 msgid "%1 high: %2"
 msgstr "%1 hoch: %2"
 
-#: package/contents/ui/SensorSource.qml:255
+#: package/contents/ui/SensorSource.qml:281
 msgid "Warning threshold of %1 exceeded."
 msgstr "Warnschwelle von %1 überschritten."
 
-#: package/contents/ui/SensorSource.qml:260
+#: package/contents/ui/SensorSource.qml:286
 msgid "%1 back to normal: %2"
 msgstr "%1 wieder normal: %2"
 
-#: package/contents/ui/SensorSource.qml:261
+#: package/contents/ui/SensorSource.qml:287
 msgid "The value is below the threshold again."
 msgstr "Der Wert liegt wieder unter der Schwelle."
 
@@ -1425,27 +1443,27 @@ msgstr "Der Wert liegt wieder unter der Schwelle."
 msgid "Fan %1 at %2"
 msgstr "Lüfter %1 bei %2"
 
-#: package/contents/ui/SensorTile.qml:162
+#: package/contents/ui/SensorTile.qml:164
 msgid "Now: %1"
 msgstr "Jetzt: %1"
 
-#: package/contents/ui/SensorTile.qml:177
+#: package/contents/ui/SensorTile.qml:180
 msgid "Critical – above the threshold of %1."
 msgstr "Kritisch – über der Schwelle von %1."
 
-#: package/contents/ui/SensorTile.qml:178
+#: package/contents/ui/SensorTile.qml:181
 msgid "Elevated – above the warning threshold of %1."
 msgstr "Erhöht – über der Warnschwelle von %1."
 
-#: package/contents/ui/SensorTile.qml:179
+#: package/contents/ui/SensorTile.qml:182
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "Im normalen Bereich · Warnung ab %1, kritisch ab %2."
 
-#: package/contents/ui/SensorTile.qml:180
+#: package/contents/ui/SensorTile.qml:183
 msgid "In the normal range · warning from %1."
 msgstr "Im normalen Bereich · Warnung ab %1."
 
-#: package/contents/ui/SensorTile.qml:180
+#: package/contents/ui/SensorTile.qml:183
 msgid "In the normal range · critical from %1."
 msgstr "Im normalen Bereich · kritisch ab %1."
 

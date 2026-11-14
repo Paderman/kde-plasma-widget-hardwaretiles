@@ -44,6 +44,25 @@ Item {
         nvidia: src.nvidia
         gpuIndex: src.cfg.nvIndex === undefined ? 0 : src.cfg.nvIndex
     }
+    // memory tiles: swap usage for the tooltip
+    readonly property bool isMemory: (cfg.source || "sensor") === "sensor" && /^memory\/physical\//.test(cfg.sensorId || "")
+    Reader {
+        id: swapUsed
+        enabled_: sensorId !== ""
+        source: "sensor"
+        sensorId: src.isMemory ? "memory/swap/used" : ""
+        interval: Math.max(src.interval, 5000)
+    }
+    Reader {
+        id: swapTotal
+        enabled_: sensorId !== ""
+        source: "sensor"
+        sensorId: src.isMemory ? "memory/swap/total" : ""
+        interval: Math.max(src.interval, 5000)
+    }
+    readonly property string swapText: !isMemory || !swapTotal.valid ? ""
+        : swapTotal.value > 0 ? i18n("Swap space: %1 / %2", swapUsed.valid ? swapUsed.formatted : "–", swapTotal.formatted)
+        : i18n("Swap space: none set up")
     // y axis of the fan curve
     Reader {
         id: yr
@@ -89,8 +108,12 @@ Item {
         if (main.sourceMax > minimum) return main.sourceMax;
         return 100;
     }
-    readonly property real warn: Number(cfg.warn) || 0
-    readonly property real crit: Number(cfg.crit) || 0
+    // relThresholds: warn/crit are percent of the total – off until the total is known
+    readonly property bool relThresholds: !!cfg.relThresholds
+    function fromPercent(p) { return relThresholds ? (hasRef && p > 0 ? minimum + (maximum - minimum) * p / 100 : 0) : p; }
+    function percentOf(v) { return Math.round((v - minimum) / Math.max(1e-9, maximum - minimum) * 100); }
+    readonly property real warn: fromPercent(Number(cfg.warn) || 0)
+    readonly property real crit: fromPercent(Number(cfg.crit) || 0)
 
     // never NaN: an animation that starts from NaN stays NaN (empty bar until restart),
     // and while the readers update, maximum can be NaN for a moment
@@ -178,6 +201,8 @@ Item {
     property int alertDelay: 5000        // value must stay above threshold this long
     property int alertCooldown: 600000   // no repeat of the same level within this time
     property real hysteresis: 3          // must drop this far below threshold to re-arm
+    // in the tile's unit; with relative thresholds the setting counts as percent of the total
+    readonly property real hyst: relThresholds && hasRef ? (maximum - minimum) * hysteresis / 100 : hysteresis
 
     readonly property bool notifyAllowed: alertsEnabled && cfg.notify !== false
     // level we would like to alert for right now
@@ -204,9 +229,9 @@ Item {
         }
         confirmTimer.stop();
         // de-escalate only once the value is clearly below the threshold
-        if (alertLevel > 0 && value < thresholdFor(alertLevel) - hysteresis) {
+        if (alertLevel > 0 && value < thresholdFor(alertLevel) - hyst) {
             let next = 0;
-            if (alertLevel === 2 && alertOnWarn && warn > 0 && value >= warn - hysteresis) next = 1;
+            if (alertLevel === 2 && alertOnWarn && warn > 0 && value >= warn - hyst) next = 1;
             alertLevel = next;
             if (next === 0 && alertShown) {
                 if (alertRecovery) sendNote(0);
@@ -241,8 +266,9 @@ Item {
     // so re-using a single object could send stale/overwritten texts.
     function sendNote(l) {
         const lim = thresholdFor(l);
-        const limTxt = main.isSensor ? lim.toLocaleString(Qt.locale(), "f", Number.isInteger(lim) ? 0 : 1) + (unitText ? " " + unitText : "")
-                                     : main.format(lim);
+        const limTxt = relThresholds ? main.format(lim) + " (" + percentOf(lim) + " %)"
+                     : main.isSensor ? lim.toLocaleString(Qt.locale(), "f", Number.isInteger(lim) ? 0 : 1) + (unitText ? " " + unitText : "")
+                     : main.format(lim);
         const p = {};
         if (l === 2) {
             p.title = i18n("%1 critical: %2", longLabel, formatted);

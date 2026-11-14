@@ -151,7 +151,9 @@ Rectangle {
                 if (card.src.valid && card.src.yReader.valid)
                     lines.push(i18n("Fan %1 at %2", card.src.yReader.formatted, card.src.formatted));
             } else {
-                lines.push(card.src.formatted + (card.src.totalText ? " / " + card.src.totalText : ""));
+                lines.push(card.src.formatted + (card.src.totalText ? " / " + card.src.totalText
+                                                                   + "  (" + card.src.percentOf(card.src.value) + " %)" : ""));
+                if (card.src.swapText) lines.push(card.src.swapText);
             }
             if (card.src.detailText) lines.push(card.src.detailText);
             if (card.src.reader.clientsText) lines.push(card.src.reader.clientsText);
@@ -172,7 +174,8 @@ Rectangle {
     // "Normal – Warnung ab 75 °C, kritisch ab 85 °C" (only for numeric tiles with thresholds)
     readonly property string thresholdText: {
         if (!ready || src.isText || !src.valid || src.cfg.style === "curve") return "";
-        const w = src.warn, c = src.crit, f = v => src.reader.format(v);
+        const w = src.warn, c = src.crit;
+        const f = v => src.reader.format(v) + (src.relThresholds ? " (" + src.percentOf(v) + " %)" : "");
         if (!(w > 0) && !(c > 0)) return "";
         if (src.level === 2) return i18n("Critical – above the threshold of %1.", f(c));
         if (src.level === 1) return i18n("Elevated – above the warning threshold of %1.", f(w));

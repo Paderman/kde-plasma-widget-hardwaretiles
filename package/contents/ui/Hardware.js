@@ -371,7 +371,7 @@ function buildOne(gpu, opts, hw) {
     }
     // ---- memory
     if (opts.ram)
-        bars.push({ label: tr("Memory"), sensorId: "memory/physical/usedPercent", style: "bar", max: 100, warn: 85, crit: 95, notify: false });
+        bars.push({ label: tr("Memory"), sensorId: "memory/physical/used", refSensorId: "memory/physical/total", style: "bar", warn: 85, crit: 95, relThresholds: true, notify: false });
     // ---- storage
     if (opts.storage) {
         (hw && hw.nvmes ? hw.nvmes : []).slice(0, 4).forEach(function (n) {

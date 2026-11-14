@@ -10,6 +10,7 @@ import org.kde.ksysguard.faces as Faces
 import org.kde.kquickcontrols as KQC
 import "Defaults.js" as Defaults
 import "Hardware.js" as Hardware
+import "NvidiaKeys.js" as NK
 
 KCM.SimpleKCM {
     id: page
@@ -547,13 +548,18 @@ KCM.SimpleKCM {
 
                         QQC2.Label { text: i18n("Thresholds:") }
                         RowLayout {
+                            id: thresholdRow
                             Layout.fillWidth: true
+                            // a total value exists: own reference sensor or the natural NVIDIA maximum
+                            readonly property bool hasTotal: !!cardDelegate.model.refSensorId
+                                || (cardDelegate.model.source === "nvidia" && !!(NK.meta(cardDelegate.model.key) || {}).maxKey)
+                            readonly property bool rel: hasTotal && cardDelegate.model.relThresholds
                             Rectangle { width: 10; height: 10; radius: 5; color: "#ffb020" }
                             QQC2.SpinBox {
                                 wheelEnabled: false   // scrolling the page must not change the value
                                 from: 0; to: 100000; editable: true
                                 value: cardDelegate.model.warn
-                                textFromValue: (v) => v === 0 ? i18n("off") : String(v)
+                                textFromValue: (v) => v === 0 ? i18n("off") : String(v) + (thresholdRow.rel ? " %" : "")
                                 valueFromText: (t) => t === i18n("off") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "warn", value)
                             }
@@ -562,9 +568,20 @@ KCM.SimpleKCM {
                                 wheelEnabled: false   // scrolling the page must not change the value
                                 from: 0; to: 100000; editable: true
                                 value: cardDelegate.model.crit
-                                textFromValue: (v) => v === 0 ? i18n("off") : String(v)
+                                textFromValue: (v) => v === 0 ? i18n("off") : String(v) + (thresholdRow.rel ? " %" : "")
                                 valueFromText: (t) => t === i18n("off") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "crit", value)
+                            }
+                            QQC2.CheckBox {
+                                visible: thresholdRow.hasTotal
+                                // xgettext:no-javascript-format
+                                text: i18n("in % of the total value")
+                                checked: cardDelegate.model.relThresholds
+                                onToggled: page.set(cardDelegate.index, "relThresholds", checked)
+                                // xgettext:no-javascript-format
+                                QQC2.ToolTip.text: i18n("The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size.")
+                                QQC2.ToolTip.visible: hovered
+                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                             }
                         }
 
@@ -628,7 +645,7 @@ KCM.SimpleKCM {
                     QQC2.MenuItem { text: i18n("CPU temperature (max.)"); onTriggered: page.add({ label: i18n("CPU temperature"), sensorId: "cpu/all/maximumTemperature", style: "ring", max: 100, warn: 75, crit: 90 }) }
                     QQC2.MenuItem { text: i18n("CPU power (power service)"); onTriggered: page.add({ label: i18n("CPU power"), source: "command", command: "cat /run/sensordeck-power/cpu", unit: "W", style: "value", notify: false }) }
                     QQC2.MenuItem { text: i18n("CPU usage (graph)"); onTriggered: page.add({ label: i18n("CPU load"), sensorId: "cpu/all/usage", style: "graph", max: 100, wide: true }) }
-                    QQC2.MenuItem { text: i18n("Memory"); onTriggered: page.add({ label: i18n("Memory"), sensorId: "memory/physical/usedPercent", style: "bar", max: 100, warn: 80, crit: 92, notify: false }) }
+                    QQC2.MenuItem { text: i18n("Memory"); onTriggered: page.add({ label: i18n("Memory"), sensorId: "memory/physical/used", refSensorId: "memory/physical/total", style: "bar", warn: 85, crit: 95, relThresholds: true, notify: false }) }
                     QQC2.MenuItem { text: i18n("Network download"); onTriggered: page.add({ label: i18n("Download"), sensorId: "network/all/download", style: "graph" }) }
                 }
             }

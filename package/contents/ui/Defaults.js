@@ -13,6 +13,7 @@
 // key:         nvidia-smi field, e.g. "fan.speed"
 // unit:        unit text for command sources
 // refSensorId: optional ksystemstats sensor used as maximum + "/ total" (e.g. totalVram)
+// relThresholds: warn/crit are percent of the total (refSensorId / natural maximum)
 // style:       "ring" | "bar" | "graph" | "value" | "curve"
 // min / max:   value range (max 0 = auto)
 // warn / crit: thresholds (0 = off)
@@ -68,7 +69,7 @@ function blank() {
         style: "ring", min: 0, max: 0, warn: 0, crit: 0,
         wide: false, showInPanel: false, color: "", notify: true,
         ySource: "nvidia", ySensorId: "", yCommand: "", yKey: "fan.speed", yUnit: "", yMax: 0,
-        refCurve: "", gpu: "", compare: false
+        refCurve: "", gpu: "", compare: false, relThresholds: false
     };
 }
 
@@ -110,6 +111,17 @@ function normalize(it, index) {
     if (b.label === "Drosselung" && b.key === "clocks_event_reasons.active") b.label = "Taktbremse";
     // migrate: old default labels -> clearer names (only exact old defaults, own names stay)
     b.label = renamed(b);
+    // migrate: memory in percent -> "12.3 / 64 GiB" like VRAM, thresholds in % of the
+    // total. Only tiles with the old template values – own settings stay.
+    if (b.source === "sensor" && b.sensorId === "memory/physical/usedPercent" && !b.refSensorId
+            && (Number(b.max) === 100 || Number(b.max) === 0) && !b.unit
+            && ((b.warn == 85 && b.crit == 95) || (b.warn == 80 && b.crit == 92) || (!b.warn && !b.crit))) {
+        b.sensorId = "memory/physical/used";
+        b.refSensorId = "memory/physical/total";
+        b.max = 0;
+        b.relThresholds = true;
+        if (!b.warn && !b.crit) { b.warn = 85; b.crit = 95; }
+    }
     return b;
 }
 
