@@ -9,7 +9,7 @@
 // user agent) – no ID, no statistics.
 
 // keep in sync with metadata.json (install.sh and make-package.sh check this)
-var current = "1.1.1";
+var current = "1.1.2";
 var api = "https://api.github.com/repos/Paderman/kde-plasma-widget-hardwaretiles/releases/latest";
 var releasesPage = "https://github.com/Paderman/kde-plasma-widget-hardwaretiles/releases";
 var interval = 7 * 24 * 3600;   // automatic check: once a week (seconds)

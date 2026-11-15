@@ -63,9 +63,9 @@ Item {
     readonly property var stuckFans: fanNo >= 0 && nvidia && gpuIndex >= 0 ? nvidia.stuckFans(gpuIndex, fanNo) : []
     readonly property string stuckText: !stuckFans.length ? ""
         // xgettext:no-javascript-format
-        : fanList.length === 1 ? i18n("The fan is not turning, although the card wants %1 %.", stuckFans[0].target)
+        : fanList.length === 1 ? i18n("The fan is not turning, although the card wants %1 %.", stuckFans[0].wants)
         // xgettext:no-javascript-format
-        : stuckFans.length === 1 ? i18n("Fan %1 is not turning, although the card wants %2 %.", stuckFans[0].no, stuckFans[0].target)
+        : stuckFans.length === 1 ? i18n("Fan %1 is not turning, although the card wants %2 %.", stuckFans[0].no, stuckFans[0].wants)
         : i18n("Fans %1 are not turning, although the card wants them to.", stuckFans.map(f => f.no).join(", "))
     // fans that turn, but clearly slower than another fan of the card at the same target
     readonly property var slowFans: fanNo >= 0 && nvidia && gpuIndex >= 0 && !stuckFans.length ? nvidia.slowFans(gpuIndex, fanNo) : []

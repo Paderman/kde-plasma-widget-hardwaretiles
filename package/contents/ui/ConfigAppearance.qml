@@ -20,6 +20,7 @@ KCM.SimpleKCM {
     property alias cfg_tooltipsEnabled: tipsBox.checked
     property alias cfg_tooltipDelay: tipDelay.value
     property int cfg_tooltipDuration
+    property int cfg_moveFlashDuration
     // duration slider: 1…10 s, the last step (11) = unlimited (-1)
     function durationStep(ms) { return ms < 0 ? 11 : Math.max(1, Math.min(10, Math.round(ms / 1000))); }
     property string cfg_tileStyle
@@ -33,7 +34,7 @@ KCM.SimpleKCM {
     // away; stored only with OK / Apply, closing the settings brings back the rest
     readonly property var previewKeys: ["columns", "fitToSize", "tileStyle", "tileScale", "backgroundOpacity",
         "tileOpacity", "gpuSectionMode", "gpuSections", "panelShowLabels", "panelShowRings",
-        "tooltipsEnabled", "tooltipDelay", "tooltipDuration"]
+        "tooltipsEnabled", "tooltipDelay", "tooltipDuration", "moveFlashDuration"]
     property bool previewOn: false
     readonly property string previewJson: {
         if (!previewOn) return "";
@@ -72,34 +73,49 @@ KCM.SimpleKCM {
     }
 
     Kirigami.FormLayout {
-        StepSlider {
-            id: columns
+        RowLayout {
             Kirigami.FormData.label: i18n("Columns:")
-            steps: [0, 1, 2, 3, 4, 5, 6, 7, 8]
-            value: page.cfg_columns
-            format: (v) => v === 0 ? i18n("Automatic") : String(v)
-            onPicked: (v) => page.cfg_columns = v
-            ResetHandler { page: page; keys: ["columns"] }
+            StepSlider {
+                id: columns
+                steps: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                value: page.cfg_columns
+                format: (v) => v === 0 ? i18n("Automatic") : String(v)
+                onPicked: (v) => page.cfg_columns = v
+                ResetHandler { page: page; keys: ["columns"] }
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("“Automatic”: the number of columns at which the tiles get biggest in the widget's size.")
+            }
         }
-        QQC2.CheckBox {
-            id: fitBox
-            ResetHandler { page: page; keys: ["fitToSize"] }
+        RowLayout {
             Kirigami.FormData.label: i18n("On the desktop:")
-            text: i18n("Shrink tiles so everything fits without scrolling")
+            QQC2.CheckBox {
+                id: fitBox
+                ResetHandler { page: page; keys: ["fitToSize"] }
+                text: i18n("Shrink tiles so everything fits without scrolling")
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("All tiles get smaller together until they fit into the widget – no scroll bar needed. Without it, the tiles keep their size and the view can be scrolled.")
+            }
         }
-        QQC2.ComboBox {
-            wheelEnabled: false   // scrolling the page must not change the value
-            id: styleBox
-            ResetHandler { page: page; keys: ["tileStyle"] }
+        RowLayout {
             Kirigami.FormData.label: i18n("Tile style:")
-            textRole: "text"; valueRole: "value"
-            model: [
-                { text: i18n("Glass (subtle)"), value: "glass" },
-                { text: i18n("Filled"), value: "solid" },
-                { text: i18n("Outline (accent colour)"), value: "outline" }
-            ]
-            Component.onCompleted: currentIndex = Math.max(0, indexOfValue(cfg_tileStyle))
-            onActivated: cfg_tileStyle = currentValue
+            QQC2.ComboBox {
+                wheelEnabled: false   // scrolling the page must not change the value
+                id: styleBox
+                ResetHandler { page: page; keys: ["tileStyle"] }
+                textRole: "text"; valueRole: "value"
+                model: [
+                    { text: i18n("Glass (subtle)"), value: "glass" },
+                    { text: i18n("Filled"), value: "solid" },
+                    { text: i18n("Outline (accent colour)"), value: "outline" }
+                ]
+                Component.onCompleted: currentIndex = Math.max(0, indexOfValue(cfg_tileStyle))
+                onActivated: cfg_tileStyle = currentValue
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Glass: subtly see-through · Filled: solid surface · Outline: only a frame in the accent colour")
+            }
         }
         RowLayout {
             Kirigami.FormData.label: i18n("Size:")
@@ -110,6 +126,9 @@ KCM.SimpleKCM {
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
             }
             QQC2.Label { text: Math.round(scale.value) + " %" }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Scales text, rings and spacing of all tiles.")
+            }
         }
         RowLayout {
             Kirigami.FormData.label: i18n("Background opacity:")
@@ -120,51 +139,59 @@ KCM.SimpleKCM {
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
             }
             QQC2.Label { text: Math.round(bgOpacity.value) + " %" }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Only on the desktop. The less background, the more solid the tiles get, so values stay readable on any wallpaper – “Tile opacity” sets how solid they are at 0 %. 100 % background is the normal Plasma background.")
+            }
         }
         RowLayout {
             Kirigami.FormData.label: i18n("Tile opacity:")
-            enabled: bgOpacity.value < 100
             QQC2.Slider {
                 id: tileOpacity
+                enabled: bgOpacity.value < 100
                 ResetHandler { page: page; keys: ["tileOpacity"]; valueText: page.defaults.tileOpacity + " %" }
                 from: 50; to: 100; stepSize: 5
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
             }
-            QQC2.Label { text: Math.round(tileOpacity.value) + " %" }
+            QQC2.Label { text: Math.round(tileOpacity.value) + " %"; enabled: bgOpacity.value < 100 }
+            Kirigami.ContextualHelpButton {
+                // xgettext:no-javascript-format
+                toolTipText: i18n("How solid the tiles get when the background is faded out completely. Only available below 100 % background.")
+            }
         }
-        QQC2.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
-            text: i18n("Only on the desktop. The less background, the more solid the tiles get, so values stay readable on any wallpaper – “Tile opacity” sets how solid they are at 0 %. 100 % background is the normal Plasma background.")
-            wrapMode: Text.WordWrap
-            font: Kirigami.Theme.smallFont
-            opacity: 0.7
-        }
-        QQC2.CheckBox {
-            id: tipsBox
-            ResetHandler { page: page; keys: ["tooltipsEnabled"] }
+        RowLayout {
             Kirigami.FormData.label: i18n("Tooltips:")
-            text: i18n("Show details when the mouse pointer rests on a tile")
+            QQC2.CheckBox {
+                id: tipsBox
+                ResetHandler { page: page; keys: ["tooltipsEnabled"] }
+                text: i18n("Show details when the mouse pointer rests on a tile")
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("The tooltip shows the full name, the current values and a short explanation of the tile.")
+            }
         }
         RowLayout {
             Kirigami.FormData.label: i18n("Tooltip delay:")
-            enabled: tipsBox.checked
             QQC2.Slider {
                 id: tipDelay
+                enabled: tipsBox.checked
                 ResetHandler { page: page; keys: ["tooltipDelay"]; valueText: i18n("%1 s", (page.defaults.tooltipDelay / 1000).toLocaleString(Qt.locale(), "f", 1)) }
                 from: 0; to: 2000; stepSize: 100
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
             }
             QQC2.Label {
+                enabled: tipsBox.checked
                 text: tipDelay.value < 50 ? i18n("Immediately")
                     : i18n("%1 s", (Math.round(tipDelay.value / 100) / 10).toLocaleString(Qt.locale(), "f", 1))
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("How long the mouse pointer has to rest on a tile before its tooltip appears.")
             }
         }
         RowLayout {
             Kirigami.FormData.label: i18n("Tooltip duration:")
-            enabled: tipsBox.checked
             QQC2.Slider {
                 id: tipDuration
+                enabled: tipsBox.checked
                 ResetHandler { page: page; keys: ["tooltipDuration"]; valueText: page.defaults.tooltipDuration < 0 ? i18n("Unlimited") : i18n("%1 s", Math.round(page.defaults.tooltipDuration / 1000)) }
                 from: 1; to: 11; stepSize: 1
                 snapMode: QQC2.Slider.SnapAlways
@@ -173,32 +200,45 @@ KCM.SimpleKCM {
                 onMoved: page.cfg_tooltipDuration = value >= 11 ? -1 : Math.round(value) * 1000
             }
             QQC2.Label {
+                enabled: tipsBox.checked
                 text: tipDuration.value >= 11 ? i18n("Unlimited") : i18n("%1 s", Math.round(tipDuration.value))
             }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile.")
+            }
         }
-        QQC2.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
-            visible: tipsBox.checked
-            text: i18n("“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile.")
-            wrapMode: Text.WordWrap
-            font: Kirigami.Theme.smallFont
-            opacity: 0.7
+        RowLayout {
+            Kirigami.FormData.label: i18n("Highlight moved tile:")
+            StepSlider {
+                steps: [0, 1000, 1500, 2000, 2500, 3000, 4000, 5000, 7000, 10000]
+                value: page.cfg_moveFlashDuration
+                format: (v) => v <= 0 ? i18n("Off") : i18n("%1 s", (v / 1000).toLocaleString(Qt.locale(), "f", v % 1000 ? 1 : 0))
+                onPicked: (v) => page.cfg_moveFlashDuration = v
+                ResetHandler { page: page; keys: ["moveFlashDuration"] }
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("In “Edit tiles”: how long a tile flashes at its new place after it was moved.")
+            }
         }
 
-        QQC2.ComboBox {
-            wheelEnabled: false   // scrolling the page must not change the value
-            id: sectionBox
-            ResetHandler { page: page; keys: ["gpuSectionMode", "gpuSections"] }
+        RowLayout {
             Kirigami.FormData.label: i18n("Sections per graphics card:")
-            textRole: "text"; valueRole: "value"
-            model: [
-                { text: i18n("From two graphics cards"), value: "auto" },
-                { text: i18n("Always (even with one card)"), value: "always" },
-                { text: i18n("Never (several cards: coloured edge)"), value: "never" }
-            ]
-            Component.onCompleted: currentIndex = Math.max(0, indexOfValue(cfg_gpuSectionMode || (cfg_gpuSections ? "auto" : "never")))
-            onActivated: cfg_gpuSectionMode = currentValue
+            QQC2.ComboBox {
+                wheelEnabled: false   // scrolling the page must not change the value
+                id: sectionBox
+                ResetHandler { page: page; keys: ["gpuSectionMode", "gpuSections"] }
+                textRole: "text"; valueRole: "value"
+                model: [
+                    { text: i18n("From two graphics cards"), value: "auto" },
+                    { text: i18n("Always (even with one card)"), value: "always" },
+                    { text: i18n("Never (several cards: coloured edge)"), value: "never" }
+                ]
+                Component.onCompleted: currentIndex = Math.max(0, indexOfValue(cfg_gpuSectionMode || (cfg_gpuSections ? "auto" : "never")))
+                onActivated: cfg_gpuSectionMode = currentValue
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Every graphics card gets its own heading, its tiles below it.")
+            }
         }
         QQC2.Label {
             Layout.maximumWidth: Kirigami.Units.gridUnit * 20
@@ -210,43 +250,57 @@ KCM.SimpleKCM {
 
         Item { Kirigami.FormData.isSection: true }
 
-        StepSlider {
-            id: interval
+        RowLayout {
             Kirigami.FormData.label: i18n("Update:")
-            steps: [250, 500, 1000, 1500, 2000, 3000, 5000, 10000]
-            value: page.cfg_updateInterval
-            format: (v) => i18n("every %1 s", Number(v / 1000).toLocaleString(Qt.locale(), "f", v % 1000 === 0 ? 0 : v % 500 === 0 ? 1 : 2))
-            onPicked: (v) => page.cfg_updateInterval = v
-            ResetHandler { page: page; keys: ["updateInterval"] }
+            StepSlider {
+                id: interval
+                steps: [250, 500, 1000, 1500, 2000, 3000, 5000, 10000]
+                value: page.cfg_updateInterval
+                format: (v) => i18n("every %1 s", Number(v / 1000).toLocaleString(Qt.locale(), "f", v % 1000 === 0 ? 0 : v % 500 === 0 ? 1 : 2))
+                onPicked: (v) => page.cfg_updateInterval = v
+                ResetHandler { page: page; keys: ["updateInterval"] }
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("How often the values are read. Shorter looks smoother but costs a little more computing time.")
+            }
         }
-        StepSlider {
-            id: history
+        RowLayout {
             Kirigami.FormData.label: i18n("History in graphs:")
-            steps: [10, 20, 30, 45, 60, 120, 180, 300, 600, 900]
-            value: page.cfg_historyLength
-            format: (v) => v < 60 ? i18n("%1 s", v) : i18n("%1 min", Math.round(v / 60))
-            onPicked: (v) => page.cfg_historyLength = v
-            ResetHandler { page: page; keys: ["historyLength"] }
+            StepSlider {
+                id: history
+                steps: [10, 20, 30, 45, 60, 120, 180, 300, 600, 900]
+                value: page.cfg_historyLength
+                format: (v) => v < 60 ? i18n("%1 s", v) : i18n("%1 min", Math.round(v / 60))
+                onPicked: (v) => page.cfg_historyLength = v
+                ResetHandler { page: page; keys: ["historyLength"] }
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Which period of time a history graph shows.")
+            }
         }
 
         Item { Kirigami.FormData.isSection: true; Kirigami.FormData.label: i18n("Panel") }
 
-        QQC2.CheckBox {
-            id: panelRings
-            ResetHandler { page: page; keys: ["panelShowRings"] }
+        RowLayout {
             Kirigami.FormData.label: i18n("In the panel:")
-            text: i18n("Show mini rings")
+            QQC2.CheckBox {
+                id: panelRings
+                ResetHandler { page: page; keys: ["panelShowRings"] }
+                text: i18n("Show mini rings")
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode.")
+            }
         }
-        QQC2.CheckBox {
-            id: panelLabels
-            ResetHandler { page: page; keys: ["panelShowLabels"] }
-            text: i18n("Show labels")
-        }
-        QQC2.Label {
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 20
-            wrapMode: Text.WordWrap
-            opacity: 0.7
-            text: i18n("Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode.")
+        RowLayout {
+            QQC2.CheckBox {
+                id: panelLabels
+                ResetHandler { page: page; keys: ["panelShowLabels"] }
+                text: i18n("Show labels")
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Shows the name of the sensor next to the value in the panel.")
+            }
         }
 
         Item { Kirigami.FormData.isSection: true }

@@ -210,8 +210,10 @@ Item {
     Layout.preferredHeight: root.needsSetup ? Kirigami.Units.gridUnit * 30 : grid.implicitHeight + gap * 2
 
     // ---- drag & drop --------------------------------------------------------
+    // dragTo: entry the tile is put next to, dropBefore: in front of it (else behind)
     property int dragFrom: -1
     property int dragTo: -1
+    property bool dropBefore: true
     property point grabOffset: Qt.point(0, 0)
 
     function tileIndexAt(p) {
@@ -222,6 +224,87 @@ Item {
             if (p.x >= q.x && p.x < q.x + t.width && p.y >= q.y && p.y < q.y + t.height) return i;
         }
         return -1;
+    }
+    function isTileEntry(i) {
+        return i >= 0 && i < entries.length && entries[i].idx !== undefined;
+    }
+
+    // ---- arrow buttons (edit mode): move the tile under the mouse one step --
+    // armed: item index of the tile that shows the arrows, -1 = none
+    property int armed: -1
+    // after an arrow click the tiles are rebuilt and another tile lies under the
+    // mouse – the arrows stay on the moved tile until the mouse really moves
+    property var holdPos: null
+    // item index of the tile that was just moved: it flashes at its new place
+    // (an own layer above the grid, see flashMarker – the grid rebuilds its tiles)
+    property int flashIdx: -1
+    // entry indices of the neighbours of the armed tile, -1 = none
+    property var armedNb: ({ left: -1, right: -1, up: -1, down: -1 })
+    onArmedChanged: nbTimer.restart()
+    onEntriesChanged: nbTimer.restart()
+    onColsChanged: nbTimer.restart()
+    onEditingChanged: { armed = -1; holdPos = null; }
+    // the grid places the tiles only after the model changed – measure a moment later
+    Timer {
+        id: nbTimer
+        interval: 40
+        onTriggered: {
+            const e = full.entries.findIndex(x => x.idx === full.armed);
+            full.armedNb = e < 0 ? { left: -1, right: -1, up: -1, down: -1 }
+                : { left: full.neighbour(e, "left"), right: full.neighbour(e, "right"),
+                    up: full.neighbour(e, "up"), down: full.neighbour(e, "down") };
+        }
+    }
+    function rectOf(i) {
+        const t = tiles.itemAt(i);
+        if (!t) return null;
+        const q = t.mapToItem(full, 0, 0);
+        return { x: q.x, y: q.y, w: t.width, h: t.height, cx: q.x + t.width / 2 };
+    }
+    // left/right: previous/next tile of the section; up/down: the tile of the
+    // row above/below whose middle is closest – always within the same section
+    function neighbour(e, dir) {
+        const g = entries[e].group;
+        if (dir === "left" || dir === "right") {
+            const n = e + (dir === "left" ? -1 : 1);
+            return isTileEntry(n) && entries[n].group === g ? n : -1;
+        }
+        const me = rectOf(e);
+        if (!me) return -1;
+        const mid = me.y + me.h / 2;
+        let best = -1, bestRow = 0, bestDx = 0;
+        for (let i = 0; i < entries.length; ++i) {
+            if (i === e || !isTileEntry(i) || entries[i].group !== g) continue;
+            const r = rectOf(i);
+            if (!r) continue;
+            const rmid = r.y + r.h / 2;
+            const above = dir === "up";
+            if (above ? r.y + r.h > me.y + 1 : r.y < me.y + me.h - 1) continue;
+            const row = Math.abs(rmid - mid), dx = Math.abs(r.cx - me.cx);
+            // nearest row first, in it the tile closest to the own middle
+            if (best < 0 || row < bestRow - 1 || (Math.abs(row - bestRow) <= 1 && dx < bestDx)) {
+                best = i; bestRow = row; bestDx = dx;
+            }
+        }
+        return best;
+    }
+    // the mouse moved over tile i (item index) – it gets the arrows, unless the
+    // tiles were just rebuilt after an arrow click and the mouse stood still
+    function hoverAt(i, p) {
+        if (holdPos && Math.hypot(p.x - holdPos.x, p.y - holdPos.y) < 4) return;
+        holdPos = null;
+        armed = i;
+    }
+    // the tile takes the place of the neighbour, the tiles in between move up one
+    function arrowMove(e, dir, p) {
+        const n = armedNb[dir];
+        if (n < 0 || !entries[e] || !entries[n]) return;
+        const to = entries[n].idx;
+        holdPos = p;
+        armed = to;
+        flashIdx = to;
+        root.moveItem(entries[e].idx, to);
+        flashMarker.start();
     }
     function startDrag(i, tile, pos) {
         grabOffset = pos;
@@ -239,17 +322,31 @@ Item {
         proxy.x = p.x - grabOffset.x;
         proxy.y = p.y - grabOffset.y;
         const t = tileIndexAt(p);
+        // in the gap between two tiles: keep the last place, the marker doesn't flicker
+        if (t < 0) return;
         // only within the same section (a tile can't change its graphics card by dragging)
-        dragTo = t !== dragFrom && t >= 0 && entries[t].group === entries[dragFrom].group ? t : -1;
+        if (t === dragFrom || entries[t].group !== entries[dragFrom].group) { dragTo = -1; return; }
+        const r = rectOf(t);
+        const before = p.x < r.cx;
+        // right in front of / behind its own place: nothing would change
+        if ((before && t === dragFrom + 1) || (!before && t === dragFrom - 1)) { dragTo = -1; return; }
+        dropBefore = before;
+        dragTo = t;
     }
     function finishDrag() {
-        const from = dragFrom, to = dragTo;
+        const from = dragFrom, to = dragTo, before = dropBefore;
         const t = tiles.itemAt(from);
         if (t && t.item) t.item.dragging = false;
         dragFrom = -1; dragTo = -1;
         proxy.source = "";
-        if (from >= 0 && to >= 0 && entries[from] && entries[to])
-            root.moveItem(entries[from].idx, entries[to].idx);
+        if (from < 0 || to < 0 || !entries[from] || !entries[to]) return;
+        // moveItem takes the place the tile gets once it was taken out
+        const a = entries[from].idx, b = entries[to].idx;
+        const dest = b > a ? (before ? b - 1 : b) : (before ? b : b + 1);
+        flashIdx = dest;
+        root.moveItem(a, dest);
+        armed = dest;
+        flashMarker.start();
     }
     function cancelDrag() {
         dragTo = -1;
@@ -315,7 +412,7 @@ Item {
         visible: full.editing
         type: Kirigami.MessageType.Positive
         icon.source: "document-edit"
-        text: i18n("Drag a tile to move it within its section. × removes a tile, + adds one.")
+        text: i18n("Drag a tile or use its arrows to move it within its section. × removes a tile, + adds one.")
         actions: [
             Kirigami.Action {
                 visible: root.canUndoRemove
@@ -346,6 +443,11 @@ Item {
                            + (editBanner.visible ? editBanner.height + full.gap : 0)
         contentWidth: availableWidth
         QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
+
+        // the arrows disappear when the mouse leaves the tiles
+        HoverHandler {
+            onHoveredChanged: if (!hovered && !full.holdPos) full.armed = -1
+        }
 
         // all ring gauges get the size of the smallest one (see SensorTile.ringLimit)
         Timer {
@@ -461,7 +563,6 @@ Item {
                         scale_: full.scale_
                         gpuColor: full.sections || !root.multiGpu ? "transparent"
                                   : Hardware.gpuColor((root.items[itemIndex] || {}).gpuSlot, root.lightTheme)
-                        dropTarget: full.dragTo === entry.index
                         inSection: full.sections
                         arranging: full.editing
 
@@ -490,6 +591,46 @@ Item {
                             }
                             onReleased: if (mine) full.finishDrag()
                             onCanceled: if (mine) full.cancelDrag()
+                        }
+
+                        // edit mode: the tile under the mouse lights up and shows the arrows.
+                        // A HoverHandler, not the MouseArea: the tooltip area lies on top
+                        // and takes the hover events of plain mouse areas
+                        HoverHandler {
+                            id: tileHover
+                            enabled: full.editing
+                            onHoveredChanged: if (hovered) full.hoverAt(tileDelegate.itemIndex, tileDelegate.mapToItem(full, point.position.x, point.position.y))
+                            onPointChanged: if (hovered) full.hoverAt(tileDelegate.itemIndex, tileDelegate.mapToItem(full, point.position.x, point.position.y))
+                        }
+                        Rectangle {
+                            id: hoverFrame
+                            anchors.fill: parent
+                            z: 150
+                            radius: tileDelegate.radius
+                            visible: opacity > 0
+                            opacity: tileDelegate.showArrows ? 1 : 0
+                            Behavior on opacity { NumberAnimation { duration: 120 } }
+                            color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, 0.10)
+                            border.width: 2
+                            border.color: Kirigami.Theme.highlightColor
+                        }
+                        // edit mode: arrows on the tile under the mouse move it one step
+                        readonly property bool showArrows: full.editing && full.dragFrom < 0 && full.armed === itemIndex
+                        ArrowButton {
+                            tile: tileDelegate; dir: "up"; iconName: "arrow-up"; tip: i18n("Move up")
+                            anchors { top: parent.top; horizontalCenter: parent.horizontalCenter }
+                        }
+                        ArrowButton {
+                            tile: tileDelegate; dir: "down"; iconName: "arrow-down"; tip: i18n("Move down")
+                            anchors { bottom: parent.bottom; horizontalCenter: parent.horizontalCenter }
+                        }
+                        ArrowButton {
+                            tile: tileDelegate; dir: "left"; iconName: "arrow-left"; tip: i18n("Move left")
+                            anchors { left: parent.left; verticalCenter: parent.verticalCenter }
+                        }
+                        ArrowButton {
+                            tile: tileDelegate; dir: "right"; iconName: "arrow-right"; tip: i18n("Move right")
+                            anchors { right: parent.right; verticalCenter: parent.verticalCenter }
                         }
 
                         // edit mode: small red × in the top right corner removes the tile
@@ -526,6 +667,44 @@ Item {
                 }
             }
         }
+    }
+
+    // edit mode: one of the four arrows on a tile
+    component ArrowButton: QQC2.AbstractButton {
+        id: arrow
+        required property var tile
+        required property string dir
+        property string iconName
+        property string tip
+        visible: tile.showArrows && full.armedNb[dir] >= 0
+        z: 200
+        width: Math.round(Math.max(Kirigami.Units.iconSizes.small + 8, full.u * 1.5))
+        height: width
+        anchors.margins: Math.round(full.u * 0.25)
+        hoverEnabled: true
+        Accessible.name: tip
+        onClicked: {
+            const e = full.entries.findIndex(x => x.idx === arrow.tile.itemIndex);
+            full.arrowMove(e, dir, arrow.mapToItem(full, width / 2, height / 2));
+        }
+        background: Rectangle {
+            radius: width / 2
+            color: arrow.down ? Qt.darker(Kirigami.Theme.highlightColor, 1.25)
+                   : arrow.hovered ? Qt.lighter(Kirigami.Theme.highlightColor, 1.15)
+                   : Kirigami.Theme.highlightColor
+            border.width: 1
+            border.color: Qt.rgba(0, 0, 0, 0.25)
+        }
+        contentItem: Kirigami.Icon {
+            source: arrow.iconName
+            color: Kirigami.Theme.highlightedTextColor
+            isMask: true
+            implicitWidth: Math.round(arrow.width * 0.6)
+            implicitHeight: implicitWidth
+        }
+        QQC2.ToolTip.text: tip
+        QQC2.ToolTip.visible: hovered && root.setting("tooltipsEnabled")
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     }
 
     // ---- menu entries shared by the tile menu and the widget menu
@@ -921,6 +1100,101 @@ Item {
             if (!full.fit || need <= 0 || avail <= 0) return;
             if (need > avail + 1 && full.scale_ > full.minFitScale * 0.9)
                 full.fitCorrection = Math.max(0.6, full.fitCorrection * avail / need * 0.99);
+        }
+    }
+
+    // a moved tile flashes at its new place, so the eye finds it again (the mouse
+    // pointer can't be moved along, Wayland doesn't allow that). It looks the tile
+    // up again and again while it runs: the grid may rebuild and place it anew
+    Rectangle {
+        id: flashMarker
+        z: 998
+        radius: Math.round(full.u * 0.75)
+        color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, 0.45)
+        border.width: Math.max(3, Math.round(full.u * 0.2))
+        border.color: Kirigami.Theme.highlightColor
+        opacity: 0
+        visible: opacity > 0 && width > 0
+
+        // length from the settings; the phases below are stretched to it
+        readonly property real f: Math.max(0, Number(root.setting("moveFlashDuration"))) / 2550
+        function start() {
+            if (f <= 0) { flashAnim.stop(); opacity = 0; return; }
+            place();
+            flashAnim.restart();
+        }
+        function place() {
+            const e = full.entries.findIndex(x => x.idx === full.flashIdx);
+            const r = e >= 0 ? full.rectOf(e) : null;
+            if (!r) { width = 0; return; }
+            x = r.x; y = r.y; width = r.w; height = r.h;
+        }
+        Timer {
+            interval: 50
+            repeat: true
+            running: flashAnim.running
+            onTriggered: flashMarker.place()
+        }
+        // light up, pulse twice, then fade out slowly (2.5 s at the default length)
+        SequentialAnimation {
+            id: flashAnim
+            PauseAnimation { duration: 60 }
+            NumberAnimation { target: flashMarker; property: "opacity"; from: 0; to: 1; duration: Math.round(150 * flashMarker.f) }
+            NumberAnimation { target: flashMarker; property: "opacity"; to: 0.35; duration: Math.round(350 * flashMarker.f); easing.type: Easing.InOutSine }
+            NumberAnimation { target: flashMarker; property: "opacity"; to: 1; duration: Math.round(350 * flashMarker.f); easing.type: Easing.InOutSine }
+            NumberAnimation { target: flashMarker; property: "opacity"; to: 0.35; duration: Math.round(350 * flashMarker.f); easing.type: Easing.InOutSine }
+            NumberAnimation { target: flashMarker; property: "opacity"; to: 0.9; duration: Math.round(350 * flashMarker.f); easing.type: Easing.InOutSine }
+            NumberAnimation { target: flashMarker; property: "opacity"; to: 0; duration: Math.round(1000 * flashMarker.f); easing.type: Easing.OutCubic }
+            onFinished: full.flashIdx = -1
+        }
+    }
+
+    // where the dragged tile lands: a glowing bar in the gap in front of or behind
+    // the tile under the mouse (the tiles from there on move one place on)
+    Item {
+        id: dropMarker
+        z: 999
+        readonly property var r: full.dragTo >= 0 ? full.rectOf(full.dragTo) : null
+        readonly property real barW: Math.max(4, Math.round(full.u * 0.28))
+        visible: full.dragFrom >= 0 && r !== null
+        onVisibleChanged: if (visible) { moveAnim.enabled = false; Qt.callLater(() => moveAnim.enabled = true); }
+        width: barW * 3
+        height: r ? r.h : 0
+        x: !r ? 0 : Math.max(0, Math.min(full.width - width,
+               (full.dropBefore ? r.x - full.gap / 2 : r.x + r.w + full.gap / 2) - width / 2))
+        y: r ? r.y : 0
+        Behavior on x { id: moveAnim; NumberAnimation { duration: 110; easing.type: Easing.OutCubic } }
+        Behavior on y { enabled: moveAnim.enabled; NumberAnimation { duration: 110; easing.type: Easing.OutCubic } }
+        Behavior on height { enabled: moveAnim.enabled; NumberAnimation { duration: 110 } }
+
+        // soft glow
+        Rectangle {
+            anchors.fill: parent
+            radius: width / 2
+            color: Kirigami.Theme.highlightColor
+            opacity: 0.25
+        }
+        Rectangle {
+            anchors.centerIn: parent
+            width: dropMarker.barW
+            height: parent.height
+            radius: width / 2
+            color: Kirigami.Theme.highlightColor
+        }
+        // dots at both ends, like a text cursor
+        Repeater {
+            model: 2
+            Rectangle {
+                required property int index
+                width: dropMarker.barW * 2.6
+                height: width
+                radius: width / 2
+                anchors.horizontalCenter: parent.horizontalCenter
+                y: index === 0 ? -height / 3 : parent.height - height * 2 / 3
+                color: Kirigami.Theme.highlightColor
+                border.width: 2
+                border.color: Kirigami.Theme.backgroundColor
+            }
         }
     }
 

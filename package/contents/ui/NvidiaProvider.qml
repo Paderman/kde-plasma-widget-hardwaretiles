@@ -63,7 +63,7 @@ QtObject {
     // ---- fans, from the driver library (code/nvml-fans.py) ------------------
     // only runs while a tile shows a fan of an NVIDIA card
     property bool fansActive: false
-    // per GPU index: [{ no, rpm, pct, target, since }] (-1 = not reported;
+    // per GPU index: [{ no, rpm, pct, target, wants, since }] (-1 = not reported;
     // since = time the fan first stood still although it should turn, 0 = fine)
     property var fans: ({})
     property bool fansOk: false
@@ -126,7 +126,11 @@ QtObject {
                     const idx = parseInt(f[1]), no = parseInt(f[2]);
                     if (isNaN(idx) || isNaN(no)) return;
                     const fan = { no: no, rpm: parseInt(f[3]), pct: parseInt(f[4]), target: parseInt(f[5]), since: 0 };
-                    if (fan.rpm === 0 && fan.target > 0) {
+                    // what the card asks for right now: the target never goes below the
+                    // fan's minimum (e.g. 30 % on an RTX 3080) even while the card has
+                    // switched the fans off, the current percentage is 0 then
+                    fan.wants = fan.pct >= 0 ? fan.pct : fan.target;
+                    if (fan.rpm === 0 && fan.wants > 0) {
                         const old = (provider.fans[idx] || []).find(o => o.no === no);
                         fan.since = old && old.since > 0 ? old.since : now;
                     }
@@ -140,8 +144,8 @@ QtObject {
                 const l = r[idx];
                 l.forEach(f => {
                     f.slowSince = 0; f.ref = 0;
-                    if (l.length < 2 || f.rpm <= 0 || f.target < 0) return;
-                    const peers = l.filter(o => o !== f && o.target === f.target && o.rpm > 0);
+                    if (l.length < 2 || f.rpm <= 0 || f.wants < 0) return;
+                    const peers = l.filter(o => o !== f && o.wants === f.wants && o.rpm > 0);
                     if (!peers.length) return;
                     const top = peers.reduce((a, o) => o.rpm > a.rpm ? o : a);
                     // below 300 RPM the measurement is too rough to compare

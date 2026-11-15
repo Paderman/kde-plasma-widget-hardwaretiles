@@ -88,10 +88,9 @@ GridLayout {
 
     // pcie
     QQC2.Label { text: i18n("Device:"); visible: ed.source === "pcie" }
-    ColumnLayout {
+    RowLayout {
         Layout.fillWidth: true
         visible: ed.source === "pcie"
-        spacing: 0
         QQC2.TextField {
             Layout.fillWidth: true
             font.family: "monospace"
@@ -99,12 +98,8 @@ GridLayout {
             text: ed.source === "pcie" ? ed.key : ""
             onTextEdited: ed.edited("key", text.trim())
         }
-        QQC2.Label {
-            Layout.fillWidth: true
-            wrapMode: Text.WordWrap
-            font: Kirigami.Theme.smallFont
-            opacity: 0.6
-            text: i18n("Optionally a PCI address like “02:00.0” (see lspci). Shows the actual link together with the maximum the card and slot support.")
+        Kirigami.ContextualHelpButton {
+            toolTipText: i18n("Optionally a PCI address like “02:00.0” (see lspci). Shows the actual link together with the maximum the card and slot support.")
         }
     }
 

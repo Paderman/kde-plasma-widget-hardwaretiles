@@ -45,7 +45,7 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 - **Live preview**: layouts, tile changes and all appearance settings show up in the widget before you apply them
 - **Adjustable background opacity** on the desktop, tiles stay readable down to 0 %
 - **Every setting back to its default** with a middle click or a right-click on it
-- **Edit tiles right in the widget** (right-click → *Edit tiles*): drag to move, × to remove, + to add from suggestions for your hardware
+- **Edit tiles right in the widget** (right-click → *Edit tiles*): drag or use the arrows to move, × to remove, + to add from suggestions for your hardware
 - **Profiles**: save the current view (tiles, appearance, notifications) under a name, switch with a right-click,
   export and import them as a file – commands in imported profiles are shown before anything is stored
 - Fits itself to the widget size, panel mode with mini rings

@@ -117,16 +117,24 @@ KCM.SimpleKCM {
                 icon.name: "computer"
                 onClicked: Qt.openUrlExternally(page.site + "/issues/new?template=hardware_report.yml")
             }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("“Report a problem” and “Hardware not detected” each open a form on GitHub.")
+            }
         }
 
         Item { Kirigami.FormData.isSection: true }
 
-        QQC2.CheckBox {
-            id: autoBox
+        RowLayout {
             Kirigami.FormData.label: i18n("Updates:")
-            text: i18n("Look for new versions once a week")
-            onToggled: page.cfg_updateAsked = true
-            ResetHandler { page: page; keys: ["updateCheck"] }
+            QQC2.CheckBox {
+                id: autoBox
+                text: i18n("Look for new versions once a week")
+                onToggled: page.cfg_updateAsked = true
+                ResetHandler { page: page; keys: ["updateCheck"] }
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Once a week the widget asks GitHub for the newest version number and shows a note in the widget when a new version is out.")
+            }
         }
         RowLayout {
             QQC2.Button {
@@ -158,6 +166,9 @@ KCM.SimpleKCM {
                 icon.name: "download"
                 onClicked: Qt.openUrlExternally(page.checkUrl || UpdateCheck.releasesPage)
             }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you.")
+            }
         }
         QQC2.Label {
             Layout.fillWidth: true
@@ -169,30 +180,19 @@ KCM.SimpleKCM {
             text: i18n("Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Hardware Tiles sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>.",
                        "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement")
         }
-        QQC2.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 28
-            wrapMode: Text.WordWrap
-            font: Kirigami.Theme.smallFont
-            opacity: 0.7
-            text: i18n("Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you.")
-        }
 
         Item { Kirigami.FormData.isSection: true }
 
-        QQC2.Button {
+        RowLayout {
             Kirigami.FormData.label: i18n("Troubleshooting:")
-            text: i18n("Restart Plasma desktop …")
-            icon.name: "view-refresh"
-            onClicked: restartDialog.open()
-        }
-        QQC2.Label {
-            Layout.fillWidth: true
-            Layout.maximumWidth: Kirigami.Units.gridUnit * 28
-            wrapMode: Text.WordWrap
-            font: Kirigami.Theme.smallFont
-            opacity: 0.7
-            text: i18n("Helps when the widget or the desktop no longer reacts properly, e.g. after an update. Same as “systemctl --user restart plasma-plasmashell” in a terminal. If it happens again, please report it with “Report a problem”.")
+            QQC2.Button {
+                text: i18n("Restart Plasma desktop …")
+                icon.name: "view-refresh"
+                onClicked: restartDialog.open()
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Helps when the widget or the desktop no longer reacts properly, e.g. after an update. Same as “systemctl --user restart plasma-plasmashell” in a terminal. If it happens again, please report it with “Report a problem”.")
+            }
         }
         Kirigami.InlineMessage {
             Layout.fillWidth: true

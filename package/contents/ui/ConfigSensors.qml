@@ -338,13 +338,9 @@ KCM.SimpleKCM {
                                 ? i18n("Customised: based on “%1”, tiles have been changed.", page.presetName(page.basePreset))
                                 : i18n("Custom layout.")
                     }
-                }
-                QQC2.Label {
-                    Layout.fillWidth: true
-                    wrapMode: Text.WordWrap
-                    opacity: 0.6
-                    font: Kirigami.Theme.smallFont
-                    text: i18n("A template replaces all tiles – “System overview” restores the default tiles for your hardware. The widget shows every change right away as a preview; it is saved only with “Apply”, “Cancel” keeps everything as it was.")
+                    Kirigami.ContextualHelpButton {
+                        toolTipText: i18n("A template replaces all tiles – “System overview” restores the default tiles for your hardware. The widget shows every change right away as a preview; it is saved only with “Apply”, “Cancel” keeps everything as it was.")
+                    }
                 }
             }
         }
@@ -403,11 +399,17 @@ KCM.SimpleKCM {
             }
         }
 
-        Kirigami.InlineMessage {
+        RowLayout {
             Layout.fillWidth: true
-            visible: true
-            type: Kirigami.MessageType.Information
-            text: i18n("Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”.")
+            Kirigami.InlineMessage {
+                Layout.fillWidth: true
+                visible: true
+                type: Kirigami.MessageType.Information
+                text: i18n("Tiles can also be edited directly in the widget: right-click → “Edit tiles”.")
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”.")
+            }
         }
 
         Repeater {
@@ -518,13 +520,17 @@ KCM.SimpleKCM {
                                          : i18n("Not found (PCI %1)", (cardDelegate.model.gpu || "").replace(/^0000:/, ""))
                             onActivated: (i) => page.set(cardDelegate.index, "gpu", page.gpuChoices[i].addr)
                         }
+                        Kirigami.ContextualHelpButton {
+                            toolTipText: i18n("Which graphics card this tile shows. Not available while “Compare all cards” is on.")
+                        }
                         QQC2.CheckBox {
                             text: i18n("Compare all cards")
                             enabled: !cardDelegate.isCurve
                             checked: cardDelegate.model.compare
                             onToggled: page.set(cardDelegate.index, "compare", checked)
-                            QQC2.ToolTip.text: i18n("Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card.")
-                            QQC2.ToolTip.visible: hovered
+                        }
+                        Kirigami.ContextualHelpButton {
+                            toolTipText: i18n("Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card.")
                         }
                     }
 
@@ -575,23 +581,22 @@ KCM.SimpleKCM {
                             Layout.fillWidth: true
                             visible: !cardDelegate.isCurve && (cardDelegate.model.source === "sensor" || !cardDelegate.model.source)
                             spacing: 0
-                            Faces.Choices {
+                            RowLayout {
                                 Layout.fillWidth: true
-                                supportsColors: false
-                                labelsEditable: false
-                                maxAllowedSensors: 1
-                                selected: cardDelegate.model.refSensorId ? [page.shown(cardDelegate.model.refSensorId, cardDelegate.model.gpu)] : []
-                                onSelectedChanged: {
-                                    const id = (selected && selected.length) ? selected[0] : "";
-                                    if (id !== page.shown(cardDelegate.model.refSensorId, cardDelegate.model.gpu)) page.set(cardDelegate.index, "refSensorId", id);
+                                Faces.Choices {
+                                    Layout.fillWidth: true
+                                    supportsColors: false
+                                    labelsEditable: false
+                                    maxAllowedSensors: 1
+                                    selected: cardDelegate.model.refSensorId ? [page.shown(cardDelegate.model.refSensorId, cardDelegate.model.gpu)] : []
+                                    onSelectedChanged: {
+                                        const id = (selected && selected.length) ? selected[0] : "";
+                                        if (id !== page.shown(cardDelegate.model.refSensorId, cardDelegate.model.gpu)) page.set(cardDelegate.index, "refSensorId", id);
+                                    }
                                 }
-                            }
-                            QQC2.Label {
-                                text: i18n("Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically.")
-                                font: Kirigami.Theme.smallFont
-                                opacity: 0.6
-                                wrapMode: Text.WordWrap
-                                Layout.fillWidth: true
+                                Kirigami.ContextualHelpButton {
+                                    toolTipText: i18n("Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically.")
+                                }
                             }
                         }
 
@@ -622,11 +627,17 @@ KCM.SimpleKCM {
                                 onToggled: page.set(cardDelegate.index, "wide", checked)
                                 ResetHandler { page: tileDefaults; keys: ["wide"] }
                             }
+                            Kirigami.ContextualHelpButton {
+                                toolTipText: i18n("The tile takes two columns – good for graphs.")
+                            }
                             QQC2.CheckBox {
                                 text: i18n("In panel")
                                 checked: cardDelegate.model.showInPanel
                                 onToggled: page.set(cardDelegate.index, "showInPanel", checked)
                                 ResetHandler { page: tileDefaults; keys: ["showInPanel"] }
+                            }
+                            Kirigami.ContextualHelpButton {
+                                toolTipText: i18n("Also shows this value when the widget sits in a panel.")
                             }
                             QQC2.CheckBox {
                                 text: i18n("Notify")
@@ -635,8 +646,9 @@ KCM.SimpleKCM {
                                          || cardDelegate.model.lowWarn > 0 || cardDelegate.model.lowCrit > 0
                                 onToggled: page.set(cardDelegate.index, "notify", checked)
                                 ResetHandler { page: tileDefaults; keys: ["notify"] }
-                                QQC2.ToolTip.text: i18n("Desktop notification when a threshold is exceeded")
-                                QQC2.ToolTip.visible: hovered
+                            }
+                            Kirigami.ContextualHelpButton {
+                                toolTipText: i18n("Desktop notification when a threshold is exceeded")
                             }
                             Item { Layout.fillWidth: true }
                             KQC.ColorButton {
@@ -693,6 +705,14 @@ KCM.SimpleKCM {
                                 onValueModified: page.set(cardDelegate.index, "yMax", value)
                                 // Breeze spin boxes have no menu of their own: right click is free here
                                 ResetHandler { page: tileDefaults; keys: ["yMax"]; valueText: sensorsPage.autoText(tileDefaults.defaults.yMax) }
+                            }
+                            Kirigami.ContextualHelpButton {
+                                visible: !cardDelegate.isCurve
+                                toolTipText: i18n("Range of ring and bar. Max “auto”: the total value or the maximum the source reports, otherwise 100.")
+                            }
+                            Kirigami.ContextualHelpButton {
+                                visible: cardDelegate.isCurve
+                                toolTipText: i18n("Top of the fan axis in the fan curve. “auto”: the maximum the source reports, otherwise 100.")
                             }
                         }
 
@@ -754,16 +774,20 @@ KCM.SimpleKCM {
                                 // Breeze spin boxes have no menu of their own: right click is free here
                                 ResetHandler { page: tileDefaults; keys: ["crit"]; valueText: sensorsPage.offText(tileDefaults.defaults.crit) }
                             }
+                            Kirigami.ContextualHelpButton {
+                                toolTipText: i18n("First field: warning (orange), second field: critical (red). 0 = off.")
+                            }
                             QQC2.CheckBox {
                                 visible: thresholdRow.hasTotal
                                 // xgettext:no-javascript-format
                                 text: i18n("in % of the total value")
                                 checked: cardDelegate.model.relThresholds
                                 onToggled: page.set(cardDelegate.index, "relThresholds", checked)
+                            }
+                            Kirigami.ContextualHelpButton {
+                                visible: thresholdRow.hasTotal
                                 // xgettext:no-javascript-format
-                                QQC2.ToolTip.text: i18n("The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size.")
-                                QQC2.ToolTip.visible: hovered
-                                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                                toolTipText: i18n("The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size.")
                             }
                         }
 
@@ -807,12 +831,8 @@ KCM.SimpleKCM {
                                 // Breeze spin boxes have no menu of their own: right click is free here
                                 ResetHandler { page: tileDefaults; keys: ["lowCrit"]; valueText: sensorsPage.offText(tileDefaults.defaults.lowCrit) }
                             }
-                            QQC2.Label {
-                                Layout.fillWidth: true
-                                wrapMode: Text.WordWrap
-                                font: Kirigami.Theme.smallFont
-                                opacity: 0.6
-                                text: i18n("For values that must not drop, e.g. battery or supply voltages.")
+                            Kirigami.ContextualHelpButton {
+                                toolTipText: i18n("For values that must not drop, e.g. battery or supply voltages.")
                             }
                         }
 
@@ -825,19 +845,18 @@ KCM.SimpleKCM {
                             Layout.fillWidth: true
                             visible: cardDelegate.isCurve
                             spacing: 0
-                            QQC2.TextField {
+                            RowLayout {
                                 Layout.fillWidth: true
-                                font.family: "monospace"
-                                placeholderText: "30:30 50:40 70:70 85:100"
-                                text: cardDelegate.model.refCurve
-                                onTextEdited: page.set(cardDelegate.index, "refCurve", text)
-                            }
-                            QQC2.Label {
-                                Layout.fillWidth: true
-                                wrapMode: Text.WordWrap
-                                font: Kirigami.Theme.smallFont
-                                opacity: 0.6
-                                text: i18n("Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements.")
+                                QQC2.TextField {
+                                    Layout.fillWidth: true
+                                    font.family: "monospace"
+                                    placeholderText: "30:30 50:40 70:70 85:100"
+                                    text: cardDelegate.model.refCurve
+                                    onTextEdited: page.set(cardDelegate.index, "refCurve", text)
+                                }
+                                Kirigami.ContextualHelpButton {
+                                    toolTipText: i18n("Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements.")
+                                }
                             }
                         }
                     }

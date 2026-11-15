@@ -47,7 +47,7 @@ als Ringe, Balken und Verlaufsgraphen.
 - **Live-Vorschau**: Layouts, Kachel-Änderungen und alle Darstellungs-Einstellungen sind im Widget zu sehen, bevor sie übernommen werden
 - **Einstellbare Deckkraft des Hintergrunds** auf der Arbeitsfläche, Kacheln bleiben bis 0 % lesbar
 - **Jede Einstellung zurück auf den Standard** per Mittelklick oder Rechtsklick darauf
-- **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen zum Verschieben,
+- **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen oder Pfeile zum Verschieben,
   × zum Entfernen, + zum Hinzufügen aus Vorschlägen für die erkannte Hardware
 - **Profile**: die aktuelle Ansicht (Kacheln, Darstellung, Benachrichtigungen) unter einem Namen speichern,
   per Rechtsklick wechseln, als Datei exportieren und importieren – Befehle in importierten Profilen

@@ -179,7 +179,7 @@ function renamed(b) {
 var settings = {
     appearance: {
         columns: 0, fitToSize: true, tileStyle: "glass", tileScale: 100, backgroundOpacity: 100, tileOpacity: 85,
-        tooltipsEnabled: true, tooltipDelay: 700, tooltipDuration: 8000,
+        tooltipsEnabled: true, tooltipDelay: 700, tooltipDuration: 8000, moveFlashDuration: 2500,
         gpuSectionMode: "auto", gpuSections: true,
         updateInterval: 1500, historyLength: 60,
         panelShowRings: true, panelShowLabels: false

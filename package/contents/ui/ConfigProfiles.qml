@@ -346,13 +346,9 @@ KCM.SimpleKCM {
                     exportDialog.open();
                 }
             }
-        }
-        QQC2.Label {
-            Layout.fillWidth: true
-            wrapMode: Text.WordWrap
-            opacity: 0.7
-            font: Kirigami.Theme.smallFont
-            text: i18n("Exported files can be imported on another computer. Tiles of a graphics card that computer does not have are moved to a card of the same maker; learned fan curves are not part of a profile.")
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("Exported files can be imported on another computer. Tiles of a graphics card that computer does not have are moved to a card of the same maker; learned fan curves are not part of a profile.")
+            }
         }
     }
 }

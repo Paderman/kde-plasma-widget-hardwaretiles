@@ -25,7 +25,6 @@ Rectangle {
     property real backing: 0.85
     property real scale_: 1.0
     // drag & drop state (set by FullView)
-    property bool dropTarget: false
     property bool dragging: false
     // graphics card marker (several GPUs without sections); transparent = none
     property color gpuColor: "transparent"
@@ -126,17 +125,6 @@ Rectangle {
             NumberAnimation { from: 0.15; to: 0.9; duration: 900; easing.type: Easing.InOutSine }
             NumberAnimation { from: 0.9; to: 0.15; duration: 900; easing.type: Easing.InOutSine }
         }
-    }
-
-    // drop target indicator
-    Rectangle {
-        anchors.fill: parent
-        radius: card.radius
-        z: 50
-        color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, 0.12)
-        border.width: 2
-        border.color: Kirigami.Theme.highlightColor
-        visible: card.dropTarget
     }
 
     // native Plasma tooltip: its own window, never clipped by the widget
