@@ -171,7 +171,7 @@ function renamed(b) {
 // read from the old gpuSections switch).
 var settings = {
     appearance: {
-        columns: 0, fitToSize: true, tileStyle: "glass", tileScale: 100,
+        columns: 0, fitToSize: true, tileStyle: "glass", tileScale: 100, backgroundOpacity: 100,
         gpuSectionMode: "auto", gpuSections: true,
         updateInterval: 1500, historyLength: 60,
         panelShowRings: true, panelShowLabels: false

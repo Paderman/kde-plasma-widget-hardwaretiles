@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "传感器"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:725
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:741
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:694
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:710
 msgid "Appearance"
 msgstr "外观"
 
@@ -90,7 +90,7 @@ msgstr "尚未发布任何版本。"
 msgid "GitHub could not be reached (%1)."
 msgstr "无法连接 GitHub(%1)。"
 
-#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:298
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:313
 msgid "Open download page"
 msgstr "打开下载页面"
 
@@ -182,12 +182,12 @@ msgid "Send test notification"
 msgstr "发送测试通知"
 
 #: package/contents/ui/ConfigAlerts.qml:121
-#: package/contents/ui/ConfigAppearance.qml:136
+#: package/contents/ui/ConfigAppearance.qml:157
 msgid "Restore defaults"
 msgstr "恢复默认值"
 
 #: package/contents/ui/ConfigAlerts.qml:132
-#: package/contents/ui/ConfigAppearance.qml:147
+#: package/contents/ui/ConfigAppearance.qml:168
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "已重置。点击“应用”后才会生效 – “取消”将保持原样。"
 
@@ -207,106 +207,114 @@ msgstr ""
 "已超过严重阈值 100 °C。\n"
 "(这只是 Sensor Deck 的测试。)"
 
-#: package/contents/ui/ConfigAppearance.qml:37
+#: package/contents/ui/ConfigAppearance.qml:38
 msgid "Columns:"
 msgstr "列数:"
 
-#: package/contents/ui/ConfigAppearance.qml:39
 #: package/contents/ui/ConfigAppearance.qml:40
+#: package/contents/ui/ConfigAppearance.qml:41
 msgid "Automatic"
 msgstr "自动"
 
-#: package/contents/ui/ConfigAppearance.qml:44
+#: package/contents/ui/ConfigAppearance.qml:45
 msgid "On the desktop:"
 msgstr "桌面上:"
 
-#: package/contents/ui/ConfigAppearance.qml:45
+#: package/contents/ui/ConfigAppearance.qml:46
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "缩小磁贴,使所有内容无需滚动即可显示"
 
-#: package/contents/ui/ConfigAppearance.qml:50
+#: package/contents/ui/ConfigAppearance.qml:51
 msgid "Tile style:"
 msgstr "磁贴样式:"
 
-#: package/contents/ui/ConfigAppearance.qml:53
-#: package/contents/ui/FullView.qml:591
+#: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:607
 msgid "Glass (subtle)"
 msgstr "玻璃(低调)"
 
-#: package/contents/ui/ConfigAppearance.qml:54
-#: package/contents/ui/FullView.qml:592
+#: package/contents/ui/ConfigAppearance.qml:55
+#: package/contents/ui/FullView.qml:608
 msgid "Filled"
 msgstr "填充"
 
-#: package/contents/ui/ConfigAppearance.qml:55
-#: package/contents/ui/FullView.qml:593
+#: package/contents/ui/ConfigAppearance.qml:56
+#: package/contents/ui/FullView.qml:609
 msgid "Outline (accent colour)"
 msgstr "轮廓(强调色)"
 
-#: package/contents/ui/ConfigAppearance.qml:61
+#: package/contents/ui/ConfigAppearance.qml:62
 msgid "Size:"
 msgstr "大小:"
 
-#: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/ConfigAppearance.qml:74
+msgid "Background opacity:"
+msgstr "背景不透明度:"
+
+#: package/contents/ui/ConfigAppearance.qml:88
+msgid "Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background."
+msgstr "仅在桌面上生效。数值和文字始终完全可见；100% 为 Plasma 的默认背景。"
+
+#: package/contents/ui/ConfigAppearance.qml:97
 msgid "Sections per graphics card:"
 msgstr "每块显卡的分区:"
 
-#: package/contents/ui/ConfigAppearance.qml:79
-#: package/contents/ui/FullView.qml:602
+#: package/contents/ui/ConfigAppearance.qml:100
+#: package/contents/ui/FullView.qml:618
 msgid "From two graphics cards"
 msgstr "两块及以上显卡时"
 
-#: package/contents/ui/ConfigAppearance.qml:80
-#: package/contents/ui/FullView.qml:603
+#: package/contents/ui/ConfigAppearance.qml:101
+#: package/contents/ui/FullView.qml:619
 msgid "Always (even with one card)"
 msgstr "始终(即使只有一块)"
 
-#: package/contents/ui/ConfigAppearance.qml:81
-#: package/contents/ui/FullView.qml:604
+#: package/contents/ui/ConfigAppearance.qml:102
+#: package/contents/ui/FullView.qml:620
 msgid "Never (several cards: coloured edge)"
 msgstr "从不(多块显卡:彩色边缘)"
 
-#: package/contents/ui/ConfigAppearance.qml:91
+#: package/contents/ui/ConfigAppearance.qml:112
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "直接在小部件中移动、移除或添加磁贴:右键单击 → “编辑磁贴”。"
 
-#: package/contents/ui/ConfigAppearance.qml:99
+#: package/contents/ui/ConfigAppearance.qml:120
 msgid "Update:"
 msgstr "刷新间隔:"
 
-#: package/contents/ui/ConfigAppearance.qml:101
+#: package/contents/ui/ConfigAppearance.qml:122
 msgid "every %1 s"
 msgstr "每 %1 秒"
 
-#: package/contents/ui/ConfigAppearance.qml:107
+#: package/contents/ui/ConfigAppearance.qml:128
 msgid "History in graphs:"
 msgstr "图表历史:"
 
-#: package/contents/ui/ConfigAppearance.qml:109
+#: package/contents/ui/ConfigAppearance.qml:130
 msgid "%1 s"
 msgstr "%1 秒"
 
-#: package/contents/ui/ConfigAppearance.qml:113
+#: package/contents/ui/ConfigAppearance.qml:134
 msgid "Panel"
 msgstr "面板"
 
-#: package/contents/ui/ConfigAppearance.qml:117
+#: package/contents/ui/ConfigAppearance.qml:138
 msgid "In the panel:"
 msgstr "在面板中:"
 
-#: package/contents/ui/ConfigAppearance.qml:118
+#: package/contents/ui/ConfigAppearance.qml:139
 msgid "Show mini rings"
 msgstr "显示迷你圆环"
 
-#: package/contents/ui/ConfigAppearance.qml:122
+#: package/contents/ui/ConfigAppearance.qml:143
 msgid "Show labels"
 msgstr "显示标签"
 
-#: package/contents/ui/ConfigAppearance.qml:128
+#: package/contents/ui/ConfigAppearance.qml:149
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "哪些传感器显示在面板中,可在“传感器”页面为每个条目单独设置。桌面上小部件的背景可在编辑模式下切换。"
 
-#: package/contents/ui/ConfigAppearance.qml:148
+#: package/contents/ui/ConfigAppearance.qml:169
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "仅影响此页面上的设置 – 传感器磁贴和通知将保留。"
 
@@ -412,7 +420,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "可以恢复上次加载配置档案之前的视图。"
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:637
+#: package/contents/ui/FullView.qml:653
 msgid "Undo profile change"
 msgstr "撤销配置档案切换"
 
@@ -486,22 +494,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "导出的文件可以在另一台计算机上导入。那台计算机没有的显卡的磁贴会移到同一厂商的显卡上；学习到的风扇曲线不属于配置档案。"
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:698
+#: package/contents/ui/FullView.qml:714
 msgid "Ring"
 msgstr "圆环"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:703
+#: package/contents/ui/FullView.qml:719
 msgid "Bar"
 msgstr "条形"
 
 #: package/contents/ui/ConfigSensors.qml:33
-#: package/contents/ui/FullView.qml:708
+#: package/contents/ui/FullView.qml:724
 msgid "History graph"
 msgstr "历史图表"
 
 #: package/contents/ui/ConfigSensors.qml:34
-#: package/contents/ui/FullView.qml:713
+#: package/contents/ui/FullView.qml:729
 msgid "Value only"
 msgstr "仅数值"
 
@@ -684,7 +692,7 @@ msgid "Style:"
 msgstr "样式:"
 
 #: package/contents/ui/ConfigSensors.qml:536
-#: package/contents/ui/FullView.qml:718
+#: package/contents/ui/FullView.qml:734
 msgid "Double width"
 msgstr "双倍宽度"
 
@@ -1106,130 +1114,130 @@ msgstr "没有传感器数据"
 msgid "Collecting data points …"
 msgstr "正在收集测量点 …"
 
-#: package/contents/ui/FullView.qml:153
+#: package/contents/ui/FullView.qml:155
 msgid "Comparison"
 msgstr "对比"
 
-#: package/contents/ui/FullView.qml:155
+#: package/contents/ui/FullView.qml:157
 msgid "System"
 msgstr "系统"
 
-#: package/contents/ui/FullView.qml:281
+#: package/contents/ui/FullView.qml:296
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "是否让 Sensor Deck 每周检查一次新版本?届时会连接 github.com – 与访问任何网站一样,GitHub 会看到您的 IP 地址;不会发送其他任何内容。您可以随时在设置中更改。"
 
-#: package/contents/ui/FullView.qml:282
+#: package/contents/ui/FullView.qml:297
 msgid "Sensor Deck %1 is available (installed: %2)."
 msgstr "Sensor Deck %1 可用(已安装:%2)。"
 
-#: package/contents/ui/FullView.qml:286
+#: package/contents/ui/FullView.qml:301
 msgid "Yes, check weekly"
 msgstr "是,每周检查"
 
-#: package/contents/ui/FullView.qml:292
+#: package/contents/ui/FullView.qml:307
 msgid "No, thanks"
 msgstr "不,谢谢"
 
-#: package/contents/ui/FullView.qml:317
+#: package/contents/ui/FullView.qml:332
 msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
 msgstr "拖动磁贴可在其分区内移动。× 移除磁贴，+ 添加磁贴。"
 
-#: package/contents/ui/FullView.qml:321 package/contents/ui/FullView.qml:537
-#: package/contents/ui/main.qml:432
+#: package/contents/ui/FullView.qml:336 package/contents/ui/FullView.qml:553
+#: package/contents/ui/main.qml:433
 msgid "Restore “%1”"
 msgstr "恢复“%1”"
 
-#: package/contents/ui/FullView.qml:327 package/contents/ui/FullView.qml:549
-#: package/contents/ui/main.qml:438
+#: package/contents/ui/FullView.qml:342 package/contents/ui/FullView.qml:565
+#: package/contents/ui/main.qml:439
 msgid "Undo last move"
 msgstr "撤销上次移动"
 
-#: package/contents/ui/FullView.qml:332
+#: package/contents/ui/FullView.qml:347
 msgid "Done"
 msgstr "完成"
 
-#: package/contents/ui/FullView.qml:402 package/contents/ui/FullView.qml:425
+#: package/contents/ui/FullView.qml:417 package/contents/ui/FullView.qml:440
 msgid "Add tile"
 msgstr "添加磁贴"
 
-#: package/contents/ui/FullView.qml:499 package/contents/ui/FullView.qml:516
+#: package/contents/ui/FullView.qml:515 package/contents/ui/FullView.qml:532
 msgid "Remove tile"
 msgstr "删除磁贴"
 
-#: package/contents/ui/FullView.qml:531 package/contents/ui/main.qml:426
+#: package/contents/ui/FullView.qml:547 package/contents/ui/main.qml:427
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Sensor Deck %1 可用 – 打开下载页面"
 
-#: package/contents/ui/FullView.qml:543
+#: package/contents/ui/FullView.qml:559
 msgid "Finish editing"
 msgstr "完成编辑"
 
-#: package/contents/ui/FullView.qml:543
+#: package/contents/ui/FullView.qml:559
 msgid "Edit tiles"
 msgstr "编辑磁贴"
 
-#: package/contents/ui/FullView.qml:555 package/contents/ui/main.qml:444
+#: package/contents/ui/FullView.qml:571 package/contents/ui/main.qml:445
 msgid "Restore original arrangement"
 msgstr "恢复原始排列"
 
-#: package/contents/ui/FullView.qml:561
+#: package/contents/ui/FullView.qml:577
 msgid "Configure Sensor Deck …"
 msgstr "配置 Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:588
+#: package/contents/ui/FullView.qml:604
 msgid "Tile style"
 msgstr "磁贴样式"
 
-#: package/contents/ui/FullView.qml:599
+#: package/contents/ui/FullView.qml:615
 msgid "Sections per graphics card"
 msgstr "每块显卡的分区"
 
-#: package/contents/ui/FullView.qml:614
+#: package/contents/ui/FullView.qml:630
 msgid "Profile"
 msgstr "配置档案"
 
-#: package/contents/ui/FullView.qml:617
+#: package/contents/ui/FullView.qml:633
 msgid "No profiles saved yet"
 msgstr "尚未保存配置档案"
 
-#: package/contents/ui/FullView.qml:627
+#: package/contents/ui/FullView.qml:643
 msgid "changed"
 msgstr "已更改"
 
-#: package/contents/ui/FullView.qml:643
+#: package/contents/ui/FullView.qml:659
 msgid "Manage profiles …"
 msgstr "管理配置档案…"
 
-#: package/contents/ui/FullView.qml:654
+#: package/contents/ui/FullView.qml:670
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "提示:在空白处长按 – 移动、调整大小、移除小部件"
 
-#: package/contents/ui/FullView.qml:685
+#: package/contents/ui/FullView.qml:701
 msgid "Edit in settings …"
 msgstr "在设置中编辑 …"
 
-#: package/contents/ui/FullView.qml:734 package/contents/ui/FullView.qml:796
-#: package/contents/ui/main.qml:457
+#: package/contents/ui/FullView.qml:750 package/contents/ui/FullView.qml:812
+#: package/contents/ui/main.qml:464
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:763
+#: package/contents/ui/FullView.qml:779
 msgid "Suggestions for your hardware"
 msgstr "适合您硬件的建议"
 
-#: package/contents/ui/FullView.qml:763
+#: package/contents/ui/FullView.qml:779
 msgid "No further suggestions"
 msgstr "没有更多建议"
 
-#: package/contents/ui/FullView.qml:782
+#: package/contents/ui/FullView.qml:798
 msgid "Own tile …"
 msgstr "自定义磁贴 …"
 
-#: package/contents/ui/FullView.qml:868
+#: package/contents/ui/FullView.qml:884
 msgid "No sensors configured"
 msgstr "未配置传感器"
 
-#: package/contents/ui/FullView.qml:874
+#: package/contents/ui/FullView.qml:890
 msgid "Configure …"
 msgstr "设置 …"
 
@@ -1738,31 +1746,31 @@ msgstr "风扇已恢复正常运转。"
 msgid "The value is below the threshold again."
 msgstr "数值已回落到阈值以下。"
 
-#: package/contents/ui/SensorTile.qml:152
+#: package/contents/ui/SensorTile.qml:155
 msgid "Fan %1 at %2"
 msgstr "风扇 %1,温度 %2"
 
-#: package/contents/ui/SensorTile.qml:165
+#: package/contents/ui/SensorTile.qml:168
 msgid "Now: %1"
 msgstr "当前:%1"
 
-#: package/contents/ui/SensorTile.qml:181
+#: package/contents/ui/SensorTile.qml:184
 msgid "Critical – above the threshold of %1."
 msgstr "严重 – 高于阈值 %1。"
 
-#: package/contents/ui/SensorTile.qml:182
+#: package/contents/ui/SensorTile.qml:185
 msgid "Elevated – above the warning threshold of %1."
 msgstr "偏高 – 高于警告阈值 %1。"
 
-#: package/contents/ui/SensorTile.qml:183
+#: package/contents/ui/SensorTile.qml:186
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "正常 · 警告自 %1 起,严重自 %2 起。"
 
-#: package/contents/ui/SensorTile.qml:184
+#: package/contents/ui/SensorTile.qml:187
 msgid "In the normal range · warning from %1."
 msgstr "正常 · 警告自 %1 起。"
 
-#: package/contents/ui/SensorTile.qml:184
+#: package/contents/ui/SensorTile.qml:187
 msgid "In the normal range · critical from %1."
 msgstr "正常 · 严重自 %1 起。"
 

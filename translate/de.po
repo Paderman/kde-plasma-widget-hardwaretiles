@@ -19,11 +19,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensoren"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:725
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:741
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:694
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:710
 msgid "Appearance"
 msgstr "Darstellung"
 
@@ -88,7 +88,7 @@ msgstr "Es wurde noch keine Version veröffentlicht."
 msgid "GitHub could not be reached (%1)."
 msgstr "GitHub war nicht erreichbar (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:298
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:313
 msgid "Open download page"
 msgstr "Download-Seite öffnen"
 
@@ -182,12 +182,12 @@ msgid "Send test notification"
 msgstr "Test-Benachrichtigung senden"
 
 #: package/contents/ui/ConfigAlerts.qml:121
-#: package/contents/ui/ConfigAppearance.qml:136
+#: package/contents/ui/ConfigAppearance.qml:157
 msgid "Restore defaults"
 msgstr "Standardwerte wiederherstellen"
 
 #: package/contents/ui/ConfigAlerts.qml:132
-#: package/contents/ui/ConfigAppearance.qml:147
+#: package/contents/ui/ConfigAppearance.qml:168
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Zurückgesetzt. Übernommen wird es erst mit „Anwenden“ – „Abbrechen“ lässt alles beim Alten."
 
@@ -207,106 +207,114 @@ msgstr ""
 "Kritische Schwelle von 100 °C überschritten.\n"
 "(Das ist nur ein Test von Sensor Deck.)"
 
-#: package/contents/ui/ConfigAppearance.qml:37
+#: package/contents/ui/ConfigAppearance.qml:38
 msgid "Columns:"
 msgstr "Spalten:"
 
-#: package/contents/ui/ConfigAppearance.qml:39
 #: package/contents/ui/ConfigAppearance.qml:40
+#: package/contents/ui/ConfigAppearance.qml:41
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: package/contents/ui/ConfigAppearance.qml:44
+#: package/contents/ui/ConfigAppearance.qml:45
 msgid "On the desktop:"
 msgstr "Auf dem Desktop:"
 
-#: package/contents/ui/ConfigAppearance.qml:45
+#: package/contents/ui/ConfigAppearance.qml:46
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "Kacheln verkleinern, damit alles ohne Scrollen passt"
 
-#: package/contents/ui/ConfigAppearance.qml:50
+#: package/contents/ui/ConfigAppearance.qml:51
 msgid "Tile style:"
 msgstr "Kachelstil:"
 
-#: package/contents/ui/ConfigAppearance.qml:53
-#: package/contents/ui/FullView.qml:591
+#: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/FullView.qml:607
 msgid "Glass (subtle)"
 msgstr "Glas (dezent)"
 
-#: package/contents/ui/ConfigAppearance.qml:54
-#: package/contents/ui/FullView.qml:592
+#: package/contents/ui/ConfigAppearance.qml:55
+#: package/contents/ui/FullView.qml:608
 msgid "Filled"
 msgstr "Gefüllt"
 
-#: package/contents/ui/ConfigAppearance.qml:55
-#: package/contents/ui/FullView.qml:593
+#: package/contents/ui/ConfigAppearance.qml:56
+#: package/contents/ui/FullView.qml:609
 msgid "Outline (accent colour)"
 msgstr "Kontur (Akzentfarbe)"
 
-#: package/contents/ui/ConfigAppearance.qml:61
+#: package/contents/ui/ConfigAppearance.qml:62
 msgid "Size:"
 msgstr "Größe:"
 
-#: package/contents/ui/ConfigAppearance.qml:76
+#: package/contents/ui/ConfigAppearance.qml:74
+msgid "Background opacity:"
+msgstr "Deckkraft des Hintergrunds:"
+
+#: package/contents/ui/ConfigAppearance.qml:88
+msgid "Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background."
+msgstr "Nur auf dem Desktop. Werte und Texte bleiben voll sichtbar; 100 % ist der normale Plasma-Hintergrund."
+
+#: package/contents/ui/ConfigAppearance.qml:97
 msgid "Sections per graphics card:"
 msgstr "Abschnitte je Grafikkarte:"
 
-#: package/contents/ui/ConfigAppearance.qml:79
-#: package/contents/ui/FullView.qml:602
+#: package/contents/ui/ConfigAppearance.qml:100
+#: package/contents/ui/FullView.qml:618
 msgid "From two graphics cards"
 msgstr "Ab zwei Grafikkarten"
 
-#: package/contents/ui/ConfigAppearance.qml:80
-#: package/contents/ui/FullView.qml:603
+#: package/contents/ui/ConfigAppearance.qml:101
+#: package/contents/ui/FullView.qml:619
 msgid "Always (even with one card)"
 msgstr "Immer (auch bei einer Karte)"
 
-#: package/contents/ui/ConfigAppearance.qml:81
-#: package/contents/ui/FullView.qml:604
+#: package/contents/ui/ConfigAppearance.qml:102
+#: package/contents/ui/FullView.qml:620
 msgid "Never (several cards: coloured edge)"
 msgstr "Nie (mehrere Karten: farbiger Rand)"
 
-#: package/contents/ui/ConfigAppearance.qml:91
+#: package/contents/ui/ConfigAppearance.qml:112
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "Kacheln direkt im Widget verschieben, entfernen oder hinzufügen: Rechtsklick → „Kacheln bearbeiten“."
 
-#: package/contents/ui/ConfigAppearance.qml:99
+#: package/contents/ui/ConfigAppearance.qml:120
 msgid "Update:"
 msgstr "Aktualisierung:"
 
-#: package/contents/ui/ConfigAppearance.qml:101
+#: package/contents/ui/ConfigAppearance.qml:122
 msgid "every %1 s"
 msgstr "alle %1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:107
+#: package/contents/ui/ConfigAppearance.qml:128
 msgid "History in graphs:"
 msgstr "Verlauf im Graph:"
 
-#: package/contents/ui/ConfigAppearance.qml:109
+#: package/contents/ui/ConfigAppearance.qml:130
 msgid "%1 s"
 msgstr "%1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:113
+#: package/contents/ui/ConfigAppearance.qml:134
 msgid "Panel"
 msgstr "Panel"
 
-#: package/contents/ui/ConfigAppearance.qml:117
+#: package/contents/ui/ConfigAppearance.qml:138
 msgid "In the panel:"
 msgstr "Im Panel:"
 
-#: package/contents/ui/ConfigAppearance.qml:118
+#: package/contents/ui/ConfigAppearance.qml:139
 msgid "Show mini rings"
 msgstr "Mini-Ringe anzeigen"
 
-#: package/contents/ui/ConfigAppearance.qml:122
+#: package/contents/ui/ConfigAppearance.qml:143
 msgid "Show labels"
 msgstr "Beschriftungen anzeigen"
 
-#: package/contents/ui/ConfigAppearance.qml:128
+#: package/contents/ui/ConfigAppearance.qml:149
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "Welche Sensoren im Panel erscheinen, wird auf der Seite „Sensoren“ pro Eintrag festgelegt. Der Hintergrund des Widgets auf dem Desktop lässt sich im Bearbeitungsmodus umschalten."
 
-#: package/contents/ui/ConfigAppearance.qml:148
+#: package/contents/ui/ConfigAppearance.qml:169
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Betrifft nur die Einstellungen dieser Seite – die Sensor-Kacheln und Benachrichtigungen bleiben erhalten."
 
@@ -415,7 +423,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "Die Ansicht vor dem letzten Laden eines Profils lässt sich wiederherstellen."
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:637
+#: package/contents/ui/FullView.qml:653
 msgid "Undo profile change"
 msgstr "Profilwechsel rückgängig machen"
 
@@ -490,22 +498,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "Exportierte Dateien lassen sich auf einem anderen Computer importieren. Kacheln einer Grafikkarte, die dieser Computer nicht hat, wandern auf eine Karte desselben Herstellers; gelernte Lüfterkurven gehören nicht zum Profil."
 
 #: package/contents/ui/ConfigSensors.qml:31
-#: package/contents/ui/FullView.qml:698
+#: package/contents/ui/FullView.qml:714
 msgid "Ring"
 msgstr "Ring"
 
 #: package/contents/ui/ConfigSensors.qml:32
-#: package/contents/ui/FullView.qml:703
+#: package/contents/ui/FullView.qml:719
 msgid "Bar"
 msgstr "Balken"
 
 #: package/contents/ui/ConfigSensors.qml:33
-#: package/contents/ui/FullView.qml:708
+#: package/contents/ui/FullView.qml:724
 msgid "History graph"
 msgstr "Verlaufsgraph"
 
 #: package/contents/ui/ConfigSensors.qml:34
-#: package/contents/ui/FullView.qml:713
+#: package/contents/ui/FullView.qml:729
 msgid "Value only"
 msgstr "Nur Wert"
 
@@ -688,7 +696,7 @@ msgid "Style:"
 msgstr "Darstellung:"
 
 #: package/contents/ui/ConfigSensors.qml:536
-#: package/contents/ui/FullView.qml:718
+#: package/contents/ui/FullView.qml:734
 msgid "Double width"
 msgstr "Doppelt breit"
 
@@ -1110,130 +1118,130 @@ msgstr "Keine Daten von den Sensoren"
 msgid "Collecting data points …"
 msgstr "Sammle Messpunkte …"
 
-#: package/contents/ui/FullView.qml:153
+#: package/contents/ui/FullView.qml:155
 msgid "Comparison"
 msgstr "Vergleich"
 
-#: package/contents/ui/FullView.qml:155
+#: package/contents/ui/FullView.qml:157
 msgid "System"
 msgstr "System"
 
-#: package/contents/ui/FullView.qml:281
+#: package/contents/ui/FullView.qml:296
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Soll Sensor Deck einmal pro Woche nach neuen Versionen suchen? Dafür wird github.com kontaktiert – GitHub sieht die IP-Adresse, wie bei jedem Website-Besuch; sonst wird nichts gesendet. Das lässt sich jederzeit in den Einstellungen ändern."
 
-#: package/contents/ui/FullView.qml:282
+#: package/contents/ui/FullView.qml:297
 msgid "Sensor Deck %1 is available (installed: %2)."
 msgstr "Sensor Deck %1 ist verfügbar (installiert: %2)."
 
-#: package/contents/ui/FullView.qml:286
+#: package/contents/ui/FullView.qml:301
 msgid "Yes, check weekly"
 msgstr "Ja, wöchentlich prüfen"
 
-#: package/contents/ui/FullView.qml:292
+#: package/contents/ui/FullView.qml:307
 msgid "No, thanks"
 msgstr "Nein, danke"
 
-#: package/contents/ui/FullView.qml:317
+#: package/contents/ui/FullView.qml:332
 msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
 msgstr "Kachel ziehen, um sie innerhalb ihres Abschnitts zu verschieben. × entfernt eine Kachel, + fügt eine hinzu."
 
-#: package/contents/ui/FullView.qml:321 package/contents/ui/FullView.qml:537
-#: package/contents/ui/main.qml:432
+#: package/contents/ui/FullView.qml:336 package/contents/ui/FullView.qml:553
+#: package/contents/ui/main.qml:433
 msgid "Restore “%1”"
 msgstr "„%1“ wiederherstellen"
 
-#: package/contents/ui/FullView.qml:327 package/contents/ui/FullView.qml:549
-#: package/contents/ui/main.qml:438
+#: package/contents/ui/FullView.qml:342 package/contents/ui/FullView.qml:565
+#: package/contents/ui/main.qml:439
 msgid "Undo last move"
 msgstr "Letzte Verschiebung rückgängig"
 
-#: package/contents/ui/FullView.qml:332
+#: package/contents/ui/FullView.qml:347
 msgid "Done"
 msgstr "Fertig"
 
-#: package/contents/ui/FullView.qml:402 package/contents/ui/FullView.qml:425
+#: package/contents/ui/FullView.qml:417 package/contents/ui/FullView.qml:440
 msgid "Add tile"
 msgstr "Kachel hinzufügen"
 
-#: package/contents/ui/FullView.qml:499 package/contents/ui/FullView.qml:516
+#: package/contents/ui/FullView.qml:515 package/contents/ui/FullView.qml:532
 msgid "Remove tile"
 msgstr "Kachel entfernen"
 
-#: package/contents/ui/FullView.qml:531 package/contents/ui/main.qml:426
+#: package/contents/ui/FullView.qml:547 package/contents/ui/main.qml:427
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Sensor Deck %1 ist verfügbar – Download-Seite öffnen"
 
-#: package/contents/ui/FullView.qml:543
+#: package/contents/ui/FullView.qml:559
 msgid "Finish editing"
 msgstr "Bearbeiten beenden"
 
-#: package/contents/ui/FullView.qml:543
+#: package/contents/ui/FullView.qml:559
 msgid "Edit tiles"
 msgstr "Kacheln bearbeiten"
 
-#: package/contents/ui/FullView.qml:555 package/contents/ui/main.qml:444
+#: package/contents/ui/FullView.qml:571 package/contents/ui/main.qml:445
 msgid "Restore original arrangement"
 msgstr "Ursprüngliche Anordnung wiederherstellen"
 
-#: package/contents/ui/FullView.qml:561
+#: package/contents/ui/FullView.qml:577
 msgid "Configure Sensor Deck …"
 msgstr "Sensor Deck einrichten …"
 
-#: package/contents/ui/FullView.qml:588
+#: package/contents/ui/FullView.qml:604
 msgid "Tile style"
 msgstr "Kachelstil"
 
-#: package/contents/ui/FullView.qml:599
+#: package/contents/ui/FullView.qml:615
 msgid "Sections per graphics card"
 msgstr "Abschnitte je Grafikkarte"
 
-#: package/contents/ui/FullView.qml:614
+#: package/contents/ui/FullView.qml:630
 msgid "Profile"
 msgstr "Profil"
 
-#: package/contents/ui/FullView.qml:617
+#: package/contents/ui/FullView.qml:633
 msgid "No profiles saved yet"
 msgstr "Noch keine Profile gespeichert"
 
-#: package/contents/ui/FullView.qml:627
+#: package/contents/ui/FullView.qml:643
 msgid "changed"
 msgstr "geändert"
 
-#: package/contents/ui/FullView.qml:643
+#: package/contents/ui/FullView.qml:659
 msgid "Manage profiles …"
 msgstr "Profile verwalten …"
 
-#: package/contents/ui/FullView.qml:654
+#: package/contents/ui/FullView.qml:670
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Tipp: Lange auf eine freie Stelle drücken – Widget verschieben, Größe ändern, entfernen"
 
-#: package/contents/ui/FullView.qml:685
+#: package/contents/ui/FullView.qml:701
 msgid "Edit in settings …"
 msgstr "In den Einstellungen bearbeiten …"
 
-#: package/contents/ui/FullView.qml:734 package/contents/ui/FullView.qml:796
-#: package/contents/ui/main.qml:457
+#: package/contents/ui/FullView.qml:750 package/contents/ui/FullView.qml:812
+#: package/contents/ui/main.qml:464
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:763
+#: package/contents/ui/FullView.qml:779
 msgid "Suggestions for your hardware"
 msgstr "Vorschläge für diese Hardware"
 
-#: package/contents/ui/FullView.qml:763
+#: package/contents/ui/FullView.qml:779
 msgid "No further suggestions"
 msgstr "Keine weiteren Vorschläge"
 
-#: package/contents/ui/FullView.qml:782
+#: package/contents/ui/FullView.qml:798
 msgid "Own tile …"
 msgstr "Eigene Kachel …"
 
-#: package/contents/ui/FullView.qml:868
+#: package/contents/ui/FullView.qml:884
 msgid "No sensors configured"
 msgstr "Keine Sensoren konfiguriert"
 
-#: package/contents/ui/FullView.qml:874
+#: package/contents/ui/FullView.qml:890
 msgid "Configure …"
 msgstr "Einrichten …"
 
@@ -1742,31 +1750,31 @@ msgstr "Die Lüfter laufen wieder normal."
 msgid "The value is below the threshold again."
 msgstr "Der Wert liegt wieder unter der Schwelle."
 
-#: package/contents/ui/SensorTile.qml:152
+#: package/contents/ui/SensorTile.qml:155
 msgid "Fan %1 at %2"
 msgstr "Lüfter %1 bei %2"
 
-#: package/contents/ui/SensorTile.qml:165
+#: package/contents/ui/SensorTile.qml:168
 msgid "Now: %1"
 msgstr "Jetzt: %1"
 
-#: package/contents/ui/SensorTile.qml:181
+#: package/contents/ui/SensorTile.qml:184
 msgid "Critical – above the threshold of %1."
 msgstr "Kritisch – über der Schwelle von %1."
 
-#: package/contents/ui/SensorTile.qml:182
+#: package/contents/ui/SensorTile.qml:185
 msgid "Elevated – above the warning threshold of %1."
 msgstr "Erhöht – über der Warnschwelle von %1."
 
-#: package/contents/ui/SensorTile.qml:183
+#: package/contents/ui/SensorTile.qml:186
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "Im normalen Bereich · Warnung ab %1, kritisch ab %2."
 
-#: package/contents/ui/SensorTile.qml:184
+#: package/contents/ui/SensorTile.qml:187
 msgid "In the normal range · warning from %1."
 msgstr "Im normalen Bereich · Warnung ab %1."
 
-#: package/contents/ui/SensorTile.qml:184
+#: package/contents/ui/SensorTile.qml:187
 msgid "In the normal range · critical from %1."
 msgstr "Im normalen Bereich · kritisch ab %1."
 

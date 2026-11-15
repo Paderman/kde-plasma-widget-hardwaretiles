@@ -18,6 +18,8 @@ Rectangle {
     property var src: null
     property string style: "ring"
     property string tileStyle: "glass"
+    // background opacity of the widget (0…1): fills fade with it, values and text stay
+    property real fillFactor: 1
     property real scale_: 1.0
     // drag & drop state (set by FullView)
     property bool dropTarget: false
@@ -60,10 +62,10 @@ Rectangle {
     readonly property color bg: Kirigami.Theme.backgroundColor
     // light: filled = nearly opaque, glass = clearly see-through, outline = only a
     // faint brightening so the grey background does not shine through untouched
-    color: lightTheme ? Qt.rgba(bg.r, bg.g, bg.b, tileStyle === "solid" ? 0.95 : tileStyle === "outline" ? 0.3 : 0.4)
+    color: lightTheme ? Qt.rgba(bg.r, bg.g, bg.b, fillFactor * (tileStyle === "solid" ? 0.95 : tileStyle === "outline" ? 0.3 : 0.4))
          : tileStyle === "outline" ? "transparent"
-         : tileStyle === "solid" ? Qt.rgba(fg.r, fg.g, fg.b, 0.07)
-         : Qt.rgba(fg.r, fg.g, fg.b, 0.045)
+         : tileStyle === "solid" ? Qt.rgba(fg.r, fg.g, fg.b, 0.07 * fillFactor)
+         : Qt.rgba(fg.r, fg.g, fg.b, 0.045 * fillFactor)
     border.width: tileStyle === "solid" && !lightTheme ? 0 : 1
     border.color: tileStyle === "outline" ? Qt.rgba(accent.r, accent.g, accent.b, 0.45)
                                           : Qt.rgba(fg.r, fg.g, fg.b, lightTheme ? 0.13 : 0.09)
@@ -88,7 +90,8 @@ Rectangle {
         visible: card.tileStyle !== "outline"
         anchors.fill: parent
         radius: card.radius
-        opacity: card.ready && card.src.level > 0 ? (card.lightTheme ? 0.12 : 0.22) : (card.lightTheme ? 0.05 : 0.10)
+        // a warning stays visible even at 0 % background
+        opacity: card.ready && card.src.level > 0 ? (card.lightTheme ? 0.12 : 0.22) : card.fillFactor * (card.lightTheme ? 0.05 : 0.10)
         Behavior on opacity { NumberAnimation { duration: 400 } }
         gradient: Gradient {
             orientation: Gradient.Vertical

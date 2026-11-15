@@ -23,6 +23,8 @@ Item {
     readonly property bool inPopup: Plasmoid.formFactor === PlasmaCore.Types.Horizontal
                                     || Plasmoid.formFactor === PlasmaCore.Types.Vertical
     readonly property bool autoCols: Plasmoid.configuration.columns <= 0
+    // background opacity 0…1 – only on the desktop, the panel popup keeps its own
+    readonly property real bgFactor: inPopup ? 1 : root.bgOpacity / 100
     readonly property bool fit: Plasmoid.configuration.fitToSize && !inPopup
     // size of the smallest ring gauge – all rings use it (see ringTimer)
     property real ringSize: 0
@@ -255,6 +257,19 @@ Item {
         finishDrag();
     }
 
+    // own background below 100 % opacity (the Plasma frame is switched off then)
+    Rectangle {
+        anchors.fill: parent
+        z: -1
+        visible: !full.inPopup && root.bgOpacity < 100 && root.bgOpacity > 0
+        radius: Kirigami.Units.cornerRadius * 2
+        readonly property color bg: Kirigami.Theme.backgroundColor
+        readonly property color fg: Kirigami.Theme.textColor
+        color: Qt.rgba(bg.r, bg.g, bg.b, full.bgFactor)
+        border.width: 1
+        border.color: Qt.rgba(fg.r, fg.g, fg.b, 0.12 * full.bgFactor)
+    }
+
     // first-run setup
     Loader {
         anchors.fill: parent
@@ -453,6 +468,7 @@ Item {
                         src: srcs.length === 1 ? srcs[0].src : root.source(itemIndex)
                         style: (root.items[itemIndex] || {}).style || "ring"
                         tileStyle: Plasmoid.configuration.tileStyle
+                        fillFactor: full.bgFactor
                         scale_: full.scale_
                         gpuColor: full.sections || !root.multiGpu ? "transparent"
                                   : Hardware.gpuColor((root.items[itemIndex] || {}).gpuSlot, root.lightTheme)

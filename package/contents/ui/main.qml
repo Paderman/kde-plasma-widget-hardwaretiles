@@ -176,6 +176,7 @@ PlasmoidItem {
     Component.onCompleted: {
         // a size preview left over (settings were open when Plasma stopped)
         Plasmoid.configuration.tileScalePreview = 0;
+        Plasmoid.configuration.backgroundOpacityPreview = -1;
         // existing widgets already have a layout: don't show the wizard there
         if (!Plasmoid.configuration.setupDone && Plasmoid.configuration.items !== "")
             Plasmoid.configuration.setupDone = true;
@@ -448,7 +449,13 @@ PlasmoidItem {
         }
     ]
 
-    Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
+    // background opacity (desktop): 100 % = the normal Plasma frame, below that the
+    // widget draws its own background (FullView) – the Plasma frame has no opacity
+    readonly property int bgOpacity: Math.max(0, Math.min(100,
+        Plasmoid.configuration.backgroundOpacityPreview >= 0 ? Plasmoid.configuration.backgroundOpacityPreview
+                                                             : Plasmoid.configuration.backgroundOpacity))
+    Plasmoid.backgroundHints: bgOpacity >= 100 ? (PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground)
+                                               : PlasmaCore.Types.NoBackground
 
     preferredRepresentation: (Plasmoid.formFactor === PlasmaCore.Types.Horizontal
                               || Plasmoid.formFactor === PlasmaCore.Types.Vertical)

@@ -15,7 +15,7 @@ var FORMAT = "sensordeck-profiles";
 var KEYS = {
     items: "s", gpuAddress: "s", layoutPreset: "s", layoutHash: "s", baseOrder: "s",
     gpuSectionMode: "s", fitToSize: "b", columns: "i", updateInterval: "i", historyLength: "i",
-    tileStyle: "s", tileScale: "i", panelShowLabels: "b", panelShowRings: "b",
+    tileStyle: "s", tileScale: "i", backgroundOpacity: "i", panelShowLabels: "b", panelShowRings: "b",
     alertsEnabled: "b", alertOnWarn: "b", alertRecovery: "b", alertDelay: "i",
     alertCooldown: "i", alertHysteresis: "i", fanWatch: "b", fanSlowPercent: "i"
 };

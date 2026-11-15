@@ -15,6 +15,7 @@ KCM.SimpleKCM {
     property alias cfg_updateInterval: interval.value
     property alias cfg_historyLength: history.value
     property alias cfg_tileScale: scale.value
+    property alias cfg_backgroundOpacity: bgOpacity.value
     property string cfg_tileStyle
     property alias cfg_panelShowLabels: panelLabels.checked
     property alias cfg_panelShowRings: panelRings.checked
@@ -68,6 +69,26 @@ KCM.SimpleKCM {
                 Component.onDestruction: Plasmoid.configuration.tileScalePreview = 0
             }
             QQC2.Label { text: Math.round(scale.value) + " %" }
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Background opacity:")
+            QQC2.Slider {
+                id: bgOpacity
+                from: 0; to: 100; stepSize: 5
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                // live preview in the widget; stored only with OK / Apply
+                onValueChanged: Plasmoid.configuration.backgroundOpacityPreview = Math.round(value)
+                Component.onDestruction: Plasmoid.configuration.backgroundOpacityPreview = -1
+            }
+            QQC2.Label { text: Math.round(bgOpacity.value) + " %" }
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
+            text: i18n("Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background.")
+            wrapMode: Text.WordWrap
+            font: Kirigami.Theme.smallFont
+            opacity: 0.7
         }
 
         QQC2.ComboBox {
