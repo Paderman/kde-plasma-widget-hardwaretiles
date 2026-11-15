@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "传感器"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:731
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:730
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:700
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:699
 msgid "Appearance"
 msgstr "外观"
 
@@ -38,168 +38,173 @@ msgstr "配置档案"
 msgid "About & updates"
 msgstr "关于与更新"
 
-#: package/contents/ui/ConfigAbout.qml:47
+#: package/contents/ui/ConfigAbout.qml:53
 msgid "Version:"
 msgstr "版本:"
 
-#: package/contents/ui/ConfigAbout.qml:51
+#: package/contents/ui/ConfigAbout.qml:57
 msgid "Licence:"
 msgstr "许可证:"
 
-#: package/contents/ui/ConfigAbout.qml:55
+#: package/contents/ui/ConfigAbout.qml:61
 msgid "Links:"
 msgstr "链接:"
 
-#: package/contents/ui/ConfigAbout.qml:57
+#: package/contents/ui/ConfigAbout.qml:63
 msgid "Website"
 msgstr "网站"
 
-#: package/contents/ui/ConfigAbout.qml:62
+#: package/contents/ui/ConfigAbout.qml:68
 msgid "Report a problem"
 msgstr "报告问题"
 
-#: package/contents/ui/ConfigAbout.qml:67
+#: package/contents/ui/ConfigAbout.qml:73
 msgid "Hardware not detected"
 msgstr "未检测到硬件"
 
-#: package/contents/ui/ConfigAbout.qml:77
+#: package/contents/ui/ConfigAbout.qml:83
 msgid "Updates:"
 msgstr "更新:"
 
-#: package/contents/ui/ConfigAbout.qml:78
+#: package/contents/ui/ConfigAbout.qml:84
 msgid "Look for new versions once a week"
 msgstr "每周检查一次新版本"
 
-#: package/contents/ui/ConfigAbout.qml:83
+#: package/contents/ui/ConfigAbout.qml:90
 msgid "Check now"
 msgstr "立即检查"
 
-#: package/contents/ui/ConfigAbout.qml:97
+#: package/contents/ui/ConfigAbout.qml:104
 msgid "You have the latest version."
 msgstr "您使用的是最新版本。"
 
-#: package/contents/ui/ConfigAbout.qml:98
+#: package/contents/ui/ConfigAbout.qml:105
 msgid "Version %1 is available."
 msgstr "版本 %1 可用。"
 
-#: package/contents/ui/ConfigAbout.qml:99
+#: package/contents/ui/ConfigAbout.qml:106
 msgid "No version has been published yet."
 msgstr "尚未发布任何版本。"
 
-#: package/contents/ui/ConfigAbout.qml:100
+#: package/contents/ui/ConfigAbout.qml:107
 msgid "GitHub could not be reached (%1)."
 msgstr "无法连接 GitHub(%1)。"
 
-#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:300
+#: package/contents/ui/ConfigAbout.qml:114 package/contents/ui/FullView.qml:299
 msgid "Open download page"
 msgstr "打开下载页面"
 
-#: package/contents/ui/ConfigAbout.qml:119
+#: package/contents/ui/ConfigAbout.qml:126
 msgid "Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Sensor Deck sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>."
 msgstr "隐私:仅当您允许或点击“立即检查”时才会检查。届时您的电脑会向 api.github.com 查询最新版本号。与访问任何网站一样,GitHub 会看到您的 IP 地址;Sensor Deck 不发送任何其他数据,也不做任何统计。详情:<a href=\"%1\">GitHub 隐私声明</a>。"
 
-#: package/contents/ui/ConfigAbout.qml:128
+#: package/contents/ui/ConfigAbout.qml:135
 msgid "Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you."
 msgstr "通过“获取新小部件”或 Discover 安装?那么 Discover 会为您安装更新 – 此处的检查仅作提示。"
 
-#: package/contents/ui/ConfigAlerts.qml:32
+#: package/contents/ui/ConfigAlerts.qml:43
 msgid "Notifications:"
 msgstr "通知:"
 
-#: package/contents/ui/ConfigAlerts.qml:33
+#: package/contents/ui/ConfigAlerts.qml:44
 msgid "Notify on critical values"
 msgstr "严重数值时通知"
 
-#: package/contents/ui/ConfigAlerts.qml:38
+#: package/contents/ui/ConfigAlerts.qml:50
 msgid "Also when the warning threshold is reached"
 msgstr "达到警告阈值时也通知"
 
-#: package/contents/ui/ConfigAlerts.qml:43
+#: package/contents/ui/ConfigAlerts.qml:56
 msgid "All-clear when the value is back to normal"
 msgstr "数值恢复正常时解除通知"
 
-#: package/contents/ui/ConfigAlerts.qml:52
+#: package/contents/ui/ConfigAlerts.qml:63
 msgid "Trigger after:"
 msgstr "触发延迟:"
 
-#: package/contents/ui/ConfigAlerts.qml:54
+#: package/contents/ui/ConfigAlerts.qml:67
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
 
-#: package/contents/ui/ConfigAlerts.qml:61
+#: package/contents/ui/ConfigAlerts.qml:73
 msgid "Warn again only:"
 msgstr "仅在以下情况再次警告:"
 
-#: package/contents/ui/ConfigAlerts.qml:63
+#: package/contents/ui/ConfigAlerts.qml:77
 msgid "%1 below the threshold"
 msgstr "低于阈值 %1"
 
-#: package/contents/ui/ConfigAlerts.qml:70
+#: package/contents/ui/ConfigAlerts.qml:83
 msgid "Repeat at the earliest after:"
 msgstr "最短重复间隔:"
 
-#: package/contents/ui/ConfigAlerts.qml:72
+#: package/contents/ui/ConfigAlerts.qml:87
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 分钟"
 
-#: package/contents/ui/ConfigAlerts.qml:80
+#: package/contents/ui/ConfigAlerts.qml:96
 msgid "A notification is triggered when a value stays above its threshold for the set time – short spikes are ignored. You are warned again only after the value has dropped below the threshold by the set margin in between – in the sensor's unit, e.g. 3 °C or 3 %. Critical notifications stay until you close them and also appear in “Do not disturb” mode. Thresholds and the “Notify” switch are set per sensor on the “Sensors” page."
 msgstr "当数值在设定时间内持续高于阈值时触发通知 – 短暂峰值会被忽略。只有当数值在此期间回落到阈值以下设定幅度(以传感器单位计,例如 3 °C 或 3 %)时才会再次警告。严重通知会一直显示直到您关闭,即使在“请勿打扰”模式下也会显示。阈值和“通知”开关在“传感器”页面中为每个传感器单独设置。"
 
-#: package/contents/ui/ConfigAlerts.qml:83
+#: package/contents/ui/ConfigAlerts.qml:99
 msgid "Graphics card fans"
 msgstr "显卡风扇"
 
-#: package/contents/ui/ConfigAlerts.qml:87
+#: package/contents/ui/ConfigAlerts.qml:104
 msgid "Monitor fans:"
 msgstr "监控风扇："
 
-#: package/contents/ui/ConfigAlerts.qml:88
+#: package/contents/ui/ConfigAlerts.qml:105
 msgid "Warn when a fan stands still or runs too slowly"
 msgstr "风扇停转或转得太慢时发出警告"
 
-#: package/contents/ui/ConfigAlerts.qml:94
+#: package/contents/ui/ConfigAlerts.qml:109
 msgid "Too slow below:"
 msgstr "低于此值视为过慢："
 
-#: package/contents/ui/ConfigAlerts.qml:96
+#: package/contents/ui/ConfigAlerts.qml:113
 msgid "Off (standstill only)"
 msgstr "关闭（仅检测停转）"
 
-#: package/contents/ui/ConfigAlerts.qml:98
+#: package/contents/ui/ConfigAlerts.qml:115
 #, no-javascript-format
 msgid "%1 % of the fastest fan"
 msgstr "最快风扇的 %1 %"
 
-#: package/contents/ui/ConfigAlerts.qml:105
+#: package/contents/ui/ConfigAlerts.qml:123
 msgid "For NVIDIA cards whose driver reports the measured fan speed. A fan that stands still for 15 seconds although the card wants it to turn is critical. A fan that runs clearly slower than the other fans of the card at the same setting for 30 seconds is a warning – the comparison needs at least two fans. Fans that the card switches off when idle do not trigger anything."
 msgstr "适用于驱动程序会报告实测风扇转速的 NVIDIA 显卡。显卡需要风扇转动而风扇停转 15 秒属于严重情况。在相同设置下，风扇明显比显卡的其他风扇慢且持续 30 秒，会发出警告——比较需要至少两个风扇。显卡在空闲时关闭的风扇不会触发任何提醒。"
 
-#: package/contents/ui/ConfigAlerts.qml:112
+#: package/contents/ui/ConfigAlerts.qml:130
 msgid "Send test notification"
 msgstr "发送测试通知"
 
-#: package/contents/ui/ConfigAlerts.qml:121
-#: package/contents/ui/ConfigAppearance.qml:219
+#: package/contents/ui/ConfigAlerts.qml:140
+#: package/contents/ui/ConfigAppearance.qml:258
+msgid "Reset a single setting: right-click it, or click it with the middle mouse button (scroll wheel)."
+msgstr "重置单个设置:右键单击该项,或用鼠标中键(滚轮)单击它。"
+
+#: package/contents/ui/ConfigAlerts.qml:145
+#: package/contents/ui/ConfigAppearance.qml:263
 msgid "Restore defaults"
 msgstr "恢复默认值"
 
-#: package/contents/ui/ConfigAlerts.qml:132
-#: package/contents/ui/ConfigAppearance.qml:230
+#: package/contents/ui/ConfigAlerts.qml:156
+#: package/contents/ui/ConfigAppearance.qml:274
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "已重置。点击“应用”后才会生效 – “取消”将保持原样。"
 
-#: package/contents/ui/ConfigAlerts.qml:133
+#: package/contents/ui/ConfigAlerts.qml:157
 msgid "Only affects the general settings on this page – your sensor tiles, their thresholds and the per-sensor “Notify” switch are kept."
 msgstr "仅影响此页面上的通用设置 – 传感器磁贴、其阈值以及每个传感器的“通知”开关将保留。"
 
-#: package/contents/ui/ConfigAlerts.qml:143
+#: package/contents/ui/ConfigAlerts.qml:167
 msgid "VRAM temperature critical: 102 °C"
 msgstr "显存温度严重:102 °C"
 
-#: package/contents/ui/ConfigAlerts.qml:144
+#: package/contents/ui/ConfigAlerts.qml:168
 msgid ""
 "Critical threshold of 100 °C exceeded.\n"
 "(This is just a test from Sensor Deck.)"
@@ -207,148 +212,156 @@ msgstr ""
 "已超过严重阈值 100 °C。\n"
 "(这只是 Sensor Deck 的测试。)"
 
-#: package/contents/ui/ConfigAppearance.qml:45
+#: package/contents/ui/ConfigAppearance.qml:77
 msgid "Columns:"
 msgstr "列数:"
 
-#: package/contents/ui/ConfigAppearance.qml:47
-#: package/contents/ui/ConfigAppearance.qml:48
+#: package/contents/ui/ConfigAppearance.qml:80
+#: package/contents/ui/ConfigSensors.qml:450
+#: package/contents/ui/ConfigSensors.qml:631
 msgid "Automatic"
 msgstr "自动"
 
-#: package/contents/ui/ConfigAppearance.qml:52
+#: package/contents/ui/ConfigAppearance.qml:87
 msgid "On the desktop:"
 msgstr "桌面上:"
 
-#: package/contents/ui/ConfigAppearance.qml:53
+#: package/contents/ui/ConfigAppearance.qml:88
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "缩小磁贴,使所有内容无需滚动即可显示"
 
-#: package/contents/ui/ConfigAppearance.qml:58
+#: package/contents/ui/ConfigAppearance.qml:94
 msgid "Tile style:"
 msgstr "磁贴样式:"
 
-#: package/contents/ui/ConfigAppearance.qml:61
-#: package/contents/ui/FullView.qml:597
+#: package/contents/ui/ConfigAppearance.qml:97
+#: package/contents/ui/FullView.qml:596
 msgid "Glass (subtle)"
 msgstr "玻璃(低调)"
 
-#: package/contents/ui/ConfigAppearance.qml:62
-#: package/contents/ui/FullView.qml:598
+#: package/contents/ui/ConfigAppearance.qml:98
+#: package/contents/ui/FullView.qml:597
 msgid "Filled"
 msgstr "填充"
 
-#: package/contents/ui/ConfigAppearance.qml:63
-#: package/contents/ui/FullView.qml:599
+#: package/contents/ui/ConfigAppearance.qml:99
+#: package/contents/ui/FullView.qml:598
 msgid "Outline (accent colour)"
 msgstr "轮廓(强调色)"
 
-#: package/contents/ui/ConfigAppearance.qml:69
+#: package/contents/ui/ConfigAppearance.qml:105
 msgid "Size:"
 msgstr "大小:"
 
-#: package/contents/ui/ConfigAppearance.qml:81
+#: package/contents/ui/ConfigAppearance.qml:115
 msgid "Background opacity:"
 msgstr "背景不透明度:"
 
-#: package/contents/ui/ConfigAppearance.qml:93
+#: package/contents/ui/ConfigAppearance.qml:125
 msgid "Tile opacity:"
 msgstr "磁贴不透明度:"
 
-#: package/contents/ui/ConfigAppearance.qml:108
+#: package/contents/ui/ConfigAppearance.qml:138
 msgid "Only on the desktop. The less background, the more solid the tiles get, so values stay readable on any wallpaper – “Tile opacity” sets how solid they are at 0 %. 100 % background is the normal Plasma background."
 msgstr "仅在桌面上生效。背景越少,磁贴越不透明,因此在任何壁纸上数值都清晰可读;“磁贴不透明度”决定背景为 0% 时磁贴的不透明程度。背景 100% 为 Plasma 的默认背景。"
 
-#: package/contents/ui/ConfigAppearance.qml:115
+#: package/contents/ui/ConfigAppearance.qml:146
 msgid "Tooltips:"
 msgstr "工具提示:"
 
-#: package/contents/ui/ConfigAppearance.qml:116
+#: package/contents/ui/ConfigAppearance.qml:147
 msgid "Show details when the mouse pointer rests on a tile"
 msgstr "鼠标指针停留在磁贴上时显示详细信息"
 
-#: package/contents/ui/ConfigAppearance.qml:119
+#: package/contents/ui/ConfigAppearance.qml:150
 msgid "Tooltip delay:"
 msgstr "工具提示延迟:"
 
-#: package/contents/ui/ConfigAppearance.qml:127
-msgid "Immediately"
-msgstr "立即"
-
-#: package/contents/ui/ConfigAppearance.qml:128
-#: package/contents/ui/ConfigAppearance.qml:143
-#: package/contents/ui/ConfigAppearance.qml:192
+#: package/contents/ui/ConfigAppearance.qml:154
+#: package/contents/ui/ConfigAppearance.qml:160
+#: package/contents/ui/ConfigAppearance.qml:168
+#: package/contents/ui/ConfigAppearance.qml:176
+#: package/contents/ui/ConfigAppearance.qml:227
 msgid "%1 s"
 msgstr "%1 秒"
 
-#: package/contents/ui/ConfigAppearance.qml:132
+#: package/contents/ui/ConfigAppearance.qml:159
+msgid "Immediately"
+msgstr "立即"
+
+#: package/contents/ui/ConfigAppearance.qml:164
 msgid "Tooltip duration:"
 msgstr "工具提示显示时长:"
 
-#: package/contents/ui/ConfigAppearance.qml:143
+#: package/contents/ui/ConfigAppearance.qml:168
+#: package/contents/ui/ConfigAppearance.qml:176
 msgid "Unlimited"
 msgstr "无限制"
 
-#: package/contents/ui/ConfigAppearance.qml:150
+#: package/contents/ui/ConfigAppearance.qml:183
 msgid "“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile."
 msgstr "“无限制”:鼠标指针停留在磁贴上期间,工具提示始终显示。"
 
-#: package/contents/ui/ConfigAppearance.qml:159
+#: package/contents/ui/ConfigAppearance.qml:193
 msgid "Sections per graphics card:"
 msgstr "每块显卡的分区:"
 
-#: package/contents/ui/ConfigAppearance.qml:162
-#: package/contents/ui/FullView.qml:608
+#: package/contents/ui/ConfigAppearance.qml:196
+#: package/contents/ui/FullView.qml:607
 msgid "From two graphics cards"
 msgstr "两块及以上显卡时"
 
-#: package/contents/ui/ConfigAppearance.qml:163
-#: package/contents/ui/FullView.qml:609
+#: package/contents/ui/ConfigAppearance.qml:197
+#: package/contents/ui/FullView.qml:608
 msgid "Always (even with one card)"
 msgstr "始终(即使只有一块)"
 
-#: package/contents/ui/ConfigAppearance.qml:164
-#: package/contents/ui/FullView.qml:610
+#: package/contents/ui/ConfigAppearance.qml:198
+#: package/contents/ui/FullView.qml:609
 msgid "Never (several cards: coloured edge)"
 msgstr "从不(多块显卡:彩色边缘)"
 
-#: package/contents/ui/ConfigAppearance.qml:174
+#: package/contents/ui/ConfigAppearance.qml:208
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "直接在小部件中移动、移除或添加磁贴:右键单击 → “编辑磁贴”。"
 
-#: package/contents/ui/ConfigAppearance.qml:182
+#: package/contents/ui/ConfigAppearance.qml:215
 msgid "Update:"
 msgstr "刷新间隔:"
 
-#: package/contents/ui/ConfigAppearance.qml:184
+#: package/contents/ui/ConfigAppearance.qml:218
 msgid "every %1 s"
 msgstr "每 %1 秒"
 
-#: package/contents/ui/ConfigAppearance.qml:190
+#: package/contents/ui/ConfigAppearance.qml:224
 msgid "History in graphs:"
 msgstr "图表历史:"
 
-#: package/contents/ui/ConfigAppearance.qml:196
+#: package/contents/ui/ConfigAppearance.qml:227
+msgid "%1 min"
+msgstr "%1 分钟"
+
+#: package/contents/ui/ConfigAppearance.qml:232
 msgid "Panel"
 msgstr "面板"
 
-#: package/contents/ui/ConfigAppearance.qml:200
+#: package/contents/ui/ConfigAppearance.qml:237
 msgid "In the panel:"
 msgstr "在面板中:"
 
-#: package/contents/ui/ConfigAppearance.qml:201
+#: package/contents/ui/ConfigAppearance.qml:238
 msgid "Show mini rings"
 msgstr "显示迷你圆环"
 
-#: package/contents/ui/ConfigAppearance.qml:205
+#: package/contents/ui/ConfigAppearance.qml:243
 msgid "Show labels"
 msgstr "显示标签"
 
-#: package/contents/ui/ConfigAppearance.qml:211
+#: package/contents/ui/ConfigAppearance.qml:249
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "哪些传感器显示在面板中,可在“传感器”页面为每个条目单独设置。桌面上小部件的背景可在编辑模式下切换。"
 
-#: package/contents/ui/ConfigAppearance.qml:231
+#: package/contents/ui/ConfigAppearance.qml:275
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "仅影响此页面上的设置 – 传感器磁贴和通知将保留。"
 
@@ -454,7 +467,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "可以恢复上次加载配置档案之前的视图。"
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:643
+#: package/contents/ui/FullView.qml:642
 msgid "Undo profile change"
 msgstr "撤销配置档案切换"
 
@@ -528,22 +541,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "导出的文件可以在另一台计算机上导入。那台计算机没有的显卡的磁贴会移到同一厂商的显卡上；学习到的风扇曲线不属于配置档案。"
 
 #: package/contents/ui/ConfigSensors.qml:40
-#: package/contents/ui/FullView.qml:704
+#: package/contents/ui/FullView.qml:703
 msgid "Ring"
 msgstr "圆环"
 
 #: package/contents/ui/ConfigSensors.qml:41
-#: package/contents/ui/FullView.qml:709
+#: package/contents/ui/FullView.qml:708
 msgid "Bar"
 msgstr "条形"
 
 #: package/contents/ui/ConfigSensors.qml:42
-#: package/contents/ui/FullView.qml:714
+#: package/contents/ui/FullView.qml:713
 msgid "History graph"
 msgstr "历史图表"
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:719
+#: package/contents/ui/FullView.qml:718
 msgid "Value only"
 msgstr "仅数值"
 
@@ -587,249 +600,264 @@ msgstr "仅显示所选显卡及其所有数值"
 msgid "Setup wizard"
 msgstr "设置向导"
 
+#: package/contents/ui/ConfigSensors.qml:250
+#: package/contents/ui/ConfigSensors.qml:701
+#: package/contents/ui/ConfigSensors.qml:702
+#: package/contents/ui/ConfigSensors.qml:710
+#: package/contents/ui/ConfigSensors.qml:711
+msgid "off"
+msgstr "关"
+
 #: package/contents/ui/ConfigSensors.qml:251
+#: package/contents/ui/ConfigSensors.qml:663
+#: package/contents/ui/ConfigSensors.qml:664
+#: package/contents/ui/ConfigSensors.qml:673
+#: package/contents/ui/ConfigSensors.qml:674
+msgid "auto"
+msgstr "自动"
+
+#: package/contents/ui/ConfigSensors.qml:275
 msgid "Layout:"
 msgstr "布局:"
 
-#: package/contents/ui/ConfigSensors.qml:261
+#: package/contents/ui/ConfigSensors.qml:285
 msgid "(modified)"
 msgstr "(已修改)"
 
-#: package/contents/ui/ConfigSensors.qml:274
+#: package/contents/ui/ConfigSensors.qml:298
 msgid "Is loaded and unchanged."
 msgstr "已加载且未修改。"
 
-#: package/contents/ui/ConfigSensors.qml:275
+#: package/contents/ui/ConfigSensors.qml:299
 msgid "Clicking restores the template – your changes will be lost."
 msgstr "点击将恢复模板 – 您的修改将丢失。"
 
-#: package/contents/ui/ConfigSensors.qml:276
+#: package/contents/ui/ConfigSensors.qml:300
 msgid "Clicking replaces all tiles with this template."
 msgstr "点击将用此模板替换所有磁贴。"
 
-#: package/contents/ui/ConfigSensors.qml:298
+#: package/contents/ui/ConfigSensors.qml:322
 msgid "Created by the setup wizard – unchanged."
 msgstr "由设置向导创建 – 未修改。"
 
-#: package/contents/ui/ConfigSensors.qml:299
+#: package/contents/ui/ConfigSensors.qml:323
 msgid "Template “%1” is loaded – unchanged."
 msgstr "模板“%1”已加载 – 未修改。"
 
-#: package/contents/ui/ConfigSensors.qml:301
+#: package/contents/ui/ConfigSensors.qml:325
 msgid "Customised: based on “%1”, tiles have been changed."
 msgstr "已修改:基于“%1”,磁贴已更改。"
 
-#: package/contents/ui/ConfigSensors.qml:302
+#: package/contents/ui/ConfigSensors.qml:326
 msgid "Custom layout."
 msgstr "自定义布局。"
 
-#: package/contents/ui/ConfigSensors.qml:310
+#: package/contents/ui/ConfigSensors.qml:334
 msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. The widget shows every change right away as a preview; it is saved only with “Apply”, “Cancel” keeps everything as it was."
 msgstr "模板会替换所有磁贴 – “系统概览”可恢复适合您硬件的默认磁贴。每项更改都会立即在小部件中预览;只有点击“应用”后才会保存,“取消”将保持原样。"
 
-#: package/contents/ui/ConfigSensors.qml:322
+#: package/contents/ui/ConfigSensors.qml:346
 msgid "Main card:"
 msgstr "主显卡:"
 
-#: package/contents/ui/ConfigSensors.qml:322
-#: package/contents/ui/ConfigSensors.qml:449
+#: package/contents/ui/ConfigSensors.qml:346
+#: package/contents/ui/ConfigSensors.qml:492
 msgid "Graphics card:"
 msgstr "显卡:"
 
-#: package/contents/ui/ConfigSensors.qml:332
+#: package/contents/ui/ConfigSensors.qml:356
 msgid "Searching …"
 msgstr "正在搜索 …"
 
-#: package/contents/ui/ConfigSensors.qml:332
+#: package/contents/ui/ConfigSensors.qml:356
 msgid "No supported graphics card found"
 msgstr "未找到受支持的显卡"
 
-#: package/contents/ui/ConfigSensors.qml:338
+#: package/contents/ui/ConfigSensors.qml:362
 msgid "Search again"
 msgstr "重新搜索"
 
-#: package/contents/ui/ConfigSensors.qml:348
+#: package/contents/ui/ConfigSensors.qml:372
 msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
 msgstr "未单独分配的 GPU 磁贴显示此显卡。您可以在下方将每个磁贴分配给其他显卡 – 或使用“所有显卡”布局(上方)为每块显卡创建单独分区。"
 
-#: package/contents/ui/ConfigSensors.qml:349
+#: package/contents/ui/ConfigSensors.qml:373
 msgid "All GPU tiles refer to this card."
 msgstr "所有 GPU 磁贴均指向此显卡。"
 
-#: package/contents/ui/ConfigSensors.qml:355
+#: package/contents/ui/ConfigSensors.qml:379
 msgid "Start setup wizard"
 msgstr "启动设置向导"
 
-#: package/contents/ui/ConfigSensors.qml:362
+#: package/contents/ui/ConfigSensors.qml:386
 msgid "Appears in the widget after “Apply”."
 msgstr "点击“应用”后显示在小部件中。"
 
-#: package/contents/ui/ConfigSensors.qml:373
+#: package/contents/ui/ConfigSensors.qml:397
 msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”."
 msgstr "来源:系统传感器(ksystemstats – CPU、风扇、NVMe、内存 …)、直接从 nvidia-smi 获取的 NVIDIA 数值或 Shell 命令。在 AMD GPU 上,显存温度显示为“amdgpu … mem”。也可以直接在小部件中编辑磁贴:右键单击 → “编辑磁贴”。"
 
-#: package/contents/ui/ConfigSensors.qml:412
+#: package/contents/ui/ConfigSensors.qml:455
 msgid "Label (empty = automatic)"
 msgstr "标签(留空 = 自动)"
 
-#: package/contents/ui/ConfigSensors.qml:420
+#: package/contents/ui/ConfigSensors.qml:463
 msgid "Move up"
 msgstr "上移"
 
-#: package/contents/ui/ConfigSensors.qml:426
+#: package/contents/ui/ConfigSensors.qml:469
 msgid "Move down"
 msgstr "下移"
 
-#: package/contents/ui/ConfigSensors.qml:436
+#: package/contents/ui/ConfigSensors.qml:479
 msgid "Duplicate"
 msgstr "复制"
 
-#: package/contents/ui/ConfigSensors.qml:441
+#: package/contents/ui/ConfigSensors.qml:484
 msgid "Remove"
 msgstr "删除"
 
-#: package/contents/ui/ConfigSensors.qml:462
+#: package/contents/ui/ConfigSensors.qml:505
 msgid "Not found (PCI %1)"
 msgstr "未找到(PCI %1)"
 
-#: package/contents/ui/ConfigSensors.qml:466
+#: package/contents/ui/ConfigSensors.qml:509
 msgid "Compare all cards"
 msgstr "对比所有显卡"
 
-#: package/contents/ui/ConfigSensors.qml:470
+#: package/contents/ui/ConfigSensors.qml:513
 msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
 msgstr "在此磁贴中显示每块显卡的数值 – 圆环:每块显卡一条弧,图表:每块显卡一条线,条形/数值:每块显卡一行。"
 
-#: package/contents/ui/ConfigSensors.qml:478
+#: package/contents/ui/ConfigSensors.qml:521
 msgid "Temperature (X):"
 msgstr "温度(X):"
 
-#: package/contents/ui/ConfigSensors.qml:478
+#: package/contents/ui/ConfigSensors.qml:521
 #: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "来源:"
 
-#: package/contents/ui/ConfigSensors.qml:491
+#: package/contents/ui/ConfigSensors.qml:534
 msgid "Fan (Y):"
 msgstr "风扇(Y):"
 
-#: package/contents/ui/ConfigSensors.qml:511
+#: package/contents/ui/ConfigSensors.qml:554
 msgid "Total value:"
 msgstr "总量:"
 
-#: package/contents/ui/ConfigSensors.qml:530
+#: package/contents/ui/ConfigSensors.qml:558
+#: package/contents/ui/ConfigSensors.qml:730
+msgid "none"
+msgstr "无"
+
+#: package/contents/ui/ConfigSensors.qml:577
 msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
 msgstr "可选,例如“显存总量”→ 显示“1.0 / 10 GiB”并设定条形/圆环的最大值。NVIDIA 数值会自动包含总量。"
 
-#: package/contents/ui/ConfigSensors.qml:538
+#: package/contents/ui/ConfigSensors.qml:586
 msgid "Style:"
 msgstr "样式:"
 
-#: package/contents/ui/ConfigSensors.qml:553
-#: package/contents/ui/FullView.qml:724
+#: package/contents/ui/ConfigSensors.qml:607
+#: package/contents/ui/FullView.qml:723
 msgid "Double width"
 msgstr "双倍宽度"
 
-#: package/contents/ui/ConfigSensors.qml:558
+#: package/contents/ui/ConfigSensors.qml:613
 msgid "In panel"
 msgstr "在面板中"
 
-#: package/contents/ui/ConfigSensors.qml:563
+#: package/contents/ui/ConfigSensors.qml:619
 msgid "Notify"
 msgstr "通知"
 
-#: package/contents/ui/ConfigSensors.qml:567
+#: package/contents/ui/ConfigSensors.qml:624
 msgid "Desktop notification when a threshold is exceeded"
 msgstr "超过阈值时发送桌面通知"
 
-#: package/contents/ui/ConfigSensors.qml:574
+#: package/contents/ui/ConfigSensors.qml:632
 msgid "Accent colour"
 msgstr "强调色"
 
-#: package/contents/ui/ConfigSensors.qml:580
+#: package/contents/ui/ConfigSensors.qml:638
 msgid "Automatic colour"
 msgstr "自动颜色"
 
-#: package/contents/ui/ConfigSensors.qml:584
+#: package/contents/ui/ConfigSensors.qml:643
 msgid "Temperature axis:"
 msgstr "温度轴:"
 
-#: package/contents/ui/ConfigSensors.qml:584
+#: package/contents/ui/ConfigSensors.qml:643
 msgid "Range:"
 msgstr "范围:"
 
-#: package/contents/ui/ConfigSensors.qml:587
+#: package/contents/ui/ConfigSensors.qml:646
+msgid "min %1, max %2"
+msgstr "最小 %1,最大 %2"
+
+#: package/contents/ui/ConfigSensors.qml:651
 msgid "Min"
 msgstr "最小"
 
-#: package/contents/ui/ConfigSensors.qml:594
+#: package/contents/ui/ConfigSensors.qml:658
 msgid "Max"
 msgstr "最大"
 
-#: package/contents/ui/ConfigSensors.qml:599
-#: package/contents/ui/ConfigSensors.qml:600
-#: package/contents/ui/ConfigSensors.qml:609
-#: package/contents/ui/ConfigSensors.qml:610
-msgid "auto"
-msgstr "自动"
-
-#: package/contents/ui/ConfigSensors.qml:603
+#: package/contents/ui/ConfigSensors.qml:667
 msgid "Fan max"
 msgstr "风扇最大"
 
-#: package/contents/ui/ConfigSensors.qml:615
+#: package/contents/ui/ConfigSensors.qml:680
 msgid "Thresholds:"
 msgstr "阈值:"
 
-#: package/contents/ui/ConfigSensors.qml:628
-#: package/contents/ui/ConfigSensors.qml:629
-#: package/contents/ui/ConfigSensors.qml:637
-#: package/contents/ui/ConfigSensors.qml:638
-msgid "off"
-msgstr "关"
+#: package/contents/ui/ConfigSensors.qml:684
+msgid "warning %1, critical %2"
+msgstr "警告 %1,严重 %2"
 
-#: package/contents/ui/ConfigSensors.qml:644
+#: package/contents/ui/ConfigSensors.qml:717
 #, no-javascript-format
 msgid "in % of the total value"
 msgstr "按总值的 %"
 
-#: package/contents/ui/ConfigSensors.qml:648
+#: package/contents/ui/ConfigSensors.qml:721
 #, no-javascript-format
 msgid "The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size."
 msgstr "阈值按占总值的比例计算 – 例如已安装内存的 85 %。这样无论电脑配置如何都适用。"
 
-#: package/contents/ui/ConfigSensors.qml:654
+#: package/contents/ui/ConfigSensors.qml:728
 msgid "Reference curve:"
 msgstr "参考曲线:"
 
-#: package/contents/ui/ConfigSensors.qml:671
+#: package/contents/ui/ConfigSensors.qml:748
 msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
 msgstr "可选:以虚线绘制“温度:风扇”点 – 例如您在 GreenWithEnvy 或 CoolerControl 中的曲线。实线由小部件根据测量值自动生成。"
 
-#: package/contents/ui/ConfigSensors.qml:683
+#: package/contents/ui/ConfigSensors.qml:760
 msgid "Add sensor"
 msgstr "添加传感器"
 
-#: package/contents/ui/ConfigSensors.qml:688
+#: package/contents/ui/ConfigSensors.qml:765
 msgid "Template …"
 msgstr "模板 …"
 
-#: package/contents/ui/ConfigSensors.qml:693
+#: package/contents/ui/ConfigSensors.qml:770
 msgid "GPU comparison: temperature (ring)"
 msgstr "GPU 对比:温度(圆环)"
 
-#: package/contents/ui/ConfigSensors.qml:695
+#: package/contents/ui/ConfigSensors.qml:772
 #: package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:260
 #: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
 #: package/contents/ui/Hardware.js:336 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
-#: package/contents/ui/ConfigSensors.qml:698
+#: package/contents/ui/ConfigSensors.qml:775
 msgid "GPU comparison: load (graph)"
 msgstr "GPU 对比:负载(图表)"
 
-#: package/contents/ui/ConfigSensors.qml:700
+#: package/contents/ui/ConfigSensors.qml:777
 #: package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:261
 #: package/contents/ui/Hardware.js:319 package/contents/ui/Hardware.js:326
 #: package/contents/ui/Hardware.js:332 package/contents/ui/Hardware.js:337
@@ -838,88 +866,88 @@ msgstr "GPU 对比:负载(图表)"
 msgid "GPU load"
 msgstr "GPU 负载"
 
-#: package/contents/ui/ConfigSensors.qml:703
+#: package/contents/ui/ConfigSensors.qml:780
 msgid "GPU comparison: power (bar)"
 msgstr "GPU 对比:功耗(条形)"
 
-#: package/contents/ui/ConfigSensors.qml:705
+#: package/contents/ui/ConfigSensors.qml:782
 #: package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:262
 #: package/contents/ui/Hardware.js:320 package/contents/ui/Hardware.js:327
 #: package/contents/ui/Hardware.js:334
 msgid "GPU power"
 msgstr "GPU 功耗"
 
-#: package/contents/ui/ConfigSensors.qml:707
+#: package/contents/ui/ConfigSensors.qml:784
 #: package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:361
 msgid "GPU fan curve"
 msgstr "GPU 风扇曲线"
 
-#: package/contents/ui/ConfigSensors.qml:708
+#: package/contents/ui/ConfigSensors.qml:785
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "显存温度(gddr6,NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:708
+#: package/contents/ui/ConfigSensors.qml:785
 #: package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:325
 msgid "VRAM temperature"
 msgstr "显存温度"
 
-#: package/contents/ui/ConfigSensors.qml:709
+#: package/contents/ui/ConfigSensors.qml:786
 msgid "VRAM used / total (NVIDIA)"
 msgstr "显存已用 / 总量(NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:709
+#: package/contents/ui/ConfigSensors.qml:786
 #: package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:263
 #: package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:328
 #: package/contents/ui/Hardware.js:338 package/contents/ui/NvidiaKeys.js:38
 msgid "VRAM used"
 msgstr "显存已用"
 
-#: package/contents/ui/ConfigSensors.qml:710
+#: package/contents/ui/ConfigSensors.qml:787
 msgid "GPU throttling (NVIDIA)"
 msgstr "GPU 降频(NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:710
+#: package/contents/ui/ConfigSensors.qml:787
 #: package/contents/ui/Hardware.js:357 package/contents/ui/NvidiaKeys.js:42
 msgid "Throttling"
 msgstr "降频"
 
-#: package/contents/ui/ConfigSensors.qml:711
+#: package/contents/ui/ConfigSensors.qml:788
 msgid "CPU temperature (max.)"
 msgstr "CPU 温度(最高)"
 
-#: package/contents/ui/ConfigSensors.qml:711
+#: package/contents/ui/ConfigSensors.qml:788
 #: package/contents/ui/Hardware.js:379
 msgid "CPU temperature"
 msgstr "CPU 温度"
 
-#: package/contents/ui/ConfigSensors.qml:712
+#: package/contents/ui/ConfigSensors.qml:789
 msgid "CPU power (power service)"
 msgstr "CPU 功耗（功耗服务）"
 
-#: package/contents/ui/ConfigSensors.qml:712
+#: package/contents/ui/ConfigSensors.qml:789
 #: package/contents/ui/Hardware.js:381
 msgid "CPU power"
 msgstr "CPU 功耗"
 
-#: package/contents/ui/ConfigSensors.qml:713
+#: package/contents/ui/ConfigSensors.qml:790
 msgid "CPU usage (graph)"
 msgstr "CPU 占用(图表)"
 
-#: package/contents/ui/ConfigSensors.qml:713
+#: package/contents/ui/ConfigSensors.qml:790
 #: package/contents/ui/Hardware.js:382
 msgid "CPU load"
 msgstr "CPU 负载"
 
-#: package/contents/ui/ConfigSensors.qml:714
+#: package/contents/ui/ConfigSensors.qml:791
 #: package/contents/ui/Hardware.js:229 package/contents/ui/Hardware.js:386
 msgid "Memory"
 msgstr "内存"
 
-#: package/contents/ui/ConfigSensors.qml:715
+#: package/contents/ui/ConfigSensors.qml:792
 msgid "Network download"
 msgstr "网络下载"
 
-#: package/contents/ui/ConfigSensors.qml:715
+#: package/contents/ui/ConfigSensors.qml:792
 #: package/contents/ui/Hardware.js:403
 msgid "Download"
 msgstr "下载"
@@ -1148,130 +1176,130 @@ msgstr "没有传感器数据"
 msgid "Collecting data points …"
 msgstr "正在收集测量点 …"
 
-#: package/contents/ui/FullView.qml:155
+#: package/contents/ui/FullView.qml:154
 msgid "Comparison"
 msgstr "对比"
 
-#: package/contents/ui/FullView.qml:157
+#: package/contents/ui/FullView.qml:156
 msgid "System"
 msgstr "系统"
 
-#: package/contents/ui/FullView.qml:283
+#: package/contents/ui/FullView.qml:282
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "是否让 Sensor Deck 每周检查一次新版本?届时会连接 github.com – 与访问任何网站一样,GitHub 会看到您的 IP 地址;不会发送其他任何内容。您可以随时在设置中更改。"
 
-#: package/contents/ui/FullView.qml:284
+#: package/contents/ui/FullView.qml:283
 msgid "Sensor Deck %1 is available (installed: %2)."
 msgstr "Sensor Deck %1 可用(已安装:%2)。"
 
-#: package/contents/ui/FullView.qml:288
+#: package/contents/ui/FullView.qml:287
 msgid "Yes, check weekly"
 msgstr "是,每周检查"
 
-#: package/contents/ui/FullView.qml:294
+#: package/contents/ui/FullView.qml:293
 msgid "No, thanks"
 msgstr "不,谢谢"
 
-#: package/contents/ui/FullView.qml:319
+#: package/contents/ui/FullView.qml:318
 msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
 msgstr "拖动磁贴可在其分区内移动。× 移除磁贴，+ 添加磁贴。"
 
-#: package/contents/ui/FullView.qml:323 package/contents/ui/FullView.qml:543
-#: package/contents/ui/main.qml:451
+#: package/contents/ui/FullView.qml:322 package/contents/ui/FullView.qml:542
+#: package/contents/ui/main.qml:458
 msgid "Restore “%1”"
 msgstr "恢复“%1”"
 
-#: package/contents/ui/FullView.qml:329 package/contents/ui/FullView.qml:555
-#: package/contents/ui/main.qml:457
+#: package/contents/ui/FullView.qml:328 package/contents/ui/FullView.qml:554
+#: package/contents/ui/main.qml:464
 msgid "Undo last move"
 msgstr "撤销上次移动"
 
-#: package/contents/ui/FullView.qml:334
+#: package/contents/ui/FullView.qml:333
 msgid "Done"
 msgstr "完成"
 
-#: package/contents/ui/FullView.qml:404 package/contents/ui/FullView.qml:427
+#: package/contents/ui/FullView.qml:403 package/contents/ui/FullView.qml:426
 msgid "Add tile"
 msgstr "添加磁贴"
 
-#: package/contents/ui/FullView.qml:505 package/contents/ui/FullView.qml:522
+#: package/contents/ui/FullView.qml:504 package/contents/ui/FullView.qml:521
 msgid "Remove tile"
 msgstr "删除磁贴"
 
-#: package/contents/ui/FullView.qml:537 package/contents/ui/main.qml:445
+#: package/contents/ui/FullView.qml:536 package/contents/ui/main.qml:452
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Sensor Deck %1 可用 – 打开下载页面"
 
-#: package/contents/ui/FullView.qml:549
+#: package/contents/ui/FullView.qml:548
 msgid "Finish editing"
 msgstr "完成编辑"
 
-#: package/contents/ui/FullView.qml:549
+#: package/contents/ui/FullView.qml:548
 msgid "Edit tiles"
 msgstr "编辑磁贴"
 
-#: package/contents/ui/FullView.qml:561 package/contents/ui/main.qml:463
+#: package/contents/ui/FullView.qml:560 package/contents/ui/main.qml:470
 msgid "Restore original arrangement"
 msgstr "恢复原始排列"
 
-#: package/contents/ui/FullView.qml:567
+#: package/contents/ui/FullView.qml:566
 msgid "Configure Sensor Deck …"
 msgstr "配置 Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:594
+#: package/contents/ui/FullView.qml:593
 msgid "Tile style"
 msgstr "磁贴样式"
 
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:604
 msgid "Sections per graphics card"
 msgstr "每块显卡的分区"
 
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:619
 msgid "Profile"
 msgstr "配置档案"
 
-#: package/contents/ui/FullView.qml:623
+#: package/contents/ui/FullView.qml:622
 msgid "No profiles saved yet"
 msgstr "尚未保存配置档案"
 
-#: package/contents/ui/FullView.qml:633
+#: package/contents/ui/FullView.qml:632
 msgid "changed"
 msgstr "已更改"
 
-#: package/contents/ui/FullView.qml:649
+#: package/contents/ui/FullView.qml:648
 msgid "Manage profiles …"
 msgstr "管理配置档案…"
 
-#: package/contents/ui/FullView.qml:660
+#: package/contents/ui/FullView.qml:659
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "提示:在空白处长按 – 移动、调整大小、移除小部件"
 
-#: package/contents/ui/FullView.qml:691
+#: package/contents/ui/FullView.qml:690
 msgid "Edit in settings …"
 msgstr "在设置中编辑 …"
 
-#: package/contents/ui/FullView.qml:740 package/contents/ui/FullView.qml:802
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/FullView.qml:739 package/contents/ui/FullView.qml:801
+#: package/contents/ui/main.qml:492
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:769
+#: package/contents/ui/FullView.qml:768
 msgid "Suggestions for your hardware"
 msgstr "适合您硬件的建议"
 
-#: package/contents/ui/FullView.qml:769
+#: package/contents/ui/FullView.qml:768
 msgid "No further suggestions"
 msgstr "没有更多建议"
 
-#: package/contents/ui/FullView.qml:788
+#: package/contents/ui/FullView.qml:787
 msgid "Own tile …"
 msgstr "自定义磁贴 …"
 
-#: package/contents/ui/FullView.qml:874
+#: package/contents/ui/FullView.qml:873
 msgid "No sensors configured"
 msgstr "未配置传感器"
 
-#: package/contents/ui/FullView.qml:880
+#: package/contents/ui/FullView.qml:879
 msgid "Configure …"
 msgstr "设置 …"
 
@@ -1430,15 +1458,15 @@ msgstr "机箱温度"
 msgid "Upload"
 msgstr "上传"
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:80
 msgid "Graphics card"
 msgstr "显卡"
 
-#: package/contents/ui/main.qml:72
+#: package/contents/ui/main.qml:81
 msgid "Graphics card %1 (not found)"
 msgstr "显卡 %1(未找到)"
 
-#: package/contents/ui/main.qml:73
+#: package/contents/ui/main.qml:82
 msgid "Graphics card %1"
 msgstr "显卡 %1"
 
@@ -1687,6 +1715,22 @@ msgstr "此插槽的最大值"
 #: package/contents/ui/Reader.qml:239
 msgid "Card %1 · slot %2"
 msgstr "显卡 %1 · 插槽 %2"
+
+#: package/contents/ui/ResetHandler.qml:30
+msgid "On"
+msgstr "开"
+
+#: package/contents/ui/ResetHandler.qml:30
+msgid "Off"
+msgstr "关"
+
+#: package/contents/ui/ResetHandler.qml:52
+msgid "Restore default (%1)"
+msgstr "恢复默认值 (%1)"
+
+#: package/contents/ui/ResetHandler.qml:52
+msgid "Restore default"
+msgstr "恢复默认值"
 
 #: package/contents/ui/SensorSetup.qml:36
 msgid "Setting up sensor support … this can take a minute."

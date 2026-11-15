@@ -226,6 +226,30 @@ KCM.SimpleKCM {
     readonly property string basePreset: cfg_layoutPreset || detectedPreset
     readonly property bool layoutUnchanged: detectedPreset !== "" || (cfg_layoutPreset !== "" && itemsSig === cfg_layoutHash)
 
+    // ---- defaults per tile: what the templates / wizard build for the same
+    // sensor ("suggestion"); tiles without one get neutral values. Used by the
+    // ResetHandlers of each card (middle click / right click on a row's label).
+    readonly property var suggestions: probe.ready
+        ? Hardware.build(probe.gpus.length > 1 ? probe.gpus : page.gpu,
+                         { gpuDetails: true, compare: true, cpu: true, ram: true, storage: true, board: true, network: true },
+                         probe.hw, page.tr)
+        : []
+    function suggestionFor(t) {
+        const same = s => s.source === t.source && s.sensorId === t.sensorId && s.key === t.key && s.command === t.command;
+        let best = null, score = -1;
+        suggestions.filter(same).forEach(s => {
+            const sc = ((s.gpu || "") === (t.gpu || "") ? 2 : 0) + (!!s.compare === !!t.compare ? 1 : 0);
+            if (sc > score) { best = s; score = sc; }
+        });
+        const b = Defaults.blank();
+        return best || { label: "", style: t.style, wide: false, showInPanel: false, notify: b.notify, color: "",
+                         min: 0, max: 0, yMax: 0, warn: 0, crit: 0, relThresholds: false,
+                         refSensorId: t.refSensorId, refCurve: "" };
+    }
+    function styleText(v) { const s = styles.find(e => e.value === v); return s ? s.text : String(v); }
+    function offText(v) { return Number(v) === 0 ? i18n("off") : String(v); }
+    function autoText(v) { return Number(v) === 0 ? i18n("auto") : String(v); }
+
     // runs in the page: removing the tile destroys the card (and its button) that calls this
     function removeAt(i) {
         itemsModel.remove(i);
@@ -381,6 +405,19 @@ KCM.SimpleKCM {
                 required property int index
                 required property var model
                 readonly property bool isCurve: model.style === "curve"
+                // defaults of this tile for the ResetHandlers (same interface as a settings page)
+                readonly property var suggestion: page.suggestionFor(model)
+                QtObject {
+                    id: tileDefaults
+                    readonly property var defaults: cardDelegate.suggestion
+                    function same(a, b) {
+                        if (typeof b === "number") return Number(a) === b;
+                        if (typeof b === "boolean") return !!a === b;
+                        return String(a || "") === String(b || "");
+                    }
+                    function isDefault(keys) { return keys.every(k => same(cardDelegate.model[k], defaults[k])); }
+                    function resetKeys(keys) { keys.forEach(k => page.set(cardDelegate.index, k, defaults[k])); }
+                }
                 Layout.fillWidth: true
 
                 // frame that lights up when the page was opened for this tile
@@ -406,6 +443,12 @@ KCM.SimpleKCM {
                             Layout.preferredHeight: Layout.preferredWidth
                             radius: width / 2
                             color: cardDelegate.model.color || Defaults.colorFor(cardDelegate.model.id)
+                            // small target: a bit larger area for the clicks
+                            ResetHandler {
+                                anchors.margins: -Kirigami.Units.smallSpacing
+                                page: tileDefaults; keys: ["label"]
+                                valueText: tileDefaults.defaults.label || i18n("Automatic")
+                            }
                         }
                         QQC2.TextField {
                             Layout.fillWidth: true
@@ -510,6 +553,10 @@ KCM.SimpleKCM {
                         QQC2.Label {
                             text: i18n("Total value:")
                             visible: !cardDelegate.isCurve && (cardDelegate.model.source === "sensor" || !cardDelegate.model.source)
+                            ResetHandler {
+                                page: tileDefaults; keys: ["refSensorId"]
+                                valueText: tileDefaults.defaults.refSensorId ? page.shown(tileDefaults.defaults.refSensorId, cardDelegate.model.gpu) : i18n("none")
+                            }
                         }
                         ColumnLayout {
                             Layout.fillWidth: true
@@ -535,7 +582,13 @@ KCM.SimpleKCM {
                             }
                         }
 
-                        QQC2.Label { text: i18n("Style:") }
+                        QQC2.Label {
+                            text: i18n("Style:")
+                            ResetHandler {
+                                page: tileDefaults; keys: ["style", "wide", "showInPanel", "notify", "color"]
+                                valueText: page.styleText(tileDefaults.defaults.style)
+                            }
+                        }
                         RowLayout {
                             Layout.fillWidth: true
                             QQC2.ComboBox {
@@ -543,6 +596,7 @@ KCM.SimpleKCM {
                                 model: page.styles
                                 textRole: "text"
                                 currentIndex: Math.max(0, page.styles.findIndex(s => s.value === cardDelegate.model.style))
+                                ResetHandler { page: tileDefaults; keys: ["style"]; valueText: page.styleText(tileDefaults.defaults.style) }
                                 onActivated: (i) => {
                                     const st = page.styles[i].value;
                                     page.set(cardDelegate.index, "style", st);
@@ -553,17 +607,20 @@ KCM.SimpleKCM {
                                 text: i18n("Double width")
                                 checked: cardDelegate.model.wide
                                 onToggled: page.set(cardDelegate.index, "wide", checked)
+                                ResetHandler { page: tileDefaults; keys: ["wide"] }
                             }
                             QQC2.CheckBox {
                                 text: i18n("In panel")
                                 checked: cardDelegate.model.showInPanel
                                 onToggled: page.set(cardDelegate.index, "showInPanel", checked)
+                                ResetHandler { page: tileDefaults; keys: ["showInPanel"] }
                             }
                             QQC2.CheckBox {
                                 text: i18n("Notify")
                                 checked: cardDelegate.model.notify
                                 enabled: cardDelegate.model.warn > 0 || cardDelegate.model.crit > 0
                                 onToggled: page.set(cardDelegate.index, "notify", checked)
+                                ResetHandler { page: tileDefaults; keys: ["notify"] }
                                 QQC2.ToolTip.text: i18n("Desktop notification when a threshold is exceeded")
                                 QQC2.ToolTip.visible: hovered
                             }
@@ -571,6 +628,7 @@ KCM.SimpleKCM {
                             KQC.ColorButton {
                                 color: cardDelegate.model.color || Defaults.colorFor(cardDelegate.model.id)
                                 onAccepted: (c) => page.set(cardDelegate.index, "color", c.toString())
+                                ResetHandler { page: tileDefaults; keys: ["color"]; valueText: tileDefaults.defaults.color || i18n("Automatic") }
                                 QQC2.ToolTip.text: i18n("Accent colour"); QQC2.ToolTip.visible: hovered
                             }
                             QQC2.ToolButton {
@@ -581,7 +639,13 @@ KCM.SimpleKCM {
                             }
                         }
 
-                        QQC2.Label { text: cardDelegate.isCurve ? i18n("Temperature axis:") : i18n("Range:") }
+                        QQC2.Label {
+                            text: cardDelegate.isCurve ? i18n("Temperature axis:") : i18n("Range:")
+                            ResetHandler {
+                                page: tileDefaults; keys: ["min", "max", "yMax"]
+                                valueText: i18n("min %1, max %2", tileDefaults.defaults.min, page.autoText(tileDefaults.defaults.max))
+                            }
+                        }
                         RowLayout {
                             Layout.fillWidth: true
                             QQC2.Label { text: i18n("Min"); opacity: 0.7 }
@@ -590,6 +654,8 @@ KCM.SimpleKCM {
                                 from: -1000; to: 100000; editable: true
                                 value: cardDelegate.model.min
                                 onValueModified: page.set(cardDelegate.index, "min", value)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["min"]; valueText: String(tileDefaults.defaults.min) }
                             }
                             QQC2.Label { text: i18n("Max"); opacity: 0.7 }
                             QQC2.SpinBox {
@@ -599,6 +665,8 @@ KCM.SimpleKCM {
                                 textFromValue: (v) => v === 0 ? i18n("auto") : String(v)
                                 valueFromText: (t) => t === i18n("auto") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "max", value)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["max"]; valueText: page.autoText(tileDefaults.defaults.max) }
                             }
                             QQC2.Label { text: i18n("Fan max"); opacity: 0.7; visible: cardDelegate.isCurve }
                             QQC2.SpinBox {
@@ -609,10 +677,21 @@ KCM.SimpleKCM {
                                 textFromValue: (v) => v === 0 ? i18n("auto") : String(v)
                                 valueFromText: (t) => t === i18n("auto") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "yMax", value)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["yMax"]; valueText: page.autoText(tileDefaults.defaults.yMax) }
                             }
                         }
 
-                        QQC2.Label { text: i18n("Thresholds:") }
+                        QQC2.Label {
+                            text: i18n("Thresholds:")
+                            ResetHandler {
+                                page: tileDefaults; keys: ["warn", "crit", "relThresholds"]
+                                readonly property string pct: tileDefaults.defaults.relThresholds ? " %" : ""
+                                valueText: i18n("warning %1, critical %2",
+                                                page.offText(tileDefaults.defaults.warn) + (Number(tileDefaults.defaults.warn) ? pct : ""),
+                                                page.offText(tileDefaults.defaults.crit) + (Number(tileDefaults.defaults.crit) ? pct : ""))
+                            }
+                        }
                         RowLayout {
                             id: thresholdRow
                             Layout.fillWidth: true
@@ -628,6 +707,8 @@ KCM.SimpleKCM {
                                 textFromValue: (v) => v === 0 ? i18n("off") : String(v) + (thresholdRow.rel ? " %" : "")
                                 valueFromText: (t) => t === i18n("off") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "warn", value)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["warn"]; valueText: page.offText(tileDefaults.defaults.warn) }
                             }
                             Rectangle { width: 10; height: 10; radius: 5; color: "#ff4d6d" }
                             QQC2.SpinBox {
@@ -637,6 +718,8 @@ KCM.SimpleKCM {
                                 textFromValue: (v) => v === 0 ? i18n("off") : String(v) + (thresholdRow.rel ? " %" : "")
                                 valueFromText: (t) => t === i18n("off") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "crit", value)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["crit"]; valueText: page.offText(tileDefaults.defaults.crit) }
                             }
                             QQC2.CheckBox {
                                 visible: thresholdRow.hasTotal
@@ -651,7 +734,11 @@ KCM.SimpleKCM {
                             }
                         }
 
-                        QQC2.Label { text: i18n("Reference curve:"); visible: cardDelegate.isCurve }
+                        QQC2.Label {
+                            text: i18n("Reference curve:")
+                            visible: cardDelegate.isCurve
+                            ResetHandler { page: tileDefaults; keys: ["refCurve"]; valueText: tileDefaults.defaults.refCurve || i18n("none") }
+                        }
                         ColumnLayout {
                             Layout.fillWidth: true
                             visible: cardDelegate.isCurve

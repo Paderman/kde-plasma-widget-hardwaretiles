@@ -14,63 +14,79 @@ KCM.SimpleKCM {
     property alias cfg_alertsEnabled: enabledBox.checked
     property alias cfg_alertOnWarn: warnBox.checked
     property alias cfg_alertRecovery: recoveryBox.checked
-    property alias cfg_alertDelay: delay.value
-    property alias cfg_alertCooldown: cooldown.value
-    property alias cfg_alertHysteresis: hyst.value
+    property int cfg_alertDelay
+    property int cfg_alertCooldown
+    property int cfg_alertHysteresis
     property alias cfg_fanWatch: fanBox.checked
-    property alias cfg_fanSlowPercent: fanSlow.value
+    property int cfg_fanSlowPercent
 
     // only this page's values (thresholds per sensor stay); saved with "Anwenden"
     function resetToDefaults() {
-        const d = Defaults.settings.alerts;
-        for (const k in d) page["cfg_" + k] = d[k];
+        resetKeys(Object.keys(defaults));
     }
+    // single settings back to their default: middle click or right-click menu
+    // on the control (ResetHandler); takes effect with "Apply" like any change
+    readonly property var defaults: Defaults.settings.alerts
+    function sameValue(a, b) { return typeof b === "number" ? Math.round(Number(a)) === b : a === b; }
+    function isDefault(keys) { return keys.every(k => sameValue(page["cfg_" + k], defaults[k])); }
+    function resetKeys(keys) {
+        keys.forEach(k => page["cfg_" + k] = defaults[k]);
+        syncControls();
+    }
+    function syncControls() {}   // every control is bound to its cfg_ value
+
 
     Kirigami.FormLayout {
         QQC2.CheckBox {
             id: enabledBox
+            ResetHandler { page: page; keys: ["alertsEnabled"] }
             Kirigami.FormData.label: i18n("Notifications:")
             text: i18n("Notify on critical values")
         }
         QQC2.CheckBox {
             id: warnBox
+            ResetHandler { page: page; keys: ["alertOnWarn"] }
             enabled: enabledBox.checked
             text: i18n("Also when the warning threshold is reached")
         }
         QQC2.CheckBox {
             id: recoveryBox
+            ResetHandler { page: page; keys: ["alertRecovery"] }
             enabled: enabledBox.checked
             text: i18n("All-clear when the value is back to normal")
         }
 
         Item { Kirigami.FormData.isSection: true }
 
-        QQC2.SpinBox {
-            wheelEnabled: false   // scrolling the page must not change the value
+        StepSlider {
             id: delay
-            enabled: enabledBox.checked
             Kirigami.FormData.label: i18n("Trigger after:")
-            from: 0; to: 120
-            textFromValue: (v) => i18np("%1 second", "%1 seconds", v)
-            valueFromText: (t) => parseInt(t)
+            enabled: enabledBox.checked
+            steps: [0, 1, 2, 3, 5, 10, 15, 20, 30, 45, 60, 90, 120]
+            value: page.cfg_alertDelay
+            format: (v) => i18np("%1 second", "%1 seconds", v)
+            onPicked: (v) => page.cfg_alertDelay = v
+            ResetHandler { page: page; keys: ["alertDelay"] }
         }
-        QQC2.SpinBox {
-            wheelEnabled: false   // scrolling the page must not change the value
+        StepSlider {
             id: hyst
-            enabled: enabledBox.checked
             Kirigami.FormData.label: i18n("Warn again only:")
-            from: 0; to: 50
-            textFromValue: (v) => i18n("%1 below the threshold", v)
-            valueFromText: (t) => parseInt(t)
-        }
-        QQC2.SpinBox {
-            wheelEnabled: false   // scrolling the page must not change the value
-            id: cooldown
             enabled: enabledBox.checked
+            steps: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 30, 50]
+            value: page.cfg_alertHysteresis
+            format: (v) => i18n("%1 below the threshold", v)
+            onPicked: (v) => page.cfg_alertHysteresis = v
+            ResetHandler { page: page; keys: ["alertHysteresis"] }
+        }
+        StepSlider {
+            id: cooldown
             Kirigami.FormData.label: i18n("Repeat at the earliest after:")
-            from: 0; to: 240
-            textFromValue: (v) => i18np("%1 minute", "%1 minutes", v)
-            valueFromText: (t) => parseInt(t)
+            enabled: enabledBox.checked
+            steps: [0, 1, 2, 5, 10, 15, 20, 30, 45, 60, 90, 120, 180, 240]
+            value: page.cfg_alertCooldown
+            format: (v) => i18np("%1 minute", "%1 minutes", v)
+            onPicked: (v) => page.cfg_alertCooldown = v
+            ResetHandler { page: page; keys: ["alertCooldown"] }
         }
 
         QQC2.Label {
@@ -84,19 +100,21 @@ KCM.SimpleKCM {
 
         QQC2.CheckBox {
             id: fanBox
+            ResetHandler { page: page; keys: ["fanWatch"] }
             Kirigami.FormData.label: i18n("Monitor fans:")
             text: i18n("Warn when a fan stands still or runs too slowly")
         }
-        QQC2.SpinBox {
-            wheelEnabled: false   // scrolling the page must not change the value
+        StepSlider {
             id: fanSlow
-            enabled: fanBox.checked
             Kirigami.FormData.label: i18n("Too slow below:")
-            from: 0; to: 90; stepSize: 5
-            textFromValue: (v) => v === 0 ? i18n("Off (standstill only)")
+            enabled: fanBox.checked
+            steps: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90]
+            value: page.cfg_fanSlowPercent
+            format: (v) => v === 0 ? i18n("Off (standstill only)")
                 // xgettext:no-javascript-format
                 : i18n("%1 % of the fastest fan", v)
-            valueFromText: (t) => parseInt(t) || 0
+            onPicked: (v) => page.cfg_fanSlowPercent = v
+            ResetHandler { page: page; keys: ["fanSlowPercent"] }
         }
         QQC2.Label {
             Layout.maximumWidth: Kirigami.Units.gridUnit * 22
@@ -115,6 +133,12 @@ KCM.SimpleKCM {
 
         Item { Kirigami.FormData.isSection: true }
 
+        QQC2.Label {
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
+            wrapMode: Text.WordWrap
+            opacity: 0.7
+            text: i18n("Reset a single setting: right-click it, or click it with the middle mouse button (scroll wheel).")
+        }
         RowLayout {
             QQC2.Button {
                 icon.name: "edit-reset"

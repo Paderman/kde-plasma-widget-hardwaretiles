@@ -17,6 +17,12 @@ KCM.SimpleKCM {
     property string cfg_updateUrl
     property string cfg_updateDismissed
 
+    // default for the ResetHandler (middle click / right-click menu): off, as the
+    // check connects to github.com only when someone wants it
+    readonly property var defaults: ({ updateCheck: false })
+    function isDefault(keys) { return keys.every(k => page["cfg_" + k] === defaults[k]); }
+    function resetKeys(keys) { keys.forEach(k => page["cfg_" + k] = defaults[k]); }
+
     readonly property string site: "https://github.com/Paderman/kde-plasma-widget-sensordeck"
 
     // result of "Check now": "" | busy | latest | newer | none | error
@@ -77,6 +83,7 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18n("Updates:")
             text: i18n("Look for new versions once a week")
             onToggled: page.cfg_updateAsked = true
+            ResetHandler { page: page; keys: ["updateCheck"] }
         }
         RowLayout {
             QQC2.Button {
