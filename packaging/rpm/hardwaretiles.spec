@@ -6,7 +6,7 @@
 %global plasmoid_id io.github.paderman.hardwaretiles
 
 Name:           plasma-widget-hardwaretiles
-Version:        %{?version_override}%{!?version_override:1.0.0}
+Version:        %{?version_override}%{!?version_override:1.1.0}
 Release:        1%{?dist}
 Summary:        GPU & system monitor widget for KDE Plasma 6
 License:        GPL-2.0-or-later

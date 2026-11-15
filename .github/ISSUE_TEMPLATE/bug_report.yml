@@ -14,7 +14,7 @@ body:
     attributes:
       label: Versions
       description: Hardware Tiles, Plasma and distribution
-      placeholder: "Hardware Tiles 1.0.0, Plasma 6.6, Fedora 44"
+      placeholder: "Hardware Tiles 1.1.0, Plasma 6.6, Fedora 44"
     validations:
       required: true
   - type: textarea

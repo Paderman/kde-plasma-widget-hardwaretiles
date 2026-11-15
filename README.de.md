@@ -35,16 +35,25 @@ als Ringe, Balken und Verlaufsgraphen.
   braucht, wird die Kachel rot; dreht er deutlich langsamer als die anderen, gelb – jeweils mit einer Benachrichtigung
 - **System**: Prozessor, Arbeitsspeicher (belegt / gesamt, Swap im Tooltip), SSD-Temperaturen,
   Speicherplatz, Mainboard-Lüfter und -Temperatur, Netzwerk
+- **Mainboard-Batterie und Netzteilspannungen**: Die Knopfzelle (CMOS) warnt, bevor BIOS-Einstellungen verloren gehen;
+  +12 V, +5 V, +3,3 V mit Schwellen nach ATX-Norm (±5 %) – Schwellen gelten nach oben und nach unten
+- **Jeder Sensor der Hardware**: alle Spannungen, Temperaturen und Lüfter, die die Sensorchips melden, lassen sich
+  aus einem Menü hinzufügen, jeweils mit aktuellem Wert
 - **Einrichtungsassistent** mit Hardware-Erkennung sowie Layout-Vorlagen
   („Systemübersicht“, „GPU-Fokus“, „Alle Grafikkarten“), die anzeigen, ob sie verändert wurden
 - **Desktop-Benachrichtigungen** bei kritischen Werten (Verzögerung, Hysterese, Pause)
-- **Verständliche Tooltips**, die erklären, was ein Wert bedeutet und ob er normal ist
+- **Verständliche Tooltips**, die erklären, was ein Wert bedeutet und ob er normal ist – Verzögerung,
+  Anzeigedauer oder ganz aus, nach Wunsch
+- **Live-Vorschau**: Layouts, Kachel-Änderungen und alle Darstellungs-Einstellungen sind im Widget zu sehen, bevor sie übernommen werden
+- **Einstellbare Deckkraft des Hintergrunds** auf der Arbeitsfläche, Kacheln bleiben bis 0 % lesbar
+- **Jede Einstellung zurück auf den Standard** per Mittelklick oder Rechtsklick darauf
 - **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen zum Verschieben,
   × zum Entfernen, + zum Hinzufügen aus Vorschlägen für die erkannte Hardware
 - **Profile**: die aktuelle Ansicht (Kacheln, Darstellung, Benachrichtigungen) unter einem Namen speichern,
   per Rechtsklick wechseln, als Datei exportieren und importieren – Befehle in importierten Profilen
   werden vor dem Speichern angezeigt
 - Passt sich der Widget-Größe an, Leisten-Modus mit Mini-Ringen
+- **Hilfen, wenn etwas klemmt**: gedrehtes Widget gerade ausrichten, Plasma-Arbeitsfläche neu starten (*Info & Updates*)
 
 ## Voraussetzungen
 
