@@ -19,6 +19,10 @@ Item {
     property int interval: 1500
     property color accent: Kirigami.Theme.highlightColor
     property real u: Kirigami.Units.gridUnit
+    // background opacity of the widget (0…1): below 1 the header text gets a
+    // backing like the tiles, so it stays readable on the wallpaper
+    property real fillFactor: 1
+    property real backing: 0.85
     readonly property bool coloured: accent.a > 0
     readonly property color fg: Kirigami.Theme.textColor
     readonly property color warnColor: Kirigami.ColorUtils.brightnessForColor(Kirigami.Theme.backgroundColor) === Kirigami.ColorUtils.Light
@@ -36,6 +40,22 @@ Item {
     }
     readonly property bool hasLink: addr !== "" && link.valid
     readonly property bool linkWarn: hasLink && link.forcedLevel > 0
+    // last visible item before the rule (headers without info text)
+    readonly property Item titleEnd: badgeBox.visible ? badgeBox : titleLabel
+
+    Rectangle {
+        visible: hdr.fillFactor < 1
+        readonly property color bg: Kirigami.Theme.backgroundColor
+        readonly property real pad: Math.round(hdr.u * 0.4)
+        x: -pad
+        y: 0
+        height: parent.height
+        // up to the end of the text (not across the fading rule)
+        width: Math.min(hdr.width, (infoLabel.visible ? infoLabel.x + Math.min(infoLabel.implicitWidth, infoLabel.width)
+                                                      : titleEnd.x + titleEnd.width)) + 2 * pad
+        radius: height / 2
+        color: Qt.rgba(bg.r, bg.g, bg.b, (1 - hdr.fillFactor) * hdr.backing)
+    }
 
     RowLayout {
         id: row
@@ -51,6 +71,7 @@ Item {
             color: hdr.coloured ? hdr.accent : Qt.rgba(hdr.fg.r, hdr.fg.g, hdr.fg.b, 0.35)
         }
         QQC2.Label {
+            id: titleLabel
             text: hdr.title
             font.pixelSize: Math.round(hdr.u * 0.78)
             font.weight: Font.Bold
@@ -59,6 +80,7 @@ Item {
         }
         // PCIe link badge
         Rectangle {
+            id: badgeBox
             visible: hdr.hasLink
             Layout.alignment: Qt.AlignVCenter
             implicitWidth: badge.implicitWidth + Math.round(hdr.u * 0.6)
@@ -80,6 +102,7 @@ Item {
             }
         }
         QQC2.Label {
+            id: infoLabel
             Layout.fillWidth: true
             visible: text !== ""
             text: hdr.info

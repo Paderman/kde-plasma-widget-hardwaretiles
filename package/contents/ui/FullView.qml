@@ -17,15 +17,14 @@ Item {
     // columns: 0 = automatic. fitToSize (desktop only): shrink the tiles until
     // everything fits without scrolling – never above the configured size.
     // size slider: while the settings are open their preview value wins
-    readonly property real userScale: (Plasmoid.configuration.tileScalePreview > 0
-                                       ? Plasmoid.configuration.tileScalePreview
-                                       : Plasmoid.configuration.tileScale) / 100
+    readonly property real userScale: Number(root.setting("tileScale")) / 100
     readonly property bool inPopup: Plasmoid.formFactor === PlasmaCore.Types.Horizontal
                                     || Plasmoid.formFactor === PlasmaCore.Types.Vertical
-    readonly property bool autoCols: Plasmoid.configuration.columns <= 0
+    readonly property int columnsSetting: Number(root.setting("columns"))
+    readonly property bool autoCols: columnsSetting <= 0
     // background opacity 0…1 – only on the desktop, the panel popup keeps its own
     readonly property real bgFactor: inPopup ? 1 : root.bgOpacity / 100
-    readonly property bool fit: Plasmoid.configuration.fitToSize && !inPopup
+    readonly property bool fit: root.setting("fitToSize") && !inPopup
     // size of the smallest ring gauge – all rings use it (see ringTimer)
     property real ringSize: 0
     // extra height of the highest two-line ring name – rings stay level (see ringTimer)
@@ -77,7 +76,7 @@ Item {
     readonly property var plan: {
         const g = Kirigami.Units.gridUnit;
         const W = Math.max(1, width), H = Math.max(1, height);
-        const fixed = Math.max(1, Math.min(8, Plasmoid.configuration.columns));
+        const fixed = Math.max(1, Math.min(8, columnsSetting));
         const cands = [];
         for (let c = autoCols ? 1 : fixed; c <= (autoCols ? 8 : fixed); ++c) {
             // tiles must stay at least ~7.5 units wide
@@ -133,8 +132,8 @@ Item {
     // full-width header per card ({header, group, title, info, slot}).
     // Tiles keep their relative order inside a section, so moving within a
     // section maps 1:1 onto the stored order.
-    readonly property string sectionMode: Plasmoid.configuration.gpuSectionMode
-                                          || (Plasmoid.configuration.gpuSections ? "auto" : "never")
+    readonly property string sectionMode: root.setting("gpuSectionMode")
+                                          || (root.setting("gpuSections") ? "auto" : "never")
     readonly property bool sections: sectionMode === "always" ? root.shownGpus.length > 0
                                    : sectionMode === "never" ? false : root.multiGpu
     readonly property var entries: {
@@ -255,19 +254,6 @@ Item {
     function cancelDrag() {
         dragTo = -1;
         finishDrag();
-    }
-
-    // own background below 100 % opacity (the Plasma frame is switched off then)
-    Rectangle {
-        anchors.fill: parent
-        z: -1
-        visible: !full.inPopup && root.bgOpacity < 100 && root.bgOpacity > 0
-        radius: Kirigami.Units.cornerRadius * 2
-        readonly property color bg: Kirigami.Theme.backgroundColor
-        readonly property color fg: Kirigami.Theme.textColor
-        color: Qt.rgba(bg.r, bg.g, bg.b, full.bgFactor)
-        border.width: 1
-        border.color: Qt.rgba(fg.r, fg.g, fg.b, 0.12 * full.bgFactor)
     }
 
     // first-run setup
@@ -454,6 +440,8 @@ Item {
                         driver: entry.modelData.driver || ""
                         interval: root.interval
                         u: full.u
+                        fillFactor: full.bgFactor
+                        backing: root.tileBacking
                     }
 
                     property Component tileComponent: SensorTile {
@@ -467,8 +455,9 @@ Item {
                         // compare tile with only one card left: show that card like a normal tile
                         src: srcs.length === 1 ? srcs[0].src : root.source(itemIndex)
                         style: (root.items[itemIndex] || {}).style || "ring"
-                        tileStyle: Plasmoid.configuration.tileStyle
+                        tileStyle: root.setting("tileStyle")
                         fillFactor: full.bgFactor
+                        backing: root.tileBacking
                         scale_: full.scale_
                         gpuColor: full.sections || !root.multiGpu ? "transparent"
                                   : Hardware.gpuColor((root.items[itemIndex] || {}).gpuSlot, root.lightTheme)
@@ -530,7 +519,7 @@ Item {
                                 implicitHeight: implicitWidth
                             }
                             QQC2.ToolTip.text: i18n("Remove tile")
-                            QQC2.ToolTip.visible: hovered && Plasmoid.configuration.tooltipsEnabled
+                            QQC2.ToolTip.visible: hovered && root.setting("tooltipsEnabled")
                             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
                     }

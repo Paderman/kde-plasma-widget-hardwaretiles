@@ -16,6 +16,7 @@ KCM.SimpleKCM {
     property alias cfg_historyLength: history.value
     property alias cfg_tileScale: scale.value
     property alias cfg_backgroundOpacity: bgOpacity.value
+    property alias cfg_tileOpacity: tileOpacity.value
     property alias cfg_tooltipsEnabled: tipsBox.checked
     property alias cfg_tooltipDelay: tipDelay.value
     property int cfg_tooltipDuration
@@ -27,6 +28,28 @@ KCM.SimpleKCM {
     property bool cfg_gpuSections
     property string cfg_gpuSectionMode
     property alias cfg_fitToSize: fitBox.checked
+
+    // live preview: every unsaved value of this page shows in the widget right
+    // away; stored only with OK / Apply, closing the settings brings back the rest
+    readonly property var previewKeys: ["columns", "fitToSize", "tileStyle", "tileScale", "backgroundOpacity",
+        "tileOpacity", "gpuSectionMode", "gpuSections", "panelShowLabels", "panelShowRings",
+        "tooltipsEnabled", "tooltipDelay", "tooltipDuration"]
+    property bool previewOn: false
+    readonly property string previewJson: {
+        if (!previewOn) return "";
+        const out = {};
+        let any = false;
+        previewKeys.forEach(k => {
+            const stored = Plasmoid.configuration[k];
+            let v = page["cfg_" + k];
+            if (typeof stored === "number") v = Math.round(Number(v));   // sliders give reals
+            if (v !== stored) { out[k] = v; any = true; }
+        });
+        return any ? JSON.stringify(out) : "";
+    }
+    onPreviewJsonChanged: if (Plasmoid.configuration.appearancePreview !== previewJson) Plasmoid.configuration.appearancePreview = previewJson
+    Component.onCompleted: previewOn = true
+    Component.onDestruction: Plasmoid.configuration.appearancePreview = ""
 
     // only this page's values (the tiles stay); saved with "Anwenden"
     function resetToDefaults() {
@@ -70,9 +93,6 @@ KCM.SimpleKCM {
                 id: scale
                 from: 60; to: 180; stepSize: 5
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
-                // live preview in the widget; stored only with OK / Apply
-                onValueChanged: Plasmoid.configuration.tileScalePreview = Math.round(value)
-                Component.onDestruction: Plasmoid.configuration.tileScalePreview = 0
             }
             QQC2.Label { text: Math.round(scale.value) + " %" }
         }
@@ -82,16 +102,23 @@ KCM.SimpleKCM {
                 id: bgOpacity
                 from: 0; to: 100; stepSize: 5
                 Layout.preferredWidth: Kirigami.Units.gridUnit * 10
-                // live preview in the widget; stored only with OK / Apply
-                onValueChanged: Plasmoid.configuration.backgroundOpacityPreview = Math.round(value)
-                Component.onDestruction: Plasmoid.configuration.backgroundOpacityPreview = -1
             }
             QQC2.Label { text: Math.round(bgOpacity.value) + " %" }
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Tile opacity:")
+            enabled: bgOpacity.value < 100
+            QQC2.Slider {
+                id: tileOpacity
+                from: 50; to: 100; stepSize: 5
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+            }
+            QQC2.Label { text: Math.round(tileOpacity.value) + " %" }
         }
         QQC2.Label {
             Layout.fillWidth: true
             Layout.maximumWidth: Kirigami.Units.gridUnit * 22
-            text: i18n("Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background.")
+            text: i18n("Only on the desktop. The less background, the more solid the tiles get, so values stay readable on any wallpaper – “Tile opacity” sets how solid they are at 0 %. 100 % background is the normal Plasma background.")
             wrapMode: Text.WordWrap
             font: Kirigami.Theme.smallFont
             opacity: 0.7

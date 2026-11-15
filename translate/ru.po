@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Датчики"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:741
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:731
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:710
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:700
 msgid "Appearance"
 msgstr "Внешний вид"
 
@@ -90,7 +90,7 @@ msgstr "Ещё не опубликовано ни одной версии."
 msgid "GitHub could not be reached (%1)."
 msgstr "Не удалось связаться с GitHub (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:313
+#: package/contents/ui/ConfigAbout.qml:107 package/contents/ui/FullView.qml:300
 msgid "Open download page"
 msgstr "Открыть страницу загрузки"
 
@@ -186,12 +186,12 @@ msgid "Send test notification"
 msgstr "Отправить тестовое уведомление"
 
 #: package/contents/ui/ConfigAlerts.qml:121
-#: package/contents/ui/ConfigAppearance.qml:205
+#: package/contents/ui/ConfigAppearance.qml:219
 msgid "Restore defaults"
 msgstr "Восстановить значения по умолчанию"
 
 #: package/contents/ui/ConfigAlerts.qml:132
-#: package/contents/ui/ConfigAppearance.qml:216
+#: package/contents/ui/ConfigAppearance.qml:230
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Сброшено. Изменения вступят в силу только после «Применить» – «Отмена» оставит всё как было."
 
@@ -211,144 +211,148 @@ msgstr ""
 "Превышен критический порог 100 °C.\n"
 "(Это всего лишь тест Sensor Deck.)"
 
-#: package/contents/ui/ConfigAppearance.qml:44
+#: package/contents/ui/ConfigAppearance.qml:45
 msgid "Columns:"
 msgstr "Столбцы:"
 
-#: package/contents/ui/ConfigAppearance.qml:46
 #: package/contents/ui/ConfigAppearance.qml:47
+#: package/contents/ui/ConfigAppearance.qml:48
 msgid "Automatic"
 msgstr "Автоматически"
 
-#: package/contents/ui/ConfigAppearance.qml:51
+#: package/contents/ui/ConfigAppearance.qml:52
 msgid "On the desktop:"
 msgstr "На рабочем столе:"
 
-#: package/contents/ui/ConfigAppearance.qml:52
+#: package/contents/ui/ConfigAppearance.qml:53
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "Уменьшать плитки, чтобы всё помещалось без прокрутки"
 
-#: package/contents/ui/ConfigAppearance.qml:57
+#: package/contents/ui/ConfigAppearance.qml:58
 msgid "Tile style:"
 msgstr "Стиль плиток:"
 
-#: package/contents/ui/ConfigAppearance.qml:60
-#: package/contents/ui/FullView.qml:607
+#: package/contents/ui/ConfigAppearance.qml:61
+#: package/contents/ui/FullView.qml:597
 msgid "Glass (subtle)"
 msgstr "Стекло (неброский)"
 
-#: package/contents/ui/ConfigAppearance.qml:61
-#: package/contents/ui/FullView.qml:608
+#: package/contents/ui/ConfigAppearance.qml:62
+#: package/contents/ui/FullView.qml:598
 msgid "Filled"
 msgstr "Заливка"
 
-#: package/contents/ui/ConfigAppearance.qml:62
-#: package/contents/ui/FullView.qml:609
+#: package/contents/ui/ConfigAppearance.qml:63
+#: package/contents/ui/FullView.qml:599
 msgid "Outline (accent colour)"
 msgstr "Контур (цвет акцента)"
 
-#: package/contents/ui/ConfigAppearance.qml:68
+#: package/contents/ui/ConfigAppearance.qml:69
 msgid "Size:"
 msgstr "Размер:"
 
-#: package/contents/ui/ConfigAppearance.qml:80
+#: package/contents/ui/ConfigAppearance.qml:81
 msgid "Background opacity:"
 msgstr "Непрозрачность фона:"
 
-#: package/contents/ui/ConfigAppearance.qml:94
-msgid "Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background."
-msgstr "Только на рабочем столе. Значения и текст остаются полностью видимыми; 100 % — обычный фон Plasma."
+#: package/contents/ui/ConfigAppearance.qml:93
+msgid "Tile opacity:"
+msgstr "Непрозрачность плиток:"
 
-#: package/contents/ui/ConfigAppearance.qml:101
+#: package/contents/ui/ConfigAppearance.qml:108
+msgid "Only on the desktop. The less background, the more solid the tiles get, so values stay readable on any wallpaper – “Tile opacity” sets how solid they are at 0 %. 100 % background is the normal Plasma background."
+msgstr "Только на рабочем столе. Чем меньше фона, тем плотнее становятся плитки, чтобы значения оставались читаемыми на любых обоях; «Непрозрачность плиток» задаёт их плотность при 0 %. 100 % фона — обычный фон Plasma."
+
+#: package/contents/ui/ConfigAppearance.qml:115
 msgid "Tooltips:"
 msgstr "Всплывающие подсказки:"
 
-#: package/contents/ui/ConfigAppearance.qml:102
+#: package/contents/ui/ConfigAppearance.qml:116
 msgid "Show details when the mouse pointer rests on a tile"
 msgstr "Показывать подробности, когда указатель мыши задерживается на плитке"
 
-#: package/contents/ui/ConfigAppearance.qml:105
+#: package/contents/ui/ConfigAppearance.qml:119
 msgid "Tooltip delay:"
 msgstr "Задержка подсказок:"
 
-#: package/contents/ui/ConfigAppearance.qml:113
+#: package/contents/ui/ConfigAppearance.qml:127
 msgid "Immediately"
 msgstr "Сразу"
 
-#: package/contents/ui/ConfigAppearance.qml:114
-#: package/contents/ui/ConfigAppearance.qml:129
-#: package/contents/ui/ConfigAppearance.qml:178
+#: package/contents/ui/ConfigAppearance.qml:128
+#: package/contents/ui/ConfigAppearance.qml:143
+#: package/contents/ui/ConfigAppearance.qml:192
 msgid "%1 s"
 msgstr "%1 с"
 
-#: package/contents/ui/ConfigAppearance.qml:118
+#: package/contents/ui/ConfigAppearance.qml:132
 msgid "Tooltip duration:"
 msgstr "Длительность показа подсказок:"
 
-#: package/contents/ui/ConfigAppearance.qml:129
+#: package/contents/ui/ConfigAppearance.qml:143
 msgid "Unlimited"
 msgstr "Без ограничения"
 
-#: package/contents/ui/ConfigAppearance.qml:136
+#: package/contents/ui/ConfigAppearance.qml:150
 msgid "“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile."
 msgstr "«Без ограничения»: подсказка остаётся, пока указатель мыши находится на плитке."
 
-#: package/contents/ui/ConfigAppearance.qml:145
+#: package/contents/ui/ConfigAppearance.qml:159
 msgid "Sections per graphics card:"
 msgstr "Разделы для каждой видеокарты:"
 
-#: package/contents/ui/ConfigAppearance.qml:148
-#: package/contents/ui/FullView.qml:618
+#: package/contents/ui/ConfigAppearance.qml:162
+#: package/contents/ui/FullView.qml:608
 msgid "From two graphics cards"
 msgstr "От двух видеокарт"
 
-#: package/contents/ui/ConfigAppearance.qml:149
-#: package/contents/ui/FullView.qml:619
+#: package/contents/ui/ConfigAppearance.qml:163
+#: package/contents/ui/FullView.qml:609
 msgid "Always (even with one card)"
 msgstr "Всегда (даже с одной картой)"
 
-#: package/contents/ui/ConfigAppearance.qml:150
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/ConfigAppearance.qml:164
+#: package/contents/ui/FullView.qml:610
 msgid "Never (several cards: coloured edge)"
 msgstr "Никогда (несколько карт: цветная кромка)"
 
-#: package/contents/ui/ConfigAppearance.qml:160
+#: package/contents/ui/ConfigAppearance.qml:174
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "Перемещайте, удаляйте или добавляйте плитки прямо в виджете: правый щелчок → «Редактировать плитки»."
 
-#: package/contents/ui/ConfigAppearance.qml:168
+#: package/contents/ui/ConfigAppearance.qml:182
 msgid "Update:"
 msgstr "Обновление:"
 
-#: package/contents/ui/ConfigAppearance.qml:170
+#: package/contents/ui/ConfigAppearance.qml:184
 msgid "every %1 s"
 msgstr "каждые %1 с"
 
-#: package/contents/ui/ConfigAppearance.qml:176
+#: package/contents/ui/ConfigAppearance.qml:190
 msgid "History in graphs:"
 msgstr "История на графиках:"
 
-#: package/contents/ui/ConfigAppearance.qml:182
+#: package/contents/ui/ConfigAppearance.qml:196
 msgid "Panel"
 msgstr "Панель"
 
-#: package/contents/ui/ConfigAppearance.qml:186
+#: package/contents/ui/ConfigAppearance.qml:200
 msgid "In the panel:"
 msgstr "На панели:"
 
-#: package/contents/ui/ConfigAppearance.qml:187
+#: package/contents/ui/ConfigAppearance.qml:201
 msgid "Show mini rings"
 msgstr "Показывать мини-кольца"
 
-#: package/contents/ui/ConfigAppearance.qml:191
+#: package/contents/ui/ConfigAppearance.qml:205
 msgid "Show labels"
 msgstr "Показывать подписи"
 
-#: package/contents/ui/ConfigAppearance.qml:197
+#: package/contents/ui/ConfigAppearance.qml:211
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "Какие датчики появляются на панели, задаётся для каждой записи на странице «Датчики». Фон виджета на рабочем столе можно переключить в режиме редактирования."
 
-#: package/contents/ui/ConfigAppearance.qml:217
+#: package/contents/ui/ConfigAppearance.qml:231
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Затрагивает только настройки на этой странице – плитки датчиков и уведомления сохраняются."
 
@@ -460,7 +464,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "Вид до последней загрузки профиля можно восстановить."
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:653
+#: package/contents/ui/FullView.qml:643
 msgid "Undo profile change"
 msgstr "Отменить смену профиля"
 
@@ -536,22 +540,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "Экспортированные файлы можно импортировать на другом компьютере. Плитки видеокарты, которой там нет, переносятся на карту того же производителя; выученные кривые вентиляторов в профиль не входят."
 
 #: package/contents/ui/ConfigSensors.qml:40
-#: package/contents/ui/FullView.qml:714
+#: package/contents/ui/FullView.qml:704
 msgid "Ring"
 msgstr "Кольцо"
 
 #: package/contents/ui/ConfigSensors.qml:41
-#: package/contents/ui/FullView.qml:719
+#: package/contents/ui/FullView.qml:709
 msgid "Bar"
 msgstr "Полоса"
 
 #: package/contents/ui/ConfigSensors.qml:42
-#: package/contents/ui/FullView.qml:724
+#: package/contents/ui/FullView.qml:714
 msgid "History graph"
 msgstr "График истории"
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:729
+#: package/contents/ui/FullView.qml:719
 msgid "Value only"
 msgstr "Только значение"
 
@@ -734,7 +738,7 @@ msgid "Style:"
 msgstr "Стиль:"
 
 #: package/contents/ui/ConfigSensors.qml:553
-#: package/contents/ui/FullView.qml:734
+#: package/contents/ui/FullView.qml:724
 msgid "Double width"
 msgstr "Двойная ширина"
 
@@ -1164,134 +1168,134 @@ msgstr "Сравнение"
 msgid "System"
 msgstr "Система"
 
-#: package/contents/ui/FullView.qml:296
+#: package/contents/ui/FullView.qml:283
 msgid "Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Проверять наличие новых версий Sensor Deck раз в неделю? Для этого выполняется подключение к github.com – GitHub видит ваш IP-адрес, как при любом посещении сайта; больше ничего не отправляется. Это можно изменить в любой момент в настройках."
 
-#: package/contents/ui/FullView.qml:297
+#: package/contents/ui/FullView.qml:284
 msgid "Sensor Deck %1 is available (installed: %2)."
 msgstr "Доступен Sensor Deck %1 (установлен: %2)."
 
-#: package/contents/ui/FullView.qml:301
+#: package/contents/ui/FullView.qml:288
 msgid "Yes, check weekly"
 msgstr "Да, проверять еженедельно"
 
-#: package/contents/ui/FullView.qml:307
+#: package/contents/ui/FullView.qml:294
 msgid "No, thanks"
 msgstr "Нет, спасибо"
 
-#: package/contents/ui/FullView.qml:332
+#: package/contents/ui/FullView.qml:319
 msgid "Drag a tile to move it within its section. × removes a tile, + adds one."
 msgstr "Перетащите плитку, чтобы переместить её в пределах раздела. × удаляет плитку, + добавляет новую."
 
-#: package/contents/ui/FullView.qml:336 package/contents/ui/FullView.qml:553
-#: package/contents/ui/main.qml:449
+#: package/contents/ui/FullView.qml:323 package/contents/ui/FullView.qml:543
+#: package/contents/ui/main.qml:451
 msgid "Restore “%1”"
 msgstr "Восстановить «%1»"
 
-#: package/contents/ui/FullView.qml:342 package/contents/ui/FullView.qml:565
-#: package/contents/ui/main.qml:455
+#: package/contents/ui/FullView.qml:329 package/contents/ui/FullView.qml:555
+#: package/contents/ui/main.qml:457
 msgid "Undo last move"
 msgstr "Отменить последнее перемещение"
 
-#: package/contents/ui/FullView.qml:347
+#: package/contents/ui/FullView.qml:334
 msgid "Done"
 msgstr "Готово"
 
-#: package/contents/ui/FullView.qml:417 package/contents/ui/FullView.qml:440
+#: package/contents/ui/FullView.qml:404 package/contents/ui/FullView.qml:427
 msgid "Add tile"
 msgstr "Добавить плитку"
 
-#: package/contents/ui/FullView.qml:515 package/contents/ui/FullView.qml:532
+#: package/contents/ui/FullView.qml:505 package/contents/ui/FullView.qml:522
 msgid "Remove tile"
 msgstr "Удалить плитку"
 
-#: package/contents/ui/FullView.qml:547 package/contents/ui/main.qml:443
+#: package/contents/ui/FullView.qml:537 package/contents/ui/main.qml:445
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Доступен Sensor Deck %1 – открыть страницу загрузки"
 
-#: package/contents/ui/FullView.qml:559
+#: package/contents/ui/FullView.qml:549
 msgid "Finish editing"
 msgstr "Завершить редактирование"
 
-#: package/contents/ui/FullView.qml:559
+#: package/contents/ui/FullView.qml:549
 msgid "Edit tiles"
 msgstr "Редактировать плитки"
 
-#: package/contents/ui/FullView.qml:571 package/contents/ui/main.qml:461
+#: package/contents/ui/FullView.qml:561 package/contents/ui/main.qml:463
 msgid "Restore original arrangement"
 msgstr "Восстановить исходное расположение"
 
-#: package/contents/ui/FullView.qml:577
+#: package/contents/ui/FullView.qml:567
 msgid "Configure Sensor Deck …"
 msgstr "Настроить Sensor Deck …"
 
-#: package/contents/ui/FullView.qml:604
+#: package/contents/ui/FullView.qml:594
 msgid "Tile style"
 msgstr "Стиль плиток"
 
-#: package/contents/ui/FullView.qml:615
+#: package/contents/ui/FullView.qml:605
 msgid "Sections per graphics card"
 msgstr "Разделы для каждой видеокарты"
 
-#: package/contents/ui/FullView.qml:630
+#: package/contents/ui/FullView.qml:620
 msgid "Profile"
 msgstr "Профиль"
 
-#: package/contents/ui/FullView.qml:633
+#: package/contents/ui/FullView.qml:623
 msgid "No profiles saved yet"
 msgstr "Профилей пока нет"
 
-#: package/contents/ui/FullView.qml:643
+#: package/contents/ui/FullView.qml:633
 msgid "changed"
 msgstr "изменён"
 
-#: package/contents/ui/FullView.qml:659
+#: package/contents/ui/FullView.qml:649
 msgid "Manage profiles …"
 msgstr "Управление профилями…"
 
-#: package/contents/ui/FullView.qml:670
+#: package/contents/ui/FullView.qml:660
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Совет: долгое нажатие на пустом месте – переместить, изменить размер, удалить виджет"
 
-#: package/contents/ui/FullView.qml:701
+#: package/contents/ui/FullView.qml:691
 msgid "Edit in settings …"
 msgstr "Изменить в настройках …"
 
-#: package/contents/ui/FullView.qml:750 package/contents/ui/FullView.qml:812
-#: package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:740 package/contents/ui/FullView.qml:802
+#: package/contents/ui/main.qml:487
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
-#: package/contents/ui/FullView.qml:779
+#: package/contents/ui/FullView.qml:769
 msgid "Suggestions for your hardware"
 msgstr "Предложения для вашего оборудования"
 
-#: package/contents/ui/FullView.qml:779
+#: package/contents/ui/FullView.qml:769
 msgid "No further suggestions"
 msgstr "Других предложений нет"
 
-#: package/contents/ui/FullView.qml:798
+#: package/contents/ui/FullView.qml:788
 msgid "Own tile …"
 msgstr "Своя плитка …"
 
-#: package/contents/ui/FullView.qml:884
+#: package/contents/ui/FullView.qml:874
 msgid "No sensors configured"
 msgstr "Датчики не настроены"
 
-#: package/contents/ui/FullView.qml:890
+#: package/contents/ui/FullView.qml:880
 msgid "Configure …"
 msgstr "Настроить …"
 
-#: package/contents/ui/GpuSectionHeader.qml:111
+#: package/contents/ui/GpuSectionHeader.qml:134
 msgid "PCI address: %1"
 msgstr "Адрес PCI: %1"
 
-#: package/contents/ui/GpuSectionHeader.qml:111
+#: package/contents/ui/GpuSectionHeader.qml:134
 msgid "Driver: %1"
 msgstr "Драйвер: %1"
 
-#: package/contents/ui/GpuSectionHeader.qml:117
+#: package/contents/ui/GpuSectionHeader.qml:140
 msgid "PCIe link: %1"
 msgstr "Соединение PCIe: %1"
 
@@ -1438,15 +1442,15 @@ msgstr "Температура корпуса"
 msgid "Upload"
 msgstr "Отдача"
 
-#: package/contents/ui/main.qml:70
+#: package/contents/ui/main.qml:71
 msgid "Graphics card"
 msgstr "Видеокарта"
 
-#: package/contents/ui/main.qml:71
+#: package/contents/ui/main.qml:72
 msgid "Graphics card %1 (not found)"
 msgstr "Видеокарта %1 (не найдена)"
 
-#: package/contents/ui/main.qml:72
+#: package/contents/ui/main.qml:73
 msgid "Graphics card %1"
 msgstr "Видеокарта %1"
 
@@ -1788,31 +1792,31 @@ msgstr "Вентиляторы снова работают нормально."
 msgid "The value is below the threshold again."
 msgstr "Значение снова ниже порога."
 
-#: package/contents/ui/SensorTile.qml:155
+#: package/contents/ui/SensorTile.qml:167
 msgid "Fan %1 at %2"
 msgstr "Вентилятор %1 при %2"
 
-#: package/contents/ui/SensorTile.qml:168
+#: package/contents/ui/SensorTile.qml:180
 msgid "Now: %1"
 msgstr "Сейчас: %1"
 
-#: package/contents/ui/SensorTile.qml:184
+#: package/contents/ui/SensorTile.qml:196
 msgid "Critical – above the threshold of %1."
 msgstr "Критично – выше порога %1."
 
-#: package/contents/ui/SensorTile.qml:185
+#: package/contents/ui/SensorTile.qml:197
 msgid "Elevated – above the warning threshold of %1."
 msgstr "Повышено – выше порога предупреждения %1."
 
-#: package/contents/ui/SensorTile.qml:186
+#: package/contents/ui/SensorTile.qml:198
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "В норме · предупреждение от %1, критично от %2."
 
-#: package/contents/ui/SensorTile.qml:187
+#: package/contents/ui/SensorTile.qml:199
 msgid "In the normal range · warning from %1."
 msgstr "В норме · предупреждение от %1."
 
-#: package/contents/ui/SensorTile.qml:187
+#: package/contents/ui/SensorTile.qml:199
 msgid "In the normal range · critical from %1."
 msgstr "В норме · критично от %1."
 

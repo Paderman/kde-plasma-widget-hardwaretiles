@@ -6,6 +6,7 @@ import QtQuick.Layouts
 import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
 import org.kde.kirigami as Kirigami
+import org.kde.ksvg as KSvg
 import "Defaults.js" as Defaults
 import "Hardware.js" as Hardware
 import "UpdateCheck.js" as UpdateCheck
@@ -24,6 +25,15 @@ PlasmoidItem {
         catch (e) { return null; }
     }
     readonly property bool previewing: layoutPreview !== null
+    // live preview of the Appearance page: its unsaved values win over the stored ones
+    readonly property var appearancePreview: {
+        try { const p = JSON.parse(Plasmoid.configuration.appearancePreview || "null"); return p && typeof p === "object" ? p : null; }
+        catch (e) { return null; }
+    }
+    function setting(key) {
+        const p = appearancePreview;
+        return p && (key in p) ? p[key] : Plasmoid.configuration[key];
+    }
     readonly property string itemsJson: previewing ? layoutPreview.items : Plasmoid.configuration.items
     readonly property string gpuAddress: previewing ? String(layoutPreview.gpu || "") : Plasmoid.configuration.gpuAddress
     // tile changes made in the widget itself; ignored during a preview – they
@@ -190,8 +200,7 @@ PlasmoidItem {
     onAllCfgsChanged: syncSources()
     Component.onCompleted: {
         // a size preview left over (settings were open when Plasma stopped)
-        Plasmoid.configuration.tileScalePreview = 0;
-        Plasmoid.configuration.backgroundOpacityPreview = -1;
+        Plasmoid.configuration.appearancePreview = "";
         Plasmoid.configuration.layoutPreview = "";
         // existing widgets already have a layout: don't show the wizard there
         if (!Plasmoid.configuration.setupDone && Plasmoid.configuration.items !== "")
@@ -468,8 +477,10 @@ PlasmoidItem {
     // background opacity (desktop): 100 % = the normal Plasma frame, below that the
     // widget draws its own background (FullView) – the Plasma frame has no opacity
     readonly property int bgOpacity: Math.max(0, Math.min(100,
-        Plasmoid.configuration.backgroundOpacityPreview >= 0 ? Plasmoid.configuration.backgroundOpacityPreview
-                                                             : Plasmoid.configuration.backgroundOpacity))
+        Number(setting("backgroundOpacity"))))
+    // how solid tiles and headers get once the background is gone (0…1)
+    readonly property real tileBacking: Math.max(0.5, Math.min(1,
+        Number(setting("tileOpacity")) / 100))
     Plasmoid.backgroundHints: bgOpacity >= 100 ? (PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground)
                                                : PlasmaCore.Types.NoBackground
 
@@ -478,9 +489,9 @@ PlasmoidItem {
                              ? compactRepresentation : fullRepresentation
 
     // no texts = no tooltip (switched off in the settings)
-    toolTipMainText: Plasmoid.configuration.tooltipsEnabled ? i18n("Sensor Deck") : ""
+    toolTipMainText: setting("tooltipsEnabled") ? i18n("Sensor Deck") : ""
     toolTipSubText: {
-        if (!Plasmoid.configuration.tooltipsEnabled) return "";
+        if (!setting("tooltipsEnabled")) return "";
         sourcesRevision;
         const lines = [];
         allCfgs.forEach(c => {
@@ -491,5 +502,40 @@ PlasmoidItem {
     }
 
     compactRepresentation: CompactView { }
-    fullRepresentation: FullView { }
+    // Below 100 % background opacity Plasma's frame is switched off (it has no
+    // opacity of its own). The same frame is then drawn here, faded, and the
+    // content keeps the frame's margins – nothing jumps between 100 % and 95 %.
+    fullRepresentation: Item {
+        id: fullBox
+        readonly property bool ownFrame: Plasmoid.formFactor !== PlasmaCore.Types.Horizontal
+                                         && Plasmoid.formFactor !== PlasmaCore.Types.Vertical
+                                         && root.bgOpacity < 100
+        readonly property real padL: ownFrame ? frame.margins.left : 0
+        readonly property real padR: ownFrame ? frame.margins.right : 0
+        readonly property real padT: ownFrame ? frame.margins.top : 0
+        readonly property real padB: ownFrame ? frame.margins.bottom : 0
+        Layout.minimumWidth: view.Layout.minimumWidth + padL + padR
+        Layout.minimumHeight: view.Layout.minimumHeight + padT + padB
+        Layout.preferredWidth: view.Layout.preferredWidth + padL + padR
+        Layout.preferredHeight: view.Layout.preferredHeight + padT + padB
+
+        // Plasma's own frame looks lighter than this one at full opacity: KWin blurs
+        // and raises the contrast behind it, which a self-drawn frame cannot ask
+        // for. Scaled so that 99 % looks about like Plasma's 100 % (Breeze).
+        KSvg.FrameSvgItem {
+            id: frame
+            anchors.fill: parent
+            imagePath: "widgets/background"
+            visible: fullBox.ownFrame && root.bgOpacity > 0
+            opacity: 0.8 * root.bgOpacity / 100
+        }
+        FullView {
+            id: view
+            anchors.fill: parent
+            anchors.leftMargin: fullBox.padL
+            anchors.rightMargin: fullBox.padR
+            anchors.topMargin: fullBox.padT
+            anchors.bottomMargin: fullBox.padB
+        }
+    }
 }

@@ -76,7 +76,7 @@ MouseArea {
                     color: Hardware.gpuColor(chip.gpuSlot, root.lightTheme)
                 }
                 RingGauge {
-                    visible: Plasmoid.configuration.panelShowRings
+                    visible: root.setting("panelShowRings")
                     Layout.preferredWidth: Math.round(chip.h * 0.8)
                     Layout.preferredHeight: Layout.preferredWidth
                     Layout.alignment: Qt.AlignVCenter
@@ -90,7 +90,7 @@ MouseArea {
                     spacing: -2
                     Layout.alignment: Qt.AlignVCenter
                     QQC2.Label {
-                        visible: Plasmoid.configuration.panelShowLabels
+                        visible: root.setting("panelShowLabels")
                         text: chip.src ? chip.src.label : ""
                         font.pixelSize: Math.max(7, Math.round(chip.h * 0.3))
                         font.capitalization: Font.AllUppercase
@@ -99,7 +99,7 @@ MouseArea {
                     }
                     QQC2.Label {
                         text: chip.src ? chip.src.formatted.replace(" ", "") : "–"
-                        font.pixelSize: Math.max(9, Math.round(chip.h * (Plasmoid.configuration.panelShowLabels ? 0.42 : 0.5)))
+                        font.pixelSize: Math.max(9, Math.round(chip.h * (root.setting("panelShowLabels") ? 0.42 : 0.5)))
                         font.weight: Font.DemiBold
                         font.features: { "tnum": 1 }
                         color: chip.src && chip.src.level > 0 ? chip.src.color : Kirigami.Theme.textColor

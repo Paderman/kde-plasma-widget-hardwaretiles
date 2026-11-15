@@ -12,13 +12,14 @@ PlasmaCore.ToolTipArea {
     id: area
 
     property bool wanted: true
-    readonly property bool allowed: Plasmoid.configuration.tooltipsEnabled
-    readonly property int delay: Math.max(0, Plasmoid.configuration.tooltipDelay)
+    readonly property bool allowed: root.setting("tooltipsEnabled")
+    readonly property int delay: Math.max(0, Number(root.setting("tooltipDelay")))
     property bool armed: false
 
     active: wanted && allowed && (armed || delay === 0)
     // hides by itself after this time; -1 = stays until the pointer leaves
-    timeout: Plasmoid.configuration.tooltipDuration < 0 ? -1 : Math.max(1000, Plasmoid.configuration.tooltipDuration)
+    readonly property int duration: Number(root.setting("tooltipDuration"))
+    timeout: duration < 0 ? -1 : Math.max(1000, duration)
 
     HoverHandler {
         onHoveredChanged: {
