@@ -130,7 +130,7 @@ PlasmoidItem {
         Plasmoid.configuration.baseOrder = "";
         Plasmoid.configuration.layoutPreset = "wizard";
         Plasmoid.configuration.layoutHash = Defaults.signature(Plasmoid.configuration.items);
-        undoOrder = null;
+        undoStack = [];
         Plasmoid.configuration.setupDone = true;
     }
 
@@ -266,7 +266,7 @@ PlasmoidItem {
         // remember the original order once, before the first manual move
         if (!Plasmoid.configuration.baseOrder)
             Plasmoid.configuration.baseOrder = JSON.stringify(before);
-        undoOrder = before;
+        pushUndo(before);
         const arr = rawItems.slice();
         const it = arr.splice(from, 1)[0];
         arr.splice(to, 0, it);
@@ -382,10 +382,23 @@ PlasmoidItem {
         Plasmoid.configuration.items; Plasmoid.configuration.tileStyle; Plasmoid.configuration.tileScale;
         return activeProfile !== "" && !Profiles.sameAs(Plasmoid.configuration, Profiles.find(profiles, activeProfile));
     }
-    function loadProfile(name) { undoOrder = null; return Profiles.load(Plasmoid.configuration, name, probe.gpus); }
-    function undoProfileChange() { undoOrder = null; Profiles.undo(Plasmoid.configuration); }
+    function loadProfile(name) { undoStack = []; return Profiles.load(Plasmoid.configuration, name, probe.gpus); }
+    function undoProfileChange() { undoStack = []; Profiles.undo(Plasmoid.configuration); }
 
-    property var undoOrder: null     // order before the last move (this session)
+    // orders before the moves of this session, newest last – "Undo last move"
+    // goes back step by step (the arrows make many small moves quickly)
+    property var undoStack: []
+    readonly property var undoOrder: undoStack.length ? undoStack[undoStack.length - 1] : null
+    readonly property int undoCount: undoStack.length
+    readonly property int undoLimit: 50
+    function pushUndo(ids) {
+        const s = undoStack.slice();
+        s.push(ids);
+        if (s.length > undoLimit) s.shift();
+        undoStack = s;
+    }
+    // "Undo last move", with the number of steps left once there are several
+    readonly property string undoMoveText: undoCount > 1 ? i18np("Undo last move (%1 step)", "Undo last move (%1 steps)", undoCount) : i18n("Undo last move")
 
     function idsOf(arr) { return arr.map(it => it.id); }
 
@@ -418,11 +431,11 @@ PlasmoidItem {
     function undoMove() {
         if (!undoOrder) return;
         const ids = undoOrder;
-        undoOrder = null;
+        undoStack = undoStack.slice(0, -1);
         applyOrder(ids);
     }
     function resetOrder() {
-        undoOrder = idsOf(rawItems);   // the reset itself can be undone
+        pushUndo(idsOf(rawItems));   // the reset itself can be undone
         applyOrder(resetTarget);
         Plasmoid.configuration.baseOrder = "";
     }
@@ -490,7 +503,7 @@ PlasmoidItem {
             onTriggered: root.restoreRemoved()
         },
         PlasmaCore.Action {
-            text: i18n("Undo last move")
+            text: root.undoMoveText
             icon.name: "edit-undo"
             visible: root.undoOrder !== null
             onTriggered: root.undoMove()

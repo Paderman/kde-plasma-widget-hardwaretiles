@@ -1405,13 +1405,8 @@ msgid "Drag a tile or use its arrows to move it within its section. × removes a
 msgstr ""
 
 #: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
-msgstr ""
-
-#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
-#: package/contents/ui/main.qml:493
-msgid "Undo last move"
 msgstr ""
 
 #: package/contents/ui/FullView.qml:461
@@ -1434,7 +1429,7 @@ msgstr ""
 msgid "Remove tile"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr ""
 
@@ -1446,11 +1441,11 @@ msgstr ""
 msgid "Edit tiles"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr ""
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr ""
 
@@ -1491,7 +1486,7 @@ msgid "Edit in settings …"
 msgstr ""
 
 #: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
-#: package/contents/ui/main.qml:527
+#: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr ""
 
@@ -1736,6 +1731,16 @@ msgstr ""
 msgid "Graphics card %1"
 msgstr ""
 
+#: package/contents/ui/main.qml:401
+msgid "Undo last move (%1 step)"
+msgid_plural "Undo last move (%1 steps)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/main.qml:401
+msgid "Undo last move"
+msgstr ""
+
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr ""
@@ -1836,11 +1841,11 @@ msgstr ""
 msgid "Power saving"
 msgstr ""
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "Idle"
 msgstr ""
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "None"
 msgstr ""
 

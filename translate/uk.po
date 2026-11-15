@@ -1412,14 +1412,9 @@ msgid "Drag a tile or use its arrows to move it within its section. × removes a
 msgstr "Перетягніть плитку або скористайтеся її стрілками, щоб перемістити її в межах розділу. × видаляє плитку, + додає нову."
 
 #: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "Відновити «%1»"
-
-#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
-#: package/contents/ui/main.qml:493
-msgid "Undo last move"
-msgstr "Скасувати останнє переміщення"
 
 #: package/contents/ui/FullView.qml:461
 msgid "Done"
@@ -1441,7 +1436,7 @@ msgstr "Вправо"
 msgid "Remove tile"
 msgstr "Видалити плитку"
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Доступний Hardware Tiles %1 – відкрити сторінку завантаження"
 
@@ -1453,11 +1448,11 @@ msgstr "Завершити редагування"
 msgid "Edit tiles"
 msgstr "Редагувати плитки"
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "Відновити початкове розташування"
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Вирівняти віджет (повернуто на %1°)"
 
@@ -1498,7 +1493,7 @@ msgid "Edit in settings …"
 msgstr "Змінити в налаштуваннях …"
 
 #: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
-#: package/contents/ui/main.qml:527
+#: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
@@ -1743,6 +1738,17 @@ msgstr "Відеокарта %1 (не знайдено)"
 msgid "Graphics card %1"
 msgstr "Відеокарта %1"
 
+#: package/contents/ui/main.qml:401
+msgid "Undo last move (%1 step)"
+msgid_plural "Undo last move (%1 steps)"
+msgstr[0] "Скасувати останнє переміщення (%1 крок)"
+msgstr[1] "Скасувати останнє переміщення (%1 кроки)"
+msgstr[2] "Скасувати останнє переміщення (%1 кроків)"
+
+#: package/contents/ui/main.qml:401
+msgid "Undo last move"
+msgstr "Скасувати останнє переміщення"
+
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr "Вентилятор"
@@ -1843,11 +1849,11 @@ msgstr "Середній"
 msgid "Power saving"
 msgstr "Енергозбереження"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "Idle"
 msgstr "Простій"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "None"
 msgstr "Немає"
 

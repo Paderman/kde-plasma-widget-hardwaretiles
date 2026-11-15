@@ -453,7 +453,7 @@ Item {
             },
             Kirigami.Action {
                 visible: root.undoOrder !== null
-                text: i18n("Undo last move")
+                text: root.undoMoveText
                 icon.name: "edit-undo"
                 onTriggered: root.undoMove()
             },
@@ -780,7 +780,7 @@ Item {
         onTriggered: full.editing = !full.editing
     }
     component UndoMoveItem: HidingItem {
-        text: i18n("Undo last move")
+        text: root.undoMoveText
         icon.name: "edit-undo"
         visible: root.undoOrder !== null
         onTriggered: root.undoMove()

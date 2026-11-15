@@ -1400,14 +1400,9 @@ msgid "Drag a tile or use its arrows to move it within its section. × removes a
 msgstr "拖动磁贴或使用其箭头可在其分区内移动。× 移除磁贴，+ 添加磁贴。"
 
 #: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "恢复“%1”"
-
-#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
-#: package/contents/ui/main.qml:493
-msgid "Undo last move"
-msgstr "撤销上次移动"
 
 #: package/contents/ui/FullView.qml:461
 msgid "Done"
@@ -1429,7 +1424,7 @@ msgstr "右移"
 msgid "Remove tile"
 msgstr "删除磁贴"
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 可用 – 打开下载页面"
 
@@ -1441,11 +1436,11 @@ msgstr "完成编辑"
 msgid "Edit tiles"
 msgstr "编辑磁贴"
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "恢复原始排列"
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "将小部件摆正（已旋转 %1°）"
 
@@ -1486,7 +1481,7 @@ msgid "Edit in settings …"
 msgstr "在设置中编辑 …"
 
 #: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
-#: package/contents/ui/main.qml:527
+#: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
@@ -1731,6 +1726,15 @@ msgstr "显卡 %1(未找到)"
 msgid "Graphics card %1"
 msgstr "显卡 %1"
 
+#: package/contents/ui/main.qml:401
+msgid "Undo last move (%1 step)"
+msgid_plural "Undo last move (%1 steps)"
+msgstr[0] "撤销上次移动(还剩 %1 步)"
+
+#: package/contents/ui/main.qml:401
+msgid "Undo last move"
+msgstr "撤销上次移动"
+
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr "风扇"
@@ -1831,11 +1835,11 @@ msgstr "中"
 msgid "Power saving"
 msgstr "节能"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "Idle"
 msgstr "空闲"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "None"
 msgstr "无"
 

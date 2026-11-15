@@ -1400,14 +1400,9 @@ msgid "Drag a tile or use its arrows to move it within its section. × removes a
 msgstr "タイルをドラッグするか矢印を使うと、セクション内で移動できます。× でタイルを削除、+ で追加します。"
 
 #: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "「%1」を復元"
-
-#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
-#: package/contents/ui/main.qml:493
-msgid "Undo last move"
-msgstr "最後の移動を元に戻す"
 
 #: package/contents/ui/FullView.qml:461
 msgid "Done"
@@ -1429,7 +1424,7 @@ msgstr "右へ"
 msgid "Remove tile"
 msgstr "タイルを削除"
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 が利用可能です – ダウンロードページを開く"
 
@@ -1441,11 +1436,11 @@ msgstr "編集を終了"
 msgid "Edit tiles"
 msgstr "タイルを編集"
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "元の配置に戻す"
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "ウィジェットをまっすぐに戻す（%1° 回転中）"
 
@@ -1486,7 +1481,7 @@ msgid "Edit in settings …"
 msgstr "設定で編集 …"
 
 #: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
-#: package/contents/ui/main.qml:527
+#: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
@@ -1731,6 +1726,15 @@ msgstr "グラフィックカード %1(見つかりません)"
 msgid "Graphics card %1"
 msgstr "グラフィックカード %1"
 
+#: package/contents/ui/main.qml:401
+msgid "Undo last move (%1 step)"
+msgid_plural "Undo last move (%1 steps)"
+msgstr[0] "最後の移動を元に戻す (残り %1 回)"
+
+#: package/contents/ui/main.qml:401
+msgid "Undo last move"
+msgstr "最後の移動を元に戻す"
+
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr "ファン"
@@ -1831,11 +1835,11 @@ msgstr "中"
 msgid "Power saving"
 msgstr "省電力"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "Idle"
 msgstr "アイドル"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "None"
 msgstr "なし"
 

@@ -1406,14 +1406,9 @@ msgid "Drag a tile or use its arrows to move it within its section. × removes a
 msgstr "Een tegel slepen of zijn pijlen gebruiken verplaatst hem binnen zijn sectie. × verwijdert een tegel, + voegt er een toe."
 
 #: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "‘%1’ herstellen"
-
-#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
-#: package/contents/ui/main.qml:493
-msgid "Undo last move"
-msgstr "Laatste verplaatsing ongedaan maken"
 
 #: package/contents/ui/FullView.qml:461
 msgid "Done"
@@ -1435,7 +1430,7 @@ msgstr "Naar rechts"
 msgid "Remove tile"
 msgstr "Tegel verwijderen"
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 is beschikbaar – downloadpagina openen"
 
@@ -1447,11 +1442,11 @@ msgstr "Bewerken beëindigen"
 msgid "Edit tiles"
 msgstr "Tegels bewerken"
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "Oorspronkelijke indeling herstellen"
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Widget recht zetten (%1° gedraaid)"
 
@@ -1492,7 +1487,7 @@ msgid "Edit in settings …"
 msgstr "Bewerken in de instellingen …"
 
 #: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
-#: package/contents/ui/main.qml:527
+#: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
@@ -1737,6 +1732,16 @@ msgstr "Grafische kaart %1 (niet gevonden)"
 msgid "Graphics card %1"
 msgstr "Grafische kaart %1"
 
+#: package/contents/ui/main.qml:401
+msgid "Undo last move (%1 step)"
+msgid_plural "Undo last move (%1 steps)"
+msgstr[0] "Laatste verplaatsing ongedaan maken (%1 stap)"
+msgstr[1] "Laatste verplaatsing ongedaan maken (%1 stappen)"
+
+#: package/contents/ui/main.qml:401
+msgid "Undo last move"
+msgstr "Laatste verplaatsing ongedaan maken"
+
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr "Ventilator"
@@ -1837,11 +1842,11 @@ msgstr "Gemiddeld"
 msgid "Power saving"
 msgstr "Energiebesparing"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "Idle"
 msgstr "Inactief"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "None"
 msgstr "Geen"
 

@@ -1404,14 +1404,9 @@ msgid "Drag a tile or use its arrows to move it within its section. × removes a
 msgstr "Kachel ziehen oder ihre Pfeile nutzen, um sie innerhalb ihres Abschnitts zu verschieben. × entfernt eine Kachel, + fügt eine hinzu."
 
 #: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
-#: package/contents/ui/main.qml:487
+#: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "„%1“ wiederherstellen"
-
-#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
-#: package/contents/ui/main.qml:493
-msgid "Undo last move"
-msgstr "Letzte Verschiebung rückgängig"
 
 #: package/contents/ui/FullView.qml:461
 msgid "Done"
@@ -1433,7 +1428,7 @@ msgstr "Nach rechts"
 msgid "Remove tile"
 msgstr "Kachel entfernen"
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 ist verfügbar – Download-Seite öffnen"
 
@@ -1445,11 +1440,11 @@ msgstr "Bearbeiten beenden"
 msgid "Edit tiles"
 msgstr "Kacheln bearbeiten"
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "Ursprüngliche Anordnung wiederherstellen"
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Widget gerade ausrichten (um %1° gedreht)"
 
@@ -1490,7 +1485,7 @@ msgid "Edit in settings …"
 msgstr "In den Einstellungen bearbeiten …"
 
 #: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
-#: package/contents/ui/main.qml:527
+#: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
@@ -1735,6 +1730,16 @@ msgstr "Grafikkarte %1 (nicht gefunden)"
 msgid "Graphics card %1"
 msgstr "Grafikkarte %1"
 
+#: package/contents/ui/main.qml:401
+msgid "Undo last move (%1 step)"
+msgid_plural "Undo last move (%1 steps)"
+msgstr[0] "Letzte Verschiebung rückgängig (%1 Schritt)"
+msgstr[1] "Letzte Verschiebung rückgängig (%1 Schritte)"
+
+#: package/contents/ui/main.qml:401
+msgid "Undo last move"
+msgstr "Letzte Verschiebung rückgängig"
+
 #: package/contents/ui/NvidiaKeys.js:23
 msgid "Fan"
 msgstr "Lüfter"
@@ -1835,11 +1840,11 @@ msgstr "Mittel"
 msgid "Power saving"
 msgstr "Sparmodus"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "Idle"
 msgstr "Leerlauf"
 
-#: package/contents/ui/NvidiaKeys.js:109
+#: package/contents/ui/NvidiaKeys.js:110
 msgid "None"
 msgstr "Keine"
 
