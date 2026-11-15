@@ -477,8 +477,10 @@ PlasmoidItem {
                               || Plasmoid.formFactor === PlasmaCore.Types.Vertical)
                              ? compactRepresentation : fullRepresentation
 
-    toolTipMainText: i18n("Sensor Deck")
+    // no texts = no tooltip (switched off in the settings)
+    toolTipMainText: Plasmoid.configuration.tooltipsEnabled ? i18n("Sensor Deck") : ""
     toolTipSubText: {
+        if (!Plasmoid.configuration.tooltipsEnabled) return "";
         sourcesRevision;
         const lines = [];
         allCfgs.forEach(c => {

@@ -134,11 +134,11 @@ Rectangle {
     property bool arranging: false
     onMenuOpenChanged: if (menuOpen) tip.hideImmediately()
 
-    PlasmaCore.ToolTipArea {
+    TipArea {
         id: tip
         anchors.fill: parent
         z: 100
-        active: card.ready && !card.dragging && !card.menuOpen && !card.arranging
+        wanted: card.ready && !card.dragging && !card.menuOpen && !card.arranging
         mainText: card.ready ? card.src.label : ""
         subText: {
             if (!card.ready) return "";

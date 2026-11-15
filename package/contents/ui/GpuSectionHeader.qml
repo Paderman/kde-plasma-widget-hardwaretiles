@@ -101,9 +101,9 @@ Item {
     }
 
     // details of the card (native Plasma tooltip)
-    PlasmaCore.ToolTipArea {
+    TipArea {
         anchors.fill: parent
-        active: hdr.addr !== ""
+        wanted: hdr.addr !== ""
         mainText: link.subtitle || hdr.title
         subText: {
             const lines = [];

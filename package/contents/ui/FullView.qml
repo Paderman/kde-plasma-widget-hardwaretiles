@@ -530,7 +530,7 @@ Item {
                                 implicitHeight: implicitWidth
                             }
                             QQC2.ToolTip.text: i18n("Remove tile")
-                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.visible: hovered && Plasmoid.configuration.tooltipsEnabled
                             QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                         }
                     }

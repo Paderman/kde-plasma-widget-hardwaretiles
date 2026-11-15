@@ -16,6 +16,11 @@ KCM.SimpleKCM {
     property alias cfg_historyLength: history.value
     property alias cfg_tileScale: scale.value
     property alias cfg_backgroundOpacity: bgOpacity.value
+    property alias cfg_tooltipsEnabled: tipsBox.checked
+    property alias cfg_tooltipDelay: tipDelay.value
+    property int cfg_tooltipDuration
+    // duration slider: 1…10 s, the last step (11) = unlimited (-1)
+    function durationStep(ms) { return ms < 0 ? 11 : Math.max(1, Math.min(10, Math.round(ms / 1000))); }
     property string cfg_tileStyle
     property alias cfg_panelShowLabels: panelLabels.checked
     property alias cfg_panelShowRings: panelRings.checked
@@ -29,6 +34,7 @@ KCM.SimpleKCM {
         for (const k in d) page["cfg_" + k] = d[k];
         styleBox.currentIndex = Math.max(0, styleBox.indexOfValue(cfg_tileStyle));
         sectionBox.currentIndex = Math.max(0, sectionBox.indexOfValue(cfg_gpuSectionMode));
+        tipDuration.value = durationStep(cfg_tooltipDuration);
     }
 
     Kirigami.FormLayout {
@@ -86,6 +92,48 @@ KCM.SimpleKCM {
             Layout.fillWidth: true
             Layout.maximumWidth: Kirigami.Units.gridUnit * 22
             text: i18n("Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background.")
+            wrapMode: Text.WordWrap
+            font: Kirigami.Theme.smallFont
+            opacity: 0.7
+        }
+        QQC2.CheckBox {
+            id: tipsBox
+            Kirigami.FormData.label: i18n("Tooltips:")
+            text: i18n("Show details when the mouse pointer rests on a tile")
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Tooltip delay:")
+            enabled: tipsBox.checked
+            QQC2.Slider {
+                id: tipDelay
+                from: 0; to: 2000; stepSize: 100
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+            }
+            QQC2.Label {
+                text: tipDelay.value < 50 ? i18n("Immediately")
+                    : i18n("%1 s", (Math.round(tipDelay.value / 100) / 10).toLocaleString(Qt.locale(), "f", 1))
+            }
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Tooltip duration:")
+            enabled: tipsBox.checked
+            QQC2.Slider {
+                id: tipDuration
+                from: 1; to: 11; stepSize: 1
+                snapMode: QQC2.Slider.SnapAlways
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+                Component.onCompleted: value = page.durationStep(page.cfg_tooltipDuration)
+                onMoved: page.cfg_tooltipDuration = value >= 11 ? -1 : Math.round(value) * 1000
+            }
+            QQC2.Label {
+                text: tipDuration.value >= 11 ? i18n("Unlimited") : i18n("%1 s", Math.round(tipDuration.value))
+            }
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
+            visible: tipsBox.checked
+            text: i18n("“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile.")
             wrapMode: Text.WordWrap
             font: Kirigami.Theme.smallFont
             opacity: 0.7

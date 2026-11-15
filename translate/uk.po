@@ -186,12 +186,12 @@ msgid "Send test notification"
 msgstr "Надіслати тестове сповіщення"
 
 #: package/contents/ui/ConfigAlerts.qml:121
-#: package/contents/ui/ConfigAppearance.qml:157
+#: package/contents/ui/ConfigAppearance.qml:205
 msgid "Restore defaults"
 msgstr "Відновити типові значення"
 
 #: package/contents/ui/ConfigAlerts.qml:132
-#: package/contents/ui/ConfigAppearance.qml:168
+#: package/contents/ui/ConfigAppearance.qml:216
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Скинуто. Зміни набудуть чинності лише після «Застосувати» – «Скасувати» залишить усе як було."
 
@@ -211,114 +211,144 @@ msgstr ""
 "Перевищено критичний поріг 100 °C.\n"
 "(Це лише тест Sensor Deck.)"
 
-#: package/contents/ui/ConfigAppearance.qml:38
+#: package/contents/ui/ConfigAppearance.qml:44
 msgid "Columns:"
 msgstr "Стовпці:"
 
-#: package/contents/ui/ConfigAppearance.qml:40
-#: package/contents/ui/ConfigAppearance.qml:41
+#: package/contents/ui/ConfigAppearance.qml:46
+#: package/contents/ui/ConfigAppearance.qml:47
 msgid "Automatic"
 msgstr "Автоматично"
 
-#: package/contents/ui/ConfigAppearance.qml:45
+#: package/contents/ui/ConfigAppearance.qml:51
 msgid "On the desktop:"
 msgstr "На стільниці:"
 
-#: package/contents/ui/ConfigAppearance.qml:46
+#: package/contents/ui/ConfigAppearance.qml:52
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "Зменшувати плитки, щоб усе вміщалося без прокручування"
 
-#: package/contents/ui/ConfigAppearance.qml:51
+#: package/contents/ui/ConfigAppearance.qml:57
 msgid "Tile style:"
 msgstr "Стиль плиток:"
 
-#: package/contents/ui/ConfigAppearance.qml:54
+#: package/contents/ui/ConfigAppearance.qml:60
 #: package/contents/ui/FullView.qml:607
 msgid "Glass (subtle)"
 msgstr "Скло (непомітний)"
 
-#: package/contents/ui/ConfigAppearance.qml:55
+#: package/contents/ui/ConfigAppearance.qml:61
 #: package/contents/ui/FullView.qml:608
 msgid "Filled"
 msgstr "Заливка"
 
-#: package/contents/ui/ConfigAppearance.qml:56
+#: package/contents/ui/ConfigAppearance.qml:62
 #: package/contents/ui/FullView.qml:609
 msgid "Outline (accent colour)"
 msgstr "Контур (колір акценту)"
 
-#: package/contents/ui/ConfigAppearance.qml:62
+#: package/contents/ui/ConfigAppearance.qml:68
 msgid "Size:"
 msgstr "Розмір:"
 
-#: package/contents/ui/ConfigAppearance.qml:74
+#: package/contents/ui/ConfigAppearance.qml:80
 msgid "Background opacity:"
 msgstr "Непрозорість тла:"
 
-#: package/contents/ui/ConfigAppearance.qml:88
+#: package/contents/ui/ConfigAppearance.qml:94
 msgid "Only on the desktop. Values and text stay fully visible; 100 % is the normal Plasma background."
 msgstr "Лише на стільниці. Значення й текст лишаються повністю видимими; 100 % — звичайне тло Plasma."
 
-#: package/contents/ui/ConfigAppearance.qml:97
+#: package/contents/ui/ConfigAppearance.qml:101
+msgid "Tooltips:"
+msgstr "Спливні підказки:"
+
+#: package/contents/ui/ConfigAppearance.qml:102
+msgid "Show details when the mouse pointer rests on a tile"
+msgstr "Показувати подробиці, коли вказівник миші зупиняється на плитці"
+
+#: package/contents/ui/ConfigAppearance.qml:105
+msgid "Tooltip delay:"
+msgstr "Затримка підказок:"
+
+#: package/contents/ui/ConfigAppearance.qml:113
+msgid "Immediately"
+msgstr "Одразу"
+
+#: package/contents/ui/ConfigAppearance.qml:114
+#: package/contents/ui/ConfigAppearance.qml:129
+#: package/contents/ui/ConfigAppearance.qml:178
+msgid "%1 s"
+msgstr "%1 с"
+
+#: package/contents/ui/ConfigAppearance.qml:118
+msgid "Tooltip duration:"
+msgstr "Тривалість показу підказок:"
+
+#: package/contents/ui/ConfigAppearance.qml:129
+msgid "Unlimited"
+msgstr "Без обмеження"
+
+#: package/contents/ui/ConfigAppearance.qml:136
+msgid "“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile."
+msgstr "«Без обмеження»: підказка лишається, доки вказівник миші перебуває на плитці."
+
+#: package/contents/ui/ConfigAppearance.qml:145
 msgid "Sections per graphics card:"
 msgstr "Розділи для кожної відеокарти:"
 
-#: package/contents/ui/ConfigAppearance.qml:100
+#: package/contents/ui/ConfigAppearance.qml:148
 #: package/contents/ui/FullView.qml:618
 msgid "From two graphics cards"
 msgstr "Від двох відеокарт"
 
-#: package/contents/ui/ConfigAppearance.qml:101
+#: package/contents/ui/ConfigAppearance.qml:149
 #: package/contents/ui/FullView.qml:619
 msgid "Always (even with one card)"
 msgstr "Завжди (навіть з однією картою)"
 
-#: package/contents/ui/ConfigAppearance.qml:102
+#: package/contents/ui/ConfigAppearance.qml:150
 #: package/contents/ui/FullView.qml:620
 msgid "Never (several cards: coloured edge)"
 msgstr "Ніколи (кілька карт: кольорова кромка)"
 
-#: package/contents/ui/ConfigAppearance.qml:112
+#: package/contents/ui/ConfigAppearance.qml:160
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "Переміщуйте, видаляйте або додавайте плитки прямо у віджеті: правий клік → «Редагувати плитки»."
 
-#: package/contents/ui/ConfigAppearance.qml:120
+#: package/contents/ui/ConfigAppearance.qml:168
 msgid "Update:"
 msgstr "Оновлення:"
 
-#: package/contents/ui/ConfigAppearance.qml:122
+#: package/contents/ui/ConfigAppearance.qml:170
 msgid "every %1 s"
 msgstr "кожні %1 с"
 
-#: package/contents/ui/ConfigAppearance.qml:128
+#: package/contents/ui/ConfigAppearance.qml:176
 msgid "History in graphs:"
 msgstr "Історія на графіках:"
 
-#: package/contents/ui/ConfigAppearance.qml:130
-msgid "%1 s"
-msgstr "%1 с"
-
-#: package/contents/ui/ConfigAppearance.qml:134
+#: package/contents/ui/ConfigAppearance.qml:182
 msgid "Panel"
 msgstr "Панель"
 
-#: package/contents/ui/ConfigAppearance.qml:138
+#: package/contents/ui/ConfigAppearance.qml:186
 msgid "In the panel:"
 msgstr "На панелі:"
 
-#: package/contents/ui/ConfigAppearance.qml:139
+#: package/contents/ui/ConfigAppearance.qml:187
 msgid "Show mini rings"
 msgstr "Показувати міні-кільця"
 
-#: package/contents/ui/ConfigAppearance.qml:143
+#: package/contents/ui/ConfigAppearance.qml:191
 msgid "Show labels"
 msgstr "Показувати підписи"
 
-#: package/contents/ui/ConfigAppearance.qml:149
+#: package/contents/ui/ConfigAppearance.qml:197
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "Які датчики з'являються на панелі, задається для кожного запису на сторінці «Датчики». Тло віджета на стільниці можна перемкнути в режимі редагування."
 
-#: package/contents/ui/ConfigAppearance.qml:169
+#: package/contents/ui/ConfigAppearance.qml:217
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Стосується лише налаштувань на цій сторінці – плитки датчиків і сповіщення зберігаються."
 
@@ -573,241 +603,241 @@ msgstr "Макет:"
 msgid "(modified)"
 msgstr "(змінено)"
 
-#: package/contents/ui/ConfigSensors.qml:267
+#: package/contents/ui/ConfigSensors.qml:274
 msgid "Is loaded and unchanged."
 msgstr "Завантажено й не змінено."
 
-#: package/contents/ui/ConfigSensors.qml:268
+#: package/contents/ui/ConfigSensors.qml:275
 msgid "Clicking restores the template – your changes will be lost."
 msgstr "Клік відновлює шаблон – ваші зміни буде втрачено."
 
-#: package/contents/ui/ConfigSensors.qml:269
+#: package/contents/ui/ConfigSensors.qml:276
 msgid "Clicking replaces all tiles with this template."
 msgstr "Клік замінює всі плитки цим шаблоном."
 
-#: package/contents/ui/ConfigSensors.qml:291
+#: package/contents/ui/ConfigSensors.qml:298
 msgid "Created by the setup wizard – unchanged."
 msgstr "Створено майстром налаштування – не змінено."
 
-#: package/contents/ui/ConfigSensors.qml:292
+#: package/contents/ui/ConfigSensors.qml:299
 msgid "Template “%1” is loaded – unchanged."
 msgstr "Шаблон «%1» завантажено – не змінено."
 
-#: package/contents/ui/ConfigSensors.qml:294
+#: package/contents/ui/ConfigSensors.qml:301
 msgid "Customised: based on “%1”, tiles have been changed."
 msgstr "Змінено: на основі «%1», плитки було змінено."
 
-#: package/contents/ui/ConfigSensors.qml:295
+#: package/contents/ui/ConfigSensors.qml:302
 msgid "Custom layout."
 msgstr "Власний макет."
 
-#: package/contents/ui/ConfigSensors.qml:303
+#: package/contents/ui/ConfigSensors.qml:310
 msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. The widget shows every change right away as a preview; it is saved only with “Apply”, “Cancel” keeps everything as it was."
 msgstr "Шаблон замінює всі плитки – «Огляд системи» відновлює типові плитки для вашого обладнання. Віджет одразу показує кожну зміну як попередній перегляд; зберігається вона лише після «Застосувати», «Скасувати» залишить усе як було."
 
-#: package/contents/ui/ConfigSensors.qml:315
+#: package/contents/ui/ConfigSensors.qml:322
 msgid "Main card:"
 msgstr "Основна карта:"
 
-#: package/contents/ui/ConfigSensors.qml:315
-#: package/contents/ui/ConfigSensors.qml:442
+#: package/contents/ui/ConfigSensors.qml:322
+#: package/contents/ui/ConfigSensors.qml:449
 msgid "Graphics card:"
 msgstr "Відеокарта:"
 
-#: package/contents/ui/ConfigSensors.qml:325
+#: package/contents/ui/ConfigSensors.qml:332
 msgid "Searching …"
 msgstr "Пошук …"
 
-#: package/contents/ui/ConfigSensors.qml:325
+#: package/contents/ui/ConfigSensors.qml:332
 msgid "No supported graphics card found"
 msgstr "Підтримувану відеокарту не знайдено"
 
-#: package/contents/ui/ConfigSensors.qml:331
+#: package/contents/ui/ConfigSensors.qml:338
 msgid "Search again"
 msgstr "Шукати знову"
 
-#: package/contents/ui/ConfigSensors.qml:341
+#: package/contents/ui/ConfigSensors.qml:348
 msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
 msgstr "Плитки GPU без власної прив'язки показують цю карту. Кожну плитку можна прив'язати до іншої карти нижче – або макет «Усі відеокарти» (вище) створить окремий розділ для кожної карти."
 
-#: package/contents/ui/ConfigSensors.qml:342
+#: package/contents/ui/ConfigSensors.qml:349
 msgid "All GPU tiles refer to this card."
 msgstr "Усі плитки GPU стосуються цієї карти."
 
-#: package/contents/ui/ConfigSensors.qml:348
+#: package/contents/ui/ConfigSensors.qml:355
 msgid "Start setup wizard"
 msgstr "Запустити майстер налаштування"
 
-#: package/contents/ui/ConfigSensors.qml:355
+#: package/contents/ui/ConfigSensors.qml:362
 msgid "Appears in the widget after “Apply”."
 msgstr "З'явиться у віджеті після «Застосувати»."
 
-#: package/contents/ui/ConfigSensors.qml:366
+#: package/contents/ui/ConfigSensors.qml:373
 msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”."
 msgstr "Джерела: системні датчики (ksystemstats – CPU, вентилятори, NVMe, RAM …), значення NVIDIA безпосередньо з nvidia-smi або команда оболонки. На GPU AMD температура VRAM вказана як «amdgpu … mem». Плитки також можна редагувати прямо у віджеті: правий клік → «Редагувати плитки»."
 
-#: package/contents/ui/ConfigSensors.qml:405
+#: package/contents/ui/ConfigSensors.qml:412
 msgid "Label (empty = automatic)"
 msgstr "Підпис (порожньо = автоматично)"
 
-#: package/contents/ui/ConfigSensors.qml:413
+#: package/contents/ui/ConfigSensors.qml:420
 msgid "Move up"
 msgstr "Вгору"
 
-#: package/contents/ui/ConfigSensors.qml:419
+#: package/contents/ui/ConfigSensors.qml:426
 msgid "Move down"
 msgstr "Вниз"
 
-#: package/contents/ui/ConfigSensors.qml:429
+#: package/contents/ui/ConfigSensors.qml:436
 msgid "Duplicate"
 msgstr "Дублювати"
 
-#: package/contents/ui/ConfigSensors.qml:434
+#: package/contents/ui/ConfigSensors.qml:441
 msgid "Remove"
 msgstr "Видалити"
 
-#: package/contents/ui/ConfigSensors.qml:455
+#: package/contents/ui/ConfigSensors.qml:462
 msgid "Not found (PCI %1)"
 msgstr "Не знайдено (PCI %1)"
 
-#: package/contents/ui/ConfigSensors.qml:459
+#: package/contents/ui/ConfigSensors.qml:466
 msgid "Compare all cards"
 msgstr "Порівнювати всі карти"
 
-#: package/contents/ui/ConfigSensors.qml:463
+#: package/contents/ui/ConfigSensors.qml:470
 msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
 msgstr "Показує значення кожної відеокарти в цій плитці – кільце: одна дуга на карту, графік: одна лінія на карту, смуга/значення: один рядок на карту."
 
-#: package/contents/ui/ConfigSensors.qml:471
+#: package/contents/ui/ConfigSensors.qml:478
 msgid "Temperature (X):"
 msgstr "Температура (X):"
 
-#: package/contents/ui/ConfigSensors.qml:471
+#: package/contents/ui/ConfigSensors.qml:478
 #: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "Джерело:"
 
-#: package/contents/ui/ConfigSensors.qml:484
+#: package/contents/ui/ConfigSensors.qml:491
 msgid "Fan (Y):"
 msgstr "Вентилятор (Y):"
 
-#: package/contents/ui/ConfigSensors.qml:504
+#: package/contents/ui/ConfigSensors.qml:511
 msgid "Total value:"
 msgstr "Загальне значення:"
 
-#: package/contents/ui/ConfigSensors.qml:523
+#: package/contents/ui/ConfigSensors.qml:530
 msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
 msgstr "Необов'язково, наприклад «Усього VRAM» → показує «1,0 / 10 ГіБ» і задає максимум для смуги/кільця. Значення NVIDIA містять загальне значення автоматично."
 
-#: package/contents/ui/ConfigSensors.qml:531
+#: package/contents/ui/ConfigSensors.qml:538
 msgid "Style:"
 msgstr "Стиль:"
 
-#: package/contents/ui/ConfigSensors.qml:546
+#: package/contents/ui/ConfigSensors.qml:553
 #: package/contents/ui/FullView.qml:734
 msgid "Double width"
 msgstr "Подвійна ширина"
 
-#: package/contents/ui/ConfigSensors.qml:551
+#: package/contents/ui/ConfigSensors.qml:558
 msgid "In panel"
 msgstr "На панелі"
 
-#: package/contents/ui/ConfigSensors.qml:556
+#: package/contents/ui/ConfigSensors.qml:563
 msgid "Notify"
 msgstr "Сповіщати"
 
-#: package/contents/ui/ConfigSensors.qml:560
+#: package/contents/ui/ConfigSensors.qml:567
 msgid "Desktop notification when a threshold is exceeded"
 msgstr "Сповіщення на стільниці при перевищенні порогу"
 
-#: package/contents/ui/ConfigSensors.qml:567
+#: package/contents/ui/ConfigSensors.qml:574
 msgid "Accent colour"
 msgstr "Колір акценту"
 
-#: package/contents/ui/ConfigSensors.qml:573
+#: package/contents/ui/ConfigSensors.qml:580
 msgid "Automatic colour"
 msgstr "Автоматичний колір"
 
-#: package/contents/ui/ConfigSensors.qml:577
+#: package/contents/ui/ConfigSensors.qml:584
 msgid "Temperature axis:"
 msgstr "Вісь температури:"
 
-#: package/contents/ui/ConfigSensors.qml:577
+#: package/contents/ui/ConfigSensors.qml:584
 msgid "Range:"
 msgstr "Діапазон:"
 
-#: package/contents/ui/ConfigSensors.qml:580
+#: package/contents/ui/ConfigSensors.qml:587
 msgid "Min"
 msgstr "Мін"
 
-#: package/contents/ui/ConfigSensors.qml:587
+#: package/contents/ui/ConfigSensors.qml:594
 msgid "Max"
 msgstr "Макс"
 
-#: package/contents/ui/ConfigSensors.qml:592
-#: package/contents/ui/ConfigSensors.qml:593
-#: package/contents/ui/ConfigSensors.qml:602
-#: package/contents/ui/ConfigSensors.qml:603
+#: package/contents/ui/ConfigSensors.qml:599
+#: package/contents/ui/ConfigSensors.qml:600
+#: package/contents/ui/ConfigSensors.qml:609
+#: package/contents/ui/ConfigSensors.qml:610
 msgid "auto"
 msgstr "авто"
 
-#: package/contents/ui/ConfigSensors.qml:596
+#: package/contents/ui/ConfigSensors.qml:603
 msgid "Fan max"
 msgstr "Вентилятор макс"
 
-#: package/contents/ui/ConfigSensors.qml:608
+#: package/contents/ui/ConfigSensors.qml:615
 msgid "Thresholds:"
 msgstr "Пороги:"
 
-#: package/contents/ui/ConfigSensors.qml:621
-#: package/contents/ui/ConfigSensors.qml:622
-#: package/contents/ui/ConfigSensors.qml:630
-#: package/contents/ui/ConfigSensors.qml:631
+#: package/contents/ui/ConfigSensors.qml:628
+#: package/contents/ui/ConfigSensors.qml:629
+#: package/contents/ui/ConfigSensors.qml:637
+#: package/contents/ui/ConfigSensors.qml:638
 msgid "off"
 msgstr "вимк."
 
-#: package/contents/ui/ConfigSensors.qml:637
+#: package/contents/ui/ConfigSensors.qml:644
 #, no-javascript-format
 msgid "in % of the total value"
 msgstr "у % від загального значення"
 
-#: package/contents/ui/ConfigSensors.qml:641
+#: package/contents/ui/ConfigSensors.qml:648
 #, no-javascript-format
 msgid "The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size."
 msgstr "Пороги вважаються часткою від загального значення – наприклад, 85 % встановленої пам'яті. Так вони підходять будь-якому комп'ютеру, незалежно від обсягу."
 
-#: package/contents/ui/ConfigSensors.qml:647
+#: package/contents/ui/ConfigSensors.qml:654
 msgid "Reference curve:"
 msgstr "Опорна крива:"
 
-#: package/contents/ui/ConfigSensors.qml:664
+#: package/contents/ui/ConfigSensors.qml:671
 msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
 msgstr "Необов'язково: точки «температура:вентилятор», малюються пунктиром – наприклад, ваша крива з GreenWithEnvy або CoolerControl. Суцільну лінію віджет будує сам за вимірюваннями."
 
-#: package/contents/ui/ConfigSensors.qml:676
+#: package/contents/ui/ConfigSensors.qml:683
 msgid "Add sensor"
 msgstr "Додати датчик"
 
-#: package/contents/ui/ConfigSensors.qml:681
+#: package/contents/ui/ConfigSensors.qml:688
 msgid "Template …"
 msgstr "Шаблон …"
 
-#: package/contents/ui/ConfigSensors.qml:686
+#: package/contents/ui/ConfigSensors.qml:693
 msgid "GPU comparison: temperature (ring)"
 msgstr "Порівняння GPU: температура (кільце)"
 
-#: package/contents/ui/ConfigSensors.qml:688
+#: package/contents/ui/ConfigSensors.qml:695
 #: package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:260
 #: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
 #: package/contents/ui/Hardware.js:336 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "Температура GPU"
 
-#: package/contents/ui/ConfigSensors.qml:691
+#: package/contents/ui/ConfigSensors.qml:698
 msgid "GPU comparison: load (graph)"
 msgstr "Порівняння GPU: навантаження (графік)"
 
-#: package/contents/ui/ConfigSensors.qml:693
+#: package/contents/ui/ConfigSensors.qml:700
 #: package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:261
 #: package/contents/ui/Hardware.js:319 package/contents/ui/Hardware.js:326
 #: package/contents/ui/Hardware.js:332 package/contents/ui/Hardware.js:337
@@ -816,88 +846,88 @@ msgstr "Порівняння GPU: навантаження (графік)"
 msgid "GPU load"
 msgstr "Навантаження GPU"
 
-#: package/contents/ui/ConfigSensors.qml:696
+#: package/contents/ui/ConfigSensors.qml:703
 msgid "GPU comparison: power (bar)"
 msgstr "Порівняння GPU: споживання (смуга)"
 
-#: package/contents/ui/ConfigSensors.qml:698
+#: package/contents/ui/ConfigSensors.qml:705
 #: package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:262
 #: package/contents/ui/Hardware.js:320 package/contents/ui/Hardware.js:327
 #: package/contents/ui/Hardware.js:334
 msgid "GPU power"
 msgstr "Споживання GPU"
 
-#: package/contents/ui/ConfigSensors.qml:700
+#: package/contents/ui/ConfigSensors.qml:707
 #: package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:361
 msgid "GPU fan curve"
 msgstr "Крива вентиляторів GPU"
 
-#: package/contents/ui/ConfigSensors.qml:701
+#: package/contents/ui/ConfigSensors.qml:708
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "Температура VRAM (gddr6, NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:701
+#: package/contents/ui/ConfigSensors.qml:708
 #: package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:325
 msgid "VRAM temperature"
 msgstr "Температура VRAM"
 
-#: package/contents/ui/ConfigSensors.qml:702
+#: package/contents/ui/ConfigSensors.qml:709
 msgid "VRAM used / total (NVIDIA)"
 msgstr "VRAM зайнято / усього (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:702
+#: package/contents/ui/ConfigSensors.qml:709
 #: package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:263
 #: package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:328
 #: package/contents/ui/Hardware.js:338 package/contents/ui/NvidiaKeys.js:38
 msgid "VRAM used"
 msgstr "VRAM зайнято"
 
-#: package/contents/ui/ConfigSensors.qml:703
+#: package/contents/ui/ConfigSensors.qml:710
 msgid "GPU throttling (NVIDIA)"
 msgstr "Тротлінг GPU (NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:703
+#: package/contents/ui/ConfigSensors.qml:710
 #: package/contents/ui/Hardware.js:357 package/contents/ui/NvidiaKeys.js:42
 msgid "Throttling"
 msgstr "Тротлінг"
 
-#: package/contents/ui/ConfigSensors.qml:704
+#: package/contents/ui/ConfigSensors.qml:711
 msgid "CPU temperature (max.)"
 msgstr "Температура CPU (макс.)"
 
-#: package/contents/ui/ConfigSensors.qml:704
+#: package/contents/ui/ConfigSensors.qml:711
 #: package/contents/ui/Hardware.js:379
 msgid "CPU temperature"
 msgstr "Температура CPU"
 
-#: package/contents/ui/ConfigSensors.qml:705
+#: package/contents/ui/ConfigSensors.qml:712
 msgid "CPU power (power service)"
 msgstr "Споживання ЦП (служба споживання)"
 
-#: package/contents/ui/ConfigSensors.qml:705
+#: package/contents/ui/ConfigSensors.qml:712
 #: package/contents/ui/Hardware.js:381
 msgid "CPU power"
 msgstr "Споживання ЦП"
 
-#: package/contents/ui/ConfigSensors.qml:706
+#: package/contents/ui/ConfigSensors.qml:713
 msgid "CPU usage (graph)"
 msgstr "Використання CPU (графік)"
 
-#: package/contents/ui/ConfigSensors.qml:706
+#: package/contents/ui/ConfigSensors.qml:713
 #: package/contents/ui/Hardware.js:382
 msgid "CPU load"
 msgstr "Навантаження CPU"
 
-#: package/contents/ui/ConfigSensors.qml:707
+#: package/contents/ui/ConfigSensors.qml:714
 #: package/contents/ui/Hardware.js:229 package/contents/ui/Hardware.js:386
 msgid "Memory"
 msgstr "Пам'ять"
 
-#: package/contents/ui/ConfigSensors.qml:708
+#: package/contents/ui/ConfigSensors.qml:715
 msgid "Network download"
 msgstr "Завантаження з мережі"
 
-#: package/contents/ui/ConfigSensors.qml:708
+#: package/contents/ui/ConfigSensors.qml:715
 #: package/contents/ui/Hardware.js:403
 msgid "Download"
 msgstr "Завантаження"
@@ -1229,7 +1259,7 @@ msgid "Edit in settings …"
 msgstr "Змінити в налаштуваннях …"
 
 #: package/contents/ui/FullView.qml:750 package/contents/ui/FullView.qml:812
-#: package/contents/ui/main.qml:480
+#: package/contents/ui/main.qml:481
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
