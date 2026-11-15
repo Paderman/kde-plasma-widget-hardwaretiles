@@ -12,7 +12,7 @@ _has_pm() { [ -x "/usr/bin/$1" ] || [ -x "/bin/$1" ]; }
 detect_distro() {
     PM=""; PKG=""; DISTRO=""
     ids=""
-    osr=${SENSORDECK_OSRELEASE:-/etc/os-release}   # override only for tests
+    osr=${HARDWARETILES_OSRELEASE:-/etc/os-release}   # override only for tests
     if [ -r "$osr" ]; then
         DISTRO=$(. "$osr" && echo "${PRETTY_NAME:-$NAME}")
         ids=$(. "$osr" && echo "$ID $ID_LIKE")

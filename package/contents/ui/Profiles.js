@@ -9,7 +9,9 @@
 // Not part of a profile: learned fan curves, update check, setup state –
 // they belong to the computer, not to the view.
 
-var FORMAT = "sensordeck-profiles";
+var FORMAT = "hardwaretiles-profiles";
+// files exported before 1.1.0, when the widget was called Sensor Deck
+var OLD_FORMATS = ["sensordeck-profiles"];
 
 // setting -> type ("s" string, "b" bool, "i" int)
 var KEYS = {
@@ -157,9 +159,9 @@ function save(cfg, name, gpus) {
     cfg.activeProfile = name;
 }
 
-// shell commands of the tiles that Sensor Deck did not create itself
+// shell commands of the tiles that Hardware Tiles did not create itself
 // (gddr6 and power service files are known and harmless)
-var SAFE_CMD = /^cat \/run\/(gddr6|sensordeck-power)\/[A-Za-z0-9_.:{}-]+( 2>\/dev\/null \|\| cat \/run\/gddr6\/vram)?$/;
+var SAFE_CMD = /^cat \/run\/(gddr6|hardwaretiles-power|sensordeck-power)\/[A-Za-z0-9_.:{}-]+( 2>\/dev\/null \|\| cat \/run\/gddr6\/vram)?$/;
 function commands(data) {
     var out = [];
     var tiles = [];
@@ -183,7 +185,7 @@ function exportText(profiles, version) {
 function parseImport(text) {
     var o;
     try { o = JSON.parse(text); } catch (e) { return { profiles: [], error: "format" }; }
-    var raw = o && o.format === FORMAT && Array.isArray(o.profiles) ? o.profiles
+    var raw = o && (o.format === FORMAT || OLD_FORMATS.indexOf(o.format) >= 0) && Array.isArray(o.profiles) ? o.profiles
             : (o && typeof o.name === "string" && o.data ? [o] : null);   // a single profile
     if (!raw) return { profiles: [], error: "format" };
     var out = [];

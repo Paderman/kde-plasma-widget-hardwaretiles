@@ -1,14 +1,14 @@
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
 [Unit]
-Description=Publish processor power draw (coarse, 1 s average) to /run/sensordeck-power (Sensor Deck, unprivileged)
+Description=Publish processor power draw (coarse, 1 s average) to /run/hardwaretiles-power (Hardware Tiles, unprivileged)
 After=systemd-modules-load.service systemd-udev-settle.service
 
 [Service]
 Type=simple
 # reads only /sys/class/powercap/*-rapl:*/energy_uj (group power-sensors via udev rule)
 # and publishes 1-second averages rounded to 0.1 W – never the raw counters
-ExecStart=/usr/bin/python3 -I /usr/local/libexec/sensordeck-power-reader --serve /run/sensordeck-power 1
+ExecStart=/usr/bin/python3 -I /usr/local/libexec/hardwaretiles-power-reader --serve /run/hardwaretiles-power 1
 Restart=on-failure
 RestartSec=10
 Nice=10
@@ -16,7 +16,7 @@ Nice=10
 # no root: throw-away user, only member of power-sensors
 DynamicUser=yes
 SupplementaryGroups=power-sensors
-RuntimeDirectory=sensordeck-power
+RuntimeDirectory=hardwaretiles-power
 RuntimeDirectoryMode=0755
 UMask=0022
 

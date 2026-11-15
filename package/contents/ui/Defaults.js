@@ -17,6 +17,7 @@
 // style:       "ring" | "bar" | "graph" | "value" | "curve"
 // min / max:   value range (max 0 = auto)
 // warn / crit: thresholds (0 = off)
+// lowWarn / lowCrit: lower thresholds – the value FALLS below them (e.g. battery or supply voltage; 0 = off)
 // wide:        span two columns
 // showInPanel: show in the compact (panel) view
 // color:       accent color ("" = automatic palette)
@@ -69,7 +70,7 @@ function blank() {
         style: "ring", min: 0, max: 0, warn: 0, crit: 0,
         wide: false, showInPanel: false, color: "", notify: true,
         ySource: "nvidia", ySensorId: "", yCommand: "", yKey: "fan.speed", yUnit: "", yMax: 0,
-        refCurve: "", gpu: "", compare: false, relThresholds: false
+        refCurve: "", gpu: "", compare: false, relThresholds: false, lowWarn: 0, lowCrit: 0
     };
 }
 
@@ -100,6 +101,12 @@ function normalize(it, index) {
     ["sensorId", "refSensorId", "ySensorId"].forEach(function (k) {
         if (typeof b[k] === "string") b[k] = b[k].replace(/^gpu\/gpu\d+\//, "gpu/{gpu}/");
     });
+    // migrate: a development build had "lowThresholds" (warn/crit counted downwards)
+    if (it && it.lowThresholds && !(Number(b.lowWarn) > 0) && !(Number(b.lowCrit) > 0)) {
+        b.lowWarn = b.warn; b.lowCrit = b.crit; b.warn = 0; b.crit = 0;
+    }
+    // migrate: the power service was called sensordeck-power before 1.1.0
+    if (typeof b.command === "string") b.command = b.command.replace(/\/run\/sensordeck-power\//g, "/run/hardwaretiles-power/");
     if (b.command === "cat /run/gddr6/vram") b.command = "cat /run/gddr6/vram-{gpuaddr} 2>/dev/null || cat /run/gddr6/vram";
     // migrate: the old nvidia-smi PCIe field -> sysfs source (knows the slot limit)
     if (b.source === "nvidia" && b.key === "pcie.link.gen.current") { b.source = "pcie"; b.key = ""; }

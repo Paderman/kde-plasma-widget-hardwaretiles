@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping Sensor Deck support more hardware!
+        Thanks for helping Hardware Tiles support more hardware!
         Please run the report script and attach the file it creates:
         ```
         ./tools/hardware-report.sh
@@ -32,7 +32,7 @@ body:
     id: report
     attributes:
       label: Hardware report
-      description: Drag sensordeck-hardware-report.md here, or paste its content.
+      description: Drag hardwaretiles-hardware-report.md here, or paste its content.
     validations:
       required: true
   - type: textarea

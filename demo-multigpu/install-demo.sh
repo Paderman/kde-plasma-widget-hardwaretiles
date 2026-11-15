@@ -1,11 +1,11 @@
 #!/bin/bash
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Builds and installs "Sensor Deck (Multi-GPU-Demo)": the normal widget plus a
-# simulated second graphics card. Does not touch the real Sensor Deck widget.
+# Builds and installs "Hardware Tiles (Multi-GPU-Demo)": the normal widget plus a
+# simulated second graphics card. Does not touch the real Hardware Tiles widget.
 set -euo pipefail
 cd "$(dirname "$0")"
-ID=io.github.paderman.sensordeck.multigpudemo
+ID=io.github.paderman.hardwaretiles.multigpudemo
 BUILD=build/package
 rm -rf build && mkdir -p build && cp -a ../package "$BUILD"
 C=$BUILD/contents
@@ -18,8 +18,8 @@ import sys, json, re
 c, pid = sys.argv[1], sys.argv[2]
 m = json.load(open(c + "/../metadata.json"))
 m["KPlugin"]["Id"] = pid
-m["KPlugin"]["Name"] = "Sensor Deck (Multi-GPU-Demo)"
-m["KPlugin"]["Description"] = "Sensor Deck with a simulated second graphics card"
+m["KPlugin"]["Name"] = "Hardware Tiles (Multi-GPU-Demo)"
+m["KPlugin"]["Description"] = "Hardware Tiles with a simulated second graphics card"
 m["KPlugin"].pop("Description[de]", None)
 json.dump(m, open(c + "/../metadata.json", "w"), indent=4, ensure_ascii=False)
 
@@ -57,4 +57,4 @@ if kpackagetool6 -t Plasma/Applet -s $ID >/dev/null 2>&1; then
 else
     kpackagetool6 -t Plasma/Applet -i "$BUILD"
 fi
-echo "Demo installed: Add Widgets → “Sensor Deck (Multi-GPU-Demo)”."
+echo "Demo installed: Add Widgets → “Hardware Tiles (Multi-GPU-Demo)”."

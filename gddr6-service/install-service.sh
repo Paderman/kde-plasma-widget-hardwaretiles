@@ -1,7 +1,7 @@
 #!/bin/bash
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Installs the VRAM temperature service for Sensor Deck (run with pkexec/sudo).
+# Installs the VRAM temperature service for Hardware Tiles (run with pkexec/sudo).
 #  - group gpu-sensors + udev rule: read access to the NVIDIA card's resource0 only
 #  - service gddr6-vram: runs as a throw-away user (DynamicUser), no root, no /dev/mem
 #  - publishes /run/gddr6/vram, vram_all, vram-<pci address>
@@ -11,10 +11,12 @@ cd "$(dirname "$0")"
 command -v python3 >/dev/null || { echo "python3 is missing."; exit 1; }
 
 getent group gpu-sensors >/dev/null || groupadd --system gpu-sensors
-install -Dm755 vram-reader.py /usr/local/libexec/sensordeck-vram-reader
-install -Dm644 70-sensordeck-vram.rules /etc/udev/rules.d/70-sensordeck-vram.rules
+install -Dm755 vram-reader.py /usr/local/libexec/hardwaretiles-vram-reader
+install -Dm644 70-hardwaretiles-vram.rules /etc/udev/rules.d/70-hardwaretiles-vram.rules
 install -Dm644 gddr6-vram.service /etc/systemd/system/gddr6-vram.service
 rm -f /usr/local/libexec/gddr6-vram-feeder          # old root feeder (gddr6 + /dev/mem)
+# names before 1.1.0 (widget name Sensor Deck)
+rm -f /usr/local/libexec/sensordeck-vram-reader /etc/udev/rules.d/70-sensordeck-vram.rules
 
 udevadm control --reload
 udevadm trigger --action=change --subsystem-match=pci --attr-match=vendor=0x10de

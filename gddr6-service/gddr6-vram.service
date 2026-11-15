@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
 [Unit]
-Description=Publish NVIDIA VRAM temperature to /run/gddr6 (Sensor Deck, unprivileged)
+Description=Publish NVIDIA VRAM temperature to /run/gddr6 (Hardware Tiles, unprivileged)
 After=nvidia-persistenced.service systemd-modules-load.service systemd-udev-settle.service
 
 [Service]
 Type=simple
 # reads only /sys/bus/pci/devices/<nvidia card>/resource0 (group gpu-sensors via udev rule)
-ExecStart=/usr/bin/python3 -I /usr/local/libexec/sensordeck-vram-reader --serve /run/gddr6 1
+ExecStart=/usr/bin/python3 -I /usr/local/libexec/hardwaretiles-vram-reader --serve /run/gddr6 1
 Restart=on-failure
 RestartSec=10
 Nice=10

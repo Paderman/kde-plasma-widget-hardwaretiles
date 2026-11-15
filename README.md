@@ -1,11 +1,13 @@
-# Sensor Deck
+# Hardware Tiles
 
 *[Deutsche Version](README.de.md)*
+
+*Formerly “Sensor Deck” – renamed in version 1.1.0, as another Plasma widget already had that name. Coming from 1.0.0: Hardware Tiles installs as a new widget – add it, then remove the old “Sensor Deck” widget; exported profiles can be imported. If you use the VRAM or power service, run its install script again (it removes the old one).*
 
 A **GPU & system monitor** widget for **KDE Plasma 6**: VRAM temperature, throttling,
 PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as rings, bars and graphs.
 
-![Sensor Deck – system overview](docs/screenshots/en/overview-en-dark.png)
+![Hardware Tiles – system overview](docs/screenshots/en/overview-en-dark.png)
 
 <table>
   <tr>
@@ -52,19 +54,19 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 ## Installation
 
 **Easiest – without a terminal** ([KDE Store](https://store.kde.org/p/2381890/)): right-click the desktop → **Add Widgets** →
-**Get New Widgets** → **Download New Plasma Widgets**, search for “Sensor Deck” and click
-*Install* on “Sensor Deck - GPU and System Monitor” (another widget has a similar name).
+**Get New Widgets** → **Download New Plasma Widgets**, search for “Hardware Tiles” and click
+*Install* on “Hardware Tiles - GPU and System Monitor” (another widget has a similar name).
 Updates then come through Discover.
 
-**As a package** from the [releases page](https://github.com/Paderman/kde-plasma-widget-sensordeck/releases)
+**As a package** from the [releases page](https://github.com/Paderman/kde-plasma-widget-hardwaretiles/releases)
 (double-click opens your software center):
 
 | System | File |
 |---|---|
-| Kubuntu, KDE neon, Debian, Linux Mint | `plasma-widget-sensordeck_<version>_all.deb` |
-| Fedora KDE, openSUSE | `plasma-widget-sensordeck-<version>-1.noarch.rpm` |
+| Kubuntu, KDE neon, Debian, Linux Mint | `plasma-widget-hardwaretiles_<version>_all.deb` |
+| Fedora KDE, openSUSE | `plasma-widget-hardwaretiles-<version>-1.noarch.rpm` |
 | Arch, Manjaro, EndeavourOS, CachyOS | `packaging/arch/PKGBUILD` (AUR) |
-| any Plasma 6 system | `sensordeck-<version>.plasmoid` – *Add Widgets → Get New Widgets → Install from local file* |
+| any Plasma 6 system | `hardwaretiles-<version>.plasmoid` – *Add Widgets → Get New Widgets → Install from local file* |
 
 A package installs the widget for all users. If you also installed it from source for
 your user, that copy takes precedence – remove it with the command below.
@@ -72,15 +74,15 @@ your user, that copy takes precedence – remove it with the command below.
 **From source:**
 
 ```bash
-git clone https://github.com/Paderman/kde-plasma-widget-sensordeck.git
-cd kde-plasma-widget-sensordeck
+git clone https://github.com/Paderman/kde-plasma-widget-hardwaretiles.git
+cd kde-plasma-widget-hardwaretiles
 ./install.sh
 ```
 
-Then right-click the desktop or a panel → **Add Widgets** → **Sensor Deck**.
+Then right-click the desktop or a panel → **Add Widgets** → **Hardware Tiles**.
 After an update, reload Plasma with `systemctl --user restart plasma-plasmashell`.
 
-To remove it: `kpackagetool6 -t Plasma/Applet -r io.github.paderman.sensordeck`
+To remove it: `kpackagetool6 -t Plasma/Applet -r io.github.paderman.hardwaretiles`
 
 ### VRAM temperature of NVIDIA cards (optional)
 
@@ -129,12 +131,12 @@ processors (whole processor only).
 | Intel graphics (`i915`/`xe`) | detected, few values – *not yet tested on real hardware* |
 | Mainboard fans and case temperature | depends on the mainboard's sensor chip, see below |
 
-So far Sensor Deck has been tested on one PC only (ASUS Z370 board, RTX 3080).
+So far Hardware Tiles has been tested on one PC only (ASUS Z370 board, RTX 3080).
 **If something is missing on your hardware, please send a
-[hardware report](https://github.com/Paderman/kde-plasma-widget-sensordeck/issues/new?template=hardware_report.yml)**:
+[hardware report](https://github.com/Paderman/kde-plasma-widget-hardwaretiles/issues/new?template=hardware_report.yml)**:
 
 ```bash
-./tools/hardware-report.sh    # writes sensordeck-hardware-report.md – attach it to the issue
+./tools/hardware-report.sh    # writes hardwaretiles-hardware-report.md – attach it to the issue
 ```
 
 ### Mainboard sensors
@@ -150,7 +152,7 @@ asked for your password). By hand:
 2. Run `sudo sensors-detect` once, answer the questions with the defaults and
    let it add the modules. Restart.
 3. Check with `sensors` that fans appear, then run the setup wizard again
-   (right-click the widget → *Configure Sensor Deck …* → *Start setup wizard*).
+   (right-click the widget → *Configure Hardware Tiles …* → *Start setup wizard*).
 
 Known extra drivers:
 - **Many Gigabyte boards** (ITE IT8686/IT8688/IT8689 chips): the `it87` driver in the
@@ -190,17 +192,17 @@ cp translate/template.pot translate/xx.po   # start a new language (xx = languag
 
 ## Updates
 
-Sensor Deck asks once whether it may look for new versions (weekly, off by default).
+Hardware Tiles asks once whether it may look for new versions (weekly, off by default).
 If you agree, it asks `api.github.com` for the newest version number – GitHub sees your
 IP address as with any website visit; nothing else is sent, no statistics are kept.
-You can also check by hand under *Configure Sensor Deck … → About & updates → Check now*, without
+You can also check by hand under *Configure Hardware Tiles … → About & updates → Check now*, without
 agreeing to the automatic check.
 
 ## Packaging
 
 | Command | Result in `dist/` |
 |---|---|
-| `./make-package.sh` | `sensordeck-<version>.plasmoid` (KDE Store, “Install from local file”) |
+| `./make-package.sh` | `hardwaretiles-<version>.plasmoid` (KDE Store, “Install from local file”) |
 | `packaging/deb/build-deb.sh` | `.deb` (needs `dpkg-deb`, `fakeroot`) |
 | `packaging/rpm/build-rpm.sh` | `.rpm` (needs `rpmbuild`) |
 | `packaging/arch/PKGBUILD` | Arch package (`makepkg`) / AUR |
@@ -216,7 +218,7 @@ draft release.
 
 ## Help & bug reports
 
-Please open an issue: <https://github.com/Paderman/kde-plasma-widget-sensordeck/issues>
+Please open an issue: <https://github.com/Paderman/kde-plasma-widget-hardwaretiles/issues>
 
 ## Credits
 

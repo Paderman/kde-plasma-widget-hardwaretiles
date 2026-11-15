@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
 #
-# Installs or updates the Sensor Deck plasmoid for the current user.
+# Installs or updates the Hardware Tiles plasmoid for the current user.
 set -euo pipefail
 cd "$(dirname "$0")"
 ID=$(sed -n 's/.*"Id": *"\([^"]*\)".*/\1/p' package/metadata.json)
@@ -20,5 +20,5 @@ if kpackagetool6 -t Plasma/Applet -s "$ID" >/dev/null 2>&1; then
 else
     kpackagetool6 -t Plasma/Applet -i package
 fi
-echo "Done. Add the widget: right-click the desktop/panel → Add Widgets → “Sensor Deck”."
+echo "Done. Add the widget: right-click the desktop/panel → Add Widgets → “Hardware Tiles”."
 echo "After an update you may need to reload Plasma: systemctl --user restart plasma-plasmashell"

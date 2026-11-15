@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Maintainer: Paderman <https://github.com/Paderman>
 
-pkgname=plasma6-applets-sensordeck
+pkgname=plasma6-applets-hardwaretiles
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="GPU & system monitor widget for KDE Plasma 6 (VRAM temperature, throttling, fan curve, CPU, SSDs, fans)"
 arch=('any')
-url="https://github.com/Paderman/kde-plasma-widget-sensordeck"
+url="https://github.com/Paderman/kde-plasma-widget-hardwaretiles"
 license=('GPL-2.0-or-later')
 depends=('plasma-workspace')
 makedepends=('gettext')
@@ -15,11 +15,11 @@ optdepends=('lm_sensors: mainboard fans and fan names, sensor chip detection'
             'pciutils: graphics card names'
             'nvidia-utils: detailed values of NVIDIA cards'
             'python: measured fan speeds of NVIDIA cards')
-source=("sensordeck-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+source=("hardwaretiles-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
 sha256sums=('SKIP')   # replace with the real checksum when publishing to the AUR
 
 package() {
-    cd "kde-plasma-widget-sensordeck-$pkgver"
+    cd "kde-plasma-widget-hardwaretiles-$pkgver"
     sh packaging/stage.sh "$pkgdir"
-    rm -rf "$pkgdir/usr/share/doc/sensordeck/README.de.md"
+    rm -rf "$pkgdir/usr/share/doc/hardwaretiles/README.de.md"
 }

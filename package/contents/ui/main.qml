@@ -199,6 +199,7 @@ PlasmoidItem {
     }
     onAllCfgsChanged: syncSources()
     Component.onCompleted: {
+        Qt.callLater(() => root.desktopContainer = root.findContainer());
         // a size preview left over (settings were open when Plasma stopped)
         Plasmoid.configuration.appearancePreview = "";
         Plasmoid.configuration.layoutPreview = "";
@@ -342,6 +343,16 @@ PlasmoidItem {
         return catalog.filter(it => !have[tileKey(it)] && !have[tileGroup(it) + "#" + it.label])
                       .map(it => ({ tile: it, group: tileGroup(it) }));
     }
+    // every voltage, temperature and fan of the sensor chips that is not a tile yet
+    // ("+" menu, submenu "Mainboard & other sensors")
+    readonly property var extraGroups: {
+        if (!probe.ready) return [];
+        const have = {};
+        rawItems.forEach(it => { if (it.sensorId) have[it.sensorId] = true; });
+        return Hardware.extraSensors(probe.hw, tr)
+            .map(g => ({ title: g.title, items: g.items.filter(e => !have[e.tile.sensorId]) }))
+            .filter(g => g.items.length > 0);
+    }
     // returns the index of the new tile
     function addTile(tile) {
         const it = Object.assign({}, tile);
@@ -447,9 +458,26 @@ PlasmoidItem {
         }
     }
 
+    // ---- rotation on the desktop: Plasma turns the applet's container (handle
+    // "Click and drag to rotate") and saves it in the containment layout
+    property Item desktopContainer: null
+    function findContainer() {
+        for (let p = root.parent; p; p = p.parent)
+            if (p.applet !== undefined && p.layout && typeof p.layout.save === "function") return p;
+        return null;
+    }
+    onParentChanged: Qt.callLater(() => root.desktopContainer = root.findContainer())
+    readonly property real rotationAngle: desktopContainer ? ((desktopContainer.rotation % 360) + 360) % 360 : 0
+    readonly property bool rotated: rotationAngle !== 0
+    function resetRotation() {
+        if (!desktopContainer) return;
+        desktopContainer.rotation = 0;
+        desktopContainer.layout.save();
+    }
+
     Plasmoid.contextualActions: [
         PlasmaCore.Action {
-            text: root.updateAvailable ? i18n("Sensor Deck %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
+            text: root.updateAvailable ? i18n("Hardware Tiles %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
             icon.name: "update-none"
             visible: root.updateAvailable
             onTriggered: root.openUpdatePage()
@@ -471,6 +499,12 @@ PlasmoidItem {
             icon.name: "edit-reset"
             enabled: root.orderChanged
             onTriggered: root.resetOrder()
+        },
+        PlasmaCore.Action {
+            text: i18n("Straighten widget (rotated by %1°)", Math.round(root.rotationAngle))
+            icon.name: "object-rotate-right"
+            visible: root.rotated
+            onTriggered: root.resetRotation()
         }
     ]
 
@@ -489,7 +523,7 @@ PlasmoidItem {
                              ? compactRepresentation : fullRepresentation
 
     // no texts = no tooltip (switched off in the settings)
-    toolTipMainText: setting("tooltipsEnabled") ? i18n("Sensor Deck") : ""
+    toolTipMainText: setting("tooltipsEnabled") ? i18n("Hardware Tiles") : ""
     toolTipSubText: {
         if (!setting("tooltipsEnabled")) return "";
         sourcesRevision;

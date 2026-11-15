@@ -11,8 +11,8 @@ cd "$(dirname "$0")"
 files=$(cd .. && find package -name '*.qml' -o -name '*.js' | sort)
 (cd .. && xgettext --from-code=UTF-8 -L JavaScript \
     -ki18n:1 -ki18np:1,2 -ki18nc:1c,2 -ktr:1 \
-    --package-name="Sensor Deck" \
-    --msgid-bugs-address="https://github.com/Paderman/kde-plasma-widget-sensordeck/issues" \
+    --package-name="Hardware Tiles" \
+    --msgid-bugs-address="https://github.com/Paderman/kde-plasma-widget-hardwaretiles/issues" \
     --add-comments=TRANSLATORS: --no-wrap \
     -o translate/template.pot $files)
 # a stable header date keeps diffs small

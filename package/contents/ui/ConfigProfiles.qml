@@ -109,7 +109,7 @@ KCM.SimpleKCM {
             }
             const r = Profiles.parseImport(String(data["stdout"] || ""));
             if (r.error) {
-                page.say(Kirigami.MessageType.Error, i18n("This file does not contain Sensor Deck profiles."));
+                page.say(Kirigami.MessageType.Error, i18n("This file does not contain Hardware Tiles profiles."));
                 return;
             }
             // tiles can run shell commands – show foreign ones before anything is stored
@@ -130,14 +130,14 @@ KCM.SimpleKCM {
         fileMode: Dialogs.FileDialog.SaveFile
         defaultSuffix: "json"
         currentFolder: page.docs
-        nameFilters: [i18n("Sensor Deck profiles (*.json)")]
+        nameFilters: [i18n("Hardware Tiles profiles (*.json)")]
         onAccepted: page.exportTo(selectedFile)
     }
     Dialogs.FileDialog {
         id: importDialog
         fileMode: Dialogs.FileDialog.OpenFile
         currentFolder: page.docs
-        nameFilters: [i18n("Sensor Deck profiles (*.json)"), i18n("All files (*)")]
+        nameFilters: [i18n("Hardware Tiles profiles (*.json)"), i18n("All files (*)")]
         onAccepted: page.importFrom(selectedFile)
     }
 
@@ -342,7 +342,7 @@ KCM.SimpleKCM {
                 enabled: page.profiles.length > 0
                 onClicked: {
                     page.exportList = page.profiles;
-                    exportDialog.selectedFile = page.docs + "/sensordeck-profiles.json";
+                    exportDialog.selectedFile = page.docs + "/hardwaretiles-profiles.json";
                     exportDialog.open();
                 }
             }

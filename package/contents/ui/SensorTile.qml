@@ -190,9 +190,18 @@ Rectangle {
     // "Normal – Warnung ab 75 °C, kritisch ab 85 °C" (only for numeric tiles with thresholds)
     readonly property string thresholdText: {
         if (!ready || src.isText || !src.valid || src.cfg.style === "curve") return "";
-        const w = src.warn, c = src.crit;
+        const w = src.warn, c = src.crit, lw = src.lowWarn, lc = src.lowCrit;
         const f = v => src.reader.format(v) + (src.relThresholds ? " (" + src.percentOf(v) + " %)" : "");
-        if (!(w > 0) && !(c > 0)) return "";
+        const high = w > 0 || c > 0;
+        if (!high && !src.hasLow) return "";
+        if (src.low && src.level === 2) return i18n("Critical – below the threshold of %1.", f(lc));
+        if (src.low && src.level === 1) return i18n("Low – below the warning threshold of %1.", f(lw));
+        if (src.hasLow && high && src.level === 0)
+            return i18n("In the normal range between %1 and %2.", f(lw > 0 ? lw : lc), f(w > 0 ? w : c));
+        if (src.hasLow && src.level === 0) {
+            if (lw > 0 && lc > 0) return i18n("In the normal range · warning below %1, critical below %2.", f(lw), f(lc));
+            return lw > 0 ? i18n("In the normal range · warning below %1.", f(lw)) : i18n("In the normal range · critical below %1.", f(lc));
+        }
         if (src.level === 2) return i18n("Critical – above the threshold of %1.", f(c));
         if (src.level === 1) return i18n("Elevated – above the warning threshold of %1.", f(w));
         if (w > 0 && c > 0) return i18n("In the normal range · warning from %1, critical from %2.", f(w), f(c));
@@ -205,6 +214,8 @@ Rectangle {
         const span = Math.max(1e-9, src.maximum - src.minimum);
         if (src.warn > src.minimum && src.warn < src.maximum) m.push({ pos: (src.warn - src.minimum) / span, color: Defaults.warnColor(card.lightTheme) });
         if (src.crit > src.minimum && src.crit < src.maximum) m.push({ pos: (src.crit - src.minimum) / span, color: Defaults.critColor(card.lightTheme) });
+        if (src.lowWarn > src.minimum && src.lowWarn < src.maximum) m.push({ pos: (src.lowWarn - src.minimum) / span, color: Defaults.warnColor(card.lightTheme) });
+        if (src.lowCrit > src.minimum && src.lowCrit < src.maximum) m.push({ pos: (src.lowCrit - src.minimum) / span, color: Defaults.critColor(card.lightTheme) });
         return m;
     }
 

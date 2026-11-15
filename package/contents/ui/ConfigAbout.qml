@@ -6,6 +6,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.plasma.plasma5support as P5Support
 import "UpdateCheck.js" as UpdateCheck
 
 KCM.SimpleKCM {
@@ -23,13 +24,55 @@ KCM.SimpleKCM {
     function isDefault(keys) { return keys.every(k => page["cfg_" + k] === defaults[k]); }
     function resetKeys(keys) { keys.forEach(k => page["cfg_" + k] = defaults[k]); }
 
-    readonly property string site: "https://github.com/Paderman/kde-plasma-widget-sensordeck"
+    readonly property string site: "https://github.com/Paderman/kde-plasma-widget-hardwaretiles"
 
     // result of "Check now": "" | busy | latest | newer | none | error
     property string checkState: ""
     property string checkVersion: ""
     property string checkUrl: ""
     property string checkError: ""
+
+    // ---- troubleshooting: restart the Plasma desktop (plasmashell)
+    // Through systemd when Plasma runs as a user service (usual since Plasma 5.25),
+    // otherwise quit and start it detached, so the restart survives plasmashell.
+    readonly property string restartCmd:
+        "if systemctl --user --quiet is-active plasma-plasmashell.service; then "
+        + "systemctl --user --no-block restart plasma-plasmashell.service; "
+        + "else setsid sh -c 'kquitapp6 plasmashell; sleep 1; kstart plasmashell' >/dev/null 2>&1 & fi"
+    property string restartError: ""
+    P5Support.DataSource {
+        id: exec
+        engine: "executable"
+        connectedSources: []
+        onNewData: (source, data) => {
+            disconnectSource(source);
+            // on success this window is gone a moment later – only errors arrive here
+            if (data["exit code"] !== 0)
+                page.restartError = String(data["stderr"] || "").trim() || i18n("Exit code %1", data["exit code"]);
+        }
+    }
+    Kirigami.PromptDialog {
+        id: restartDialog
+        title: i18n("Restart Plasma desktop?")
+        subtitle: i18n("Desktop, panels and widgets disappear for a few seconds and then start again. Open programs keep running. This settings window closes – changes that have not been applied are lost.")
+        standardButtons: Kirigami.Dialog.NoButton
+        customFooterActions: [
+            Kirigami.Action {
+                text: i18n("Restart")
+                icon.name: "view-refresh"
+                onTriggered: {
+                    restartDialog.close();
+                    page.restartError = "";
+                    exec.connectSource(page.restartCmd);
+                }
+            },
+            Kirigami.Action {
+                text: i18n("Cancel")
+                icon.name: "dialog-cancel"
+                onTriggered: restartDialog.close()
+            }
+        ]
+    }
 
     function checkNow() {
         checkState = "busy";
@@ -123,7 +166,7 @@ KCM.SimpleKCM {
             font: Kirigami.Theme.smallFont
             opacity: 0.7
             onLinkActivated: (link) => Qt.openUrlExternally(link)
-            text: i18n("Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Sensor Deck sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>.",
+            text: i18n("Privacy: the check only runs when you allow it or click “Check now”. Your computer then asks api.github.com for the newest version number. GitHub sees your IP address, as with any website visit; Hardware Tiles sends no other data and keeps no statistics. Details: <a href=\"%1\">GitHub privacy statement</a>.",
                        "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement")
         }
         QQC2.Label {
@@ -133,6 +176,30 @@ KCM.SimpleKCM {
             font: Kirigami.Theme.smallFont
             opacity: 0.7
             text: i18n("Installed via “Get New Widgets” or Discover? Then Discover installs updates for you – the check here only informs you.")
+        }
+
+        Item { Kirigami.FormData.isSection: true }
+
+        QQC2.Button {
+            Kirigami.FormData.label: i18n("Troubleshooting:")
+            text: i18n("Restart Plasma desktop …")
+            icon.name: "view-refresh"
+            onClicked: restartDialog.open()
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 28
+            wrapMode: Text.WordWrap
+            font: Kirigami.Theme.smallFont
+            opacity: 0.7
+            text: i18n("Helps when the widget or the desktop no longer reacts properly, e.g. after an update. Same as “systemctl --user restart plasma-plasmashell” in a terminal. If it happens again, please report it with “Report a problem”.")
+        }
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 28
+            visible: page.restartError !== ""
+            type: Kirigami.MessageType.Error
+            text: i18n("Plasma could not be restarted: %1", page.restartError)
         }
     }
 }

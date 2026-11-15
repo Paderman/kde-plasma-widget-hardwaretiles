@@ -62,7 +62,7 @@ PY
     rm -f "$OUT"
     # invisible X server (Xvfb) with OpenGL – the graphs need it, "offscreen" draws no charts
     "${export_env[@]}" QT_QPA_PLATFORM=xcb xvfb-run -a -s "-screen 0 1920x1200x24" \
-        plasmoidviewer -a io.github.paderman.sensordeck.screenshot \
+        plasmoidviewer -a io.github.paderman.hardwaretiles.screenshot \
         -s "$((W + 40))x$((H + 40))" > "$W_/viewer.log" 2>&1 &
     pid=$!
     # the widget saves the PNG after ~24 s; then stop the viewer

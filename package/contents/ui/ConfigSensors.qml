@@ -81,7 +81,7 @@ KCM.SimpleKCM {
             if (page.trySwitch()) { stop(); return; }
             if (++tries >= 20) {
                 stop();
-                console.warn("Sensor Deck: could not open the settings page", file);
+                console.warn("Hardware Tiles: could not open the settings page", file);
                 page.startPage();
             }
         }
@@ -234,20 +234,30 @@ KCM.SimpleKCM {
                          { gpuDetails: true, compare: true, cpu: true, ram: true, storage: true, board: true, network: true },
                          probe.hw, page.tr)
         : []
+    // template menu "Mainboard & other sensors"
+    readonly property var extraGroups: probe.ready ? Hardware.extraSensors(probe.hw, page.tr) : []
+    readonly property var extraTiles: extraGroups.reduce((a, g) => a.concat(g.items.map(e => Defaults.normalize(e.tile))), [])
     function suggestionFor(t) {
         const same = s => s.source === t.source && s.sensorId === t.sensorId && s.key === t.key && s.command === t.command;
         let best = null, score = -1;
-        suggestions.filter(same).forEach(s => {
+        // tiles from the wizard templates first, then the sensor menu
+        let pool = suggestions.filter(same);
+        if (!pool.length) pool = extraTiles.filter(same);
+        pool.forEach(s => {
             const sc = ((s.gpu || "") === (t.gpu || "") ? 2 : 0) + (!!s.compare === !!t.compare ? 1 : 0);
             if (sc > score) { best = s; score = sc; }
         });
         const b = Defaults.blank();
         return best || { label: "", style: t.style, wide: false, showInPanel: false, notify: b.notify, color: "",
-                         min: 0, max: 0, yMax: 0, warn: 0, crit: 0, relThresholds: false,
+                         min: 0, max: 0, yMax: 0, warn: 0, crit: 0, relThresholds: false, lowWarn: 0, lowCrit: 0,
                          refSensorId: t.refSensorId, refCurve: "" };
     }
     function styleText(v) { const s = styles.find(e => e.value === v); return s ? s.text : String(v); }
-    function offText(v) { return Number(v) === 0 ? i18n("off") : String(v); }
+    function offText(v) {
+        const n = Number(v);
+        if (n === 0) return i18n("off");
+        return Number.isInteger(n) ? String(n) : n.toLocaleString(Qt.locale(), "f", 2).replace(/0$/, "");
+    }
     function autoText(v) { return Number(v) === 0 ? i18n("auto") : String(v); }
 
     // runs in the page: removing the tile destroys the card (and its button) that calls this
@@ -619,6 +629,7 @@ KCM.SimpleKCM {
                                 text: i18n("Notify")
                                 checked: cardDelegate.model.notify
                                 enabled: cardDelegate.model.warn > 0 || cardDelegate.model.crit > 0
+                                         || cardDelegate.model.lowWarn > 0 || cardDelegate.model.lowCrit > 0
                                 onToggled: page.set(cardDelegate.index, "notify", checked)
                                 ResetHandler { page: tileDefaults; keys: ["notify"] }
                                 QQC2.ToolTip.text: i18n("Desktop notification when a threshold is exceeded")
@@ -683,7 +694,7 @@ KCM.SimpleKCM {
                         }
 
                         QQC2.Label {
-                            text: i18n("Thresholds:")
+                            text: i18n("Warn above:")
                             ResetHandler {
                                 page: tileDefaults; keys: ["warn", "crit", "relThresholds"]
                                 readonly property string pct: tileDefaults.defaults.relThresholds ? " %" : ""
@@ -699,25 +710,44 @@ KCM.SimpleKCM {
                             readonly property bool hasTotal: !!cardDelegate.model.refSensorId
                                 || (cardDelegate.model.source === "nvidia" && !!(NK.meta(cardDelegate.model.key) || {}).maxKey)
                             readonly property bool rel: hasTotal && cardDelegate.model.relThresholds
+                            // voltages and other small values: thresholds in hundredths (2.90)
+                            readonly property int dec: (/^lmsensors\/[^/]+\/in\d+$/.test(cardDelegate.model.sensorId || "")
+                                || ["warn", "crit", "lowWarn", "lowCrit"].some(k => !Number.isInteger(Number(cardDelegate.model[k])))) ? 2 : 0
+                            readonly property real factor: Math.pow(10, dec)
+                            function show(v) {
+                                return v === 0 ? i18n("off")
+                                     : (v / factor).toLocaleString(Qt.locale(), "f", dec) + (rel ? " %" : "");
+                            }
+                            function parse(t) {
+                                if (t === i18n("off")) return 0;
+                                const n = Number.fromLocaleString(Qt.locale(), t.replace(/\s*%$/, "").trim());
+                                return isNaN(n) ? 0 : Math.round(n * factor);
+                            }
                             Rectangle { width: 10; height: 10; radius: 5; color: "#ffb020" }
                             QQC2.SpinBox {
                                 wheelEnabled: false   // scrolling the page must not change the value
-                                from: 0; to: 100000; editable: true
-                                value: cardDelegate.model.warn
-                                textFromValue: (v) => v === 0 ? i18n("off") : String(v) + (thresholdRow.rel ? " %" : "")
-                                valueFromText: (t) => t === i18n("off") ? 0 : parseInt(t)
-                                onValueModified: page.set(cardDelegate.index, "warn", value)
+                                from: 0; editable: true
+                                to: 100000 * thresholdRow.factor
+                                // 0.05 V steps for voltages
+                                stepSize: thresholdRow.dec ? 5 : 1
+                                value: Math.round(Number(cardDelegate.model.warn) * thresholdRow.factor)
+                                textFromValue: (v) => thresholdRow.show(v)
+                                valueFromText: (t) => thresholdRow.parse(t)
+                                onValueModified: page.set(cardDelegate.index, "warn", value / thresholdRow.factor)
                                 // Breeze spin boxes have no menu of their own: right click is free here
                                 ResetHandler { page: tileDefaults; keys: ["warn"]; valueText: page.offText(tileDefaults.defaults.warn) }
                             }
                             Rectangle { width: 10; height: 10; radius: 5; color: "#ff4d6d" }
                             QQC2.SpinBox {
                                 wheelEnabled: false   // scrolling the page must not change the value
-                                from: 0; to: 100000; editable: true
-                                value: cardDelegate.model.crit
-                                textFromValue: (v) => v === 0 ? i18n("off") : String(v) + (thresholdRow.rel ? " %" : "")
-                                valueFromText: (t) => t === i18n("off") ? 0 : parseInt(t)
-                                onValueModified: page.set(cardDelegate.index, "crit", value)
+                                from: 0; editable: true
+                                to: 100000 * thresholdRow.factor
+                                // 0.05 V steps for voltages
+                                stepSize: thresholdRow.dec ? 5 : 1
+                                value: Math.round(Number(cardDelegate.model.crit) * thresholdRow.factor)
+                                textFromValue: (v) => thresholdRow.show(v)
+                                valueFromText: (t) => thresholdRow.parse(t)
+                                onValueModified: page.set(cardDelegate.index, "crit", value / thresholdRow.factor)
                                 // Breeze spin boxes have no menu of their own: right click is free here
                                 ResetHandler { page: tileDefaults; keys: ["crit"]; valueText: page.offText(tileDefaults.defaults.crit) }
                             }
@@ -731,6 +761,55 @@ KCM.SimpleKCM {
                                 QQC2.ToolTip.text: i18n("The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size.")
                                 QQC2.ToolTip.visible: hovered
                                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                            }
+                        }
+
+                        QQC2.Label {
+                            text: i18n("Warn below:")
+                            visible: !cardDelegate.isCurve
+                            ResetHandler {
+                                page: tileDefaults; keys: ["lowWarn", "lowCrit"]
+                                valueText: i18n("warning %1, critical %2",
+                                                page.offText(tileDefaults.defaults.lowWarn), page.offText(tileDefaults.defaults.lowCrit))
+                            }
+                        }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            visible: !cardDelegate.isCurve
+                            Rectangle { width: 10; height: 10; radius: 5; color: "#ffb020" }
+                            QQC2.SpinBox {
+                                wheelEnabled: false   // scrolling the page must not change the value
+                                from: 0; editable: true
+                                to: 100000 * thresholdRow.factor
+                                // 0.05 V steps for voltages
+                                stepSize: thresholdRow.dec ? 5 : 1
+                                value: Math.round(Number(cardDelegate.model.lowWarn) * thresholdRow.factor)
+                                textFromValue: (v) => thresholdRow.show(v)
+                                valueFromText: (t) => thresholdRow.parse(t)
+                                onValueModified: page.set(cardDelegate.index, "lowWarn", value / thresholdRow.factor)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["lowWarn"]; valueText: page.offText(tileDefaults.defaults.lowWarn) }
+                            }
+                            Rectangle { width: 10; height: 10; radius: 5; color: "#ff4d6d" }
+                            QQC2.SpinBox {
+                                wheelEnabled: false   // scrolling the page must not change the value
+                                from: 0; editable: true
+                                to: 100000 * thresholdRow.factor
+                                // 0.05 V steps for voltages
+                                stepSize: thresholdRow.dec ? 5 : 1
+                                value: Math.round(Number(cardDelegate.model.lowCrit) * thresholdRow.factor)
+                                textFromValue: (v) => thresholdRow.show(v)
+                                valueFromText: (t) => thresholdRow.parse(t)
+                                onValueModified: page.set(cardDelegate.index, "lowCrit", value / thresholdRow.factor)
+                                // Breeze spin boxes have no menu of their own: right click is free here
+                                ResetHandler { page: tileDefaults; keys: ["lowCrit"]; valueText: page.offText(tileDefaults.defaults.lowCrit) }
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.WordWrap
+                                font: Kirigami.Theme.smallFont
+                                opacity: 0.6
+                                text: i18n("For values that must not drop, e.g. battery or supply voltages.")
                             }
                         }
 
@@ -776,6 +855,33 @@ KCM.SimpleKCM {
                 onClicked: presetMenu.popup()
                 QQC2.Menu {
                     id: presetMenu
+                    // every voltage, temperature and fan the sensor chips report
+                    QQC2.Menu {
+                        id: extraMenu
+                        title: i18n("Mainboard & other sensors")
+                        enabled: page.extraGroups.length > 0
+                        Instantiator {
+                            model: page.extraGroups
+                            delegate: QQC2.Menu {
+                                id: groupMenu
+                                required property var modelData
+                                title: modelData.title
+                                Instantiator {
+                                    model: groupMenu.modelData.items
+                                    delegate: QQC2.MenuItem {
+                                        required property var modelData
+                                        text: modelData.text
+                                        onTriggered: page.add(JSON.parse(JSON.stringify(modelData.tile)))
+                                    }
+                                    onObjectAdded: (i, o) => groupMenu.insertItem(i, o)
+                                    onObjectRemoved: (i, o) => groupMenu.removeItem(o)
+                                }
+                            }
+                            onObjectAdded: (i, o) => extraMenu.insertMenu(i, o)
+                            onObjectRemoved: (i, o) => extraMenu.removeMenu(o)
+                        }
+                    }
+                    QQC2.MenuSeparator {}
                     QQC2.MenuItem {
                         text: i18n("GPU comparison: temperature (ring)")
                         visible: probe.gpus.length > 1; height: visible ? implicitHeight : 0
@@ -796,7 +902,7 @@ KCM.SimpleKCM {
                     QQC2.MenuItem { text: i18n("VRAM used / total (NVIDIA)"); onTriggered: page.add({ label: i18n("VRAM used"), source: "nvidia", key: "memory.used", style: "bar" }) }
                     QQC2.MenuItem { text: i18n("GPU throttling (NVIDIA)"); onTriggered: page.add({ label: i18n("Throttling"), source: "nvidia", key: "clocks_event_reasons.active", style: "value", warn: 1, notify: false }) }
                     QQC2.MenuItem { text: i18n("CPU temperature (max.)"); onTriggered: page.add({ label: i18n("CPU temperature"), sensorId: "cpu/all/maximumTemperature", style: "ring", max: 100, warn: 75, crit: 90 }) }
-                    QQC2.MenuItem { text: i18n("CPU power (power service)"); onTriggered: page.add({ label: i18n("CPU power"), source: "command", command: "cat /run/sensordeck-power/cpu", unit: "W", style: "value", notify: false }) }
+                    QQC2.MenuItem { text: i18n("CPU power (power service)"); onTriggered: page.add({ label: i18n("CPU power"), source: "command", command: "cat /run/hardwaretiles-power/cpu", unit: "W", style: "value", notify: false }) }
                     QQC2.MenuItem { text: i18n("CPU usage (graph)"); onTriggered: page.add({ label: i18n("CPU load"), sensorId: "cpu/all/usage", style: "graph", max: 100, wide: true }) }
                     QQC2.MenuItem { text: i18n("Memory"); onTriggered: page.add({ label: i18n("Memory"), sensorId: "memory/physical/used", refSensorId: "memory/physical/total", style: "bar", warn: 85, crit: 95, relThresholds: true, notify: false }) }
                     QQC2.MenuItem { text: i18n("Network download"); onTriggered: page.add({ label: i18n("Download"), sensorId: "network/all/download", style: "graph" }) }

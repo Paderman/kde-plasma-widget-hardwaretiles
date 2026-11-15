@@ -114,6 +114,14 @@ Item {
     function percentOf(v) { return Math.round((v - minimum) / Math.max(1e-9, maximum - minimum) * 100); }
     readonly property real warn: fromPercent(Number(cfg.warn) || 0)
     readonly property real crit: fromPercent(Number(cfg.crit) || 0)
+    // lower thresholds: the value falls below them (battery, supply voltages)
+    readonly property real lowWarn: fromPercent(Number(cfg.lowWarn) || 0)
+    readonly property real lowCrit: fromPercent(Number(cfg.lowCrit) || 0)
+    readonly property bool hasLow: lowWarn > 0 || lowCrit > 0
+    readonly property int highLevel: (crit > 0 && value >= crit) ? 2 : (warn > 0 && value >= warn) ? 1 : 0
+    readonly property int lowLevel: (lowCrit > 0 && value <= lowCrit) ? 2 : (lowWarn > 0 && value <= lowWarn) ? 1 : 0
+    // the value is too low (not too high) right now
+    readonly property bool low: lowLevel > highLevel
 
     // never NaN: an animation that starts from NaN stays NaN (empty bar until restart),
     // and while the readers update, maximum can be NaN for a moment
@@ -123,7 +131,7 @@ Item {
         return isFinite(f) ? Math.max(0, Math.min(1, f)) : 0;
     }
     // 0 = ok, 1 = warn, 2 = critical
-    readonly property int thresholdLevel: (crit > 0 && value >= crit) ? 2 : (warn > 0 && value >= warn) ? 1 : 0
+    readonly property int thresholdLevel: Math.max(highLevel, lowLevel)
     // a forced level (stuck or slow fan, missing PCIe lanes) counts even without a value
     readonly property int level: Math.max(main.forcedLevel, valid ? thresholdLevel : 0)
     readonly property string detailText: main.detail
@@ -204,6 +212,8 @@ Item {
     property real hysteresis: 3          // must drop this far below threshold to re-arm
     // in the tile's unit; with relative thresholds the setting counts as percent of the total
     readonly property real hyst: relThresholds && hasRef ? (maximum - minimum) * hysteresis / 100 : hysteresis
+    // small values (volts): at most 2 % of the threshold – 3 °C steps would never be reached again
+    function hystFor(lim) { return lim > 0 && lim < 20 && !(relThresholds && hasRef) ? Math.min(hyst, lim * 0.02) : hyst; }
 
     readonly property bool notifyAllowed: alertsEnabled && cfg.notify !== false
     // level we would like to alert for right now
@@ -217,7 +227,8 @@ Item {
     property int lastAlertLevel: 0
     property bool alertForced: false     // the alert came from the source, not from a threshold
 
-    function thresholdFor(l) { return l === 2 ? crit : warn; }
+    property bool alertLow: false        // the alert is for a value that is too low
+    function thresholdFor(l, lowSide) { return lowSide ? (l === 2 ? lowCrit : lowWarn) : (l === 2 ? crit : warn); }
 
     function evaluateAlert() {
         if (!notifyAllowed) {
@@ -231,13 +242,16 @@ Item {
             return;
         }
         confirmTimer.stop();
-        // de-escalate only once the value is clearly below the threshold
-        const lim = thresholdFor(alertLevel);
-        const below = alertForced ? main.forcedLevel < alertLevel && (lim <= 0 || !valid || value < lim - hyst)
-                                  : value < lim - hyst;
+        // de-escalate only once the value is clearly back on the normal side
+        const lim = thresholdFor(alertLevel, alertLow);
+        const h = hystFor(lim);
+        const clear = v => alertLow ? v > lim + h : v < lim - h;
+        const below = alertForced ? main.forcedLevel < alertLevel && (lim <= 0 || !valid || clear(value))
+                                  : clear(value);
         if (alertLevel > 0 && below) {
             let next = 0;
-            if (alertLevel === 2 && alertOnWarn && warn > 0 && value >= warn - hyst) next = 1;
+            const w = thresholdFor(1, alertLow), hw = hystFor(w);
+            if (alertLevel === 2 && alertOnWarn && w > 0 && (alertLow ? value <= w + hw : value >= w - hw)) next = 1;
             const wasFan = alertForced && !!lastFanText;
             alertLevel = next;
             alertForced = false;
@@ -255,6 +269,7 @@ Item {
         const suppressed = !escalation && l <= lastAlertLevel && (now - lastAlertAt) < alertCooldown;
         alertLevel = l;
         alertForced = main.forcedLevel >= l && thresholdLevel < l;
+        alertLow = !alertForced && low;
         // a fan problem is shown on every tile of that fan – one notification is enough
         if (alertForced && main.fanText && src.nvidia && !src.nvidia.claimFanNote(main.gpuIndex)) return;
         if (suppressed) return;
@@ -277,9 +292,10 @@ Item {
     // so re-using a single object could send stale/overwritten texts.
     property string lastFanText: ""
     function sendNote(l, wasFan) {
-        const lim = thresholdFor(l);
+        const low = alertLow;
+        const lim = thresholdFor(l, low);
         const limTxt = relThresholds ? main.format(lim) + " (" + percentOf(lim) + " %)"
-                     : main.isSensor ? lim.toLocaleString(Qt.locale(), "f", Number.isInteger(lim) ? 0 : 1) + (unitText ? " " + unitText : "")
+                     : main.isSensor ? lim.toLocaleString(Qt.locale(), "f", Number.isInteger(lim) ? 0 : Math.abs(lim) < 20 ? 2 : 1) + (unitText ? " " + unitText : "")
                      : main.format(lim);
         const p = {};
         lastFanText = l > 0 && alertForced ? main.fanText : "";
@@ -297,19 +313,20 @@ Item {
             p.flags = Notification.Persistent;
         } else if (l === 2) {
             p.title = i18n("%1 critical: %2", longLabel, formatted);
-            p.text = i18n("Critical threshold of %1 exceeded.", limTxt);
-            p.iconName = "temperature-high";
+            p.text = low ? i18n("Below the critical threshold of %1.", limTxt) : i18n("Critical threshold of %1 exceeded.", limTxt);
+            p.iconName = low ? "dialog-warning" : "temperature-high";
             p.urgency = Notification.CriticalUrgency;
             p.flags = Notification.Persistent;
         } else if (l === 1) {
-            p.title = i18n("%1 high: %2", longLabel, formatted);
-            p.text = i18n("Warning threshold of %1 exceeded.", limTxt);
+            p.title = low ? i18n("%1 low: %2", longLabel, formatted) : i18n("%1 high: %2", longLabel, formatted);
+            p.text = low ? i18n("Below the warning threshold of %1.", limTxt) : i18n("Warning threshold of %1 exceeded.", limTxt);
             p.iconName = "dialog-warning";
             p.urgency = Notification.HighUrgency;
             p.flags = Notification.CloseOnTimeout;
         } else {
             p.title = i18n("%1 back to normal: %2", longLabel, formatted);
-            p.text = wasFan ? i18n("The fans are running normally again.") : i18n("The value is below the threshold again.");
+            p.text = wasFan ? i18n("The fans are running normally again.")
+                   : low ? i18n("The value is above the threshold again.") : i18n("The value is below the threshold again.");
             p.iconName = "temperature-normal";
             p.urgency = Notification.LowUrgency;
             p.flags = Notification.CloseOnTimeout;

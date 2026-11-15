@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Sensor Deck power service: the RAPL energy counters become readable for the
+# Hardware Tiles power service: the RAPL energy counters become readable for the
 # group power-sensors – its only member is the service's throw-away user
-# (sensordeck-power.service). Everyone else keeps the kernel default (root only).
+# (hardwaretiles-power.service). Everyone else keeps the kernel default (root only).
 SUBSYSTEM=="powercap", KERNEL=="*-rapl:*", RUN+="/bin/sh -c 'chgrp power-sensors /sys%p/energy_uj && chmod 0440 /sys%p/energy_uj'"

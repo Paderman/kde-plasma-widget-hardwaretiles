@@ -89,7 +89,7 @@ Item {
                         Layout.fillWidth: true
                         spacing: 0
                         QQC2.Label {
-                            text: i18n("Set up Sensor Deck")
+                            text: i18n("Set up Hardware Tiles")
                             font.pixelSize: u * 1.15
                             font.weight: Font.Bold
                         }
@@ -242,7 +242,7 @@ Item {
                         wrapMode: Text.WordWrap
                         font: Kirigami.Theme.smallFont
                         opacity: 0.65
-                        text: i18n("Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Sensor Deck directory). Without it this tile is left out.")
+                        text: i18n("Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Hardware Tiles directory). Without it this tile is left out.")
                     }
                 }
 

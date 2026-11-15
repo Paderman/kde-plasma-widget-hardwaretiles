@@ -16,7 +16,7 @@ Usage:
                                  publish continuously (default /run/gddr6, 1 s):
                                    DIR/vram          first card (plain number)
                                    DIR/vram_all      one line per card
-                                   DIR/vram-<addr>   per PCI address (used by Sensor Deck)
+                                   DIR/vram-<addr>   per PCI address (used by Hardware Tiles)
 """
 import ctypes
 import glob

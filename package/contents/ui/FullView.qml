@@ -279,8 +279,8 @@ Item {
         showCloseButton: !root.askUpdates
         onLinkActivated: (link) => Qt.openUrlExternally(link)
         text: root.askUpdates
-            ? i18n("Should Sensor Deck look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings.")
-            : i18n("Sensor Deck %1 is available (installed: %2).", Plasmoid.configuration.updateLatest, UpdateCheck.current)
+            ? i18n("Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings.")
+            : i18n("Hardware Tiles %1 is available (installed: %2).", Plasmoid.configuration.updateLatest, UpdateCheck.current)
         actions: [
             Kirigami.Action {
                 visible: root.askUpdates
@@ -533,7 +533,7 @@ Item {
         height: visible ? implicitHeight : 0
     }
     component UpdateItem: HidingItem {
-        text: root.updateAvailable ? i18n("Sensor Deck %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
+        text: root.updateAvailable ? i18n("Hardware Tiles %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
         icon.name: "update-none"
         visible: root.updateAvailable
         onTriggered: root.openUpdatePage()
@@ -562,8 +562,15 @@ Item {
         enabled: root.orderChanged
         onTriggered: root.resetOrder()
     }
+    component StraightenItem: QQC2.MenuItem {
+        text: i18n("Straighten widget (rotated by %1°)", Math.round(root.rotationAngle))
+        icon.name: "object-rotate-right"
+        visible: root.rotated
+        height: visible ? implicitHeight : 0
+        onTriggered: root.resetRotation()
+    }
     component ConfigureItem: QQC2.MenuItem {
-        text: i18n("Configure Sensor Deck …")
+        text: i18n("Configure Hardware Tiles …")
         icon.name: "configure"
         onTriggered: Plasmoid.internalAction("configure").trigger()
     }
@@ -736,12 +743,13 @@ Item {
         // ---- widget-wide entries (same as the menu on the empty area);
         // removing tiles is done in the "Edit tiles" mode (×)
         QQC2.MenuSeparator { }
-        QQC2.MenuItem { text: i18n("Sensor Deck"); enabled: false }
+        QQC2.MenuItem { text: i18n("Hardware Tiles"); enabled: false }
         UpdateItem { }
         RestoreRemovedItem { }
         EditModeItem { }
         UndoMoveItem { }
         ResetOrderItem { }
+        StraightenItem { }
         TileStyleMenu { }
         SectionsMenu { }
         ProfilesMenu { }
@@ -760,9 +768,72 @@ Item {
             .filter(s => !full.sections || s.group === group)
             .filter(s => !(full.sections && s.tile.source === "pcie"))   // shown in the section header
             .slice().sort((a, b) => a.tile.label.localeCompare(b.tile.label))
-        function openFor(g, field) {
+        // the sensor list only fits the system part (its tiles belong to no card)
+        readonly property bool extrasHere: (!full.sections || group === "~system") && root.extraGroups.length > 0
+        property Item field: null
+        // group submenus (Voltages, Temperatures, Fans), inserted only in the system part
+        property var groupMenus: []
+        property var inserted: []
+        // take a submenu out without destroying it (removeMenu() destroys it)
+        function takeOut(m) {
+            for (let i = count - 1; i >= 0; --i)
+                if (menuAt(i) === m) { takeMenu(i); return; }
+        }
+        function syncGroups() {
+            inserted.forEach(m => { if (m) takeOut(m); });
+            const list = extrasHere ? groupMenus.filter(m => !!m) : [];
+            // before "Own tile …" (the last entry), in their order
+            list.forEach(m => insertMenu(count - 1, m));
+            inserted = list;
+        }
+        // widest submenu: its longest entry plus room for icon/padding
+        TextMetrics { id: textWidth; font: Kirigami.Theme.defaultFont }
+        function groupWidth() {
+            let w = 0;
+            root.extraGroups.forEach(g => g.items.forEach(e => { textWidth.text = e.text; w = Math.max(w, textWidth.advanceWidth); }));
+            return w + Kirigami.Units.gridUnit * 4;
+        }
+        function openFor(g, f) {
             group = g;
-            popup(field, 0, field.height);
+            field = f;
+            syncGroups();
+            // Submenus open to the right; at the right screen edge they would be
+            // pushed over this menu. So leave room for them by moving this menu left.
+            let x = 0;
+            if (extrasHere) {
+                const pos = f.mapToGlobal(0, 0);
+                const right = f.Screen.virtualX + f.Screen.width;
+                const need = Math.max(implicitWidth, Kirigami.Units.gridUnit * 14) + groupWidth();
+                if (pos.x + need > right) x = Math.max(f.Screen.virtualX - pos.x, right - need - pos.x);
+            }
+            popup(f, x, f.height);
+        }
+        Instantiator {
+            model: root.extraGroups
+            delegate: QQC2.Menu {
+                id: groupMenu
+                required property var modelData
+                title: modelData.title
+                popupType: QQC2.Popup.Window
+                Instantiator {
+                    model: groupMenu.modelData.items
+                    delegate: QQC2.MenuItem {
+                        required property var modelData
+                        text: modelData.text
+                        onTriggered: root.addTile(modelData.tile)
+                    }
+                    onObjectAdded: (i, o) => groupMenu.insertItem(i, o)
+                    onObjectRemoved: (i, o) => groupMenu.removeItem(o)
+                }
+            }
+            onObjectAdded: (i, o) => { const l = addMenu.groupMenus.slice(); l.splice(i, 0, o); addMenu.groupMenus = l; }
+            onObjectRemoved: (i, o) => {
+                addMenu.groupMenus = addMenu.groupMenus.filter(m => m !== o);
+                if (addMenu.inserted.indexOf(o) >= 0) {
+                    addMenu.takeOut(o);
+                    addMenu.inserted = addMenu.inserted.filter(m => m !== o);
+                }
+            }
         }
         QQC2.MenuItem {
             text: addMenu.list.length ? i18n("Suggestions for your hardware") : i18n("No further suggestions")
@@ -784,6 +855,12 @@ Item {
         }
         QQC2.MenuSeparator { }
         QQC2.MenuItem {
+            text: i18n("Mainboard & other sensors")
+            enabled: false
+            visible: addMenu.extrasHere
+            height: visible ? implicitHeight : 0
+        }
+        QQC2.MenuItem {
             text: i18n("Own tile …")
             icon.name: "document-new"
             onTriggered: root.addCustomTile(addMenu.group)
@@ -792,18 +869,19 @@ Item {
 
     // ---- context menu of the empty area (gaps, headers, margins) ------------------
     // Plasma's own widget menu does not appear there because the scroll area takes
-    // the click – so Sensor Deck offers its own entries. Removing, resizing and
+    // the click – so Hardware Tiles offers its own entries. Removing, resizing and
     // alternatives stay with Plasma's handle (long press on the widget).
     QQC2.Menu {
         id: deckMenu
         // own window: the compositor keeps it on screen and above the panel
         popupType: QQC2.Popup.Window
-        QQC2.MenuItem { text: i18n("Sensor Deck"); enabled: false }
+        QQC2.MenuItem { text: i18n("Hardware Tiles"); enabled: false }
         UpdateItem { }
         RestoreRemovedItem { }
         EditModeItem { }
         UndoMoveItem { }
         ResetOrderItem { }
+        StraightenItem { }
         QQC2.MenuSeparator { }
         TileStyleMenu { }
         SectionsMenu { }

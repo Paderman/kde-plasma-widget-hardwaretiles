@@ -19,7 +19,7 @@ Kirigami.InlineMessage {
     property string modules: ""
 
     readonly property string script: Qt.resolvedUrl("../code/install-sensors.sh").toString().replace(/^file:\/\//, "")
-    readonly property string readme: "https://github.com/Paderman/kde-plasma-widget-sensordeck#mainboard-sensors"
+    readonly property string readme: "https://github.com/Paderman/kde-plasma-widget-hardwaretiles#mainboard-sensors"
 
     // whether there is something to say – the parent decides about `visible`
     // (reading our own `visible` there would stay false while a parent is hidden)

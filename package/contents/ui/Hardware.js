@@ -157,9 +157,14 @@ var notBoard = /CPU|Core|Package|Tctl|Tdie|Tccd|PECI|VRM|GPU|DIMM|Virtual|Calibr
 var boardLabel = /SYSTIN|Motherboard|Mainboard|\bMB\b|MB ?Temp|System|SYS ?Temp|Ambient|Case/i;
 // Super-I/O and board drivers: their unlabelled temp1 is usually the board sensor
 var superIo = /^(nct|it8|it87|f71|f8000|w83|sch5|gigabyte_wmi|asus|dell_smm)/i;
+// voltage of the mainboard battery (coin cell, keeps BIOS settings and clock):
+// "Vbat", "VBAT", "3VBAT", "CMOS Battery" … – not "3VSB" (standby supply)
+var batteryLabel = /(^|[^a-z])(vbat|vbatt|cmos)|batter/i;
+// thresholds for a 3 V coin cell (CR2032): new about 3.0–3.3 V
+var BATTERY_WARN = 2.9, BATTERY_CRIT = 2.7;
 
 function boardSensors(hw) {
-    var fans = [], temps = [];
+    var fans = [], temps = [], battery = [];
     var chips = hw && hw.chips ? hw.chips : {};
     Object.keys(chips).forEach(function (chip) {
         if (skipChip.test(chip)) return;
@@ -168,10 +173,15 @@ function boardSensors(hw) {
             var feat = c[label];
             if (typeof feat !== "object" || feat === null) return;
             Object.keys(feat).forEach(function (k) {
-                var m = k.match(/^(fan|temp)(\d+)_input$/);
+                var m = k.match(/^(fan|temp|in)(\d+)_input$/);
                 if (!m) return;
                 var v = feat[k];
                 var id = "lmsensors/" + chip + "/" + m[1] + m[2];
+                // a missing or empty cell reads near 0 V – still shown, then it warns
+                if (m[1] === "in") {
+                    if (batteryLabel.test(label) && v < 4.5 && !battery.length) battery.push({ id: id, label: label });
+                    return;
+                }
                 // a fan with its own name (sensors.conf label) is always taken – it may just
                 // be standing still at the moment (fan stop); unnamed ones only if they spin.
                 // A pump never stops: one at 0 rpm is not connected, so pumps only if they spin.
@@ -189,13 +199,13 @@ function boardSensors(hw) {
     });
     // best match first; equal scores keep the sensor order
     temps.sort(function (x, y) { return y.score - x.score; });
-    return { fans: fans.slice(0, 4), temps: temps.slice(0, 1) };
+    return { fans: fans.slice(0, 4), temps: temps.slice(0, 1), battery: battery };
 }
 
 // What the setup wizard offers when no mainboard fans were found:
 //   "ok"      fans found – nothing to do
-//   "install" lm-sensors missing, Sensor Deck can install it (apt/dnf/zypper/pacman)
-//   "detect"  lm-sensors installed, Sensor Deck can run sensors-detect
+//   "install" lm-sensors missing, Hardware Tiles can install it (apt/dnf/zypper/pacman)
+//   "detect"  lm-sensors installed, Hardware Tiles can run sensors-detect
 //   "manual"  image-based or unknown system – only instructions
 function sensorSetupState(hw) {
     if (!hw) return "ok";
@@ -209,9 +219,9 @@ function sensorSetupText(hw, translate) {
     if (translate) _tr = translate;
     switch (sensorSetupState(hw)) {
     case "install":
-        return tr("No fan sensors were found. Sensor Deck can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password.", hw.pmPackage);
+        return tr("No fan sensors were found. Hardware Tiles can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password.", hw.pmPackage);
     case "detect":
-        return tr("No fan sensors were found. Sensor Deck can detect the sensor chip of your mainboard and load its driver. You will be asked for your password.");
+        return tr("No fan sensors were found. Hardware Tiles can detect the sensor chip of your mainboard and load its driver. You will be asked for your password.");
     case "manual":
         return hw.pm === "immutable"
             ? tr("No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”.")
@@ -242,8 +252,8 @@ function defaultOptions() {
 
 var VRAM_CMD = "cat /run/gddr6/vram-{gpuaddr} 2>/dev/null || cat /run/gddr6/vram";
 // power service (power-service/): processor and built-in graphics, in W
-var CPU_POWER_CMD = "cat /run/sensordeck-power/cpu";
-var IGPU_POWER_CMD = "cat /run/sensordeck-power/igpu";
+var CPU_POWER_CMD = "cat /run/hardwaretiles-power/cpu";
+var IGPU_POWER_CMD = "cat /run/hardwaretiles-power/igpu";
 // further cards: no fallback, /run/gddr6/vram is always the first GPU
 var VRAM_CMD_STRICT = "cat /run/gddr6/vram-{gpuaddr}";
 
@@ -264,6 +274,99 @@ function compareTiles(gpus) {
     ];
     // the per-card tiles already notify – no duplicates
     return t.map(function (o) { o.compare = true; o.notify = false; return Defaults.normalize(o, 0); });
+}
+
+// voltage of the mainboard battery: warns when it drops
+function batteryTile(sensorId) {
+    return { label: tr("Mainboard battery"), sensorId: sensorId, style: "value",
+             lowWarn: BATTERY_WARN, lowCrit: BATTERY_CRIT };
+}
+
+// supply voltages of the power supply: nominal value from the label ("+12V", "3VSB" …)
+function nominalVoltage(label) {
+    var l = String(label || "").replace(/\s+/g, "");
+    if (/^-/.test(l)) return 0;                       // -12 V, -5 V: rare, negative
+    if (/(^|\+)12(\.0)?V|^V12|^12VSB/i.test(l)) return 12;
+    if (/(^|\+)3\.3V|^3\.?3?VSB|^VSB3|^V3\.?3|^3VCC|^AVCC3|^VCC3V/i.test(l)) return 3.3;
+    if (/(^|\+)5(\.0)?V|^5VSB|^VSB5|^V5|^5VCC/i.test(l)) return 5;
+    return 0;
+}
+function round2(v) { return Math.round(v * 100) / 100; }
+
+// friendly name of a sensor chip for the menus
+function chipName(chip) {
+    var c = String(chip || "");
+    if (/^(nct|it8|it87|f71|f8000|w83|sch5|gigabyte_wmi|asus|asus_ec|asus_wmi|dell_smm|thinkpad)/i.test(c)) return tr("Mainboard");
+    if (/^(coretemp|k10temp|zenpower)/i.test(c)) return tr("Processor");
+    if (/^nvme/i.test(c)) return tr("SSD");
+    if (/^(acpitz|pch_)/i.test(c)) return tr("Chipset / ACPI");
+    if (/^(spd5118|jc42|ee1004)/i.test(c)) return tr("Memory module");
+    if (/^drivetemp/i.test(c)) return tr("Hard disk");
+    if (/^(iwlwifi|mt79|ath1)/i.test(c)) return tr("Wi-Fi");
+    if (/^corsairpsu/i.test(c)) return tr("Power supply");
+    return c.replace(/-(isa|pci|acpi|virtual|i2c)-.*$/, "");
+}
+
+// Every sensor of `sensors -j` that can be added as a tile (template menu),
+// grouped: voltages, temperatures, fans. Graphics card chips are left out –
+// their values come with the graphics card tiles.
+//   -> [{ title, items: [{ text, tile }] }]
+function extraSensors(hw, translate) {
+    if (translate) _tr = translate;
+    var chips = hw && hw.chips ? hw.chips : {};
+    var volts = [], temps = [], fans = [];
+    var names = Object.keys(chips).filter(function (c) { return !/^(amdgpu|radeon|nouveau|nvidia|i915|xe)/i.test(c); });
+    // "(Mainboard)" only helps when sensors come from several chips
+    var several = names.length > 1;
+    var fmt = function (v, d, u) { return Number(v).toLocaleString(Qt.locale(), "f", d) + " " + u; };
+    names.forEach(function (chip) {
+        var c = chips[chip], where = chipName(chip);
+        // SSDs by their make ("Plextor SSD"), so two drives can be told apart
+        var nv = (hw.nvmes || []).filter(function (n) { return n.chip === chip; })[0];
+        if (nv) where = Defaults.nvmeLabel(nv.model, _tr).split(" · ")[0];
+        Object.keys(c).forEach(function (label) {
+            var feat = c[label];
+            if (typeof feat !== "object" || feat === null) return;
+            Object.keys(feat).forEach(function (k) {
+                var m = k.match(/^(fan|temp|in)(\d+)_input$/);
+                if (!m) return;
+                var v = Number(feat[k]);
+                var id = "lmsensors/" + chip + "/" + m[1] + m[2];
+                var unnamed = new RegExp("^" + m[1] + "\\d+$").test(label);
+                var name = Defaults.stripSensorNo(label);
+                var suffix = several && name !== where ? " (" + where + ")" : "";
+                if (m[1] === "in") {
+                    if (unnamed) return;          // "in5": nobody knows what it is
+                    var tile;
+                    if (batteryLabel.test(label)) tile = batteryTile(id);
+                    else {
+                        tile = { label: tr("Voltage %1", name), sensorId: id, style: "value", notify: false };
+                        var n = nominalVoltage(label);
+                        // ATX: ±5 % allowed. Only when the reading is plausible – some
+                        // boards report a line wrongly (e.g. 12 V as 1.0 V)
+                        if (n && Math.abs(v - n) <= n * 0.1) {
+                            tile.lowWarn = round2(n * 0.95); tile.warn = round2(n * 1.05);
+                            tile.lowCrit = round2(n * 0.9);  tile.crit = round2(n * 1.1);
+                            tile.notify = true;
+                        }
+                    }
+                    volts.push({ text: name + suffix + " – " + fmt(v, 2, "V"), tile: tile });
+                } else if (m[1] === "temp") {
+                    if (!(v > -40 && v < 150) || /Calibration/i.test(label)) return;
+                    temps.push({ text: name + suffix + " – " + fmt(v, 0, "°C"),
+                                 tile: { label: several && name !== where ? where + " · " + name : name, sensorId: id, style: "value", notify: false } });
+                } else {
+                    fans.push({ text: (unnamed ? tr("Fan %1", m[2]) : name) + suffix + " – " + fmt(Math.round(v), 0, tr("RPM")),
+                                tile: { label: unnamed ? tr("Fan %1", m[2]) : name, sensorId: id, style: "value" } });
+                }
+            });
+        });
+    });
+    var groups = [];
+    if (volts.length) groups.push({ title: tr("Voltages"), items: volts });
+    if (temps.length) groups.push({ title: tr("Temperatures"), items: temps });
+    if (fans.length) groups.push({ title: tr("Fans"), items: fans });
+    return groups;
 }
 
 // copy of a compare tile for one card (first = main card keeps the gddr6 fallback)
@@ -396,6 +499,7 @@ function buildOne(gpu, opts, hw) {
         var b = boardSensors(hw);
         b.temps.forEach(function (t) { values.push({ label: tr("Case temperature"), sensorId: t.id, style: "value", warn: 45, crit: 55 }); });
         b.fans.forEach(function (f) { values.push({ label: f.label, sensorId: f.id, style: "value" }); });
+        b.battery.forEach(function (t) { values.push(batteryTile(t.id)); });
     }
     // ---- network
     var net = [];

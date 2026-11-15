@@ -14,19 +14,19 @@ ID=$(sed -n 's/.*"Id": *"\([^"]*\)".*/\1/p' "$SRC/package/metadata.json")
 "$SRC/translate/build.sh" >/dev/null
 
 PLASMOID="$DEST/usr/share/plasma/plasmoids/$ID"
-mkdir -p "$PLASMOID" "$DEST/usr/share/sensordeck" "$DEST/usr/share/doc/sensordeck" "$DEST/usr/share/licenses/sensordeck"
+mkdir -p "$PLASMOID" "$DEST/usr/share/hardwaretiles" "$DEST/usr/share/doc/hardwaretiles" "$DEST/usr/share/licenses/hardwaretiles"
 cp -r "$SRC/package/." "$PLASMOID/"
 # optional VRAM temperature service (NVIDIA) – installed by the user on demand
-cp -r "$SRC/gddr6-service" "$DEST/usr/share/sensordeck/"
+cp -r "$SRC/gddr6-service" "$DEST/usr/share/hardwaretiles/"
 # optional power service (processor / built-in graphics) – installed by the user on demand
-cp -r "$SRC/power-service" "$DEST/usr/share/sensordeck/"
-cp "$SRC/tools/hardware-report.sh" "$DEST/usr/share/sensordeck/"
-cp "$SRC/README.md" "$SRC/README.de.md" "$DEST/usr/share/doc/sensordeck/"
-cp "$SRC/LICENSE" "$DEST/usr/share/licenses/sensordeck/"
+cp -r "$SRC/power-service" "$DEST/usr/share/hardwaretiles/"
+cp "$SRC/tools/hardware-report.sh" "$DEST/usr/share/hardwaretiles/"
+cp "$SRC/README.md" "$SRC/README.de.md" "$DEST/usr/share/doc/hardwaretiles/"
+cp "$SRC/LICENSE" "$DEST/usr/share/licenses/hardwaretiles/"
 find "$DEST" -name '__pycache__' -prune -exec rm -rf {} +
 find "$DEST" -type d -exec chmod 755 {} +
 find "$DEST" -type f -exec chmod 644 {} +
 find "$DEST" -type f -name '*.sh' -exec chmod 755 {} +
-[ -f "$DEST/usr/share/sensordeck/gddr6-service/vram-reader.py" ] && chmod 755 "$DEST/usr/share/sensordeck/gddr6-service/vram-reader.py"
-[ -f "$DEST/usr/share/sensordeck/power-service/power-reader.py" ] && chmod 755 "$DEST/usr/share/sensordeck/power-service/power-reader.py"
+[ -f "$DEST/usr/share/hardwaretiles/gddr6-service/vram-reader.py" ] && chmod 755 "$DEST/usr/share/hardwaretiles/gddr6-service/vram-reader.py"
+[ -f "$DEST/usr/share/hardwaretiles/power-service/power-reader.py" ] && chmod 755 "$DEST/usr/share/hardwaretiles/power-service/power-reader.py"
 echo "$DEST"

@@ -1,11 +1,11 @@
 #!/bin/sh
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Hardware discovery for Sensor Deck. Tab separated lines:
+# Hardware discovery for Hardware Tiles. Tab separated lines:
 #   GPU   <pci addr> <vendor id> <driver> <drm card no|-> <nvidia-smi index|-1> <Vendor> <Device> <SVendor>
 #   NVME  <pci addr> <model>
 #   GDDR6 <1 if /run/gddr6/vram exists, else 0>
-#   POWER <1 if the power service publishes /run/sensordeck-power/cpu, else 0>
+#   POWER <1 if the power service publishes /run/hardwaretiles-power/cpu, else 0>
 #   NVFANS <nvidia-smi index> <number of fans whose speed the driver reports>
 #   SENSORS            (everything after this line is `sensors -j` output)
 
@@ -56,7 +56,7 @@ for n in /sys/class/nvme/nvme*; do
 done
 
 if [ -e /run/gddr6/vram ]; then echo "GDDR6${T}1"; else echo "GDDR6${T}0"; fi
-if [ -e /run/sensordeck-power/cpu ]; then echo "POWER${T}1"; else echo "POWER${T}0"; fi
+if [ -e /run/hardwaretiles-power/cpu ]; then echo "POWER${T}1"; else echo "POWER${T}0"; fi
 # measured fan speeds of NVIDIA cards (driver library, needs python3)
 if [ -n "$nvmap" ] && command -v python3 >/dev/null 2>&1; then
     python3 -I "$(dirname "$0")/nvml-fans.py" --probe 2>/dev/null
@@ -119,7 +119,7 @@ EOT
 detect_distro
 echo "DISTRO$T$PM$T$PKG$T$DISTRO"
 
-if command -v sensors >/dev/null 2>&1 && [ -z "$SENSORDECK_SYSFS" ]; then
+if command -v sensors >/dev/null 2>&1 && [ -z "$HARDWARETILES_SYSFS" ]; then
     echo "LMTOOL${T}1"
     echo "SENSORS"
     sensors -j 2>/dev/null

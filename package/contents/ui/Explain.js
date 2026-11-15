@@ -29,9 +29,9 @@ function about(cfg, translate) {
 
     if (cfg.style === "curve")
         return tr("Shows how fast the graphics card fans spin at which temperature. The widget learns the line from the measurements; the dot is the current state.");
-    if (/\/run\/sensordeck-power\/igpu/.test(cmd))
+    if (/\/run\/hardwaretiles-power\/igpu/.test(cmd))
         return tr("Current power draw of the graphics built into the processor. Near 0 W when idle, a few to about 15 W under load.");
-    if (/\/run\/sensordeck-power\//.test(cmd))
+    if (/\/run\/hardwaretiles-power\//.test(cmd))
         return tr("Current power draw of the processor, averaged over one second. Low when idle, much higher under full load – the maximum depends on the processor.");
     if (cfg.source === "igpu" && cfg.key === "render")
         return tr("How busy the 3D and compute unit of the graphics built into the processor is – games, desktop effects, browsers. Only programs of your user are counted.");
@@ -95,8 +95,19 @@ function about(cfg, translate) {
         return tr("Temperature of the SSD. Up to about 70 °C is fine; above that it slows down to protect itself.");
     if (is(cfg, null, /^lmsensors\/[^/]+\/fan\d+$/))
         return tr("Speed of this fan in revolutions per minute. 0 means it is standing still – intended for some fans when idle.");
-    if (is(cfg, null, /^lmsensors\/[^/]+\/temp\d+$/))
+    if (is(cfg, null, /^lmsensors\/[^/]+\/in\d+$/) && Number(cfg.lowWarn) > 0 && !(Number(cfg.warn) > 0))
+        return tr("Voltage of the button cell on the mainboard (usually a CR2032). It keeps the BIOS settings and the clock while the computer is unplugged. New about 3.0–3.3 V; below about 2.9 V it should be replaced soon, below 2.7 V settings and time may get lost.");
+    if (is(cfg, null, /^lmsensors\/[^/]+\/in\d+$/) && Number(cfg.lowWarn) > 0 && Number(cfg.warn) > 0)
+        // xgettext:no-javascript-format
+        return tr("Voltage of a supply line of the power supply, measured by the mainboard. It should stay within about ±5 % of its nominal value. Mainboard measurements are often off by a few percent – a steady small deviation is harmless, sudden drops under load point to a weak power supply.");
+    if (is(cfg, null, /^lmsensors\/[^/]+\/in\d+$/))
+        return tr("Voltage measured by the mainboard. Processor and memory voltages change with load and BIOS settings.");
+    if (is(cfg, null, /^lmsensors\/(coretemp|k10temp|zenpower)[^/]*\/temp\d+$/))
+        return tr("Temperature of the processor or one of its cores. 30–50 °C when idle and up to 80–90 °C under full load is normal.");
+    if (is(cfg, null, /^lmsensors\/(nct|it8|f71|f8000|w83|sch5|gigabyte|asus|dell|thinkpad)[^/]*\/temp\d+$/))
         return tr("Temperature on the mainboard – a good indicator of the heat inside the case. 30–45 °C is common.");
+    if (is(cfg, null, /^lmsensors\/[^/]+\/temp\d+$/))
+        return tr("Temperature reported by this sensor chip.");
     if (is(cfg, null, /^network\/[^/]+\/download$/))
         return tr("Amount of data currently being received over all network connections.");
     if (is(cfg, null, /^network\/[^/]+\/upload$/))

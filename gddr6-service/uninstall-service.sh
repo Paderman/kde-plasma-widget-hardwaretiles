@@ -5,8 +5,9 @@
 set -euo pipefail
 [[ $EUID -eq 0 ]] || { echo "Please run with pkexec or sudo."; exit 1; }
 systemctl disable --now gddr6-vram.service || true
-rm -f /etc/systemd/system/gddr6-vram.service /usr/local/libexec/sensordeck-vram-reader \
-      /usr/local/libexec/gddr6-vram-feeder /etc/udev/rules.d/70-sensordeck-vram.rules
+rm -f /etc/systemd/system/gddr6-vram.service /usr/local/libexec/hardwaretiles-vram-reader \
+      /usr/local/libexec/gddr6-vram-feeder /etc/udev/rules.d/70-hardwaretiles-vram.rules \
+      /usr/local/libexec/sensordeck-vram-reader /etc/udev/rules.d/70-sensordeck-vram.rules
 systemctl daemon-reload
 udevadm control --reload
 # back to the kernel default (root only)

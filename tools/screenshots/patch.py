@@ -6,7 +6,7 @@
 # preset layout, fixed size, and a timer that saves the widget as PNG and quits.
 import json, re, shutil, sys, glob, os
 pkg, demo, layout_file, mode, out, W, H = sys.argv[1:8]
-ID = "io.github.paderman.sensordeck.screenshot"
+ID = "io.github.paderman.hardwaretiles.screenshot"
 ui = pkg + "/contents/ui/"
 
 def edit(f, pairs):

@@ -165,7 +165,7 @@ KCM.SimpleKCM {
         eventId: "notification"
         autoDelete: false
         title: i18n("VRAM temperature critical: 102 °C")
-        text: i18n("Critical threshold of 100 °C exceeded.\n(This is just a test from Sensor Deck.)")
+        text: i18n("Critical threshold of 100 °C exceeded.\n(This is just a test from Hardware Tiles.)")
         iconName: "temperature-high"
         urgency: Notification.CriticalUrgency
         flags: Notification.CloseOnTimeout

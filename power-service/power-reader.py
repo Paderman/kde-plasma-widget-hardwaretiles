@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
 """Power draw of the processor (RAPL energy counters), published as coarse
-watt values for Sensor Deck.
+watt values for Hardware Tiles.
 
 Since 2020 the kernel lets only root read the RAPL energy counters
 (/sys/class/powercap/intel-rapl:*/energy_uj): read very often and very
@@ -11,7 +11,7 @@ This service reads them once per second and publishes only the average
 power of that second, rounded to 0.1 W – far too coarse for such an attack,
 precise enough for a monitor. The raw counters are never passed on.
 
-Files in DIR (default /run/sensordeck-power), plain numbers in W:
+Files in DIR (default /run/hardwaretiles-power), plain numbers in W:
   cpu         whole processor (package)      cpu-1, … further sockets
   cpu-cores   processor cores only (core)
   igpu        graphics built into the processor (uncore; Intel desktop/laptop)
@@ -156,7 +156,7 @@ def main(argv):
             print("%-10s %5.1f W" % (name, w))
         return 0
     if argv[1] == "--serve":
-        d = argv[2] if len(argv) > 2 else "/run/sensordeck-power"
+        d = argv[2] if len(argv) > 2 else "/run/hardwaretiles-power"
         interval = max(1.0, float(argv[3])) if len(argv) > 3 else 1.0
         serve(d, interval)
         return 0

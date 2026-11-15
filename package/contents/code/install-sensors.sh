@@ -6,7 +6,7 @@
 #   1. installs lm-sensors with the distribution's package manager (if missing)
 #   2. runs `sensors-detect --auto` to find the mainboard's sensor chip
 #   3. loads the found kernel modules now and on every boot
-#      (/etc/modules-load.d/sensordeck-sensors.conf)
+#      (/etc/modules-load.d/hardwaretiles-sensors.conf)
 # Prints machine-readable lines for the widget: STEP …, MODULES …, RESULT <code>
 #   RESULT ok | nopm | installfailed | nomodules | notroot
 export LC_ALL=C PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -41,9 +41,10 @@ for m in $mods; do
 done
 if [ -n "$loaded" ]; then
     {
-        echo "# Written by Sensor Deck: mainboard sensor drivers found by sensors-detect"
+        echo "# Written by Hardware Tiles: mainboard sensor drivers found by sensors-detect"
         for m in $loaded; do echo "$m"; done
-    } > /etc/modules-load.d/sensordeck-sensors.conf
+    } > /etc/modules-load.d/hardwaretiles-sensors.conf
+    rm -f /etc/modules-load.d/sensordeck-sensors.conf   # name before 1.1.0 (Sensor Deck)
     echo "RESULT ok"
 else
     echo "RESULT nomodules"

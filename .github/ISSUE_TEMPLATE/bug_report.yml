@@ -13,13 +13,13 @@ body:
     id: versions
     attributes:
       label: Versions
-      description: Sensor Deck, Plasma and distribution
-      placeholder: "Sensor Deck 1.0.0, Plasma 6.6, Fedora 44"
+      description: Hardware Tiles, Plasma and distribution
+      placeholder: "Hardware Tiles 1.0.0, Plasma 6.6, Fedora 44"
     validations:
       required: true
   - type: textarea
     id: log
     attributes:
       label: Log output (optional)
-      description: "`journalctl --user -b | grep -i sensordeck`"
+      description: "`journalctl --user -b | grep -i hardwaretiles`"
       render: text

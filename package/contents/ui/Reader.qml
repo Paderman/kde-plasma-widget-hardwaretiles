@@ -110,12 +110,12 @@ Item {
         const m = command.match(/\/run\/gddr6\/vram(?:-([0-9a-fA-F:.]+))?/);
         if (m) return i18n("Memory temperature (VRAM), measured by the gddr6 service")
                       + (m[1] ? "\n" + i18n("Graphics card PCI %1", m[1].replace(/^0000:/, "")) : "");
-        const p = command.match(/\/run\/sensordeck-power\/([a-z0-9-]+)/);
+        const p = command.match(/\/run\/hardwaretiles-power\/([a-z0-9-]+)/);
         if (p) return (p[1] === "igpu" ? i18n("Power draw of the graphics built into the processor")
                      : p[1] === "cpu-cores" ? i18n("Power draw of the processor cores")
                      : p[1] === "ram" ? i18n("Power draw of the memory")
                      : i18n("Power draw of the whole processor"))
-                      + "\n" + i18n("measured by the processor, published by the Sensor Deck power service");
+                      + "\n" + i18n("measured by the processor, published by the Hardware Tiles power service");
         return i18n("Shell command: %1", command.length > 60 ? command.slice(0, 57) + "…" : command);
     }
     readonly property string shortName: isPcie ? i18n("PCIe") : isIgpu ? (igpuClock ? i18n("GPU clock") : igpuMemory ? i18n("Graphics memory") : key === "render" ? i18n("3D load") : key === "video" ? i18n("Video load") : i18n("GPU load")) : isCommand ? "" : isNvidia ? i18n(nvMeta.label) : (sensor.shortName || sensor.name || "")
@@ -142,9 +142,13 @@ Item {
         let u = isSensor ? sensorUnit : effUnit;
         // fan speeds: "1,553.0 U/min" -> "1,553 U/min"
         if (isSensor && /^(U\/min|RPM|rpm)$/.test(u)) return Math.round(v).toLocaleString(Qt.locale(), "f", 0) + " " + u;
+        // volts: ksystemstats rounds to one decimal (3.17 -> "3.2 V") – too coarse for voltages
+        if (isSensor && u === "V") return v.toLocaleString(Qt.locale(), "f", Math.abs(v) < 100 ? 2 : 1) + " V";
         if (isSensor && v === value && sensor.formattedValue) return sensor.formattedValue;
         if ((isNvidia && nvMeta.mib || igpuMemory) && Math.abs(v) >= 1024) { v = v / 1024; u = "GiB"; }
-        const dec = (Number.isInteger(v) || Math.abs(v) >= 100) ? 0 : 1;
+        // small values like 2.75 V keep their second decimal
+        const dec = (Number.isInteger(v) || Math.abs(v) >= 100) ? 0
+                  : (Math.abs(v) < 10 && Math.abs(v * 10 - Math.round(v * 10)) > 1e-6) ? 2 : 1;
         return v.toLocaleString(Qt.locale(), "f", dec) + (u ? " " + u : "");
     }
 

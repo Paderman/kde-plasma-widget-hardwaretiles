@@ -1,7 +1,7 @@
 {
     "KPlugin": {
-        "Id": "io.github.paderman.sensordeck",
-        "Name": "Sensor Deck",
+        "Id": "io.github.paderman.hardwaretiles",
+        "Name": "Hardware Tiles",
         "Description": "GPU & system monitor: VRAM temperature, throttling, PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans",
         "Description[de]": "GPU- & System-Monitor: VRAM-Temperatur, Taktbremse, PCIe-Verbindung und eine selbstlernende Lüfterkurve – dazu Prozessor, Arbeitsspeicher, SSDs und Lüfter",
         "Description[fr]": "Moniteur GPU et système : température de la VRAM, bridage, liaison PCIe et courbe de ventilation auto-apprenante – plus processeur, mémoire, SSD et ventilateurs",
@@ -25,8 +25,8 @@
         "Copyright": "© 2026 Paderman",
         "License": "GPL-2.0-or-later",
         "Version": "1.0.0",
-        "Website": "https://github.com/Paderman/kde-plasma-widget-sensordeck",
-        "BugReportUrl": "https://github.com/Paderman/kde-plasma-widget-sensordeck/issues",
+        "Website": "https://github.com/Paderman/kde-plasma-widget-hardwaretiles",
+        "BugReportUrl": "https://github.com/Paderman/kde-plasma-widget-hardwaretiles/issues",
         "FormFactors": [
             "desktop",
             "panel"
