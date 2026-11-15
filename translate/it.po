@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensori"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:916
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:966
 msgid "Notifications"
 msgstr "Notifiche"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:885
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:935
 msgid "Appearance"
 msgstr "Aspetto"
 
@@ -120,7 +120,7 @@ msgstr "Non è ancora stata pubblicata alcuna versione."
 msgid "GitHub could not be reached (%1)."
 msgstr "Impossibile raggiungere GitHub (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:396
+#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:427
 msgid "Open download page"
 msgstr "Apri la pagina di download"
 
@@ -323,17 +323,17 @@ msgid "Tile style:"
 msgstr "Stile dei riquadri:"
 
 #: package/contents/ui/ConfigAppearance.qml:109
-#: package/contents/ui/FullView.qml:782
+#: package/contents/ui/FullView.qml:832
 msgid "Glass (subtle)"
 msgstr "Vetro (discreto)"
 
 #: package/contents/ui/ConfigAppearance.qml:110
-#: package/contents/ui/FullView.qml:783
+#: package/contents/ui/FullView.qml:833
 msgid "Filled"
 msgstr "Pieno"
 
 #: package/contents/ui/ConfigAppearance.qml:111
-#: package/contents/ui/FullView.qml:784
+#: package/contents/ui/FullView.qml:834
 msgid "Outline (accent colour)"
 msgstr "Contorno (colore d'accento)"
 
@@ -430,17 +430,17 @@ msgid "Sections per graphics card:"
 msgstr "Sezioni per scheda grafica:"
 
 #: package/contents/ui/ConfigAppearance.qml:232
-#: package/contents/ui/FullView.qml:793
+#: package/contents/ui/FullView.qml:843
 msgid "From two graphics cards"
 msgstr "Da due schede grafiche"
 
 #: package/contents/ui/ConfigAppearance.qml:233
-#: package/contents/ui/FullView.qml:794
+#: package/contents/ui/FullView.qml:844
 msgid "Always (even with one card)"
 msgstr "Sempre (anche con una scheda)"
 
 #: package/contents/ui/ConfigAppearance.qml:234
-#: package/contents/ui/FullView.qml:795
+#: package/contents/ui/FullView.qml:845
 msgid "Never (several cards: coloured edge)"
 msgstr "Mai (più schede: bordo colorato)"
 
@@ -604,7 +604,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "La vista precedente all’ultimo caricamento di un profilo si può ripristinare."
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:828
+#: package/contents/ui/FullView.qml:878
 msgid "Undo profile change"
 msgstr "Annulla cambio di profilo"
 
@@ -679,22 +679,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "I file esportati si possono importare su un altro computer. I riquadri di una scheda grafica che quel computer non ha passano a una scheda dello stesso produttore; le curve delle ventole apprese non fanno parte del profilo."
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:889
+#: package/contents/ui/FullView.qml:939
 msgid "Ring"
 msgstr "Anello"
 
 #: package/contents/ui/ConfigSensors.qml:44
-#: package/contents/ui/FullView.qml:894
+#: package/contents/ui/FullView.qml:944
 msgid "Bar"
 msgstr "Barra"
 
 #: package/contents/ui/ConfigSensors.qml:45
-#: package/contents/ui/FullView.qml:899
+#: package/contents/ui/FullView.qml:949
 msgid "History graph"
 msgstr "Grafico cronologico"
 
 #: package/contents/ui/ConfigSensors.qml:46
-#: package/contents/ui/FullView.qml:904
+#: package/contents/ui/FullView.qml:954
 msgid "Value only"
 msgstr "Solo valore"
 
@@ -842,12 +842,12 @@ msgid "Label (empty = automatic)"
 msgstr "Etichetta (vuota = automatica)"
 
 #: package/contents/ui/ConfigSensors.qml:478
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:660
 msgid "Move up"
 msgstr "Sposta su"
 
 #: package/contents/ui/ConfigSensors.qml:484
-#: package/contents/ui/FullView.qml:624
+#: package/contents/ui/FullView.qml:664
 msgid "Move down"
 msgstr "Sposta giù"
 
@@ -906,7 +906,7 @@ msgid "Style:"
 msgstr "Stile:"
 
 #: package/contents/ui/ConfigSensors.qml:625
-#: package/contents/ui/FullView.qml:909
+#: package/contents/ui/FullView.qml:959
 msgid "Double width"
 msgstr "Doppia larghezza"
 
@@ -1018,7 +1018,7 @@ msgid "Template …"
 msgstr "Modello …"
 
 #: package/contents/ui/ConfigSensors.qml:883
-#: package/contents/ui/FullView.qml:1037
+#: package/contents/ui/FullView.qml:1087
 msgid "Mainboard & other sensors"
 msgstr "Scheda madre e altri sensori"
 
@@ -1027,9 +1027,9 @@ msgid "GPU comparison: temperature (ring)"
 msgstr "Confronto GPU: temperatura (anello)"
 
 #: package/contents/ui/ConfigSensors.qml:910
-#: package/contents/ui/Hardware.js:265 package/contents/ui/Hardware.js:270
-#: package/contents/ui/Hardware.js:419 package/contents/ui/Hardware.js:426
-#: package/contents/ui/Hardware.js:439 package/contents/ui/NvidiaKeys.js:22
+#: package/contents/ui/Hardware.js:302 package/contents/ui/Hardware.js:307
+#: package/contents/ui/Hardware.js:461 package/contents/ui/Hardware.js:468
+#: package/contents/ui/Hardware.js:481 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "Temperatura GPU"
 
@@ -1038,10 +1038,10 @@ msgid "GPU comparison: load (graph)"
 msgstr "Confronto GPU: carico (grafico)"
 
 #: package/contents/ui/ConfigSensors.qml:915
-#: package/contents/ui/Hardware.js:266 package/contents/ui/Hardware.js:271
-#: package/contents/ui/Hardware.js:422 package/contents/ui/Hardware.js:429
-#: package/contents/ui/Hardware.js:435 package/contents/ui/Hardware.js:440
-#: package/contents/ui/NvidiaKeys.js:29 package/contents/ui/Reader.qml:121
+#: package/contents/ui/Hardware.js:303 package/contents/ui/Hardware.js:308
+#: package/contents/ui/Hardware.js:464 package/contents/ui/Hardware.js:471
+#: package/contents/ui/Hardware.js:477 package/contents/ui/Hardware.js:482
+#: package/contents/ui/NvidiaKeys.js:29 package/contents/ui/Reader.qml:127
 #: package/contents/ui/SourceEditor.qml:79
 msgid "GPU load"
 msgstr "Carico GPU"
@@ -1051,14 +1051,14 @@ msgid "GPU comparison: power (bar)"
 msgstr "Confronto GPU: consumo (barra)"
 
 #: package/contents/ui/ConfigSensors.qml:920
-#: package/contents/ui/Hardware.js:267 package/contents/ui/Hardware.js:272
-#: package/contents/ui/Hardware.js:423 package/contents/ui/Hardware.js:430
-#: package/contents/ui/Hardware.js:437
+#: package/contents/ui/Hardware.js:304 package/contents/ui/Hardware.js:309
+#: package/contents/ui/Hardware.js:465 package/contents/ui/Hardware.js:472
+#: package/contents/ui/Hardware.js:479
 msgid "GPU power"
 msgstr "Consumo GPU"
 
 #: package/contents/ui/ConfigSensors.qml:922
-#: package/contents/ui/Hardware.js:454 package/contents/ui/Hardware.js:464
+#: package/contents/ui/Hardware.js:496 package/contents/ui/Hardware.js:506
 msgid "GPU fan curve"
 msgstr "Curva delle ventole GPU"
 
@@ -1067,7 +1067,7 @@ msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "Temperatura VRAM (gddr6, NVIDIA)"
 
 #: package/contents/ui/ConfigSensors.qml:923
-#: package/contents/ui/Hardware.js:421 package/contents/ui/Hardware.js:428
+#: package/contents/ui/Hardware.js:463 package/contents/ui/Hardware.js:470
 msgid "VRAM temperature"
 msgstr "Temperatura VRAM"
 
@@ -1076,9 +1076,9 @@ msgid "VRAM used / total (NVIDIA)"
 msgstr "VRAM usata / totale (NVIDIA)"
 
 #: package/contents/ui/ConfigSensors.qml:924
-#: package/contents/ui/Hardware.js:268 package/contents/ui/Hardware.js:273
-#: package/contents/ui/Hardware.js:424 package/contents/ui/Hardware.js:431
-#: package/contents/ui/Hardware.js:441 package/contents/ui/NvidiaKeys.js:38
+#: package/contents/ui/Hardware.js:305 package/contents/ui/Hardware.js:310
+#: package/contents/ui/Hardware.js:466 package/contents/ui/Hardware.js:473
+#: package/contents/ui/Hardware.js:483 package/contents/ui/NvidiaKeys.js:38
 msgid "VRAM used"
 msgstr "VRAM usata"
 
@@ -1087,7 +1087,7 @@ msgid "GPU throttling (NVIDIA)"
 msgstr "Limitazione GPU (NVIDIA)"
 
 #: package/contents/ui/ConfigSensors.qml:925
-#: package/contents/ui/Hardware.js:460 package/contents/ui/NvidiaKeys.js:42
+#: package/contents/ui/Hardware.js:502 package/contents/ui/NvidiaKeys.js:42
 msgid "Throttling"
 msgstr "Limitazione"
 
@@ -1096,7 +1096,7 @@ msgid "CPU temperature (max.)"
 msgstr "Temperatura CPU (max.)"
 
 #: package/contents/ui/ConfigSensors.qml:926
-#: package/contents/ui/Hardware.js:482
+#: package/contents/ui/Hardware.js:524
 msgid "CPU temperature"
 msgstr "Temperatura CPU"
 
@@ -1105,7 +1105,7 @@ msgid "CPU power (power service)"
 msgstr "Consumo CPU (servizio consumi)"
 
 #: package/contents/ui/ConfigSensors.qml:927
-#: package/contents/ui/Hardware.js:484
+#: package/contents/ui/Hardware.js:526
 msgid "CPU power"
 msgstr "Consumo CPU"
 
@@ -1114,12 +1114,12 @@ msgid "CPU usage (graph)"
 msgstr "Utilizzo CPU (grafico)"
 
 #: package/contents/ui/ConfigSensors.qml:928
-#: package/contents/ui/Hardware.js:485
+#: package/contents/ui/Hardware.js:527
 msgid "CPU load"
 msgstr "Carico CPU"
 
 #: package/contents/ui/ConfigSensors.qml:929
-#: package/contents/ui/Hardware.js:239 package/contents/ui/Hardware.js:489
+#: package/contents/ui/Hardware.js:276 package/contents/ui/Hardware.js:531
 msgid "Memory"
 msgstr "Memoria"
 
@@ -1128,7 +1128,7 @@ msgid "Network download"
 msgstr "Download di rete"
 
 #: package/contents/ui/ConfigSensors.qml:930
-#: package/contents/ui/Hardware.js:507
+#: package/contents/ui/Hardware.js:549
 msgid "Download"
 msgstr "Download"
 
@@ -1385,134 +1385,134 @@ msgstr "Confronto"
 msgid "System"
 msgstr "Sistema"
 
-#: package/contents/ui/FullView.qml:379
+#: package/contents/ui/FullView.qml:410
 msgid "Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Hardware Tiles deve cercare nuove versioni una volta alla settimana? Per farlo si collega a github.com – GitHub vede l’indirizzo IP, come per ogni visita a un sito web; nient’altro viene inviato. La scelta si può cambiare in qualsiasi momento nelle impostazioni."
 
-#: package/contents/ui/FullView.qml:380
+#: package/contents/ui/FullView.qml:411
 msgid "Hardware Tiles %1 is available (installed: %2)."
 msgstr "Hardware Tiles %1 è disponibile (installata: %2)."
 
-#: package/contents/ui/FullView.qml:384
+#: package/contents/ui/FullView.qml:415
 msgid "Yes, check weekly"
 msgstr "Sì, controlla ogni settimana"
 
-#: package/contents/ui/FullView.qml:390
+#: package/contents/ui/FullView.qml:421
 msgid "No, thanks"
 msgstr "No, grazie"
 
-#: package/contents/ui/FullView.qml:415
+#: package/contents/ui/FullView.qml:446
 msgid "Drag a tile or use its arrows to move it within its section. × removes a tile, + adds one."
 msgstr "Trascinare un riquadro o usarne le frecce per spostarlo all'interno della sua sezione. × rimuove un riquadro, + ne aggiunge uno."
 
-#: package/contents/ui/FullView.qml:419 package/contents/ui/FullView.qml:721
-#: package/contents/ui/main.qml:486
+#: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
+#: package/contents/ui/main.qml:487
 msgid "Restore “%1”"
 msgstr "Ripristina «%1»"
 
-#: package/contents/ui/FullView.qml:425 package/contents/ui/FullView.qml:733
-#: package/contents/ui/main.qml:492
+#: package/contents/ui/FullView.qml:456 package/contents/ui/FullView.qml:783
+#: package/contents/ui/main.qml:493
 msgid "Undo last move"
 msgstr "Annulla ultimo spostamento"
 
-#: package/contents/ui/FullView.qml:430
+#: package/contents/ui/FullView.qml:461
 msgid "Done"
 msgstr "Fatto"
 
-#: package/contents/ui/FullView.qml:505 package/contents/ui/FullView.qml:528
+#: package/contents/ui/FullView.qml:537 package/contents/ui/FullView.qml:564
 msgid "Add tile"
 msgstr "Aggiungi riquadro"
 
-#: package/contents/ui/FullView.qml:628
+#: package/contents/ui/FullView.qml:668
 msgid "Move left"
 msgstr "Sposta a sinistra"
 
-#: package/contents/ui/FullView.qml:632
+#: package/contents/ui/FullView.qml:672
 msgid "Move right"
 msgstr "Sposta a destra"
 
-#: package/contents/ui/FullView.qml:645 package/contents/ui/FullView.qml:662
+#: package/contents/ui/FullView.qml:686 package/contents/ui/FullView.qml:706
 msgid "Remove tile"
 msgstr "Rimuovi riquadro"
 
-#: package/contents/ui/FullView.qml:715 package/contents/ui/main.qml:480
+#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:481
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 è disponibile – apri la pagina di download"
 
-#: package/contents/ui/FullView.qml:727
+#: package/contents/ui/FullView.qml:777
 msgid "Finish editing"
 msgstr "Termina modifica"
 
-#: package/contents/ui/FullView.qml:727
+#: package/contents/ui/FullView.qml:777
 msgid "Edit tiles"
 msgstr "Modifica riquadri"
 
-#: package/contents/ui/FullView.qml:739 package/contents/ui/main.qml:498
+#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:499
 msgid "Restore original arrangement"
 msgstr "Ripristina disposizione originale"
 
-#: package/contents/ui/FullView.qml:745 package/contents/ui/main.qml:504
+#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:505
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Raddrizza il widget (ruotato di %1°)"
 
-#: package/contents/ui/FullView.qml:752
+#: package/contents/ui/FullView.qml:802
 msgid "Configure Hardware Tiles …"
 msgstr "Configura Hardware Tiles …"
 
-#: package/contents/ui/FullView.qml:779
+#: package/contents/ui/FullView.qml:829
 msgid "Tile style"
 msgstr "Stile dei riquadri"
 
-#: package/contents/ui/FullView.qml:790
+#: package/contents/ui/FullView.qml:840
 msgid "Sections per graphics card"
 msgstr "Sezioni per scheda grafica"
 
-#: package/contents/ui/FullView.qml:805
+#: package/contents/ui/FullView.qml:855
 msgid "Profile"
 msgstr "Profilo"
 
-#: package/contents/ui/FullView.qml:808
+#: package/contents/ui/FullView.qml:858
 msgid "No profiles saved yet"
 msgstr "Nessun profilo salvato"
 
-#: package/contents/ui/FullView.qml:818
+#: package/contents/ui/FullView.qml:868
 msgid "changed"
 msgstr "modificato"
 
-#: package/contents/ui/FullView.qml:834
+#: package/contents/ui/FullView.qml:884
 msgid "Manage profiles …"
 msgstr "Gestisci profili …"
 
-#: package/contents/ui/FullView.qml:845
+#: package/contents/ui/FullView.qml:895
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Suggerimento: tenere premuto uno spazio vuoto – spostare, ridimensionare, rimuovere il widget"
 
-#: package/contents/ui/FullView.qml:876
+#: package/contents/ui/FullView.qml:926
 msgid "Edit in settings …"
 msgstr "Modifica nelle impostazioni …"
 
-#: package/contents/ui/FullView.qml:925 package/contents/ui/FullView.qml:1057
-#: package/contents/ui/main.qml:526
+#: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
+#: package/contents/ui/main.qml:527
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
-#: package/contents/ui/FullView.qml:1018
+#: package/contents/ui/FullView.qml:1068
 msgid "Suggestions for your hardware"
 msgstr "Suggerimenti per questo hardware"
 
-#: package/contents/ui/FullView.qml:1018
+#: package/contents/ui/FullView.qml:1068
 msgid "No further suggestions"
 msgstr "Nessun altro suggerimento"
 
-#: package/contents/ui/FullView.qml:1043
+#: package/contents/ui/FullView.qml:1093
 msgid "Own tile …"
 msgstr "Riquadro personalizzato …"
 
-#: package/contents/ui/FullView.qml:1225
+#: package/contents/ui/FullView.qml:1279
 msgid "No sensors configured"
 msgstr "Nessun sensore configurato"
 
-#: package/contents/ui/FullView.qml:1231
+#: package/contents/ui/FullView.qml:1285
 msgid "Configure …"
 msgstr "Configura …"
 
@@ -1528,200 +1528,200 @@ msgstr "Driver: %1"
 msgid "PCIe link: %1"
 msgstr "Collegamento PCIe: %1"
 
-#: package/contents/ui/Hardware.js:191 package/contents/ui/Hardware.js:359
-#: package/contents/ui/Hardware.js:360
+#: package/contents/ui/Hardware.js:228 package/contents/ui/Hardware.js:401
+#: package/contents/ui/Hardware.js:402
 msgid "Fan %1"
 msgstr "Ventola %1"
 
-#: package/contents/ui/Hardware.js:222
+#: package/contents/ui/Hardware.js:259
 msgid "No fan sensors were found. Hardware Tiles can set up the sensor support for you: it installs the package “%1” and detects the sensor chip of your mainboard. You will be asked for your password."
 msgstr "Non è stato trovato alcun sensore delle ventole. Hardware Tiles può configurare il supporto ai sensori: installa il pacchetto «%1» e rileva il chip dei sensori della scheda madre. Verrà chiesta la password."
 
-#: package/contents/ui/Hardware.js:224
+#: package/contents/ui/Hardware.js:261
 msgid "No fan sensors were found. Hardware Tiles can detect the sensor chip of your mainboard and load its driver. You will be asked for your password."
 msgstr "Non è stato trovato alcun sensore delle ventole. Hardware Tiles può rilevare il chip dei sensori della scheda madre e caricarne il driver. Verrà chiesta la password."
 
-#: package/contents/ui/Hardware.js:227
+#: package/contents/ui/Hardware.js:264
 msgid "No fan sensors were found. On this system, programs are installed differently (image-based system): add “lm-sensors”, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
 msgstr "Non è stato trovato alcun sensore delle ventole. Su questo sistema i programmi si installano in modo diverso (sistema basato su immagine): aggiungere «lm-sensors», eseguire una volta «sudo sensors-detect» e riavviare – maggiori dettagli nel README, sezione «Mainboard sensors»."
 
-#: package/contents/ui/Hardware.js:228
+#: package/contents/ui/Hardware.js:265
 msgid "No fan sensors were found. Install “lm-sensors” with your software center, run “sudo sensors-detect” once and restart – more in the README under “Mainboard sensors”."
 msgstr "Non è stato trovato alcun sensore delle ventole. Soluzione: installare «lm-sensors» con il gestore software, eseguire una volta «sudo sensors-detect» e riavviare – maggiori dettagli nel README, sezione «Mainboard sensors»."
 
-#: package/contents/ui/Hardware.js:237
+#: package/contents/ui/Hardware.js:274
 msgid "Graphics card – details"
 msgstr "Scheda grafica – dettagli"
 
-#: package/contents/ui/Hardware.js:237
+#: package/contents/ui/Hardware.js:274
 msgid "Fans & fan curve, clocks, throttling, video encoding …"
 msgstr "Ventole e curva, frequenze, limitazione, codifica video …"
 
-#: package/contents/ui/Hardware.js:238 package/contents/ui/Hardware.js:300
+#: package/contents/ui/Hardware.js:275 package/contents/ui/Hardware.js:337
 msgid "Processor"
 msgstr "Processore"
 
-#: package/contents/ui/Hardware.js:238
+#: package/contents/ui/Hardware.js:275
 msgid "Temperature and usage"
 msgstr "Temperatura e utilizzo"
 
-#: package/contents/ui/Hardware.js:239
+#: package/contents/ui/Hardware.js:276
 msgid "Used and total, swap space"
 msgstr "Usata e totale, spazio di swap"
 
-#: package/contents/ui/Hardware.js:240
+#: package/contents/ui/Hardware.js:277
 msgid "SSDs & drives"
 msgstr "SSD e unità"
 
-#: package/contents/ui/Hardware.js:240
+#: package/contents/ui/Hardware.js:277
 msgid "NVMe temperatures, disk space"
 msgstr "Temperature NVMe, spazio su disco"
 
-#: package/contents/ui/Hardware.js:241
+#: package/contents/ui/Hardware.js:278
 msgid "Mainboard & fans"
 msgstr "Scheda madre e ventole"
 
-#: package/contents/ui/Hardware.js:241
+#: package/contents/ui/Hardware.js:278
 msgid "Case temperature, fan speeds, mainboard battery"
 msgstr "Temperatura del case, velocità delle ventole, batteria della scheda madre"
 
-#: package/contents/ui/Hardware.js:242
+#: package/contents/ui/Hardware.js:279
 msgid "Network"
 msgstr "Rete"
 
-#: package/contents/ui/Hardware.js:242
+#: package/contents/ui/Hardware.js:279
 msgid "Download and upload"
 msgstr "Download e upload"
 
-#: package/contents/ui/Hardware.js:244
+#: package/contents/ui/Hardware.js:281
 msgid "GPU comparison"
 msgstr "Confronto GPU"
 
-#: package/contents/ui/Hardware.js:244
+#: package/contents/ui/Hardware.js:281
 msgid "Temperature, load, power and VRAM of all cards in shared tiles"
 msgstr "Temperatura, carico, consumo e VRAM di tutte le schede in riquadri comuni"
 
-#: package/contents/ui/Hardware.js:281
+#: package/contents/ui/Hardware.js:318
 msgid "Mainboard battery"
 msgstr "Batteria della scheda madre"
 
-#: package/contents/ui/Hardware.js:299
+#: package/contents/ui/Hardware.js:336
 msgid "Mainboard"
 msgstr "Scheda madre"
 
-#: package/contents/ui/Hardware.js:301
+#: package/contents/ui/Hardware.js:338
 msgid "SSD"
 msgstr "SSD"
 
-#: package/contents/ui/Hardware.js:302
+#: package/contents/ui/Hardware.js:339
 msgid "Chipset / ACPI"
 msgstr "Chipset / ACPI"
 
-#: package/contents/ui/Hardware.js:303
+#: package/contents/ui/Hardware.js:340
 msgid "Memory module"
 msgstr "Modulo di memoria"
 
-#: package/contents/ui/Hardware.js:304
+#: package/contents/ui/Hardware.js:341
 msgid "Hard disk"
 msgstr "Disco rigido"
 
-#: package/contents/ui/Hardware.js:305
+#: package/contents/ui/Hardware.js:342
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: package/contents/ui/Hardware.js:306
+#: package/contents/ui/Hardware.js:343
 msgid "Power supply"
 msgstr "Alimentatore"
 
-#: package/contents/ui/Hardware.js:343
+#: package/contents/ui/Hardware.js:380
 msgid "Voltage %1"
 msgstr "Tensione %1"
 
-#: package/contents/ui/Hardware.js:359 package/contents/ui/NvidiaKeys.js:68
+#: package/contents/ui/Hardware.js:401 package/contents/ui/NvidiaKeys.js:68
 #: package/contents/ui/Reader.qml:72
 msgid "RPM"
 msgstr "giri/min"
 
-#: package/contents/ui/Hardware.js:366
+#: package/contents/ui/Hardware.js:408
 msgid "Voltages"
 msgstr "Tensioni"
 
-#: package/contents/ui/Hardware.js:367
+#: package/contents/ui/Hardware.js:409
 msgid "Temperatures"
 msgstr "Temperature"
 
-#: package/contents/ui/Hardware.js:368
+#: package/contents/ui/Hardware.js:410
 msgid "Fans"
 msgstr "Ventole"
 
-#: package/contents/ui/Hardware.js:427
+#: package/contents/ui/Hardware.js:469
 msgid "GPU hotspot"
 msgstr "Hotspot GPU"
 
-#: package/contents/ui/Hardware.js:446 package/contents/ui/Hardware.js:463
+#: package/contents/ui/Hardware.js:488 package/contents/ui/Hardware.js:505
 msgid "GPU fan"
 msgstr "Ventola GPU"
 
-#: package/contents/ui/Hardware.js:450
+#: package/contents/ui/Hardware.js:492
 msgid "GPU fan speed"
 msgstr "Velocità ventola GPU"
 
-#: package/contents/ui/Hardware.js:453
+#: package/contents/ui/Hardware.js:495
 msgid "GPU fan %1"
 msgstr "Ventola GPU %1"
 
-#: package/contents/ui/Hardware.js:456 package/contents/ui/Hardware.js:466
-#: package/contents/ui/Hardware.js:469 package/contents/ui/Hardware.js:474
-#: package/contents/ui/NvidiaKeys.js:35 package/contents/ui/Reader.qml:121
+#: package/contents/ui/Hardware.js:498 package/contents/ui/Hardware.js:508
+#: package/contents/ui/Hardware.js:511 package/contents/ui/Hardware.js:516
+#: package/contents/ui/NvidiaKeys.js:35 package/contents/ui/Reader.qml:127
 #: package/contents/ui/SourceEditor.qml:79
 msgid "GPU clock"
 msgstr "Frequenza GPU"
 
-#: package/contents/ui/Hardware.js:457 package/contents/ui/Hardware.js:467
+#: package/contents/ui/Hardware.js:499 package/contents/ui/Hardware.js:509
 #: package/contents/ui/NvidiaKeys.js:36
 msgid "Memory clock"
 msgstr "Frequenza memoria"
 
-#: package/contents/ui/Hardware.js:458
+#: package/contents/ui/Hardware.js:500
 msgid "Video encoding"
 msgstr "Codifica video"
 
-#: package/contents/ui/Hardware.js:459
+#: package/contents/ui/Hardware.js:501
 msgid "Video decoding"
 msgstr "Decodifica video"
 
-#: package/contents/ui/Hardware.js:461
+#: package/contents/ui/Hardware.js:503
 msgid "Performance level"
 msgstr "Livello di prestazioni"
 
-#: package/contents/ui/Hardware.js:470 package/contents/ui/Reader.qml:121
+#: package/contents/ui/Hardware.js:512 package/contents/ui/Reader.qml:127
 #: package/contents/ui/SourceEditor.qml:80
 msgid "3D load"
 msgstr "Carico 3D"
 
-#: package/contents/ui/Hardware.js:471 package/contents/ui/Reader.qml:121
+#: package/contents/ui/Hardware.js:513 package/contents/ui/Reader.qml:127
 #: package/contents/ui/SourceEditor.qml:80
 msgid "Video load"
 msgstr "Carico video"
 
-#: package/contents/ui/Hardware.js:472 package/contents/ui/Reader.qml:121
+#: package/contents/ui/Hardware.js:514 package/contents/ui/Reader.qml:127
 #: package/contents/ui/SourceEditor.qml:81
 msgid "Graphics memory"
 msgstr "Memoria grafica"
 
-#: package/contents/ui/Hardware.js:477
+#: package/contents/ui/Hardware.js:519
 msgid "Graphics card · PCIe"
 msgstr "Scheda grafica · PCIe"
 
-#: package/contents/ui/Hardware.js:495
+#: package/contents/ui/Hardware.js:537
 msgid "Disk used"
 msgstr "Disco usato"
 
-#: package/contents/ui/Hardware.js:500
+#: package/contents/ui/Hardware.js:542
 msgid "Case temperature"
 msgstr "Temperatura del case"
 
-#: package/contents/ui/Hardware.js:508
+#: package/contents/ui/Hardware.js:550
 msgid "Upload"
 msgstr "Upload"
 
@@ -1871,111 +1871,111 @@ msgstr "Le ventole %1 non girano, anche se la scheda lo richiede."
 msgid "Fan %1 runs much slower than fan %2 (%3 instead of %4)."
 msgstr "La ventola %1 gira molto più lentamente della ventola %2 (%3 invece di %4)."
 
-#: package/contents/ui/Reader.qml:82
+#: package/contents/ui/Reader.qml:88
 msgid "Fan %1: %2"
 msgstr "Ventola %1: %2"
 
-#: package/contents/ui/Reader.qml:97
+#: package/contents/ui/Reader.qml:103
 msgid "PCIe device %1 on slot port %2"
 msgstr "Dispositivo PCIe %1 sulla porta dello slot %2"
 
-#: package/contents/ui/Reader.qml:98
+#: package/contents/ui/Reader.qml:104
 msgid "PCIe link"
 msgstr "Collegamento PCIe"
 
-#: package/contents/ui/Reader.qml:99
+#: package/contents/ui/Reader.qml:105
 msgid "Current clock of the graphics built into the processor (from the kernel driver)"
 msgstr "Frequenza attuale della grafica integrata nel processore (driver del kernel)"
 
-#: package/contents/ui/Reader.qml:100
+#: package/contents/ui/Reader.qml:106
 msgid "Main memory used by programs on the graphics built into the processor"
 msgstr "Memoria di sistema occupata dai programmi sulla grafica integrata nel processore"
 
-#: package/contents/ui/Reader.qml:101
+#: package/contents/ui/Reader.qml:107
 msgid "3D and compute unit of the graphics built into the processor"
 msgstr "Unità 3D e di calcolo della grafica integrata nel processore"
 
-#: package/contents/ui/Reader.qml:102
+#: package/contents/ui/Reader.qml:108
 msgid "Video unit (encoding/decoding) of the graphics built into the processor"
 msgstr "Unità video (codifica/decodifica) della grafica integrata nel processore"
 
-#: package/contents/ui/Reader.qml:103
+#: package/contents/ui/Reader.qml:109
 msgid "Unit “%1” of the graphics built into the processor"
 msgstr "Unità «%1» della grafica integrata nel processore"
 
-#: package/contents/ui/Reader.qml:104
+#: package/contents/ui/Reader.qml:110
 msgid "Load of the graphics built into the processor (from the kernel driver)"
 msgstr "Carico della grafica integrata nel processore (driver del kernel)"
 
-#: package/contents/ui/Reader.qml:111
+#: package/contents/ui/Reader.qml:117
 msgid "Memory temperature (VRAM), measured by the gddr6 service"
 msgstr "Temperatura della memoria (VRAM), misurata dal servizio gddr6"
 
-#: package/contents/ui/Reader.qml:112
+#: package/contents/ui/Reader.qml:118
 msgid "Graphics card PCI %1"
 msgstr "Scheda grafica PCI %1"
 
-#: package/contents/ui/Reader.qml:114
+#: package/contents/ui/Reader.qml:120
 msgid "Power draw of the graphics built into the processor"
 msgstr "Consumo della grafica integrata nel processore"
 
-#: package/contents/ui/Reader.qml:115
+#: package/contents/ui/Reader.qml:121
 msgid "Power draw of the processor cores"
 msgstr "Consumo dei core del processore"
 
-#: package/contents/ui/Reader.qml:116
+#: package/contents/ui/Reader.qml:122
 msgid "Power draw of the memory"
 msgstr "Consumo della memoria"
 
-#: package/contents/ui/Reader.qml:117
+#: package/contents/ui/Reader.qml:123
 msgid "Power draw of the whole processor"
 msgstr "Consumo dell’intero processore"
 
-#: package/contents/ui/Reader.qml:118
+#: package/contents/ui/Reader.qml:124
 msgid "measured by the processor, published by the Hardware Tiles power service"
 msgstr "misurato dal processore, pubblicato dal servizio consumi di Hardware Tiles"
 
-#: package/contents/ui/Reader.qml:119
+#: package/contents/ui/Reader.qml:125
 msgid "Shell command: %1"
 msgstr "Comando shell: %1"
 
-#: package/contents/ui/Reader.qml:121
+#: package/contents/ui/Reader.qml:127
 msgid "PCIe"
 msgstr "PCIe"
 
-#: package/contents/ui/Reader.qml:217
+#: package/contents/ui/Reader.qml:223
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:230
+#: package/contents/ui/Reader.qml:236
 msgid "Built into CPU"
 msgstr "Integrata nella CPU"
 
-#: package/contents/ui/Reader.qml:230
+#: package/contents/ui/Reader.qml:236
 msgid "No link"
 msgstr "Nessun collegamento"
 
-#: package/contents/ui/Reader.qml:231
+#: package/contents/ui/Reader.qml:237
 msgid "Gen %1 · max %2 ×%3"
 msgstr "Gen %1 · max %2 ×%3"
 
-#: package/contents/ui/Reader.qml:234
+#: package/contents/ui/Reader.qml:240
 msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
 msgstr "Grafica integrata nel processore – usa la memoria di sistema, nessuno slot PCIe"
 
-#: package/contents/ui/Reader.qml:238
+#: package/contents/ui/Reader.qml:244
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
 msgstr "Solo ×%1 di ×%2 linee possibili – controllare contatto/slot"
 
-#: package/contents/ui/Reader.qml:240
+#: package/contents/ui/Reader.qml:246
 msgid "Max. %1 · currently power saving"
 msgstr "Max. %1 · ora in risparmio energetico"
 
-#: package/contents/ui/Reader.qml:242
+#: package/contents/ui/Reader.qml:248
 msgid "Maximum for this slot"
 msgstr "Massimo per questo slot"
 
-#: package/contents/ui/Reader.qml:243
+#: package/contents/ui/Reader.qml:249
 msgid "Card %1 · slot %2"
 msgstr "Scheda %1 · slot %2"
 
@@ -2103,51 +2103,55 @@ msgstr "Il valore è di nuovo sotto la soglia."
 msgid "Fan %1 at %2"
 msgstr "Ventola %1 a %2"
 
-#: package/contents/ui/SensorTile.qml:168
+#: package/contents/ui/SensorTile.qml:165
+msgid "Fan stop: the card has switched its fans off because it is cool enough. That is intended."
+msgstr "Ventola ferma: la scheda ha spento le ventole perché è abbastanza fresca. È voluto."
+
+#: package/contents/ui/SensorTile.qml:170
 msgid "Now: %1"
 msgstr "Ora: %1"
 
-#: package/contents/ui/SensorTile.qml:185
+#: package/contents/ui/SensorTile.qml:187
 msgid "Critical – below the threshold of %1."
 msgstr "Critico – sotto la soglia di %1."
 
-#: package/contents/ui/SensorTile.qml:186
+#: package/contents/ui/SensorTile.qml:188
 msgid "Low – below the warning threshold of %1."
 msgstr "Basso – sotto la soglia di avviso di %1."
 
-#: package/contents/ui/SensorTile.qml:188
+#: package/contents/ui/SensorTile.qml:190
 msgid "In the normal range between %1 and %2."
 msgstr "Nell’intervallo normale tra %1 e %2."
 
-#: package/contents/ui/SensorTile.qml:190
+#: package/contents/ui/SensorTile.qml:192
 msgid "In the normal range · warning below %1, critical below %2."
 msgstr "Nell’intervallo normale · avviso sotto %1, critico sotto %2."
 
-#: package/contents/ui/SensorTile.qml:191
+#: package/contents/ui/SensorTile.qml:193
 msgid "In the normal range · warning below %1."
 msgstr "Nell’intervallo normale · avviso sotto %1."
 
-#: package/contents/ui/SensorTile.qml:191
+#: package/contents/ui/SensorTile.qml:193
 msgid "In the normal range · critical below %1."
 msgstr "Nell’intervallo normale · critico sotto %1."
 
-#: package/contents/ui/SensorTile.qml:193
+#: package/contents/ui/SensorTile.qml:195
 msgid "Critical – above the threshold of %1."
 msgstr "Critico – sopra la soglia di %1."
 
-#: package/contents/ui/SensorTile.qml:194
+#: package/contents/ui/SensorTile.qml:196
 msgid "Elevated – above the warning threshold of %1."
 msgstr "Elevato – sopra la soglia di avviso di %1."
 
-#: package/contents/ui/SensorTile.qml:195
+#: package/contents/ui/SensorTile.qml:197
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "Nell'intervallo normale · avviso da %1, critico da %2."
 
-#: package/contents/ui/SensorTile.qml:196
+#: package/contents/ui/SensorTile.qml:198
 msgid "In the normal range · warning from %1."
 msgstr "Nell'intervallo normale · avviso da %1."
 
-#: package/contents/ui/SensorTile.qml:196
+#: package/contents/ui/SensorTile.qml:198
 msgid "In the normal range · critical from %1."
 msgstr "Nell'intervallo normale · critico da %1."
 
@@ -2294,3 +2298,7 @@ msgstr "Comando:"
 #: package/contents/ui/SourceEditor.qml:120
 msgid "Unit"
 msgstr "Unità"
+
+#: package/contents/ui/TileValue.qml:19
+msgid "Fan stop"
+msgstr "Ventola ferma"

@@ -318,7 +318,37 @@ Item {
             if (dragFrom === i) { proxy.source = result.url; tile.dragging = true; }
         });
     }
+    // ---- scrolling while dragging: near the top or bottom edge the view scrolls
+    // along, the faster the closer the pointer gets to the edge
+    property point lastDragPos: Qt.point(0, 0)
+    readonly property real scrollZone: u * 2.5
+    property real scrollSpeed: 0          // pixels per tick, < 0 = up
+    function edgeSpeed(p) {
+        const top = scroll.y, bottom = scroll.y + scroll.height;
+        const max = Math.max(4, u * 0.9);
+        if (p.y < top + scrollZone) return -max * Math.min(1, (top + scrollZone - p.y) / scrollZone);
+        if (p.y > bottom - scrollZone) return max * Math.min(1, (p.y - bottom + scrollZone) / scrollZone);
+        return 0;
+    }
+    Timer {
+        interval: 16
+        repeat: true
+        running: full.dragFrom >= 0 && full.scrollSpeed !== 0
+        onTriggered: {
+            const f = scroll.contentItem;
+            if (!f || f.contentY === undefined) return;
+            const maxY = Math.max(0, f.contentHeight - f.height);
+            const y = Math.max(0, Math.min(maxY, f.contentY + full.scrollSpeed));
+            if (y === f.contentY) return;
+            f.contentY = y;
+            // the tiles moved under the pointer: find the place again
+            full.updateDrag(full.lastDragPos);
+        }
+    }
+
     function updateDrag(p) {
+        lastDragPos = p;
+        scrollSpeed = edgeSpeed(p);
         proxy.x = p.x - grabOffset.x;
         proxy.y = p.y - grabOffset.y;
         const t = tileIndexAt(p);
@@ -335,6 +365,7 @@ Item {
     }
     function finishDrag() {
         const from = dragFrom, to = dragTo, before = dropBefore;
+        scrollSpeed = 0;
         const t = tiles.itemAt(from);
         if (t && t.item) t.item.dragging = false;
         dragFrom = -1; dragTo = -1;
@@ -502,8 +533,13 @@ Item {
                         implicitWidth: full.u * 7.5
                         implicitHeight: full.u * 5.4
                         hoverEnabled: true
+                        focusPolicy: Qt.NoFocus   // rebuilt with the grid, see ArrowButton
                         Accessible.name: i18n("Add tile")
                         onClicked: addMenu.openFor(entry.modelData.group, addField)
+                        // over "+" no tile is meant: the last one gives its arrows back
+                        HoverHandler {
+                            onHoveredChanged: if (hovered) { full.holdPos = null; full.armed = -1; }
+                        }
                         background: Rectangle {
                             radius: Kirigami.Units.cornerRadius * 2
                             color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b,
@@ -535,6 +571,10 @@ Item {
                     }
 
                     property Component headerComponent: GpuSectionHeader {
+                        HoverHandler {
+                            enabled: full.editing
+                            onHoveredChanged: if (hovered) { full.holdPos = null; full.armed = -1; }
+                        }
                         title: entry.modelData.title
                         info: entry.modelData.info
                         accent: Hardware.gpuColor(entry.modelData.slot, root.lightTheme)
@@ -642,8 +682,12 @@ Item {
                             height: width
                             anchors { top: parent.top; right: parent.right; margins: Math.round(full.u * 0.25) }
                             hoverEnabled: true
+                            focusPolicy: Qt.NoFocus   // destroyed by its own click, see ArrowButton
                             Accessible.name: i18n("Remove tile")
-                            onClicked: root.removeTile(tileDelegate.itemIndex, tileDelegate.src ? tileDelegate.src.label : "")
+                            onClicked: {
+                                const i = tileDelegate.itemIndex, label = tileDelegate.src ? tileDelegate.src.label : "";
+                                Qt.callLater(() => root.removeTile(i, label));
+                            }
                             background: Rectangle {
                                 radius: width / 2
                                 color: removeBtn.down ? Qt.darker(Kirigami.Theme.negativeTextColor, 1.25)
@@ -682,10 +726,16 @@ Item {
         height: width
         anchors.margins: Math.round(full.u * 0.25)
         hoverEnabled: true
+        // the click rebuilds the tiles and destroys this button: it must not hold the
+        // keyboard focus (a later menu would hand focus on from a deleted item), and
+        // the move runs only after the click has been handled completely
+        focusPolicy: Qt.NoFocus
         Accessible.name: tip
         onClicked: {
             const e = full.entries.findIndex(x => x.idx === arrow.tile.itemIndex);
-            full.arrowMove(e, dir, arrow.mapToItem(full, width / 2, height / 2));
+            const p = arrow.mapToItem(full, width / 2, height / 2);
+            const d = dir;
+            Qt.callLater(() => full.arrowMove(e, d, p));
         }
         background: Rectangle {
             radius: width / 2
@@ -1154,7 +1204,11 @@ Item {
     Item {
         id: dropMarker
         z: 999
-        readonly property var r: full.dragTo >= 0 ? full.rectOf(full.dragTo) : null
+        // also follows when the view scrolls during the drag
+        readonly property var r: {
+            scroll.contentItem.contentY;
+            return full.dragTo >= 0 ? full.rectOf(full.dragTo) : null;
+        }
         readonly property real barW: Math.max(4, Math.round(full.u * 0.28))
         visible: full.dragFrom >= 0 && r !== null
         onVisibleChanged: if (visible) { moveAnim.enabled = false; Qt.callLater(() => moveAnim.enabled = true); }

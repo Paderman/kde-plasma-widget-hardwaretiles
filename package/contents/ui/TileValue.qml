@@ -13,9 +13,11 @@ RowLayout {
     property real maxWidth: 1e9
     property bool showTotal: true
 
-    readonly property bool isText: tile.ready && tile.src.isText
-    readonly property string num: tile.ready ? tile.src.numberText : "–"
-    readonly property string unit: tile.ready ? tile.src.unitText : ""
+    // idle fan stop of a graphics card: a word instead of "0 RPM" / "0 %"
+    readonly property bool fanStop: tile.ready && tile.src.valid && !!tile.src.reader && tile.src.reader.fanStopped
+    readonly property bool isText: tile.ready && (tile.src.isText || fanStop)
+    readonly property string num: !tile.ready ? "–" : fanStop ? i18n("Fan stop") : tile.src.numberText
+    readonly property string unit: tile.ready && !fanStop ? tile.src.unitText : ""
     readonly property string total: showTotal && tile.ready && tile.src.totalText ? "/ " + tile.src.totalText : ""
     // texts ("Power-Limit, Temperatur") are set a bit smaller than numbers
     readonly property int base: isText && num.length > 4 ? Math.round(big * 0.62) : big

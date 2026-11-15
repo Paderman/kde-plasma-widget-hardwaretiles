@@ -31,12 +31,13 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 - **Several graphics cards**: one colour-coded section per card, comparison tiles
 - **Fan curve** that learns from real measurements and is kept across restarts
 - **Measured GPU fan speeds** (RPM, per fan) – if a fan stands still although the card needs it, the tile
-  turns red; if it runs clearly slower than the others, yellow – each with one notification
+  turns red; if it runs clearly slower than the others, orange – each with one notification.
+  Cards that switch their fans off when idle show “Fan stop” instead – that is no fault
 - **System**: CPU, memory (used / total, swap in the tooltip), SSD temperatures, disk usage, mainboard fans and temperature, network
 - **Mainboard battery and supply voltages**: the button cell (CMOS) warns before BIOS settings get lost;
   +12 V, +5 V, +3.3 V with thresholds after the ATX standard (±5 %) – thresholds work upwards and downwards
 - **Every sensor of your hardware**: all voltages, temperatures and fans the sensor chips report can be added
-  from a menu, each shown with its current value
+  from a menu, each shown with its current value – processor cores included (as ksystemstats reports them)
 - **Setup wizard** that detects your hardware, plus layout templates
   (“System overview”, “GPU focus”, “All graphics cards”) that show whether you changed them
 - **Desktop notifications** for critical values (delay, hysteresis, cooldown)

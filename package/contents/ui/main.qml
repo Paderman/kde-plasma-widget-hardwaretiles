@@ -348,7 +348,8 @@ PlasmoidItem {
     readonly property var extraGroups: {
         if (!probe.ready) return [];
         const have = {};
-        rawItems.forEach(it => { if (it.sensorId) have[it.sensorId] = true; });
+        // also by the redirected id: an old "lmsensors/coretemp-…" tile counts as its core
+        rawItems.forEach(it => { if (it.sensorId) { have[it.sensorId] = true; have[Hardware.cpuTempFromLm(it.sensorId)] = true; } });
         return Hardware.extraSensors(probe.hw, tr)
             .map(g => ({ title: g.title, items: g.items.filter(e => !have[e.tile.sensorId]) }))
             .filter(g => g.items.length > 0);

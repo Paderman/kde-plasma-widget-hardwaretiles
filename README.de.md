@@ -32,13 +32,14 @@ als Ringe, Balken und Verlaufsgraphen.
 - **Mehrere Grafikkarten**: je Karte ein farbig markierter Abschnitt, Vergleichskacheln
 - **Lüfterkurve**, die aus echten Messwerten lernt und Neustarts übersteht
 - **Gemessene GPU-Lüfterdrehzahl** (U/min, je Lüfter) – steht ein Lüfter still, obwohl die Karte ihn
-  braucht, wird die Kachel rot; dreht er deutlich langsamer als die anderen, gelb – jeweils mit einer Benachrichtigung
+  braucht, wird die Kachel rot; dreht er deutlich langsamer als die anderen, orange – jeweils mit einer Benachrichtigung.
+  Karten, die ihre Lüfter im Leerlauf abschalten, zeigen stattdessen „Lüfter-Stopp“ – das ist kein Fehler
 - **System**: Prozessor, Arbeitsspeicher (belegt / gesamt, Swap im Tooltip), SSD-Temperaturen,
   Speicherplatz, Mainboard-Lüfter und -Temperatur, Netzwerk
 - **Mainboard-Batterie und Netzteilspannungen**: Die Knopfzelle (CMOS) warnt, bevor BIOS-Einstellungen verloren gehen;
   +12 V, +5 V, +3,3 V mit Schwellen nach ATX-Norm (±5 %) – Schwellen gelten nach oben und nach unten
 - **Jeder Sensor der Hardware**: alle Spannungen, Temperaturen und Lüfter, die die Sensorchips melden, lassen sich
-  aus einem Menü hinzufügen, jeweils mit aktuellem Wert
+  aus einem Menü hinzufügen, jeweils mit aktuellem Wert – auch die einzelnen Prozessorkerne (so, wie ksystemstats sie meldet)
 - **Einrichtungsassistent** mit Hardware-Erkennung sowie Layout-Vorlagen
   („Systemübersicht“, „GPU-Fokus“, „Alle Grafikkarten“), die anzeigen, ob sie verändert wurden
 - **Desktop-Benachrichtigungen** bei kritischen Werten (Verzögerung, Hysterese, Pause)

@@ -7,6 +7,7 @@
 #   GDDR6 <1 if /run/gddr6/vram exists, else 0>
 #   POWER <1 if the power service publishes /run/hardwaretiles-power/cpu, else 0>
 #   NVFANS <nvidia-smi index> <number of fans whose speed the driver reports>
+#   CPUCORE <cpu no> <package id> <core id>   (one line per processor thread)
 #   SENSORS            (everything after this line is `sensors -j` output)
 
 T=$(printf '\t')
@@ -57,6 +58,12 @@ done
 
 if [ -e /run/gddr6/vram ]; then echo "GDDR6${T}1"; else echo "GDDR6${T}0"; fi
 if [ -e /run/hardwaretiles-power/cpu ]; then echo "POWER${T}1"; else echo "POWER${T}0"; fi
+# which processor thread belongs to which core: ksystemstats shows the coretemp
+# values "Core N" as cpu/cpuX/temperature of the threads of core N
+for c in /sys/devices/system/cpu/cpu[0-9]*; do
+    [ -r "$c/topology/core_id" ] || continue
+    echo "CPUCORE$T${c##*/cpu}$T$(cat "$c/topology/physical_package_id" 2>/dev/null || echo 0)$T$(cat "$c/topology/core_id")"
+done
 # measured fan speeds of NVIDIA cards (driver library, needs python3)
 if [ -n "$nvmap" ] && command -v python3 >/dev/null 2>&1; then
     python3 -I "$(dirname "$0")/nvml-fans.py" --probe 2>/dev/null

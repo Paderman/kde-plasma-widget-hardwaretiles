@@ -161,6 +161,8 @@ Rectangle {
             if (card.src.detailText) lines.push(card.src.detailText);
             if (card.src.reader.clientsText) lines.push(card.src.reader.clientsText);
             if (card.src.reader.fansText) lines.push(card.src.reader.fansText);
+            if (card.src.reader.fanStopped)
+                lines.push(i18n("Fan stop: the card has switched its fans off because it is cool enough. That is intended."));
             // plain-language part: what it measures, what the value means, thresholds
             const explain = [];
             if (about) explain.push(about);

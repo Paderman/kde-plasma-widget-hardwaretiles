@@ -55,7 +55,7 @@ var vendorColors = { nvidia: "#76b900", amd: "#ed1c24", intel: "#0071c5", other:
 var supportedDrivers = ["nvidia", "amdgpu", "radeon", "i915", "xe", "nouveau"];
 
 function parse(out) {
-    var hw = { gpus: [], nvmes: [], gddr6: false, power: false, lmTool: true, pm: "", pmPackage: "", distro: "", chips: {} };
+    var hw = { gpus: [], nvmes: [], cpuCores: [], gddr6: false, power: false, lmTool: true, pm: "", pmPackage: "", distro: "", chips: {} };
     var parts = String(out || "").split(/\nSENSORS\n?/);
     var nvFans = {};
     parts[0].split("\n").forEach(function (line) {
@@ -83,6 +83,8 @@ function parse(out) {
             hw.gddr6 = f[1] === "1";
         } else if (f[0] === "POWER") {
             hw.power = f[1] === "1";
+        } else if (f[0] === "CPUCORE" && f.length >= 4) {
+            hw.cpuCores.push({ cpu: parseInt(f[1]), pkg: parseInt(f[2]) || 0, core: parseInt(f[3]) });
         } else if (f[0] === "NVFANS" && f.length >= 3) {
             nvFans[parseInt(f[1])] = parseInt(f[2]) || 0;
         } else if (f[0] === "DISTRO") {
@@ -96,7 +98,42 @@ function parse(out) {
     if (parts.length > 1) {
         try { hw.chips = JSON.parse(parts[1]) || {}; } catch (e) { hw.chips = {}; }
     }
+    // kept for resolve(): tiles made before the CPU mapping existed
+    lastChips = hw.chips;
+    lastCpuCores = hw.cpuCores;
     return hw;
+}
+
+// ---- processor temperatures ----------------------------------------------
+// ksystemstats does not list the CPU temperature chips under lmsensors/: their
+// values appear as cpu/cpuX/temperature instead (coretemp "Core N" on the threads
+// of core N). So "lmsensors/coretemp-isa-0000/temp6" never shows anything.
+var cpuTempChip = /^(coretemp|k10temp|zenpower)-/i;
+var lastChips = {};
+var lastCpuCores = [];
+// ksystemstats sensor for one value of a CPU temperature chip, "" = it has none
+function cpuTempSensor(chip, label, cores) {
+    var m = /^coretemp-isa-([0-9a-f]+)$/i.exec(chip || "");
+    var c = /^Core (\d+)$/.exec(label || "");
+    if (!m || !c) return "";
+    var pkg = parseInt(m[1], 16), core = parseInt(c[1]);
+    var threads = (cores || []).filter(function (t) { return t.pkg === pkg && t.core === core; })
+                               .map(function (t) { return t.cpu; });
+    // older detection output without the topology: thread N is core N on the first package
+    if (!threads.length && !(cores || []).length && pkg === 0) threads = [core];
+    return threads.length ? "cpu/cpu" + Math.min.apply(null, threads) + "/temperature" : "";
+}
+// an old tile id like "lmsensors/coretemp-isa-0000/temp6" -> "cpu/cpu4/temperature"
+function cpuTempFromLm(id) {
+    var m = /^lmsensors\/((?:coretemp|k10temp|zenpower)-[^\/]+)\/(temp\d+)$/i.exec(id || "");
+    if (!m) return id;
+    var chip = lastChips[m[1]];
+    if (!chip) return id;          // detection not done yet: leave it
+    var label = Object.keys(chip).filter(function (l) {
+        return chip[l] && typeof chip[l] === "object" && (m[2] + "_input") in chip[l];
+    })[0];
+    // k10temp/zenpower (Tctl, Tccd …) and "Package id": ksystemstats has no own sensor
+    return cpuTempSensor(m[1], label, lastCpuCores) || "cpu/all/maximumTemperature";
 }
 
 function supportedGpus(hw) {
@@ -353,6 +390,11 @@ function extraSensors(hw, translate) {
                     volts.push({ text: name + suffix + " – " + fmt(v, 2, "V"), tile: tile });
                 } else if (m[1] === "temp") {
                     if (!(v > -40 && v < 150) || /Calibration/i.test(label)) return;
+                    // processor chips: only what ksystemstats really has (the cores)
+                    if (cpuTempChip.test(chip)) {
+                        id = cpuTempSensor(chip, label, hw.cpuCores);
+                        if (!id) return;
+                    }
                     temps.push({ text: name + suffix + " – " + fmt(v, 0, "°C"),
                                  tile: { label: several && name !== where ? where + " · " + name : name, sensorId: id, style: "value", notify: false } });
                 } else {
@@ -529,6 +571,7 @@ function resolve(it, gpu, slot, tag) {
     ["sensorId", "refSensorId", "ySensorId", "command", "yCommand"].forEach(function (k) {
         r[k] = resolveString(r[k], gpu);
     });
+    ["sensorId", "refSensorId", "ySensorId"].forEach(function (k) { r[k] = cpuTempFromLm(r[k]); });
     if (r.source === "pcie" && !r.key && gpu) r.key = gpu.addr;
     // Intel graphics in the processor: ksystemstats only reports a constant 0 for
     // it – load and clock are read from the kernel driver instead, values it

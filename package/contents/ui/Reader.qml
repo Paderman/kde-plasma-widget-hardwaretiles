@@ -73,6 +73,12 @@ Item {
     readonly property string slowText: !slowFans.length ? ""
         : i18n("Fan %1 runs much slower than fan %2 (%3 instead of %4).", slowFans[0].fan.no, slowFans[0].ref.no,
                rpmText(slowFans[0].fan.rpm), rpmText(slowFans[0].ref.rpm))
+    // the card has switched the fans off on purpose (idle fan stop): every fan of
+    // this tile stands still and the card asks for 0 % – not a fault
+    readonly property bool fanStopped: {
+        const l = fanList.filter(f => fanNo <= 0 || f.no === fanNo);
+        return l.length > 0 && l.every(f => f.rpm === 0 && f.wants === 0);
+    }
     // what is wrong with the fans (shown under the value, used for notifications)
     readonly property string fanText: stuckText || slowText
     // tooltip: every fan with its measured speed
