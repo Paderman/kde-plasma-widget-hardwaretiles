@@ -98,7 +98,8 @@ function decode(key, raw, all, translate) {
 
     if (m.kind === "pstate") {
         var n = parseInt(raw.replace(/[^0-9]/g, ""));
-        return { value: n, text: isNaN(n) ? raw : "P" + n + " · " + pstateText(n) };
+        // the word first – it is what most people understand; the number for those who know it
+        return { value: n, text: isNaN(n) ? raw : pstateText(n) + " (P" + n + ")" };
     }
     if (m.kind === "throttle") {
         var bits = parseInt(raw, 16) || 0;
