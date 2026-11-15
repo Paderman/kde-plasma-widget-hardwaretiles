@@ -37,7 +37,9 @@ Rectangle {
     readonly property bool compactPcie: ready && src.reader.isPcie && style === "value" && (inSection || width < u * 11)
     readonly property string headerText: compactPcie ? "PCIe" : ""
     opacity: dragging ? 0.35 : 1
-    Behavior on opacity { NumberAnimation { duration: 150 } }
+    // off while the edit mode fades the tile out itself (removing)
+    property bool fadeBehavior: true
+    Behavior on opacity { enabled: card.fadeBehavior; NumberAnimation { duration: 150 } }
 
     // ring size: every ring tile reports the size it could have (ringNatural);
     // FullView sets ringLimit to the smallest, so all rings are the same size –

@@ -21,6 +21,7 @@ KCM.SimpleKCM {
     property alias cfg_tooltipDelay: tipDelay.value
     property int cfg_tooltipDuration
     property int cfg_moveFlashDuration
+    property int cfg_removeFadeDuration
     // duration slider: 1…10 s, the last step (11) = unlimited (-1)
     function durationStep(ms) { return ms < 0 ? 11 : Math.max(1, Math.min(10, Math.round(ms / 1000))); }
     property string cfg_tileStyle
@@ -34,7 +35,7 @@ KCM.SimpleKCM {
     // away; stored only with OK / Apply, closing the settings brings back the rest
     readonly property var previewKeys: ["columns", "fitToSize", "tileStyle", "tileScale", "backgroundOpacity",
         "tileOpacity", "gpuSectionMode", "gpuSections", "panelShowLabels", "panelShowRings",
-        "tooltipsEnabled", "tooltipDelay", "tooltipDuration", "moveFlashDuration"]
+        "tooltipsEnabled", "tooltipDelay", "tooltipDuration", "moveFlashDuration", "removeFadeDuration"]
     property bool previewOn: false
     readonly property string previewJson: {
         if (!previewOn) return "";
@@ -218,6 +219,19 @@ KCM.SimpleKCM {
             }
             Kirigami.ContextualHelpButton {
                 toolTipText: i18n("In “Edit tiles”: how long a tile flashes at its new place after it was moved.")
+            }
+        }
+        RowLayout {
+            Kirigami.FormData.label: i18n("Fade out removed tile:")
+            StepSlider {
+                steps: [0, 300, 500, 800, 1000, 1200, 1500, 2000, 3000]
+                value: page.cfg_removeFadeDuration
+                format: (v) => v <= 0 ? i18n("Off") : i18n("%1 s", (v / 1000).toLocaleString(Qt.locale(), "f", v % 100 ? 2 : 1))
+                onPicked: (v) => page.cfg_removeFadeDuration = v
+                ResetHandler { page: page; keys: ["removeFadeDuration"] }
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("In “Edit tiles”: how long a removed tile (× or Delete) turns red and fades out before the others move up. “Off”: it disappears at once.")
             }
         }
 

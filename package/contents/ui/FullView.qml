@@ -228,6 +228,151 @@ Item {
     function isTileEntry(i) {
         return i >= 0 && i < entries.length && entries[i].idx !== undefined;
     }
+    // what the keyboard can walk to: the tiles and the "+" fields
+    function isNavEntry(i) {
+        return isTileEntry(i) || (i >= 0 && i < entries.length && entries[i].add === true);
+    }
+
+    // ---- keyboard (edit mode) ------------------------------------------------
+    // the arrow keys walk from tile to tile; Space or Enter picks the highlighted
+    // tile up, then the arrow keys move it (like its arrow buttons) until Space,
+    // Enter or Escape puts it down. Tab / Shift+Tab pick the next / previous tile,
+    // Delete removes it, Ctrl+Z undoes a move, Escape ends the edit mode
+    property var mousePos: null
+    // item index of the tile picked up with the keyboard, -1 = none
+    property int grabbed: -1
+    // section of the "+" field chosen with the keyboard, null = none (then armed counts)
+    property var addSel: null
+    // removing gently (Delete key, × button): the tile flushes red, shrinks and
+    // fades out first – only then it really goes (removingIdx: its item index)
+    property int removingIdx: -1
+    property string removingLabel: ""
+    // length of the whole effect (setting "Fade out removed tile"), 0 = at once
+    readonly property int removeFade: Math.max(0, Number(root.setting("removeFadeDuration")) || 0)
+    function removeSoft(i, label) {
+        if (removingIdx >= 0 || i < 0) return;
+        grabbed = -1; armed = -1; holdPos = null;
+        if (removeFade <= 0) { root.removeTile(i, label); return; }
+        removingLabel = label || "";
+        removingIdx = i;
+        removeTimer.restart();
+    }
+    // the tile ends its animation and calls finishRemove; the timer is only the
+    // safety net in case the tile vanished on the way (rebuilt grid)
+    function finishRemove() {
+        if (removingIdx < 0) return;
+        removeTimer.stop();
+        const i = removingIdx, label = removingLabel;
+        removingIdx = -1;
+        root.removeTile(i, label);
+    }
+    Timer {
+        id: removeTimer
+        interval: full.removeFade + 400
+        onTriggered: full.finishRemove()
+    }
+    readonly property bool keyGrabbed: grabbed >= 0 && grabbed === armed && dragFrom < 0
+    function navEntries() {
+        const l = [];
+        for (let i = 0; i < entries.length; ++i) if (isNavEntry(i)) l.push(i);
+        return l;
+    }
+    function armedEntry() {
+        return armed < 0 ? -1 : entries.findIndex(x => x.idx === armed);
+    }
+    // entry chosen with the keyboard: a "+" field or the highlighted tile
+    function selEntry() {
+        if (addSel !== null) return entries.findIndex(x => x.add === true && x.group === addSel);
+        return armedEntry();
+    }
+    function select(e) {
+        if (!isNavEntry(e)) return;
+        grabbed = -1;
+        holdPos = mousePos;
+        if (isTileEntry(e)) { addSel = null; armed = entries[e].idx; }
+        else { armed = -1; addSel = entries[e].group; }
+        revealTimer.restart();
+    }
+    function selectStep(d) {
+        const l = navEntries();
+        if (!l.length) return;
+        const cur = l.indexOf(selEntry());
+        select(l[cur < 0 ? (d > 0 ? 0 : l.length - 1) : (cur + d + l.length) % l.length]);
+    }
+    // walking with the arrow keys: inside the section like the arrow buttons; at
+    // its edge on to the neighbouring section (no wrap-around)
+    function walk(e, dir) {
+        let n = neighbour(e, dir, true);
+        if (n < 0) {
+            const l = navEntries(), k = l.indexOf(e), g = entries[e].group;
+            if (dir === "left" && k > 0) n = l[k - 1];
+            else if (dir === "right" && k < l.length - 1) n = l[k + 1];
+            else if (dir === "up") {
+                // last tile of the section above
+                for (let j = k - 1; j >= 0; --j) if (entries[l[j]].group !== g) { n = l[j]; break; }
+            } else if (dir === "down") {
+                // first tile of the section below
+                for (let j = k + 1; j < l.length; ++j) if (entries[l[j]].group !== g) { n = l[j]; break; }
+            }
+        }
+        if (n >= 0) select(n);
+    }
+    // keep the highlighted tile in sight
+    function reveal() {
+        const e = selEntry(), r = e >= 0 ? rectOf(e) : null, f = scroll.contentItem;
+        if (!r || !f || f.contentY === undefined) return;
+        const top = scroll.mapFromItem(full, 0, r.y).y, m = Math.round(u * 0.5);
+        const maxY = Math.max(0, f.contentHeight - f.height);
+        let y = f.contentY;
+        if (top < m) y += top - m;
+        else if (top + r.h > scroll.height - m) y += top + r.h - scroll.height + m;
+        f.contentY = Math.max(0, Math.min(maxY, y));
+    }
+    Timer { id: revealTimer; interval: 60; onTriggered: full.reveal() }
+    onDragFromChanged: if (dragFrom >= 0) grabbed = -1
+    Keys.enabled: editing
+    Keys.onPressed: (event) => {
+        if (dragFrom >= 0 || removingIdx >= 0) return;
+        const dirs = {};
+        dirs[Qt.Key_Left] = "left"; dirs[Qt.Key_Right] = "right"; dirs[Qt.Key_Up] = "up"; dirs[Qt.Key_Down] = "down";
+        const plain = !(event.modifiers & (Qt.ControlModifier | Qt.AltModifier | Qt.MetaModifier));
+        const e = selEntry(), onAdd = e >= 0 && !isTileEntry(e);
+        if (event.key in dirs && plain) {
+            const dir = dirs[event.key];
+            if (e < 0) selectStep(1);                 // nothing highlighted yet: the first tile
+            else if (keyGrabbed) {
+                const n = neighbour(e, dir);
+                if (n >= 0) { arrowMove(e, dir, mousePos, n); revealTimer.restart(); }
+            } else walk(e, dir);
+            event.accepted = true;
+        } else if ((event.key === Qt.Key_Space || event.key === Qt.Key_Return || event.key === Qt.Key_Enter) && plain) {
+            if (keyGrabbed) grabbed = -1;
+            else if (onAdd) {
+                const f = tiles.itemAt(e);
+                if (f && f.item) addMenu.openFor(addSel, f.item);
+            }
+            else if (e >= 0) { grabbed = armed; holdPos = mousePos; }
+            else selectStep(1);
+            event.accepted = true;
+        } else if (event.key === Qt.Key_Tab && plain) {
+            selectStep(1); event.accepted = true;
+        } else if (event.key === Qt.Key_Backtab) {
+            selectStep(-1); event.accepted = true;
+        } else if (event.key === Qt.Key_Delete && plain) {
+            if (e >= 0 && !onAdd) {
+                const src = root.source(armed);
+                removeSoft(armed, src ? src.label : "");
+            }
+            event.accepted = true;
+        } else if (event.key === Qt.Key_Z && (event.modifiers & Qt.ControlModifier)) {
+            grabbed = -1;
+            root.undoMove(); event.accepted = true;
+        } else if (event.key === Qt.Key_Escape) {
+            if (keyGrabbed) grabbed = -1;
+            else editing = false;
+            event.accepted = true;
+        }
+    }
 
     // ---- arrow buttons (edit mode): move the tile under the mouse one step --
     // armed: item index of the tile that shows the arrows, -1 = none
@@ -243,7 +388,11 @@ Item {
     onArmedChanged: nbTimer.restart()
     onEntriesChanged: nbTimer.restart()
     onColsChanged: nbTimer.restart()
-    onEditingChanged: { armed = -1; holdPos = null; }
+    onEditingChanged: {
+        armed = -1; holdPos = null; grabbed = -1; addSel = null;
+        // the keys of the edit mode (see Keys below) need the keyboard focus
+        if (editing) forceActiveFocus();
+    }
     // the grid places the tiles only after the model changed – measure a moment later
     Timer {
         id: nbTimer
@@ -263,18 +412,20 @@ Item {
     }
     // left/right: previous/next tile of the section; up/down: the tile of the
     // row above/below whose middle is closest – always within the same section
-    function neighbour(e, dir) {
+    // nav: the "+" field counts as a neighbour too (keyboard walking)
+    function neighbour(e, dir, nav) {
         const g = entries[e].group;
+        const ok = i => nav ? isNavEntry(i) : isTileEntry(i);
         if (dir === "left" || dir === "right") {
             const n = e + (dir === "left" ? -1 : 1);
-            return isTileEntry(n) && entries[n].group === g ? n : -1;
+            return ok(n) && entries[n].group === g ? n : -1;
         }
         const me = rectOf(e);
         if (!me) return -1;
         const mid = me.y + me.h / 2;
         let best = -1, bestRow = 0, bestDx = 0;
         for (let i = 0; i < entries.length; ++i) {
-            if (i === e || !isTileEntry(i) || entries[i].group !== g) continue;
+            if (i === e || !ok(i) || entries[i].group !== g) continue;
             const r = rectOf(i);
             if (!r) continue;
             const rmid = r.y + r.h / 2;
@@ -291,15 +442,21 @@ Item {
     // the mouse moved over tile i (item index) – it gets the arrows, unless the
     // tiles were just rebuilt after an arrow click and the mouse stood still
     function hoverAt(i, p) {
-        if (holdPos && Math.hypot(p.x - holdPos.x, p.y - holdPos.y) < 4) return;
+        mousePos = p;
+        // a small nudge does not count: only as far as the system's drag start
+        if (holdPos && Math.hypot(p.x - holdPos.x, p.y - holdPos.y) <= Qt.styleHints.startDragDistance) return;
         holdPos = null;
+        addSel = null;
         armed = i;
     }
     // the tile takes the place of the neighbour, the tiles in between move up one
-    function arrowMove(e, dir, p) {
-        const n = armedNb[dir];
+    // n: neighbour entry, worked out by the caller (keys) – otherwise from armedNb
+    function arrowMove(e, dir, p, n) {
+        if (removingIdx >= 0) return;
+        if (n === undefined) n = armedNb[dir];
         if (n < 0 || !entries[e] || !entries[n]) return;
         const to = entries[n].idx;
+        if (keyGrabbed) grabbed = to;     // a picked-up tile stays picked up
         holdPos = p;
         armed = to;
         flashIdx = to;
@@ -307,6 +464,7 @@ Item {
         flashMarker.start();
     }
     function startDrag(i, tile, pos) {
+        if (removingIdx >= 0) return;   // the order must not change before the tile is gone
         grabOffset = pos;
         dragFrom = i;
         dragTo = -1;
@@ -443,7 +601,7 @@ Item {
         visible: full.editing
         type: Kirigami.MessageType.Positive
         icon.source: "document-edit"
-        text: i18n("Drag a tile or use its arrows to move it within its section. × removes a tile, + adds one.")
+        text: i18n("Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one.")
         actions: [
             Kirigami.Action {
                 visible: root.canUndoRemove
@@ -477,7 +635,14 @@ Item {
 
         // the arrows disappear when the mouse leaves the tiles
         HoverHandler {
-            onHoveredChanged: if (!hovered && !full.holdPos) full.armed = -1
+            onHoveredChanged: {
+                if (!hovered && !full.holdPos) full.armed = -1;
+                if (!hovered) full.mousePos = null;
+            }
+            // where the mouse rests: a key move must not hand the arrows to the tile
+            // that the rebuilt grid puts under it (see holdPos)
+            // scene position: the handler sits in the scrolled content, not in the ScrollView
+            onPointChanged: if (hovered) full.mousePos = full.mapFromItem(null, point.scenePosition.x, point.scenePosition.y)
         }
 
         // all ring gauges get the size of the smallest one (see SensorTile.ringLimit)
@@ -538,7 +703,17 @@ Item {
                         onClicked: addMenu.openFor(entry.modelData.group, addField)
                         // over "+" no tile is meant: the last one gives its arrows back
                         HoverHandler {
-                            onHoveredChanged: if (hovered) { full.holdPos = null; full.armed = -1; }
+                            onHoveredChanged: if (hovered) { full.holdPos = null; full.armed = -1; full.addSel = null; }
+                        }
+                        // chosen with the keyboard: framed like a highlighted tile
+                        readonly property bool keySel: full.editing && full.addSel !== null && full.addSel === entry.modelData.group
+                        Rectangle {
+                            anchors.fill: parent
+                            radius: Kirigami.Units.cornerRadius * 2
+                            visible: addField.keySel
+                            color: "transparent"
+                            border.width: 2
+                            border.color: Kirigami.Theme.highlightColor
                         }
                         background: Rectangle {
                             radius: Kirigami.Units.cornerRadius * 2
@@ -573,7 +748,7 @@ Item {
                     property Component headerComponent: GpuSectionHeader {
                         HoverHandler {
                             enabled: full.editing
-                            onHoveredChanged: if (hovered) { full.holdPos = null; full.armed = -1; }
+                            onHoveredChanged: if (hovered) { full.holdPos = null; full.armed = -1; full.addSel = null; }
                         }
                         title: entry.modelData.title
                         info: entry.modelData.info
@@ -617,13 +792,13 @@ Item {
                             property point pressPos
                             readonly property bool mine: full.dragFrom === entry.index
 
-                            onPressed: mouse => pressPos = Qt.point(mouse.x, mouse.y)
+                            onPressed: mouse => { pressPos = Qt.point(mouse.x, mouse.y); full.forceActiveFocus(); }
                             onPositionChanged: mouse => {
                                 if (mine) {
                                     full.updateDrag(mapToItem(full, mouse.x, mouse.y));
                                     return;
                                 }
-                                if (full.dragFrom >= 0) return;
+                                if (full.dragFrom >= 0 || full.removingIdx >= 0) return;
                                 if (Math.hypot(mouse.x - pressPos.x, mouse.y - pressPos.y) < Qt.styleHints.startDragDistance)
                                     return;
                                 full.startDrag(entry.index, tileDelegate, pressPos);
@@ -650,12 +825,51 @@ Item {
                             visible: opacity > 0
                             opacity: tileDelegate.showArrows ? 1 : 0
                             Behavior on opacity { NumberAnimation { duration: 120 } }
-                            color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, 0.10)
-                            border.width: 2
+                            // picked up with the keyboard: stronger, so it reads as "moving now"
+                            readonly property bool picked: full.keyGrabbed && full.grabbed === tileDelegate.itemIndex
+                            color: Qt.rgba(Kirigami.Theme.highlightColor.r, Kirigami.Theme.highlightColor.g, Kirigami.Theme.highlightColor.b, picked ? 0.28 : 0.10)
+                            border.width: picked ? 4 : 2
                             border.color: Kirigami.Theme.highlightColor
                         }
                         // edit mode: arrows on the tile under the mouse move it one step
-                        readonly property bool showArrows: full.editing && full.dragFrom < 0 && full.armed === itemIndex
+                        readonly property bool showArrows: full.editing && full.dragFrom < 0 && full.removingIdx < 0 && full.armed === itemIndex
+                        // being removed (see full.removeSoft): red, smaller, then gone
+                        readonly property bool removing: full.removingIdx === itemIndex
+                        property bool fading: false
+                        opacity: fading ? 0 : dragging ? 0.35 : 1
+                        fadeBehavior: !removing
+                        // one layer: the tile fades as a whole, not every part on its own
+                        layer.enabled: removing
+                        onRemovingChanged: {
+                            if (removing) removeAnim.restart();
+                            else {
+                                removeAnim.stop(); fading = false; scale = 1; removeTint.opacity = 0;
+                                opacity = Qt.binding(() => fading ? 0 : dragging ? 0.35 : 1);
+                            }
+                        }
+                        // red first (40 %), then shrink and fade out (60 %) – one smooth curve each
+                        SequentialAnimation {
+                            id: removeAnim
+                            ParallelAnimation {
+                                NumberAnimation { target: removeTint; property: "opacity"; to: 0.45; duration: full.removeFade * 0.4; easing.type: Easing.OutQuad }
+                                NumberAnimation { target: tileDelegate; property: "scale"; to: 0.93; duration: full.removeFade * 0.4; easing.type: Easing.InOutSine }
+                            }
+                            ParallelAnimation {
+                                NumberAnimation { target: tileDelegate; property: "scale"; to: 0.8; duration: full.removeFade * 0.6; easing.type: Easing.InOutSine }
+                                NumberAnimation { target: tileDelegate; property: "opacity"; to: 0; duration: full.removeFade * 0.6; easing.type: Easing.InOutSine }
+                            }
+                            PropertyAction { target: tileDelegate; property: "fading"; value: true }
+                            ScriptAction { script: Qt.callLater(full.finishRemove) }   // not from inside the animation of the tile that goes
+                        }
+                        Rectangle {
+                            id: removeTint
+                            anchors.fill: parent
+                            z: 160
+                            radius: tileDelegate.radius
+                            opacity: 0
+                            visible: opacity > 0
+                            color: Kirigami.Theme.negativeTextColor
+                        }
                         ArrowButton {
                             tile: tileDelegate; dir: "up"; iconName: "arrow-up"; tip: i18n("Move up")
                             anchors { top: parent.top; horizontalCenter: parent.horizontalCenter }
@@ -676,7 +890,7 @@ Item {
                         // edit mode: small red × in the top right corner removes the tile
                         QQC2.AbstractButton {
                             id: removeBtn
-                            visible: full.editing && full.dragFrom < 0
+                            visible: full.editing && full.dragFrom < 0 && full.removingIdx < 0
                             z: 200
                             width: Math.round(Math.max(Kirigami.Units.iconSizes.small + 6, full.u * 1.3))
                             height: width
@@ -686,7 +900,7 @@ Item {
                             Accessible.name: i18n("Remove tile")
                             onClicked: {
                                 const i = tileDelegate.itemIndex, label = tileDelegate.src ? tileDelegate.src.label : "";
-                                Qt.callLater(() => root.removeTile(i, label));
+                                Qt.callLater(() => full.removeSoft(i, label));
                             }
                             background: Rectangle {
                                 radius: width / 2
@@ -758,8 +972,11 @@ Item {
     }
 
     // ---- menu entries shared by the tile menu and the widget menu
+    // hidden entries take no focus – the menu's arrow keys would stop on them
+    // (see KeyMenu); for greyed-out headings it does no harm either
     component HidingItem: QQC2.MenuItem {
         height: visible ? implicitHeight : 0
+        focusPolicy: visible && enabled ? Qt.StrongFocus : Qt.NoFocus
     }
     component UpdateItem: HidingItem {
         text: root.updateAvailable ? i18n("Hardware Tiles %1 is available – open download page", Plasmoid.configuration.updateLatest) : ""
@@ -791,11 +1008,10 @@ Item {
         enabled: root.orderChanged
         onTriggered: root.resetOrder()
     }
-    component StraightenItem: QQC2.MenuItem {
+    component StraightenItem: HidingItem {
         text: i18n("Straighten widget (rotated by %1°)", Math.round(root.rotationAngle))
         icon.name: "object-rotate-right"
         visible: root.rotated
-        height: visible ? implicitHeight : 0
         onTriggered: root.resetRotation()
     }
     component ConfigureItem: QQC2.MenuItem {
@@ -804,7 +1020,7 @@ Item {
         onTriggered: Plasmoid.internalAction("configure").trigger()
     }
     // submenu with one checkable entry per value of a setting; applies at once
-    component ChoiceMenu: QQC2.Menu {
+    component ChoiceMenu: KeyMenu {
         id: choice
         popupType: QQC2.Popup.Window
         property var options: []         // [{ text, value }]
@@ -849,12 +1065,12 @@ Item {
     }
 
     // saved views (Settings → Profiles): load with one click
-    component ProfilesMenu: QQC2.Menu {
+    component ProfilesMenu: KeyMenu {
         id: pm
         popupType: QQC2.Popup.Window
         title: i18n("Profile")
         icon.name: "bookmarks"
-        QQC2.MenuItem {
+        HidingItem {
             text: i18n("No profiles saved yet")
             enabled: false
             visible: root.profiles.length === 0
@@ -899,7 +1115,7 @@ Item {
     }
 
     // ---- context menu of a tile -------------------------------------------------
-    QQC2.Menu {
+    KeyMenu {
         id: tileMenu
         // own window: the compositor keeps it on screen and above the panel
         popupType: QQC2.Popup.Window
@@ -918,7 +1134,7 @@ Item {
         // checkable items lose their binding when clicked – set it again
         function rebind(item, fn) { item.checked = Qt.binding(fn); }
 
-        QQC2.MenuItem {
+        HidingItem {
             text: tileMenu.name
             enabled: false
         }
@@ -928,7 +1144,7 @@ Item {
             onTriggered: root.editTile(tileMenu.idx)
         }
         QQC2.MenuSeparator { }
-        QQC2.Menu {
+        KeyMenu {
             id: styleMenu
             // own window: the compositor keeps it on screen and above the panel
             popupType: QQC2.Popup.Window
@@ -972,7 +1188,7 @@ Item {
         // ---- widget-wide entries (same as the menu on the empty area);
         // removing tiles is done in the "Edit tiles" mode (×)
         QQC2.MenuSeparator { }
-        QQC2.MenuItem { text: i18n("Hardware Tiles"); enabled: false }
+        HidingItem { text: i18n("Hardware Tiles"); enabled: false }
         UpdateItem { }
         RestoreRemovedItem { }
         EditModeItem { }
@@ -987,7 +1203,7 @@ Item {
     }
 
     // ---- "+" field: suggestions for its section, then an own tile ---------------
-    QQC2.Menu {
+    KeyMenu {
         id: addMenu
         // own window: the compositor keeps it on screen and above the panel
         popupType: QQC2.Popup.Window
@@ -1037,9 +1253,11 @@ Item {
             }
             popup(f, x, f.height);
         }
+        // back to the tiles: the keys of the edit mode work again
+        onClosed: if (full.editing) full.forceActiveFocus()
         Instantiator {
             model: root.extraGroups
-            delegate: QQC2.Menu {
+            delegate: KeyMenu {
                 id: groupMenu
                 required property var modelData
                 title: modelData.title
@@ -1064,7 +1282,7 @@ Item {
                 }
             }
         }
-        QQC2.MenuItem {
+        HidingItem {
             text: addMenu.list.length ? i18n("Suggestions for your hardware") : i18n("No further suggestions")
             enabled: false
         }
@@ -1083,7 +1301,7 @@ Item {
             onObjectRemoved: (index, object) => addMenu.removeItem(object)
         }
         QQC2.MenuSeparator { }
-        QQC2.MenuItem {
+        HidingItem {
             text: i18n("Mainboard & other sensors")
             enabled: false
             visible: addMenu.extrasHere
@@ -1100,11 +1318,11 @@ Item {
     // Plasma's own widget menu does not appear there because the scroll area takes
     // the click – so Hardware Tiles offers its own entries. Removing, resizing and
     // alternatives stay with Plasma's handle (long press on the widget).
-    QQC2.Menu {
+    KeyMenu {
         id: deckMenu
         // own window: the compositor keeps it on screen and above the panel
         popupType: QQC2.Popup.Window
-        QQC2.MenuItem { text: i18n("Hardware Tiles"); enabled: false }
+        HidingItem { text: i18n("Hardware Tiles"); enabled: false }
         UpdateItem { }
         RestoreRemovedItem { }
         EditModeItem { }

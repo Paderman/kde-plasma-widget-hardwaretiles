@@ -45,7 +45,7 @@ Item {
         acceptedButtons: Qt.RightButton
         onTapped: menu.popup()
     }
-    QQC2.Menu {
+    KeyMenu {
         id: menu
         QQC2.MenuItem {
             icon.name: "edit-reset"

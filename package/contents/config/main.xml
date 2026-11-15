@@ -51,6 +51,7 @@
     <entry name="tooltipDuration" type="Int"><default>8000</default></entry>
     <!-- "Edit tiles": how long a moved tile flashes at its new place in ms; 0 = not at all -->
     <entry name="moveFlashDuration" type="Int"><default>2500</default></entry>
+    <entry name="removeFadeDuration" type="Int"><default>800</default></entry>
     <entry name="panelShowLabels" type="Bool"><default>false</default></entry>
     <entry name="panelShowRings" type="Bool"><default>true</default></entry>
     <!-- JSON array of tile ids: order before the first manual move (target of "reset") -->

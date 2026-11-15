@@ -875,16 +875,16 @@ KCM.SimpleKCM {
                 icon.name: "list-add"
                 text: i18n("Template …")
                 onClicked: presetMenu.popup()
-                QQC2.Menu {
+                KeyMenu {
                     id: presetMenu
                     // every voltage, temperature and fan the sensor chips report
-                    QQC2.Menu {
+                    KeyMenu {
                         id: extraMenu
                         title: i18n("Mainboard & other sensors")
                         enabled: page.extraGroups.length > 0
                         Instantiator {
                             model: page.extraGroups
-                            delegate: QQC2.Menu {
+                            delegate: KeyMenu {
                                 id: groupMenu
                                 required property var modelData
                                 title: modelData.title

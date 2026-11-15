@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Capteurs"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:966
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1177
 msgid "Notifications"
 msgstr "Notifications"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:935
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1146
 msgid "Appearance"
 msgstr "Apparence"
 
@@ -120,7 +120,7 @@ msgstr "Aucune version n’a encore été publiée."
 msgid "GitHub could not be reached (%1)."
 msgstr "GitHub n’a pas pu être joint (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:427
+#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:583
 msgid "Open download page"
 msgstr "Ouvrir la page de téléchargement"
 
@@ -262,17 +262,17 @@ msgid "Sends a sample notification, so you can see what it looks like and whethe
 msgstr "Envoie une notification d'exemple, pour voir à quoi elle ressemble et si elle arrive."
 
 #: package/contents/ui/ConfigAlerts.qml:179
-#: package/contents/ui/ConfigAppearance.qml:312
+#: package/contents/ui/ConfigAppearance.qml:326
 msgid "Reset a single setting: right-click it, or click it with the middle mouse button (scroll wheel)."
 msgstr "Réinitialiser un seul réglage : clic droit dessus, ou clic avec le bouton du milieu (molette)."
 
 #: package/contents/ui/ConfigAlerts.qml:184
-#: package/contents/ui/ConfigAppearance.qml:317
+#: package/contents/ui/ConfigAppearance.qml:331
 msgid "Restore defaults"
 msgstr "Restaurer les valeurs par défaut"
 
 #: package/contents/ui/ConfigAlerts.qml:195
-#: package/contents/ui/ConfigAppearance.qml:328
+#: package/contents/ui/ConfigAppearance.qml:342
 msgid "Reset. It takes effect only after “Apply” – “Cancel” keeps everything as it was."
 msgstr "Réinitialisé. Prend effet seulement après « Appliquer » – « Annuler » laisse tout tel quel."
 
@@ -292,215 +292,225 @@ msgstr ""
 "Seuil critique de 100 °C dépassé.\n"
 "(Ceci n'est qu'un test de Hardware Tiles.)"
 
-#: package/contents/ui/ConfigAppearance.qml:77
+#: package/contents/ui/ConfigAppearance.qml:78
 msgid "Columns:"
 msgstr "Colonnes :"
 
-#: package/contents/ui/ConfigAppearance.qml:82
+#: package/contents/ui/ConfigAppearance.qml:83
 #: package/contents/ui/ConfigSensors.qml:465
 #: package/contents/ui/ConfigSensors.qml:657
 msgid "Automatic"
 msgstr "Automatique"
 
-#: package/contents/ui/ConfigAppearance.qml:87
+#: package/contents/ui/ConfigAppearance.qml:88
 msgid "“Automatic”: the number of columns at which the tiles get biggest in the widget's size."
 msgstr "« Automatique » : le nombre de colonnes avec lequel les tuiles sont les plus grandes dans la taille du widget."
 
-#: package/contents/ui/ConfigAppearance.qml:91
+#: package/contents/ui/ConfigAppearance.qml:92
 msgid "On the desktop:"
 msgstr "Sur le bureau :"
 
-#: package/contents/ui/ConfigAppearance.qml:95
+#: package/contents/ui/ConfigAppearance.qml:96
 msgid "Shrink tiles so everything fits without scrolling"
 msgstr "Réduire les tuiles pour que tout tienne sans défilement"
 
-#: package/contents/ui/ConfigAppearance.qml:98
+#: package/contents/ui/ConfigAppearance.qml:99
 msgid "All tiles get smaller together until they fit into the widget – no scroll bar needed. Without it, the tiles keep their size and the view can be scrolled."
 msgstr "Toutes les tuiles rétrécissent ensemble jusqu'à tenir dans le widget – sans barre de défilement. Sans cette option, les tuiles gardent leur taille et la vue peut défiler."
 
-#: package/contents/ui/ConfigAppearance.qml:102
+#: package/contents/ui/ConfigAppearance.qml:103
 msgid "Tile style:"
 msgstr "Style des tuiles :"
 
-#: package/contents/ui/ConfigAppearance.qml:109
-#: package/contents/ui/FullView.qml:832
+#: package/contents/ui/ConfigAppearance.qml:110
+#: package/contents/ui/FullView.qml:1043
 msgid "Glass (subtle)"
 msgstr "Verre (discret)"
 
-#: package/contents/ui/ConfigAppearance.qml:110
-#: package/contents/ui/FullView.qml:833
+#: package/contents/ui/ConfigAppearance.qml:111
+#: package/contents/ui/FullView.qml:1044
 msgid "Filled"
 msgstr "Plein"
 
-#: package/contents/ui/ConfigAppearance.qml:111
-#: package/contents/ui/FullView.qml:834
+#: package/contents/ui/ConfigAppearance.qml:112
+#: package/contents/ui/FullView.qml:1045
 msgid "Outline (accent colour)"
 msgstr "Contour (couleur d'accent)"
 
-#: package/contents/ui/ConfigAppearance.qml:117
+#: package/contents/ui/ConfigAppearance.qml:118
 msgid "Glass: subtly see-through · Filled: solid surface · Outline: only a frame in the accent colour"
 msgstr "Verre : légèrement transparent · Rempli : surface opaque · Contour : seulement un cadre dans la couleur d'accentuation"
 
-#: package/contents/ui/ConfigAppearance.qml:121
+#: package/contents/ui/ConfigAppearance.qml:122
 msgid "Size:"
 msgstr "Taille :"
 
-#: package/contents/ui/ConfigAppearance.qml:130
+#: package/contents/ui/ConfigAppearance.qml:131
 msgid "Scales text, rings and spacing of all tiles."
 msgstr "Met à l'échelle le texte, les anneaux et les espacements de toutes les tuiles."
 
-#: package/contents/ui/ConfigAppearance.qml:134
+#: package/contents/ui/ConfigAppearance.qml:135
 msgid "Background opacity:"
 msgstr "Opacité de l'arrière-plan :"
 
-#: package/contents/ui/ConfigAppearance.qml:143
+#: package/contents/ui/ConfigAppearance.qml:144
 msgid "Only on the desktop. The less background, the more solid the tiles get, so values stay readable on any wallpaper – “Tile opacity” sets how solid they are at 0 %. 100 % background is the normal Plasma background."
 msgstr "Uniquement sur le bureau. Moins il y a d'arrière-plan, plus les tuiles deviennent opaques, pour que les valeurs restent lisibles sur tout fond d'écran – « Opacité des tuiles » règle leur opacité à 0 %. 100 % d'arrière-plan correspond à l'arrière-plan normal de Plasma."
 
-#: package/contents/ui/ConfigAppearance.qml:147
+#: package/contents/ui/ConfigAppearance.qml:148
 msgid "Tile opacity:"
 msgstr "Opacité des tuiles :"
 
-#: package/contents/ui/ConfigAppearance.qml:158
+#: package/contents/ui/ConfigAppearance.qml:159
 #, no-javascript-format
 msgid "How solid the tiles get when the background is faded out completely. Only available below 100 % background."
 msgstr "Degré d'opacité des tuiles lorsque l'arrière-plan est entièrement estompé. Disponible uniquement en dessous de 100 % d'arrière-plan."
 
-#: package/contents/ui/ConfigAppearance.qml:162
+#: package/contents/ui/ConfigAppearance.qml:163
 msgid "Tooltips:"
 msgstr "Infobulles :"
 
-#: package/contents/ui/ConfigAppearance.qml:166
+#: package/contents/ui/ConfigAppearance.qml:167
 msgid "Show details when the mouse pointer rests on a tile"
 msgstr "Afficher les détails lorsque le pointeur reste sur une tuile"
 
-#: package/contents/ui/ConfigAppearance.qml:169
+#: package/contents/ui/ConfigAppearance.qml:170
 msgid "The tooltip shows the full name, the current values and a short explanation of the tile."
 msgstr "L'infobulle affiche le nom complet, les valeurs actuelles et une brève explication de la tuile."
 
-#: package/contents/ui/ConfigAppearance.qml:173
+#: package/contents/ui/ConfigAppearance.qml:174
 msgid "Tooltip delay:"
 msgstr "Délai des infobulles :"
 
-#: package/contents/ui/ConfigAppearance.qml:177
-#: package/contents/ui/ConfigAppearance.qml:184
-#: package/contents/ui/ConfigAppearance.qml:195
-#: package/contents/ui/ConfigAppearance.qml:204
-#: package/contents/ui/ConfigAppearance.qml:215
-#: package/contents/ui/ConfigAppearance.qml:273
+#: package/contents/ui/ConfigAppearance.qml:178
+#: package/contents/ui/ConfigAppearance.qml:185
+#: package/contents/ui/ConfigAppearance.qml:196
+#: package/contents/ui/ConfigAppearance.qml:205
+#: package/contents/ui/ConfigAppearance.qml:216
+#: package/contents/ui/ConfigAppearance.qml:229
+#: package/contents/ui/ConfigAppearance.qml:287
 msgid "%1 s"
 msgstr "%1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:183
+#: package/contents/ui/ConfigAppearance.qml:184
 msgid "Immediately"
 msgstr "Immédiatement"
 
-#: package/contents/ui/ConfigAppearance.qml:187
+#: package/contents/ui/ConfigAppearance.qml:188
 msgid "How long the mouse pointer has to rest on a tile before its tooltip appears."
 msgstr "Durée pendant laquelle le pointeur doit rester sur une tuile avant que son infobulle apparaisse."
 
-#: package/contents/ui/ConfigAppearance.qml:191
+#: package/contents/ui/ConfigAppearance.qml:192
 msgid "Tooltip duration:"
 msgstr "Durée des infobulles :"
 
-#: package/contents/ui/ConfigAppearance.qml:195
-#: package/contents/ui/ConfigAppearance.qml:204
+#: package/contents/ui/ConfigAppearance.qml:196
+#: package/contents/ui/ConfigAppearance.qml:205
 msgid "Unlimited"
 msgstr "Illimitée"
 
-#: package/contents/ui/ConfigAppearance.qml:207
+#: package/contents/ui/ConfigAppearance.qml:208
 msgid "“Unlimited”: the tooltip stays as long as the mouse pointer rests on the tile."
 msgstr "« Illimitée » : l'infobulle reste affichée tant que le pointeur reste sur la tuile."
 
-#: package/contents/ui/ConfigAppearance.qml:211
+#: package/contents/ui/ConfigAppearance.qml:212
 msgid "Highlight moved tile:"
 msgstr "Mettre en évidence la tuile déplacée :"
 
-#: package/contents/ui/ConfigAppearance.qml:215
+#: package/contents/ui/ConfigAppearance.qml:216
+#: package/contents/ui/ConfigAppearance.qml:229
 #: package/contents/ui/ResetHandler.qml:30
 msgid "Off"
 msgstr "Désactivé"
 
-#: package/contents/ui/ConfigAppearance.qml:220
+#: package/contents/ui/ConfigAppearance.qml:221
 msgid "In “Edit tiles”: how long a tile flashes at its new place after it was moved."
 msgstr "Dans « Modifier les tuiles » : durée pendant laquelle une tuile clignote à sa nouvelle place après avoir été déplacée."
 
 #: package/contents/ui/ConfigAppearance.qml:225
+msgid "Fade out removed tile:"
+msgstr "Estomper la tuile supprimée :"
+
+#: package/contents/ui/ConfigAppearance.qml:234
+msgid "In “Edit tiles”: how long a removed tile (× or Delete) turns red and fades out before the others move up. “Off”: it disappears at once."
+msgstr "Dans « Modifier les tuiles » : durée pendant laquelle une tuile supprimée (× ou Suppr) devient rouge et s’estompe avant que les autres ne remontent. « Désactivé » : elle disparaît aussitôt."
+
+#: package/contents/ui/ConfigAppearance.qml:239
 msgid "Sections per graphics card:"
 msgstr "Sections par carte graphique :"
 
-#: package/contents/ui/ConfigAppearance.qml:232
-#: package/contents/ui/FullView.qml:843
+#: package/contents/ui/ConfigAppearance.qml:246
+#: package/contents/ui/FullView.qml:1054
 msgid "From two graphics cards"
 msgstr "À partir de deux cartes graphiques"
 
-#: package/contents/ui/ConfigAppearance.qml:233
-#: package/contents/ui/FullView.qml:844
+#: package/contents/ui/ConfigAppearance.qml:247
+#: package/contents/ui/FullView.qml:1055
 msgid "Always (even with one card)"
 msgstr "Toujours (même avec une seule carte)"
 
-#: package/contents/ui/ConfigAppearance.qml:234
-#: package/contents/ui/FullView.qml:845
+#: package/contents/ui/ConfigAppearance.qml:248
+#: package/contents/ui/FullView.qml:1056
 msgid "Never (several cards: coloured edge)"
 msgstr "Jamais (plusieurs cartes : bord coloré)"
 
-#: package/contents/ui/ConfigAppearance.qml:240
+#: package/contents/ui/ConfigAppearance.qml:254
 msgid "Every graphics card gets its own heading, its tiles below it."
 msgstr "Chaque carte graphique reçoit son propre titre, avec ses tuiles en dessous."
 
-#: package/contents/ui/ConfigAppearance.qml:248
+#: package/contents/ui/ConfigAppearance.qml:262
 msgid "Move, remove or add tiles right in the widget: right-click → “Edit tiles”."
 msgstr "Déplacer, supprimer ou ajouter des tuiles directement dans le widget : clic droit → « Modifier les tuiles »."
 
-#: package/contents/ui/ConfigAppearance.qml:254
+#: package/contents/ui/ConfigAppearance.qml:268
 msgid "Update:"
 msgstr "Actualisation :"
 
-#: package/contents/ui/ConfigAppearance.qml:259
+#: package/contents/ui/ConfigAppearance.qml:273
 msgid "every %1 s"
 msgstr "toutes les %1 s"
 
-#: package/contents/ui/ConfigAppearance.qml:264
+#: package/contents/ui/ConfigAppearance.qml:278
 msgid "How often the values are read. Shorter looks smoother but costs a little more computing time."
 msgstr "À quelle fréquence les valeurs sont lues. Plus court paraît plus fluide, mais demande un peu plus de temps de calcul."
 
-#: package/contents/ui/ConfigAppearance.qml:268
+#: package/contents/ui/ConfigAppearance.qml:282
 msgid "History in graphs:"
 msgstr "Historique des graphiques :"
 
-#: package/contents/ui/ConfigAppearance.qml:273
+#: package/contents/ui/ConfigAppearance.qml:287
 msgid "%1 min"
 msgstr "%1 min"
 
-#: package/contents/ui/ConfigAppearance.qml:278
+#: package/contents/ui/ConfigAppearance.qml:292
 msgid "Which period of time a history graph shows."
 msgstr "Quelle période un graphique d'historique affiche."
 
-#: package/contents/ui/ConfigAppearance.qml:282
+#: package/contents/ui/ConfigAppearance.qml:296
 msgid "Panel"
 msgstr "Panneau"
 
-#: package/contents/ui/ConfigAppearance.qml:285
+#: package/contents/ui/ConfigAppearance.qml:299
 msgid "In the panel:"
 msgstr "Dans le panneau :"
 
-#: package/contents/ui/ConfigAppearance.qml:289
+#: package/contents/ui/ConfigAppearance.qml:303
 msgid "Show mini rings"
 msgstr "Afficher des mini-anneaux"
 
-#: package/contents/ui/ConfigAppearance.qml:292
+#: package/contents/ui/ConfigAppearance.qml:306
 msgid "Which sensors appear in the panel is set per entry on the “Sensors” page. The widget's background on the desktop can be switched in edit mode."
 msgstr "Les capteurs affichés dans le panneau se règlent par entrée sur la page « Capteurs ». L'arrière-plan du widget sur le bureau se change en mode édition."
 
-#: package/contents/ui/ConfigAppearance.qml:299
+#: package/contents/ui/ConfigAppearance.qml:313
 msgid "Show labels"
 msgstr "Afficher les libellés"
 
-#: package/contents/ui/ConfigAppearance.qml:302
+#: package/contents/ui/ConfigAppearance.qml:316
 msgid "Shows the name of the sensor next to the value in the panel."
 msgstr "Affiche le nom du capteur à côté de la valeur dans le panneau."
 
-#: package/contents/ui/ConfigAppearance.qml:329
+#: package/contents/ui/ConfigAppearance.qml:343
 msgid "Only affects the settings on this page – your sensor tiles and notifications are kept."
 msgstr "Ne concerne que les réglages de cette page – vos tuiles de capteurs et les notifications sont conservées."
 
@@ -604,7 +614,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "La vue d’avant le dernier chargement de profil peut être restaurée."
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:878
+#: package/contents/ui/FullView.qml:1089
 msgid "Undo profile change"
 msgstr "Annuler le changement de profil"
 
@@ -679,22 +689,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "Les fichiers exportés peuvent être importés sur un autre ordinateur. Les tuiles d’une carte graphique absente de cet ordinateur passent sur une carte du même fabricant ; les courbes de ventilateur apprises ne font pas partie du profil."
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:939
+#: package/contents/ui/FullView.qml:1150
 msgid "Ring"
 msgstr "Anneau"
 
 #: package/contents/ui/ConfigSensors.qml:44
-#: package/contents/ui/FullView.qml:944
+#: package/contents/ui/FullView.qml:1155
 msgid "Bar"
 msgstr "Barre"
 
 #: package/contents/ui/ConfigSensors.qml:45
-#: package/contents/ui/FullView.qml:949
+#: package/contents/ui/FullView.qml:1160
 msgid "History graph"
 msgstr "Graphique d'historique"
 
 #: package/contents/ui/ConfigSensors.qml:46
-#: package/contents/ui/FullView.qml:954
+#: package/contents/ui/FullView.qml:1165
 msgid "Value only"
 msgstr "Valeur seule"
 
@@ -842,12 +852,12 @@ msgid "Label (empty = automatic)"
 msgstr "Libellé (vide = automatique)"
 
 #: package/contents/ui/ConfigSensors.qml:478
-#: package/contents/ui/FullView.qml:660
+#: package/contents/ui/FullView.qml:871
 msgid "Move up"
 msgstr "Monter"
 
 #: package/contents/ui/ConfigSensors.qml:484
-#: package/contents/ui/FullView.qml:664
+#: package/contents/ui/FullView.qml:875
 msgid "Move down"
 msgstr "Descendre"
 
@@ -906,7 +916,7 @@ msgid "Style:"
 msgstr "Style :"
 
 #: package/contents/ui/ConfigSensors.qml:625
-#: package/contents/ui/FullView.qml:959
+#: package/contents/ui/FullView.qml:1170
 msgid "Double width"
 msgstr "Double largeur"
 
@@ -1018,7 +1028,7 @@ msgid "Template …"
 msgstr "Modèle …"
 
 #: package/contents/ui/ConfigSensors.qml:883
-#: package/contents/ui/FullView.qml:1087
+#: package/contents/ui/FullView.qml:1300
 msgid "Mainboard & other sensors"
 msgstr "Carte mère et autres capteurs"
 
@@ -1385,129 +1395,129 @@ msgstr "Comparaison"
 msgid "System"
 msgstr "Système"
 
-#: package/contents/ui/FullView.qml:410
+#: package/contents/ui/FullView.qml:566
 msgid "Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Hardware Tiles doit-il rechercher de nouvelles versions une fois par semaine ? Il contacte alors github.com – GitHub voit votre adresse IP, comme lors de toute visite d’un site web ; rien d’autre n’est envoyé. Vous pouvez modifier ce choix à tout moment dans les paramètres."
 
-#: package/contents/ui/FullView.qml:411
+#: package/contents/ui/FullView.qml:567
 msgid "Hardware Tiles %1 is available (installed: %2)."
 msgstr "Hardware Tiles %1 est disponible (installé : %2)."
 
-#: package/contents/ui/FullView.qml:415
+#: package/contents/ui/FullView.qml:571
 msgid "Yes, check weekly"
 msgstr "Oui, vérifier chaque semaine"
 
-#: package/contents/ui/FullView.qml:421
+#: package/contents/ui/FullView.qml:577
 msgid "No, thanks"
 msgstr "Non, merci"
 
-#: package/contents/ui/FullView.qml:446
-msgid "Drag a tile or use its arrows to move it within its section. × removes a tile, + adds one."
-msgstr "Faites glisser une tuile ou utilisez ses flèches pour la déplacer dans sa section. × supprime une tuile, + en ajoute une."
+#: package/contents/ui/FullView.qml:602
+msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one."
+msgstr "Faites glisser une tuile ou utilisez ses flèches pour la déplacer dans sa section. Clavier : les touches fléchées choisissent une tuile, Espace la prend puis la repose ; sur « + », elle ouvre la liste. × ou Suppr supprime une tuile, + en ajoute une."
 
-#: package/contents/ui/FullView.qml:450 package/contents/ui/FullView.qml:771
+#: package/contents/ui/FullView.qml:606 package/contents/ui/FullView.qml:982
 #: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "Restaurer « %1 »"
 
-#: package/contents/ui/FullView.qml:461
+#: package/contents/ui/FullView.qml:617
 msgid "Done"
 msgstr "Terminé"
 
-#: package/contents/ui/FullView.qml:537 package/contents/ui/FullView.qml:564
+#: package/contents/ui/FullView.qml:699 package/contents/ui/FullView.qml:736
 msgid "Add tile"
 msgstr "Ajouter une tuile"
 
-#: package/contents/ui/FullView.qml:668
+#: package/contents/ui/FullView.qml:879
 msgid "Move left"
 msgstr "Déplacer à gauche"
 
-#: package/contents/ui/FullView.qml:672
+#: package/contents/ui/FullView.qml:883
 msgid "Move right"
 msgstr "Déplacer à droite"
 
-#: package/contents/ui/FullView.qml:686 package/contents/ui/FullView.qml:706
+#: package/contents/ui/FullView.qml:897 package/contents/ui/FullView.qml:917
 msgid "Remove tile"
 msgstr "Supprimer la tuile"
 
-#: package/contents/ui/FullView.qml:765 package/contents/ui/main.qml:494
+#: package/contents/ui/FullView.qml:976 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 est disponible – ouvrir la page de téléchargement"
 
-#: package/contents/ui/FullView.qml:777
+#: package/contents/ui/FullView.qml:988
 msgid "Finish editing"
 msgstr "Terminer la modification"
 
-#: package/contents/ui/FullView.qml:777
+#: package/contents/ui/FullView.qml:988
 msgid "Edit tiles"
 msgstr "Modifier les tuiles"
 
-#: package/contents/ui/FullView.qml:789 package/contents/ui/main.qml:512
+#: package/contents/ui/FullView.qml:1000 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "Restaurer la disposition d'origine"
 
-#: package/contents/ui/FullView.qml:795 package/contents/ui/main.qml:518
+#: package/contents/ui/FullView.qml:1006 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Redresser le widget (tourné de %1°)"
 
-#: package/contents/ui/FullView.qml:802
+#: package/contents/ui/FullView.qml:1013
 msgid "Configure Hardware Tiles …"
 msgstr "Configurer Hardware Tiles …"
 
-#: package/contents/ui/FullView.qml:829
+#: package/contents/ui/FullView.qml:1040
 msgid "Tile style"
 msgstr "Style des tuiles"
 
-#: package/contents/ui/FullView.qml:840
+#: package/contents/ui/FullView.qml:1051
 msgid "Sections per graphics card"
 msgstr "Sections par carte graphique"
 
-#: package/contents/ui/FullView.qml:855
+#: package/contents/ui/FullView.qml:1066
 msgid "Profile"
 msgstr "Profil"
 
-#: package/contents/ui/FullView.qml:858
+#: package/contents/ui/FullView.qml:1069
 msgid "No profiles saved yet"
 msgstr "Aucun profil enregistré"
 
-#: package/contents/ui/FullView.qml:868
+#: package/contents/ui/FullView.qml:1079
 msgid "changed"
 msgstr "modifié"
 
-#: package/contents/ui/FullView.qml:884
+#: package/contents/ui/FullView.qml:1095
 msgid "Manage profiles …"
 msgstr "Gérer les profils …"
 
-#: package/contents/ui/FullView.qml:895
+#: package/contents/ui/FullView.qml:1106
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Astuce : appui long sur un espace vide – déplacer, redimensionner, supprimer le widget"
 
-#: package/contents/ui/FullView.qml:926
+#: package/contents/ui/FullView.qml:1137
 msgid "Edit in settings …"
 msgstr "Modifier dans les paramètres …"
 
-#: package/contents/ui/FullView.qml:975 package/contents/ui/FullView.qml:1107
+#: package/contents/ui/FullView.qml:1186 package/contents/ui/FullView.qml:1320
 #: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
-#: package/contents/ui/FullView.qml:1068
+#: package/contents/ui/FullView.qml:1281
 msgid "Suggestions for your hardware"
 msgstr "Suggestions pour votre matériel"
 
-#: package/contents/ui/FullView.qml:1068
+#: package/contents/ui/FullView.qml:1281
 msgid "No further suggestions"
 msgstr "Aucune autre suggestion"
 
-#: package/contents/ui/FullView.qml:1093
+#: package/contents/ui/FullView.qml:1306
 msgid "Own tile …"
 msgstr "Tuile personnalisée …"
 
-#: package/contents/ui/FullView.qml:1279
+#: package/contents/ui/FullView.qml:1492
 msgid "No sensors configured"
 msgstr "Aucun capteur configuré"
 
-#: package/contents/ui/FullView.qml:1285
+#: package/contents/ui/FullView.qml:1498
 msgid "Configure …"
 msgstr "Configurer …"
 
@@ -2104,59 +2114,59 @@ msgstr "La valeur est de nouveau au-dessus du seuil."
 msgid "The value is below the threshold again."
 msgstr "La valeur est de nouveau sous le seuil."
 
-#: package/contents/ui/SensorTile.qml:155
+#: package/contents/ui/SensorTile.qml:157
 msgid "Fan %1 at %2"
 msgstr "Ventilateur %1 à %2"
 
-#: package/contents/ui/SensorTile.qml:165
+#: package/contents/ui/SensorTile.qml:167
 msgid "Fan stop: the card has switched its fans off because it is cool enough. That is intended."
 msgstr "Arrêt ventilateur : la carte a coupé ses ventilateurs car elle est assez froide. C'est voulu."
 
-#: package/contents/ui/SensorTile.qml:170
+#: package/contents/ui/SensorTile.qml:172
 msgid "Now: %1"
 msgstr "Actuellement : %1"
 
-#: package/contents/ui/SensorTile.qml:187
+#: package/contents/ui/SensorTile.qml:189
 msgid "Critical – below the threshold of %1."
 msgstr "Critique – sous le seuil de %1."
 
-#: package/contents/ui/SensorTile.qml:188
+#: package/contents/ui/SensorTile.qml:190
 msgid "Low – below the warning threshold of %1."
 msgstr "Bas – sous le seuil d’avertissement de %1."
 
-#: package/contents/ui/SensorTile.qml:190
+#: package/contents/ui/SensorTile.qml:192
 msgid "In the normal range between %1 and %2."
 msgstr "Dans la plage normale entre %1 et %2."
 
-#: package/contents/ui/SensorTile.qml:192
+#: package/contents/ui/SensorTile.qml:194
 msgid "In the normal range · warning below %1, critical below %2."
 msgstr "Dans la plage normale · avertissement sous %1, critique sous %2."
 
-#: package/contents/ui/SensorTile.qml:193
+#: package/contents/ui/SensorTile.qml:195
 msgid "In the normal range · warning below %1."
 msgstr "Dans la plage normale · avertissement sous %1."
 
-#: package/contents/ui/SensorTile.qml:193
+#: package/contents/ui/SensorTile.qml:195
 msgid "In the normal range · critical below %1."
 msgstr "Dans la plage normale · critique sous %1."
 
-#: package/contents/ui/SensorTile.qml:195
+#: package/contents/ui/SensorTile.qml:197
 msgid "Critical – above the threshold of %1."
 msgstr "Critique – au-dessus du seuil de %1."
 
-#: package/contents/ui/SensorTile.qml:196
+#: package/contents/ui/SensorTile.qml:198
 msgid "Elevated – above the warning threshold of %1."
 msgstr "Élevée – au-dessus du seuil d'avertissement de %1."
 
-#: package/contents/ui/SensorTile.qml:197
+#: package/contents/ui/SensorTile.qml:199
 msgid "In the normal range · warning from %1, critical from %2."
 msgstr "Dans la plage normale · avertissement à partir de %1, critique à partir de %2."
 
-#: package/contents/ui/SensorTile.qml:198
+#: package/contents/ui/SensorTile.qml:200
 msgid "In the normal range · warning from %1."
 msgstr "Dans la plage normale · avertissement à partir de %1."
 
-#: package/contents/ui/SensorTile.qml:198
+#: package/contents/ui/SensorTile.qml:200
 msgid "In the normal range · critical from %1."
 msgstr "Dans la plage normale · critique à partir de %1."
 
