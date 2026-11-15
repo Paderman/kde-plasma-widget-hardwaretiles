@@ -18,7 +18,22 @@ PlasmoidItem {
     // ---- hardware & chosen GPU ----------------------------------------------
     HardwareProbe { id: probe }
     readonly property alias hardware: probe
-    readonly property var gpu: Hardware.pickGpu(probe.hw, Plasmoid.configuration.gpuAddress)
+    // live preview of the tile settings (ConfigSensors) – stored only with OK / Apply
+    readonly property var layoutPreview: {
+        try { const p = JSON.parse(Plasmoid.configuration.layoutPreview || "null"); return p && typeof p.items === "string" ? p : null; }
+        catch (e) { return null; }
+    }
+    readonly property bool previewing: layoutPreview !== null
+    readonly property string itemsJson: previewing ? layoutPreview.items : Plasmoid.configuration.items
+    readonly property string gpuAddress: previewing ? String(layoutPreview.gpu || "") : Plasmoid.configuration.gpuAddress
+    // tile changes made in the widget itself; ignored during a preview – they
+    // would be based on the previewed tiles and store them behind the settings' back
+    function storeItems(json) {
+        if (previewing) return false;
+        Plasmoid.configuration.items = json;
+        return true;
+    }
+    readonly property var gpu: Hardware.pickGpu(probe.hw, gpuAddress)
     readonly property bool needsSetup: !Plasmoid.configuration.setupDone
     // light colour scheme: warning colours get darker for contrast
     readonly property bool lightTheme: Kirigami.ColorUtils.brightnessForColor(Kirigami.Theme.backgroundColor) === Kirigami.ColorUtils.Light
@@ -27,7 +42,7 @@ PlasmoidItem {
     readonly property var rawItems: {
         // guarantee unique ids even if the config was edited by hand
         const seen = {};
-        return Defaults.parse(Plasmoid.configuration.items).map((it, i) => {
+        return Defaults.parse(itemsJson).map((it, i) => {
             if (seen[it.id]) it.id = it.id + "-" + i;
             seen[it.id] = true;
             return it;
@@ -177,6 +192,7 @@ PlasmoidItem {
         // a size preview left over (settings were open when Plasma stopped)
         Plasmoid.configuration.tileScalePreview = 0;
         Plasmoid.configuration.backgroundOpacityPreview = -1;
+        Plasmoid.configuration.layoutPreview = "";
         // existing widgets already have a layout: don't show the wizard there
         if (!Plasmoid.configuration.setupDone && Plasmoid.configuration.items !== "")
             Plasmoid.configuration.setupDone = true;
@@ -244,7 +260,7 @@ PlasmoidItem {
         const arr = rawItems.slice();
         const it = arr.splice(from, 1)[0];
         arr.splice(to, 0, it);
-        Plasmoid.configuration.items = JSON.stringify(arr);
+        if (!storeItems(JSON.stringify(arr))) return;
     }
 
     // ---- tile context menu: change or remove a single tile -------------------
@@ -254,7 +270,7 @@ PlasmoidItem {
         const it = Object.assign({}, arr[i]);
         it[key] = value;
         arr[i] = it;
-        Plasmoid.configuration.items = JSON.stringify(arr);
+        if (!storeItems(JSON.stringify(arr))) return;
     }
     // undoRemove: { items: JSON before, after: JSON after, label } – only valid while
     // nothing else changed the tiles in between
@@ -265,7 +281,7 @@ PlasmoidItem {
         const before = Plasmoid.configuration.items;
         const arr = rawItems.slice();
         arr.splice(i, 1);
-        Plasmoid.configuration.items = JSON.stringify(arr);
+        if (!storeItems(JSON.stringify(arr))) return;
         undoRemove = { items: before, after: Plasmoid.configuration.items, label: label || "" };
     }
     // open the settings at this tile (ConfigSensors reads editTile)
@@ -279,7 +295,7 @@ PlasmoidItem {
         if (!canUndoRemove) return;
         const json = undoRemove.items;
         undoRemove = null;
-        Plasmoid.configuration.items = json;
+        if (!storeItems(json)) return;
     }
 
     // ---- adding tiles in the widget ("Edit tiles" mode) ---------------------
@@ -323,7 +339,7 @@ PlasmoidItem {
         it.id = Defaults.newId();
         const arr = rawItems.slice();
         arr.push(Defaults.normalize(it, arr.length));
-        Plasmoid.configuration.items = JSON.stringify(arr);
+        if (!storeItems(JSON.stringify(arr))) return;
         return arr.length - 1;
     }
     // own tile: the settings add it as an unsaved change (Cancel leaves nothing
@@ -376,7 +392,7 @@ PlasmoidItem {
         JSON.stringify(idsOf(sortedBy(resetTarget))) !== JSON.stringify(idsOf(rawItems))
 
     function applyOrder(ids) {
-        Plasmoid.configuration.items = JSON.stringify(sortedBy(ids));
+        if (!storeItems(JSON.stringify(sortedBy(ids)))) return;
     }
     function undoMove() {
         if (!undoOrder) return;

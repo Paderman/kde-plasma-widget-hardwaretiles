@@ -42,6 +42,8 @@
     <entry name="backgroundOpacity" type="Int"><default>100</default></entry>
     <!-- live preview while the settings are open; -1 = none -->
     <entry name="backgroundOpacityPreview" type="Int"><default>-1</default></entry>
+    <!-- tiles and main card while the settings are open: {"items":…,"gpu":…}; empty = none -->
+    <entry name="layoutPreview" type="String"><default></default></entry>
     <entry name="panelShowLabels" type="Bool"><default>false</default></entry>
     <entry name="panelShowRings" type="Bool"><default>true</default></entry>
     <!-- JSON array of tile ids: order before the first manual move (target of "reset") -->

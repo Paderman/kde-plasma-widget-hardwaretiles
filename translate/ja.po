@@ -30,7 +30,7 @@ msgid "Appearance"
 msgstr "外観"
 
 #: package/contents/config/config.qml:24
-#: package/contents/ui/ConfigSensors.qml:67
+#: package/contents/ui/ConfigSensors.qml:76
 msgid "Profiles"
 msgstr "プロファイル"
 
@@ -493,309 +493,309 @@ msgstr "すべてエクスポート…"
 msgid "Exported files can be imported on another computer. Tiles of a graphics card that computer does not have are moved to a card of the same maker; learned fan curves are not part of a profile."
 msgstr "エクスポートしたファイルは別のコンピューターでインポートできます。そのコンピューターにないグラフィックカードのタイルは同じメーカーのカードに移ります。学習したファンカーブはプロファイルに含まれません。"
 
-#: package/contents/ui/ConfigSensors.qml:31
+#: package/contents/ui/ConfigSensors.qml:40
 #: package/contents/ui/FullView.qml:714
 msgid "Ring"
 msgstr "リング"
 
-#: package/contents/ui/ConfigSensors.qml:32
+#: package/contents/ui/ConfigSensors.qml:41
 #: package/contents/ui/FullView.qml:719
 msgid "Bar"
 msgstr "バー"
 
-#: package/contents/ui/ConfigSensors.qml:33
+#: package/contents/ui/ConfigSensors.qml:42
 #: package/contents/ui/FullView.qml:724
 msgid "History graph"
 msgstr "履歴グラフ"
 
-#: package/contents/ui/ConfigSensors.qml:34
+#: package/contents/ui/ConfigSensors.qml:43
 #: package/contents/ui/FullView.qml:729
 msgid "Value only"
 msgstr "値のみ"
 
-#: package/contents/ui/ConfigSensors.qml:35
+#: package/contents/ui/ConfigSensors.qml:44
 msgid "Fan curve"
 msgstr "ファンカーブ"
 
-#: package/contents/ui/ConfigSensors.qml:99
+#: package/contents/ui/ConfigSensors.qml:109
 msgid "New tile"
 msgstr "新しいタイル"
 
-#: package/contents/ui/ConfigSensors.qml:178
+#: package/contents/ui/ConfigSensors.qml:188
 msgid "Main card (%1)"
 msgstr "メインカード(%1)"
 
-#: package/contents/ui/ConfigSensors.qml:185
+#: package/contents/ui/ConfigSensors.qml:195
 msgid "System overview"
 msgstr "システム概要"
 
-#: package/contents/ui/ConfigSensors.qml:186
+#: package/contents/ui/ConfigSensors.qml:196
 msgid "Default tiles for your hardware: graphics card, processor, memory, SSDs, fans"
 msgstr "お使いのハードウェア向けの既定タイル: グラフィックカード、プロセッサー、メモリ、SSD、ファン"
 
-#: package/contents/ui/ConfigSensors.qml:189
+#: package/contents/ui/ConfigSensors.qml:199
 msgid "All graphics cards"
 msgstr "すべてのグラフィックカード"
 
-#: package/contents/ui/ConfigSensors.qml:190
+#: package/contents/ui/ConfigSensors.qml:200
 msgid "One section per graphics card, plus comparison tiles and system"
 msgstr "グラフィックカードごとのセクションと、比較タイルおよびシステム"
 
-#: package/contents/ui/ConfigSensors.qml:193
+#: package/contents/ui/ConfigSensors.qml:203
 msgid "GPU focus"
 msgstr "GPU 重視"
 
-#: package/contents/ui/ConfigSensors.qml:194
+#: package/contents/ui/ConfigSensors.qml:204
 msgid "Only the selected graphics card, with all of its values"
 msgstr "選択したグラフィックカードのみ、すべての値を表示"
 
-#: package/contents/ui/ConfigSensors.qml:199
+#: package/contents/ui/ConfigSensors.qml:209
 msgid "Setup wizard"
 msgstr "セットアップウィザード"
 
-#: package/contents/ui/ConfigSensors.qml:241
+#: package/contents/ui/ConfigSensors.qml:251
 msgid "Layout:"
 msgstr "レイアウト:"
 
-#: package/contents/ui/ConfigSensors.qml:251
+#: package/contents/ui/ConfigSensors.qml:261
 msgid "(modified)"
 msgstr "(変更あり)"
 
-#: package/contents/ui/ConfigSensors.qml:257
+#: package/contents/ui/ConfigSensors.qml:267
 msgid "Is loaded and unchanged."
 msgstr "読み込み済み・未変更。"
 
-#: package/contents/ui/ConfigSensors.qml:258
+#: package/contents/ui/ConfigSensors.qml:268
 msgid "Clicking restores the template – your changes will be lost."
 msgstr "クリックでテンプレートを復元します – 変更内容は失われます。"
 
-#: package/contents/ui/ConfigSensors.qml:259
+#: package/contents/ui/ConfigSensors.qml:269
 msgid "Clicking replaces all tiles with this template."
 msgstr "クリックですべてのタイルをこのテンプレートに置き換えます。"
 
-#: package/contents/ui/ConfigSensors.qml:281
+#: package/contents/ui/ConfigSensors.qml:291
 msgid "Created by the setup wizard – unchanged."
 msgstr "セットアップウィザードで作成 – 未変更。"
 
-#: package/contents/ui/ConfigSensors.qml:282
+#: package/contents/ui/ConfigSensors.qml:292
 msgid "Template “%1” is loaded – unchanged."
 msgstr "テンプレート「%1」を読み込み済み – 未変更。"
 
-#: package/contents/ui/ConfigSensors.qml:284
+#: package/contents/ui/ConfigSensors.qml:294
 msgid "Customised: based on “%1”, tiles have been changed."
 msgstr "変更あり: 「%1」をもとにタイルが変更されています。"
 
-#: package/contents/ui/ConfigSensors.qml:285
+#: package/contents/ui/ConfigSensors.qml:295
 msgid "Custom layout."
 msgstr "カスタムレイアウト。"
 
-#: package/contents/ui/ConfigSensors.qml:293
-msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was."
-msgstr "テンプレートはすべてのタイルを置き換えます – 「システム概要」でお使いのハードウェア向けの既定タイルに戻ります。「適用」を押すまで反映されず、「キャンセル」で元に戻ります。"
+#: package/contents/ui/ConfigSensors.qml:303
+msgid "A template replaces all tiles – “System overview” restores the default tiles for your hardware. The widget shows every change right away as a preview; it is saved only with “Apply”, “Cancel” keeps everything as it was."
+msgstr "テンプレートはすべてのタイルを置き換えます – 「システム概要」でお使いのハードウェア向けの既定タイルに戻ります。変更はすぐにウィジェットでプレビューされます。保存は「適用」を押したときのみで、「キャンセル」で元に戻ります。"
 
-#: package/contents/ui/ConfigSensors.qml:305
+#: package/contents/ui/ConfigSensors.qml:315
 msgid "Main card:"
 msgstr "メインカード:"
 
-#: package/contents/ui/ConfigSensors.qml:305
-#: package/contents/ui/ConfigSensors.qml:432
+#: package/contents/ui/ConfigSensors.qml:315
+#: package/contents/ui/ConfigSensors.qml:442
 msgid "Graphics card:"
 msgstr "グラフィックカード:"
 
-#: package/contents/ui/ConfigSensors.qml:315
+#: package/contents/ui/ConfigSensors.qml:325
 msgid "Searching …"
 msgstr "検索中 …"
 
-#: package/contents/ui/ConfigSensors.qml:315
+#: package/contents/ui/ConfigSensors.qml:325
 msgid "No supported graphics card found"
 msgstr "対応するグラフィックカードが見つかりません"
 
-#: package/contents/ui/ConfigSensors.qml:321
+#: package/contents/ui/ConfigSensors.qml:331
 msgid "Search again"
 msgstr "再検索"
 
-#: package/contents/ui/ConfigSensors.qml:331
+#: package/contents/ui/ConfigSensors.qml:341
 msgid "GPU tiles without their own assignment show this card. Each tile can be set to another card below – or the “All graphics cards” layout (above) creates a separate section for each card."
 msgstr "個別に割り当てていない GPU タイルはこのカードを表示します。下で各タイルを別のカードに割り当てることもできます – または「すべてのグラフィックカード」レイアウト(上)でカードごとのセクションを作成できます。"
 
-#: package/contents/ui/ConfigSensors.qml:332
+#: package/contents/ui/ConfigSensors.qml:342
 msgid "All GPU tiles refer to this card."
 msgstr "すべての GPU タイルはこのカードを参照します。"
 
-#: package/contents/ui/ConfigSensors.qml:338
+#: package/contents/ui/ConfigSensors.qml:348
 msgid "Start setup wizard"
 msgstr "セットアップウィザードを起動"
 
-#: package/contents/ui/ConfigSensors.qml:345
+#: package/contents/ui/ConfigSensors.qml:355
 msgid "Appears in the widget after “Apply”."
 msgstr "「適用」後にウィジェットに表示されます。"
 
-#: package/contents/ui/ConfigSensors.qml:356
+#: package/contents/ui/ConfigSensors.qml:366
 msgid "Sources: system sensors (ksystemstats – CPU, fans, NVMe, RAM …), NVIDIA values directly from nvidia-smi, or a shell command. On AMD GPUs the VRAM temperature is listed under “amdgpu … mem”. Tiles can also be edited directly in the widget: right-click → “Edit tiles”."
 msgstr "ソース: システムセンサー(ksystemstats – CPU、ファン、NVMe、RAM …)、nvidia-smi から直接取得する NVIDIA の値、またはシェルコマンド。AMD GPU では VRAM 温度は「amdgpu … mem」として表示されます。タイルはウィジェット上でも直接編集できます: 右クリック → 「タイルを編集」。"
 
-#: package/contents/ui/ConfigSensors.qml:395
+#: package/contents/ui/ConfigSensors.qml:405
 msgid "Label (empty = automatic)"
 msgstr "ラベル(空欄 = 自動)"
 
-#: package/contents/ui/ConfigSensors.qml:403
+#: package/contents/ui/ConfigSensors.qml:413
 msgid "Move up"
 msgstr "上へ"
 
-#: package/contents/ui/ConfigSensors.qml:409
+#: package/contents/ui/ConfigSensors.qml:419
 msgid "Move down"
 msgstr "下へ"
 
-#: package/contents/ui/ConfigSensors.qml:419
+#: package/contents/ui/ConfigSensors.qml:429
 msgid "Duplicate"
 msgstr "複製"
 
-#: package/contents/ui/ConfigSensors.qml:424
+#: package/contents/ui/ConfigSensors.qml:434
 msgid "Remove"
 msgstr "削除"
 
-#: package/contents/ui/ConfigSensors.qml:445
+#: package/contents/ui/ConfigSensors.qml:455
 msgid "Not found (PCI %1)"
 msgstr "見つかりません(PCI %1)"
 
-#: package/contents/ui/ConfigSensors.qml:449
+#: package/contents/ui/ConfigSensors.qml:459
 msgid "Compare all cards"
 msgstr "すべてのカードを比較"
 
-#: package/contents/ui/ConfigSensors.qml:453
+#: package/contents/ui/ConfigSensors.qml:463
 msgid "Shows the value of every graphics card in this tile – ring: one arc per card, graph: one line per card, bar/value: one row per card."
 msgstr "このタイルに各グラフィックカードの値を表示します – リング: カードごとに 1 本の弧、グラフ: カードごとに 1 本の線、バー/値: カードごとに 1 行。"
 
-#: package/contents/ui/ConfigSensors.qml:461
+#: package/contents/ui/ConfigSensors.qml:471
 msgid "Temperature (X):"
 msgstr "温度(X):"
 
-#: package/contents/ui/ConfigSensors.qml:461
+#: package/contents/ui/ConfigSensors.qml:471
 #: package/contents/ui/SourceEditor.qml:19
 msgid "Source:"
 msgstr "ソース:"
 
-#: package/contents/ui/ConfigSensors.qml:474
+#: package/contents/ui/ConfigSensors.qml:484
 msgid "Fan (Y):"
 msgstr "ファン(Y):"
 
-#: package/contents/ui/ConfigSensors.qml:494
+#: package/contents/ui/ConfigSensors.qml:504
 msgid "Total value:"
 msgstr "合計値:"
 
-#: package/contents/ui/ConfigSensors.qml:513
+#: package/contents/ui/ConfigSensors.qml:523
 msgid "Optional, e.g. “Total VRAM” → shows “1.0 / 10 GiB” and sets the maximum for bar/ring. NVIDIA values bring their total automatically."
 msgstr "任意、例: 「VRAM 合計」→「1.0 / 10 GiB」と表示し、バー/リングの最大値を設定します。NVIDIA の値には合計値が自動で含まれます。"
 
-#: package/contents/ui/ConfigSensors.qml:521
+#: package/contents/ui/ConfigSensors.qml:531
 msgid "Style:"
 msgstr "スタイル:"
 
-#: package/contents/ui/ConfigSensors.qml:536
+#: package/contents/ui/ConfigSensors.qml:546
 #: package/contents/ui/FullView.qml:734
 msgid "Double width"
 msgstr "2 倍幅"
 
-#: package/contents/ui/ConfigSensors.qml:541
+#: package/contents/ui/ConfigSensors.qml:551
 msgid "In panel"
 msgstr "パネルに表示"
 
-#: package/contents/ui/ConfigSensors.qml:546
+#: package/contents/ui/ConfigSensors.qml:556
 msgid "Notify"
 msgstr "通知"
 
-#: package/contents/ui/ConfigSensors.qml:550
+#: package/contents/ui/ConfigSensors.qml:560
 msgid "Desktop notification when a threshold is exceeded"
 msgstr "しきい値を超えたらデスクトップ通知"
 
-#: package/contents/ui/ConfigSensors.qml:557
+#: package/contents/ui/ConfigSensors.qml:567
 msgid "Accent colour"
 msgstr "アクセントカラー"
 
-#: package/contents/ui/ConfigSensors.qml:563
+#: package/contents/ui/ConfigSensors.qml:573
 msgid "Automatic colour"
 msgstr "自動カラー"
 
-#: package/contents/ui/ConfigSensors.qml:567
+#: package/contents/ui/ConfigSensors.qml:577
 msgid "Temperature axis:"
 msgstr "温度軸:"
 
-#: package/contents/ui/ConfigSensors.qml:567
+#: package/contents/ui/ConfigSensors.qml:577
 msgid "Range:"
 msgstr "範囲:"
 
-#: package/contents/ui/ConfigSensors.qml:570
+#: package/contents/ui/ConfigSensors.qml:580
 msgid "Min"
 msgstr "最小"
 
-#: package/contents/ui/ConfigSensors.qml:577
+#: package/contents/ui/ConfigSensors.qml:587
 msgid "Max"
 msgstr "最大"
 
-#: package/contents/ui/ConfigSensors.qml:582
-#: package/contents/ui/ConfigSensors.qml:583
 #: package/contents/ui/ConfigSensors.qml:592
 #: package/contents/ui/ConfigSensors.qml:593
+#: package/contents/ui/ConfigSensors.qml:602
+#: package/contents/ui/ConfigSensors.qml:603
 msgid "auto"
 msgstr "自動"
 
-#: package/contents/ui/ConfigSensors.qml:586
+#: package/contents/ui/ConfigSensors.qml:596
 msgid "Fan max"
 msgstr "ファン最大"
 
-#: package/contents/ui/ConfigSensors.qml:598
+#: package/contents/ui/ConfigSensors.qml:608
 msgid "Thresholds:"
 msgstr "しきい値:"
 
-#: package/contents/ui/ConfigSensors.qml:611
-#: package/contents/ui/ConfigSensors.qml:612
-#: package/contents/ui/ConfigSensors.qml:620
 #: package/contents/ui/ConfigSensors.qml:621
+#: package/contents/ui/ConfigSensors.qml:622
+#: package/contents/ui/ConfigSensors.qml:630
+#: package/contents/ui/ConfigSensors.qml:631
 msgid "off"
 msgstr "オフ"
 
-#: package/contents/ui/ConfigSensors.qml:627
+#: package/contents/ui/ConfigSensors.qml:637
 #, no-javascript-format
 msgid "in % of the total value"
 msgstr "合計値に対する %"
 
-#: package/contents/ui/ConfigSensors.qml:631
+#: package/contents/ui/ConfigSensors.qml:641
 #, no-javascript-format
 msgid "The thresholds count as a share of the total value – e.g. 85 % of the installed memory. They then fit every computer, whatever its size."
 msgstr "しきい値は合計値に対する割合として扱われます – 例: 搭載メモリの 85 %。どのような構成のコンピューターにも合います。"
 
-#: package/contents/ui/ConfigSensors.qml:637
+#: package/contents/ui/ConfigSensors.qml:647
 msgid "Reference curve:"
 msgstr "参照カーブ:"
 
-#: package/contents/ui/ConfigSensors.qml:654
+#: package/contents/ui/ConfigSensors.qml:664
 msgid "Optional: points “temperature:fan”, drawn dashed – e.g. your curve from GreenWithEnvy or CoolerControl. The solid line is learned by the widget from the measurements."
 msgstr "任意: 「温度:ファン」の点を破線で描画します – 例えば GreenWithEnvy や CoolerControl のカーブ。実線はウィジェットが測定値から自動で作成します。"
 
-#: package/contents/ui/ConfigSensors.qml:666
+#: package/contents/ui/ConfigSensors.qml:676
 msgid "Add sensor"
 msgstr "センサーを追加"
 
-#: package/contents/ui/ConfigSensors.qml:671
+#: package/contents/ui/ConfigSensors.qml:681
 msgid "Template …"
 msgstr "テンプレート …"
 
-#: package/contents/ui/ConfigSensors.qml:676
+#: package/contents/ui/ConfigSensors.qml:686
 msgid "GPU comparison: temperature (ring)"
 msgstr "GPU 比較: 温度(リング)"
 
-#: package/contents/ui/ConfigSensors.qml:678
+#: package/contents/ui/ConfigSensors.qml:688
 #: package/contents/ui/Hardware.js:255 package/contents/ui/Hardware.js:260
 #: package/contents/ui/Hardware.js:316 package/contents/ui/Hardware.js:323
 #: package/contents/ui/Hardware.js:336 package/contents/ui/NvidiaKeys.js:22
 msgid "GPU temperature"
 msgstr "GPU 温度"
 
-#: package/contents/ui/ConfigSensors.qml:681
+#: package/contents/ui/ConfigSensors.qml:691
 msgid "GPU comparison: load (graph)"
 msgstr "GPU 比較: 使用率(グラフ)"
 
-#: package/contents/ui/ConfigSensors.qml:683
+#: package/contents/ui/ConfigSensors.qml:693
 #: package/contents/ui/Hardware.js:256 package/contents/ui/Hardware.js:261
 #: package/contents/ui/Hardware.js:319 package/contents/ui/Hardware.js:326
 #: package/contents/ui/Hardware.js:332 package/contents/ui/Hardware.js:337
@@ -804,88 +804,88 @@ msgstr "GPU 比較: 使用率(グラフ)"
 msgid "GPU load"
 msgstr "GPU 使用率"
 
-#: package/contents/ui/ConfigSensors.qml:686
+#: package/contents/ui/ConfigSensors.qml:696
 msgid "GPU comparison: power (bar)"
 msgstr "GPU 比較: 消費電力(バー)"
 
-#: package/contents/ui/ConfigSensors.qml:688
+#: package/contents/ui/ConfigSensors.qml:698
 #: package/contents/ui/Hardware.js:257 package/contents/ui/Hardware.js:262
 #: package/contents/ui/Hardware.js:320 package/contents/ui/Hardware.js:327
 #: package/contents/ui/Hardware.js:334
 msgid "GPU power"
 msgstr "GPU 消費電力"
 
-#: package/contents/ui/ConfigSensors.qml:690
+#: package/contents/ui/ConfigSensors.qml:700
 #: package/contents/ui/Hardware.js:351 package/contents/ui/Hardware.js:361
 msgid "GPU fan curve"
 msgstr "GPU ファンカーブ"
 
-#: package/contents/ui/ConfigSensors.qml:691
+#: package/contents/ui/ConfigSensors.qml:701
 msgid "VRAM temperature (gddr6, NVIDIA)"
 msgstr "VRAM 温度(gddr6、NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:691
+#: package/contents/ui/ConfigSensors.qml:701
 #: package/contents/ui/Hardware.js:318 package/contents/ui/Hardware.js:325
 msgid "VRAM temperature"
 msgstr "VRAM 温度"
 
-#: package/contents/ui/ConfigSensors.qml:692
+#: package/contents/ui/ConfigSensors.qml:702
 msgid "VRAM used / total (NVIDIA)"
 msgstr "VRAM 使用量 / 合計(NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:692
+#: package/contents/ui/ConfigSensors.qml:702
 #: package/contents/ui/Hardware.js:258 package/contents/ui/Hardware.js:263
 #: package/contents/ui/Hardware.js:321 package/contents/ui/Hardware.js:328
 #: package/contents/ui/Hardware.js:338 package/contents/ui/NvidiaKeys.js:38
 msgid "VRAM used"
 msgstr "VRAM 使用量"
 
-#: package/contents/ui/ConfigSensors.qml:693
+#: package/contents/ui/ConfigSensors.qml:703
 msgid "GPU throttling (NVIDIA)"
 msgstr "GPU スロットリング(NVIDIA)"
 
-#: package/contents/ui/ConfigSensors.qml:693
+#: package/contents/ui/ConfigSensors.qml:703
 #: package/contents/ui/Hardware.js:357 package/contents/ui/NvidiaKeys.js:42
 msgid "Throttling"
 msgstr "スロットリング"
 
-#: package/contents/ui/ConfigSensors.qml:694
+#: package/contents/ui/ConfigSensors.qml:704
 msgid "CPU temperature (max.)"
 msgstr "CPU 温度(最大)"
 
-#: package/contents/ui/ConfigSensors.qml:694
+#: package/contents/ui/ConfigSensors.qml:704
 #: package/contents/ui/Hardware.js:379
 msgid "CPU temperature"
 msgstr "CPU 温度"
 
-#: package/contents/ui/ConfigSensors.qml:695
+#: package/contents/ui/ConfigSensors.qml:705
 msgid "CPU power (power service)"
 msgstr "CPU 消費電力（電力サービス）"
 
-#: package/contents/ui/ConfigSensors.qml:695
+#: package/contents/ui/ConfigSensors.qml:705
 #: package/contents/ui/Hardware.js:381
 msgid "CPU power"
 msgstr "CPU 消費電力"
 
-#: package/contents/ui/ConfigSensors.qml:696
+#: package/contents/ui/ConfigSensors.qml:706
 msgid "CPU usage (graph)"
 msgstr "CPU 使用率(グラフ)"
 
-#: package/contents/ui/ConfigSensors.qml:696
+#: package/contents/ui/ConfigSensors.qml:706
 #: package/contents/ui/Hardware.js:382
 msgid "CPU load"
 msgstr "CPU 使用率"
 
-#: package/contents/ui/ConfigSensors.qml:697
+#: package/contents/ui/ConfigSensors.qml:707
 #: package/contents/ui/Hardware.js:229 package/contents/ui/Hardware.js:386
 msgid "Memory"
 msgstr "メモリ"
 
-#: package/contents/ui/ConfigSensors.qml:698
+#: package/contents/ui/ConfigSensors.qml:708
 msgid "Network download"
 msgstr "ネットワーク受信"
 
-#: package/contents/ui/ConfigSensors.qml:698
+#: package/contents/ui/ConfigSensors.qml:708
 #: package/contents/ui/Hardware.js:403
 msgid "Download"
 msgstr "受信"
@@ -1143,12 +1143,12 @@ msgid "Drag a tile to move it within its section. × removes a tile, + adds one.
 msgstr "タイルをドラッグするとセクション内で移動できます。× でタイルを削除、+ で追加します。"
 
 #: package/contents/ui/FullView.qml:336 package/contents/ui/FullView.qml:553
-#: package/contents/ui/main.qml:433
+#: package/contents/ui/main.qml:449
 msgid "Restore “%1”"
 msgstr "「%1」を復元"
 
 #: package/contents/ui/FullView.qml:342 package/contents/ui/FullView.qml:565
-#: package/contents/ui/main.qml:439
+#: package/contents/ui/main.qml:455
 msgid "Undo last move"
 msgstr "最後の移動を元に戻す"
 
@@ -1164,7 +1164,7 @@ msgstr "タイルを追加"
 msgid "Remove tile"
 msgstr "タイルを削除"
 
-#: package/contents/ui/FullView.qml:547 package/contents/ui/main.qml:427
+#: package/contents/ui/FullView.qml:547 package/contents/ui/main.qml:443
 msgid "Sensor Deck %1 is available – open download page"
 msgstr "Sensor Deck %1 が利用可能です – ダウンロードページを開く"
 
@@ -1176,7 +1176,7 @@ msgstr "編集を終了"
 msgid "Edit tiles"
 msgstr "タイルを編集"
 
-#: package/contents/ui/FullView.qml:571 package/contents/ui/main.qml:445
+#: package/contents/ui/FullView.qml:571 package/contents/ui/main.qml:461
 msgid "Restore original arrangement"
 msgstr "元の配置に戻す"
 
@@ -1217,7 +1217,7 @@ msgid "Edit in settings …"
 msgstr "設定で編集 …"
 
 #: package/contents/ui/FullView.qml:750 package/contents/ui/FullView.qml:812
-#: package/contents/ui/main.qml:464
+#: package/contents/ui/main.qml:480
 msgid "Sensor Deck"
 msgstr "Sensor Deck"
 
@@ -1396,15 +1396,15 @@ msgstr "ケース温度"
 msgid "Upload"
 msgstr "送信"
 
-#: package/contents/ui/main.qml:55
+#: package/contents/ui/main.qml:70
 msgid "Graphics card"
 msgstr "グラフィックカード"
 
-#: package/contents/ui/main.qml:56
+#: package/contents/ui/main.qml:71
 msgid "Graphics card %1 (not found)"
 msgstr "グラフィックカード %1(見つかりません)"
 
-#: package/contents/ui/main.qml:57
+#: package/contents/ui/main.qml:72
 msgid "Graphics card %1"
 msgstr "グラフィックカード %1"
 

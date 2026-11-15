@@ -24,6 +24,15 @@ KCM.SimpleKCM {
     property string cfg_layoutHash
     property string cfg_editTile
 
+    // live preview: unsaved tiles and main card show in the widget right away;
+    // stored only with OK / Apply, "Cancel" (closing) brings back the saved state
+    property bool previewOn: false
+    readonly property string previewJson: previewOn && (cfg_items !== Plasmoid.configuration.items
+                                                        || cfg_gpuAddress !== Plasmoid.configuration.gpuAddress)
+        ? JSON.stringify({ items: cfg_items, gpu: cfg_gpuAddress }) : ""
+    onPreviewJsonChanged: if (Plasmoid.configuration.layoutPreview !== previewJson) Plasmoid.configuration.layoutPreview = previewJson
+    Component.onDestruction: Plasmoid.configuration.layoutPreview = ""
+
     HardwareProbe { id: probe }
     readonly property var gpu: Hardware.pickGpu(probe.hw, cfg_gpuAddress)
 
@@ -89,6 +98,7 @@ KCM.SimpleKCM {
     }
     function startPage() {
         load(Defaults.parse(cfg_items), false);
+        previewOn = true;
         const m = /^(.*)@(\d+)$/.exec(cfg_editTile || "");
         if (!m || Date.now() - parseInt(m[2]) >= 15000) return;
         const nw = /^new:(.*)$/.exec(m[1]);
@@ -250,9 +260,16 @@ KCM.SimpleKCM {
                                 readonly property bool active: isBase && page.layoutUnchanged
                                 text: modelData.text + (isBase && !page.layoutUnchanged ? " " + i18n("(modified)") : "")
                                 icon.name: active ? "checkmark" : modelData.icon
-                                highlighted: active
+                                // Breeze draws a button pressed in only when it is checkable;
+                                // "highlighted" is just a focus-like frame that comes and goes
+                                checkable: true
+                                checked: active
                                 enabled: modelData.ok
-                                onClicked: page.loadPreset(modelData)
+                                onClicked: {
+                                    page.loadPreset(modelData);
+                                    // clicking toggles "checked" and breaks the binding – restore it
+                                    checked = Qt.binding(() => active);
+                                }
                                 QQC2.ToolTip.text: modelData.hint + "\n" + (active
                                     ? i18n("Is loaded and unchanged.")
                                     : isBase ? i18n("Clicking restores the template – your changes will be lost.")
@@ -290,7 +307,7 @@ KCM.SimpleKCM {
                     wrapMode: Text.WordWrap
                     opacity: 0.6
                     font: Kirigami.Theme.smallFont
-                    text: i18n("A template replaces all tiles – “System overview” restores the default tiles for your hardware. It takes effect only after “Apply”, “Cancel” keeps everything as it was.")
+                    text: i18n("A template replaces all tiles – “System overview” restores the default tiles for your hardware. The widget shows every change right away as a preview; it is saved only with “Apply”, “Cancel” keeps everything as it was.")
                 }
             }
         }
