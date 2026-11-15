@@ -15,6 +15,9 @@ import "NvidiaKeys.js" as NK
 
 KCM.SimpleKCM {
     id: page
+    // the settings page itself – inside a ResetHandler, "page" means its own
+    // property (the tile's defaults), so its texts use this name
+    readonly property var sensorsPage: page
 
     property string cfg_items
     property string cfg_gpuAddress
@@ -565,7 +568,7 @@ KCM.SimpleKCM {
                             visible: !cardDelegate.isCurve && (cardDelegate.model.source === "sensor" || !cardDelegate.model.source)
                             ResetHandler {
                                 page: tileDefaults; keys: ["refSensorId"]
-                                valueText: tileDefaults.defaults.refSensorId ? page.shown(tileDefaults.defaults.refSensorId, cardDelegate.model.gpu) : i18n("none")
+                                valueText: tileDefaults.defaults.refSensorId ? sensorsPage.shown(tileDefaults.defaults.refSensorId, cardDelegate.model.gpu) : i18n("none")
                             }
                         }
                         ColumnLayout {
@@ -596,7 +599,7 @@ KCM.SimpleKCM {
                             text: i18n("Style:")
                             ResetHandler {
                                 page: tileDefaults; keys: ["style", "wide", "showInPanel", "notify", "color"]
-                                valueText: page.styleText(tileDefaults.defaults.style)
+                                valueText: sensorsPage.styleText(tileDefaults.defaults.style)
                             }
                         }
                         RowLayout {
@@ -606,7 +609,7 @@ KCM.SimpleKCM {
                                 model: page.styles
                                 textRole: "text"
                                 currentIndex: Math.max(0, page.styles.findIndex(s => s.value === cardDelegate.model.style))
-                                ResetHandler { page: tileDefaults; keys: ["style"]; valueText: page.styleText(tileDefaults.defaults.style) }
+                                ResetHandler { page: tileDefaults; keys: ["style"]; valueText: sensorsPage.styleText(tileDefaults.defaults.style) }
                                 onActivated: (i) => {
                                     const st = page.styles[i].value;
                                     page.set(cardDelegate.index, "style", st);
@@ -654,7 +657,7 @@ KCM.SimpleKCM {
                             text: cardDelegate.isCurve ? i18n("Temperature axis:") : i18n("Range:")
                             ResetHandler {
                                 page: tileDefaults; keys: ["min", "max", "yMax"]
-                                valueText: i18n("min %1, max %2", tileDefaults.defaults.min, page.autoText(tileDefaults.defaults.max))
+                                valueText: i18n("min %1, max %2", tileDefaults.defaults.min, sensorsPage.autoText(tileDefaults.defaults.max))
                             }
                         }
                         RowLayout {
@@ -677,7 +680,7 @@ KCM.SimpleKCM {
                                 valueFromText: (t) => t === i18n("auto") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "max", value)
                                 // Breeze spin boxes have no menu of their own: right click is free here
-                                ResetHandler { page: tileDefaults; keys: ["max"]; valueText: page.autoText(tileDefaults.defaults.max) }
+                                ResetHandler { page: tileDefaults; keys: ["max"]; valueText: sensorsPage.autoText(tileDefaults.defaults.max) }
                             }
                             QQC2.Label { text: i18n("Fan max"); opacity: 0.7; visible: cardDelegate.isCurve }
                             QQC2.SpinBox {
@@ -689,7 +692,7 @@ KCM.SimpleKCM {
                                 valueFromText: (t) => t === i18n("auto") ? 0 : parseInt(t)
                                 onValueModified: page.set(cardDelegate.index, "yMax", value)
                                 // Breeze spin boxes have no menu of their own: right click is free here
-                                ResetHandler { page: tileDefaults; keys: ["yMax"]; valueText: page.autoText(tileDefaults.defaults.yMax) }
+                                ResetHandler { page: tileDefaults; keys: ["yMax"]; valueText: sensorsPage.autoText(tileDefaults.defaults.yMax) }
                             }
                         }
 
@@ -699,8 +702,8 @@ KCM.SimpleKCM {
                                 page: tileDefaults; keys: ["warn", "crit", "relThresholds"]
                                 readonly property string pct: tileDefaults.defaults.relThresholds ? " %" : ""
                                 valueText: i18n("warning %1, critical %2",
-                                                page.offText(tileDefaults.defaults.warn) + (Number(tileDefaults.defaults.warn) ? pct : ""),
-                                                page.offText(tileDefaults.defaults.crit) + (Number(tileDefaults.defaults.crit) ? pct : ""))
+                                                sensorsPage.offText(tileDefaults.defaults.warn) + (Number(tileDefaults.defaults.warn) ? pct : ""),
+                                                sensorsPage.offText(tileDefaults.defaults.crit) + (Number(tileDefaults.defaults.crit) ? pct : ""))
                             }
                         }
                         RowLayout {
@@ -735,7 +738,7 @@ KCM.SimpleKCM {
                                 valueFromText: (t) => thresholdRow.parse(t)
                                 onValueModified: page.set(cardDelegate.index, "warn", value / thresholdRow.factor)
                                 // Breeze spin boxes have no menu of their own: right click is free here
-                                ResetHandler { page: tileDefaults; keys: ["warn"]; valueText: page.offText(tileDefaults.defaults.warn) }
+                                ResetHandler { page: tileDefaults; keys: ["warn"]; valueText: sensorsPage.offText(tileDefaults.defaults.warn) }
                             }
                             Rectangle { width: 10; height: 10; radius: 5; color: "#ff4d6d" }
                             QQC2.SpinBox {
@@ -749,7 +752,7 @@ KCM.SimpleKCM {
                                 valueFromText: (t) => thresholdRow.parse(t)
                                 onValueModified: page.set(cardDelegate.index, "crit", value / thresholdRow.factor)
                                 // Breeze spin boxes have no menu of their own: right click is free here
-                                ResetHandler { page: tileDefaults; keys: ["crit"]; valueText: page.offText(tileDefaults.defaults.crit) }
+                                ResetHandler { page: tileDefaults; keys: ["crit"]; valueText: sensorsPage.offText(tileDefaults.defaults.crit) }
                             }
                             QQC2.CheckBox {
                                 visible: thresholdRow.hasTotal
@@ -770,7 +773,7 @@ KCM.SimpleKCM {
                             ResetHandler {
                                 page: tileDefaults; keys: ["lowWarn", "lowCrit"]
                                 valueText: i18n("warning %1, critical %2",
-                                                page.offText(tileDefaults.defaults.lowWarn), page.offText(tileDefaults.defaults.lowCrit))
+                                                sensorsPage.offText(tileDefaults.defaults.lowWarn), sensorsPage.offText(tileDefaults.defaults.lowCrit))
                             }
                         }
                         RowLayout {
@@ -788,7 +791,7 @@ KCM.SimpleKCM {
                                 valueFromText: (t) => thresholdRow.parse(t)
                                 onValueModified: page.set(cardDelegate.index, "lowWarn", value / thresholdRow.factor)
                                 // Breeze spin boxes have no menu of their own: right click is free here
-                                ResetHandler { page: tileDefaults; keys: ["lowWarn"]; valueText: page.offText(tileDefaults.defaults.lowWarn) }
+                                ResetHandler { page: tileDefaults; keys: ["lowWarn"]; valueText: sensorsPage.offText(tileDefaults.defaults.lowWarn) }
                             }
                             Rectangle { width: 10; height: 10; radius: 5; color: "#ff4d6d" }
                             QQC2.SpinBox {
@@ -802,7 +805,7 @@ KCM.SimpleKCM {
                                 valueFromText: (t) => thresholdRow.parse(t)
                                 onValueModified: page.set(cardDelegate.index, "lowCrit", value / thresholdRow.factor)
                                 // Breeze spin boxes have no menu of their own: right click is free here
-                                ResetHandler { page: tileDefaults; keys: ["lowCrit"]; valueText: page.offText(tileDefaults.defaults.lowCrit) }
+                                ResetHandler { page: tileDefaults; keys: ["lowCrit"]; valueText: sensorsPage.offText(tileDefaults.defaults.lowCrit) }
                             }
                             QQC2.Label {
                                 Layout.fillWidth: true

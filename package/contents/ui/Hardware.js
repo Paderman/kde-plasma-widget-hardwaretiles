@@ -238,7 +238,7 @@ var categories = [
     { key: "cpu",        label: tr("Processor"),            hint: tr("Temperature and usage"), icon: "cpu", def: true },
     { key: "ram",        label: tr("Memory"),      hint: tr("Used and total, swap space"), icon: "memory", def: true },
     { key: "storage",    label: tr("SSDs & drives"),   hint: tr("NVMe temperatures, disk space"), icon: "drive-harddisk", def: true },
-    { key: "board",      label: tr("Mainboard & fans"),   hint: tr("Case temperature, fan speeds"), icon: "preferences-system-power-management", def: false },
+    { key: "board",      label: tr("Mainboard & fans"),   hint: tr("Case temperature, fan speeds, mainboard battery"), icon: "preferences-system-power-management", def: false },
     { key: "network",    label: tr("Network"),             hint: tr("Download and upload"), icon: "applications-internet", def: false },
     // only offered with several graphics cards
     { key: "compare",    label: tr("GPU comparison"),        hint: tr("Temperature, load, power and VRAM of all cards in shared tiles"), icon: "view-split-left-right", def: true, multiOnly: true }

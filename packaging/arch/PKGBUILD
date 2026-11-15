@@ -3,7 +3,7 @@
 # Maintainer: Paderman <https://github.com/Paderman>
 
 pkgname=plasma6-applets-hardwaretiles
-pkgver=1.1.0
+pkgver=1.1.1
 pkgrel=1
 pkgdesc="GPU & system monitor widget for KDE Plasma 6 (VRAM temperature, throttling, fan curve, CPU, SSDs, fans)"
 arch=('any')
