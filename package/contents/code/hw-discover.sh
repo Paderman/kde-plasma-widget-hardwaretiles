@@ -3,6 +3,8 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Hardware discovery for Hardware Tiles. Tab separated lines:
 #   GPU   <pci addr> <vendor id> <driver> <drm card no|-> <nvidia-smi index|-1> <Vendor> <Device> <SVendor>
+#   GPUCAP <pci addr> <comma list of what the kernel driver reports: temp1 temp2
+#          temp3 fan1 power busy vram sclk mclk>   (not for NVIDIA – nvidia-smi)
 #   NVME  <pci addr> <model>
 #   GDDR6 <1 if /run/gddr6/vram exists, else 0>
 #   POWER <1 if the power service publishes /run/hardwaretiles-power/cpu, else 0>
@@ -47,6 +49,23 @@ for d in /sys/bus/pci/devices/*; do
         svend=$(printf '%s\n' "$info" | sed -n 's/^SVendor:[[:space:]]*//p' | head -1)
     fi
     echo "GPU$T$addr$T$vid$T$drv$T$card$T$nvi$T$vend$T$dev$T$svend"
+    # what the driver really offers: old or integrated cards (radeon, nouveau, APUs)
+    # often have no temperature sensor, no own memory or no load value
+    if [ "$nvi" = "-1" ]; then
+        caps=""
+        for h in "$d"/hwmon/hwmon*; do
+            [ -d "$h" ] || continue
+            for x in temp1 temp2 temp3 fan1; do [ -e "$h/${x}_input" ] && caps="$caps,$x"; done
+            [ -e "$h/freq1_input" ] && caps="$caps,sclk"
+            [ -e "$h/freq2_input" ] && caps="$caps,mclk"
+            { [ -e "$h/power1_average" ] || [ -e "$h/power1_input" ]; } && caps="$caps,power"
+        done
+        [ -e "$d/gpu_busy_percent" ] && caps="$caps,busy"
+        [ -e "$d/mem_info_vram_total" ] && caps="$caps,vram"
+        [ -e "$d/pp_dpm_sclk" ] && caps="$caps,sclk"
+        [ -e "$d/pp_dpm_mclk" ] && caps="$caps,mclk"
+        echo "GPUCAP$T$addr$T${caps#,}"
+    fi
 done
 
 for n in /sys/class/nvme/nvme*; do

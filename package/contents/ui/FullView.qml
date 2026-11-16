@@ -550,6 +550,7 @@ Item {
         sourceComponent: SetupWizard {
             probe: root.hardware
             preselect: Plasmoid.configuration.gpuAddress
+            sectionMode: full.sectionMode
             canCancel: root.rawItems.length > 0
             onFinished: (addr, opts) => root.applySetup(addr, opts)
             onCancelled: Plasmoid.configuration.setupDone = true

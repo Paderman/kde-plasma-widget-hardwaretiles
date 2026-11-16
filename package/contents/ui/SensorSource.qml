@@ -134,7 +134,11 @@ Item {
     readonly property int thresholdLevel: Math.max(highLevel, lowLevel)
     // a forced level (stuck or slow fan, missing PCIe lanes) counts even without a value
     readonly property int level: Math.max(main.forcedLevel, valid ? thresholdLevel : 0)
-    readonly property string detailText: main.detail
+    // a fan from a sensor chip (mainboard, radeon/nouveau card) below its critical
+    // lower threshold: it has stopped – said in words, like for NVIDIA cards
+    readonly property bool isFanSensor: main.isSensor && /^lmsensors\/[^\/]+\/fan\d+$/.test(main.sensorId)
+    readonly property bool fanDown: isFanSensor && valid && lowCrit > 0 && lowLevel === 2
+    readonly property string detailText: main.detail || (fanDown ? i18n("Fan not turning") : "")
     readonly property string subtitleText: main.subtitle
     readonly property string subtitleInfo: main.subtitleInfo
 
@@ -252,7 +256,7 @@ Item {
             let next = 0;
             const w = thresholdFor(1, alertLow), hw = hystFor(w);
             if (alertLevel === 2 && alertOnWarn && w > 0 && (alertLow ? value <= w + hw : value >= w - hw)) next = 1;
-            const wasFan = alertForced && !!lastFanText;
+            const wasFan = (alertForced && !!lastFanText) || (alertLow && isFanSensor);
             alertLevel = next;
             alertForced = false;
             if (next === 0 && alertShown) {
@@ -308,6 +312,13 @@ Item {
         } else if (l === 2 && alertForced && main.stuckText) {
             p.title = i18n("%1: fan not turning", longLabel);
             p.text = main.stuckText + "\n" + i18n("Check whether something blocks it or a cable came loose.");
+            p.iconName = "dialog-warning";
+            p.urgency = Notification.CriticalUrgency;
+            p.flags = Notification.Persistent;
+        } else if (l === 2 && low && isFanSensor) {
+            p.title = i18n("%1: fan not turning", longLabel);
+            p.text = i18n("Only %1 – below the critical threshold of %2. The fan has stopped or is about to.", formatted, limTxt)
+                   + "\n" + i18n("Check whether something blocks it or a cable came loose.");
             p.iconName = "dialog-warning";
             p.urgency = Notification.CriticalUrgency;
             p.flags = Notification.Persistent;

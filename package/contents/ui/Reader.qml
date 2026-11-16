@@ -177,11 +177,31 @@ Item {
                                      : stuckFans.length ? 2 : slowFans.length ? 1 : -1
 
     // ---------------------------------------------------------- ksystemstats
-    Sensors.Sensor {
-        id: sensor
-        sensorId: reader.enabled_ && reader.isSensor ? reader.sensorId : ""
-        updateRateLimit: reader.interval
+    // A fresh Sensor object for every sensor id: a reused one keeps the old
+    // sensor's value until the new one reports a change – for values that hardly
+    // change (disk usage) that could take forever, e.g. after the setup wizard
+    // gave the tiles new sensors ("2940 %" disk usage = the old fan speed).
+    readonly property string activeSensorId: enabled_ && isSensor ? sensorId : ""
+    Instantiator {
+        id: sensorMaker
+        model: reader.activeSensorId ? [reader.activeSensorId] : []
+        delegate: Sensors.Sensor {
+            required property string modelData
+            sensorId: modelData
+            updateRateLimit: reader.interval
+        }
     }
+    // stands in while there is no sensor: same properties, no value
+    QtObject {
+        id: noSensor
+        readonly property int status: -1
+        readonly property var value: undefined
+        readonly property string name: ""
+        readonly property string shortName: ""
+        readonly property real maximum: 0
+        readonly property string formattedValue: ""
+    }
+    readonly property var sensor: sensorMaker.object || noSensor
     // ------------------------------------------------------------ PCIe sysfs
     QtObject {
         id: pcie

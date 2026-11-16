@@ -57,7 +57,7 @@ var supportedDrivers = ["nvidia", "amdgpu", "radeon", "i915", "xe", "nouveau"];
 function parse(out) {
     var hw = { gpus: [], nvmes: [], cpuCores: [], gddr6: false, power: false, lmTool: true, pm: "", pmPackage: "", distro: "", chips: {} };
     var parts = String(out || "").split(/\nSENSORS\n?/);
-    var nvFans = {};
+    var nvFans = {}, gpuCaps = {};
     parts[0].split("\n").forEach(function (line) {
         var f = line.split("\t");
         if (f[0] === "GPU" && f.length >= 9) {
@@ -85,6 +85,10 @@ function parse(out) {
             hw.power = f[1] === "1";
         } else if (f[0] === "CPUCORE" && f.length >= 4) {
             hw.cpuCores.push({ cpu: parseInt(f[1]), pkg: parseInt(f[2]) || 0, core: parseInt(f[3]) });
+        } else if (f[0] === "GPUCAP" && f.length >= 2) {
+            var c = {};
+            String(f[2] || "").split(",").forEach(function (x) { if (x) c[x] = true; });
+            gpuCaps[f[1]] = c;
         } else if (f[0] === "NVFANS" && f.length >= 3) {
             nvFans[parseInt(f[1])] = parseInt(f[2]) || 0;
         } else if (f[0] === "DISTRO") {
@@ -95,6 +99,8 @@ function parse(out) {
     });
     // fans of NVIDIA cards whose measured speed the driver reports
     hw.gpus.forEach(function (g) { g.nvFans = g.nvIndex >= 0 ? (nvFans[g.nvIndex] || 0) : 0; });
+    // what the driver reports (null: unknown, older discovery – then nothing is left out)
+    hw.gpus.forEach(function (g) { g.caps = gpuCaps[g.addr] || null; });
     if (parts.length > 1) {
         try { hw.chips = JSON.parse(parts[1]) || {}; } catch (e) { hw.chips = {}; }
     }
@@ -478,7 +484,10 @@ function buildOne(gpu, opts, hw) {
             if (hw && hw.power)
                 values.push({ label: tr("GPU power"), source: "command", command: IGPU_POWER_CMD, unit: "W", style: "value", notify: false });
         } else {
-            rings.push({ label: tr("GPU temperature"), sensorId: "gpu/{gpu}/temperature", style: "ring", max: 100, warn: 80, crit: 95, showInPanel: true });
+            // radeon / nouveau: ksystemstats has no temperature for them – their
+            // hwmon chip (if the card has a sensor at all) does
+            var tempId = gpu.hwmon ? "lmsensors/{gpuhwmon}/temp1" : "gpu/{gpu}/temperature";
+            rings.push({ label: tr("GPU temperature"), sensorId: tempId, style: "ring", max: 100, warn: 80, crit: 95, showInPanel: true });
             graphs.push({ label: tr("GPU load"), sensorId: "gpu/{gpu}/usage", style: "graph", max: 100 });
             bars.push({ label: tr("VRAM used"), sensorId: "gpu/{gpu}/usedVram", refSensorId: "gpu/{gpu}/totalVram", style: "bar", notify: false });
         }
@@ -513,6 +522,11 @@ function buildOne(gpu, opts, hw) {
                 bars.push({ label: tr("Video load"), source: "igpu", key: "video", style: "bar", max: 100 });
                 values.push({ label: tr("Graphics memory"), source: "igpu", key: "memory", style: "value", notify: false });
             } else {
+                // radeon / nouveau: fan from the card's hwmon chip, if it has one. These
+                // older cards keep their fan running all the time (no idle fan stop like
+                // newer cards) – a stopped fan is critical
+                if (gpu.hwmon)
+                    values.push({ label: tr("GPU fan"), sensorId: "lmsensors/{gpuhwmon}/fan1", style: "value", lowCrit: 200 });
                 bars.push({ label: tr("GPU clock"), sensorId: "gpu/{gpu}/coreFrequency", style: "bar" });
             }
         }
@@ -551,7 +565,25 @@ function buildOne(gpu, opts, hw) {
     }
 
     var all = rings.concat(graphs, bars, values, wide, net);
+    // leave out graphics card tiles whose value the driver does not report
+    // (e.g. Radeon HD 4200 with "radeon": no sensor, no own memory, no load)
+    if (gpu && gpu.caps)
+        all = all.filter(function (o) { return gpuCapOk(o.sensorId, gpu.caps) && gpuCapOk(o.ySensorId, gpu.caps)
+                                               && gpuCapOk(o.refSensorId, gpu.caps); });
     return all.map(function (o, i) { o.id = "s" + (i + 1); return Defaults.normalize(o, i); });
+}
+
+// does the card report what this sensor id needs? (caps from GPUCAP)
+var gpuCapNeeds = {
+    "gpu/{gpu}/temperature": "temp1", "lmsensors/{gpuhwmon}/temp1": "temp1",
+    "lmsensors/{gpuhwmon}/temp2": "temp2", "lmsensors/{gpuhwmon}/temp3": "temp3",
+    "lmsensors/{gpuhwmon}/fan1": "fan1", "gpu/{gpu}/power": "power",
+    "gpu/{gpu}/usage": "busy", "gpu/{gpu}/usedVram": "vram", "gpu/{gpu}/totalVram": "vram",
+    "gpu/{gpu}/coreFrequency": "sclk", "gpu/{gpu}/memoryFrequency": "mclk"
+};
+function gpuCapOk(sensorId, caps) {
+    var need = sensorId ? gpuCapNeeds[sensorId] : "";
+    return !need || !!caps[need];
 }
 
 // ---------------------------------------------------------------- tokens

@@ -26,7 +26,25 @@ Item {
     readonly property var chosenGpus: gpus.filter(g => chosen.indexOf(g.addr) >= 0)
     readonly property var chosenGpu: chosenGpus.length ? chosenGpus[0] : null
     readonly property bool multi: chosenGpus.length > 1
-    readonly property int tileCount: Hardware.build(multi ? chosenGpus : chosenGpu, opts, probe ? probe.hw : null, (...a) => i18n(...a)).length
+    property string sectionMode: "auto"      // gpuSectionMode of the widget
+    // what the chosen card really gets (old or open-driver cards offer much less
+    // than the NVIDIA driver) – for the descriptions of the two card rows
+    function gpuLabels(details) {
+        if (!chosenGpu || !probe) return [];
+        const o = {};
+        Hardware.categories.forEach(c => o[c.key] = false);
+        o.gpuDetails = details;
+        return Hardware.build(chosenGpu, o, probe.hw, (...a) => i18n(...a))
+            .map(t => t.source === "pcie" ? "PCIe" : t.label);
+    }
+    readonly property var basicLabels: gpuLabels(false)
+    readonly property var detailLabels: { const b = basicLabels; return gpuLabels(true).filter(l => b.indexOf(l) < 0); }
+    function listText(l) { return l.length > 5 ? l.slice(0, 5).join(", ") + " …" : l.join(", "); }
+    // with sections the PCIe tile of a card is shown in its heading, not as a tile
+    readonly property bool sectionsOn: sectionMode === "always" ? chosenGpus.length > 0
+                                     : sectionMode === "never" ? false : multi
+    readonly property int tileCount: Hardware.build(multi ? chosenGpus : chosenGpu, opts, probe ? probe.hw : null, (...a) => i18n(...a))
+        .filter(t => !(sectionsOn && t.source === "pcie")).length
 
     function toggle(addr) {
         touched = true;
@@ -308,7 +326,8 @@ Item {
                         title: wiz.multi ? i18n("%1 graphics cards – basic values", wiz.chosenGpus.length)
                              : wiz.chosenGpu ? i18n("Graphics card – basic values") : i18n("No graphics card")
                         hint: wiz.multi ? wiz.chosenGpus.map(g => Hardware.gpuTag(g)).join(" + ") + " · " + i18n("one section per card with temperatures, load, power, VRAM, PCIe")
-                            : wiz.chosenGpu ? wiz.chosenGpu.name + " · " + i18n("Temperatures, load, power, VRAM, PCIe") : i18n("Only the selected areas are shown")
+                            : wiz.chosenGpu ? wiz.chosenGpu.name + (wiz.basicLabels.length ? " · " + wiz.listText(wiz.basicLabels) : "")
+                            : i18n("Only the selected areas are shown")
                         iconName: "video-display"
                         checked: !!wiz.chosenGpu
                         locked: true
@@ -317,9 +336,12 @@ Item {
                         model: Hardware.categories
                         delegate: OptionRow {
                             required property var modelData
-                            visible: (modelData.key !== "gpuDetails" || !!wiz.chosenGpu) && (!modelData.multiOnly || wiz.multi)
+                            // a single card without further values gets no details row
+                            visible: (modelData.key !== "gpuDetails" || (!!wiz.chosenGpu && (wiz.multi || wiz.detailLabels.length > 0)))
+                                     && (!modelData.multiOnly || wiz.multi)
                             title: modelData.key === "gpuDetails" && wiz.multi ? i18n("Graphics cards – details (for each card)") : i18n(modelData.label)
-                            hint: i18n(modelData.hint)
+                            hint: modelData.key === "gpuDetails" && !wiz.multi && wiz.detailLabels.length
+                                  ? wiz.listText(wiz.detailLabels) : i18n(modelData.hint)
                             iconName: modelData.icon
                             checked: !!wiz.opts[modelData.key]
                             onToggled: (on) => wiz.setOpt(modelData.key, on)
