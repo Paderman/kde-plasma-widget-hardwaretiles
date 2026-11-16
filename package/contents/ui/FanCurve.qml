@@ -18,7 +18,9 @@ ColumnLayout {
 
     RowLayout {
         Layout.fillWidth: true
-        TileHeader { tile: fc.tile; Layout.fillWidth: true }
+        // "Edit tiles": the values must not run under the × button either
+        Layout.rightMargin: fc.tile.arranging === true ? Math.round(fc.tile.u * 1.2) : 0
+        TileHeader { tile: fc.tile; Layout.fillWidth: true; keepCloseFree: false }
         // live values: "48 %  @ 51 °C"
         QQC2.Label {
             text: fc.src && fc.src.yReader.valid ? fc.src.yReader.formatted : "–"

@@ -10,6 +10,11 @@ RowLayout {
     id: header
     property var tile
     spacing: Math.round(tile.u * 0.3)
+    // "Edit tiles": the × button sits in the top right corner – long names
+    // ("GEHÄUSE-TEMPERATUR") wrap before it instead of running under it.
+    // false where the header shares its row with values (fan curve: that row keeps the space)
+    property bool keepCloseFree: true
+    Layout.rightMargin: keepCloseFree && tile.arranging === true ? Math.round(tile.u * 1.2) : 0
 
     readonly property real dotSize: Math.round(tile.u * 0.4)
     readonly property real fullSize: Math.round(tile.u * 0.62)
