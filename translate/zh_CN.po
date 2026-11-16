@@ -1952,39 +1952,48 @@ msgstr "Shell 命令:%1"
 msgid "PCIe"
 msgstr "PCIe"
 
-#: package/contents/ui/Reader.qml:243
+#: package/contents/ui/Reader.qml:245
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:261
 msgid "Built into CPU"
 msgstr "CPU 集成"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:262
+msgctxt "graphics without PCIe link, built into the mainboard"
+msgid "Built in"
+msgstr "集成"
+
+#: package/contents/ui/Reader.qml:262
 msgid "No link"
 msgstr "无连接"
 
-#: package/contents/ui/Reader.qml:257
+#: package/contents/ui/Reader.qml:263
 msgid "Gen %1 · max %2 ×%3"
 msgstr "Gen %1 · 最高 %2 ×%3"
 
-#: package/contents/ui/Reader.qml:260
+#: package/contents/ui/Reader.qml:266
 msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
 msgstr "处理器集成显卡 – 使用系统内存，不占用 PCIe 插槽"
 
-#: package/contents/ui/Reader.qml:264
+#: package/contents/ui/Reader.qml:267
+msgid "Graphics built into the mainboard – uses the main memory, not connected via PCIe"
+msgstr "主板集成显卡 – 使用系统内存，不通过 PCIe 连接"
+
+#: package/contents/ui/Reader.qml:271
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
 msgstr "仅 ×%1(可达 ×%2)通道 – 请检查接触/插槽"
 
-#: package/contents/ui/Reader.qml:266
+#: package/contents/ui/Reader.qml:273
 msgid "Max. %1 · currently power saving"
 msgstr "最高 %1 · 当前节能中"
 
-#: package/contents/ui/Reader.qml:268
+#: package/contents/ui/Reader.qml:275
 msgid "Maximum for this slot"
 msgstr "此插槽的最大值"
 
-#: package/contents/ui/Reader.qml:269
+#: package/contents/ui/Reader.qml:276
 msgid "Card %1 · slot %2"
 msgstr "显卡 %1 · 插槽 %2"
 

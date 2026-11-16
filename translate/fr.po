@@ -1959,39 +1959,48 @@ msgstr "Commande shell : %1"
 msgid "PCIe"
 msgstr "PCIe"
 
-#: package/contents/ui/Reader.qml:243
+#: package/contents/ui/Reader.qml:245
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:261
 msgid "Built into CPU"
 msgstr "Intégrée au CPU"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:262
+msgctxt "graphics without PCIe link, built into the mainboard"
+msgid "Built in"
+msgstr "Intégrée"
+
+#: package/contents/ui/Reader.qml:262
 msgid "No link"
 msgstr "Pas de liaison"
 
-#: package/contents/ui/Reader.qml:257
+#: package/contents/ui/Reader.qml:263
 msgid "Gen %1 · max %2 ×%3"
 msgstr "Gen %1 · max %2 ×%3"
 
-#: package/contents/ui/Reader.qml:260
+#: package/contents/ui/Reader.qml:266
 msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
 msgstr "Graphique intégré au processeur – utilise la mémoire vive, pas d’emplacement PCIe"
 
-#: package/contents/ui/Reader.qml:264
+#: package/contents/ui/Reader.qml:267
+msgid "Graphics built into the mainboard – uses the main memory, not connected via PCIe"
+msgstr "Graphique intégré à la carte mère – utilise la mémoire principale, pas de liaison PCIe"
+
+#: package/contents/ui/Reader.qml:271
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
 msgstr "Seulement ×%1 sur ×%2 lignes possibles – vérifier le contact/le slot"
 
-#: package/contents/ui/Reader.qml:266
+#: package/contents/ui/Reader.qml:273
 msgid "Max. %1 · currently power saving"
 msgstr "Max. %1 · actuellement en économie d'énergie"
 
-#: package/contents/ui/Reader.qml:268
+#: package/contents/ui/Reader.qml:275
 msgid "Maximum for this slot"
 msgstr "Maximum pour ce slot"
 
-#: package/contents/ui/Reader.qml:269
+#: package/contents/ui/Reader.qml:276
 msgid "Card %1 · slot %2"
 msgstr "Carte %1 · slot %2"
 

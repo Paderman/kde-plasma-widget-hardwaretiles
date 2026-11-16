@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Paderman
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Prints the PCIe link of a graphics card, read from sysfs:
-#   <device> <cur GT/s> <cur width> <card max GT/s> <card max width> <port> <slot max GT/s> <slot max width>
+#   <device> <cur GT/s> <cur width or "-" = no PCIe> <card max GT/s> <card max width> <port> <slot max GT/s> <slot max width>
 #   followed by lspci name lines (Vendor/Device/SVendor), if lspci is available
 # Usage: pcie-info.sh [pci-address]   (empty = first graphics card with an active link)
 #
@@ -38,8 +38,12 @@ P=/sys/bus/pci/devices/$port
 T=/sys/bus/pci/devices/$top
 
 r() { v=$(cat "$1/$2" 2>/dev/null); v=${v%% GT/s*}; echo "${v:-0}"; }
+# "-" instead of a width: the device has no PCIe link at all (chipset graphics
+# behind a plain PCI bridge, e.g. Radeon HD 4200 in AMD 785G/RS880 boards)
+cw=$(r "$T" current_link_width)
+[ -e "$T/current_link_width" ] || cw=-
 
-echo "$(basename "$real") $(r "$T" current_link_speed) $(r "$T" current_link_width)" \
+echo "$(basename "$real") $(r "$T" current_link_speed) $cw" \
      "$(r "$T" max_link_speed) $(r "$T" max_link_width)" \
      "$port $(r "$P" max_link_speed) $(r "$P" max_link_width)"
 

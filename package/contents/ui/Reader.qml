@@ -210,6 +210,8 @@ Item {
         property string port: ""
         property real curSpeed: 0
         property int curWidth: 0
+        // the card has no PCIe link at all (chipset graphics behind a PCI bridge)
+        property bool noPcie: false
         property real cardSpeed: 0
         property int cardWidth: 0
         property real slotSpeed: 0
@@ -252,12 +254,17 @@ Item {
         // power saving: "Gen 1 · max 3 ×8" – shows at a glance that the card only idles down
         // graphics built into the processor: sits directly on the root complex,
         // has no PCIe slot and therefore no link to report
-        readonly property bool integrated: ok && port !== "" && port === device
-        readonly property string text: !ok ? "–" : integrated ? i18n("Built into CPU") : curWidth === 0 ? i18n("No link")
+        readonly property bool inCpu: ok && port !== "" && port === device
+        // graphics on the mainboard without any PCIe link (e.g. Radeon HD 4200)
+        readonly property bool onBoard: ok && !inCpu && noPcie
+        readonly property bool integrated: inCpu || onBoard
+        readonly property string text: !ok ? "–" : inCpu ? i18n("Built into CPU")
+            : onBoard ? i18nc("graphics without PCIe link, built into the mainboard", "Built in") : curWidth === 0 ? i18n("No link")
             : (curGen > 0 && curGen < possibleGen) ? i18n("Gen %1 · max %2 ×%3", curGen, possibleGen, curWidth)
             : linkText(curGen, curWidth)
         readonly property string detail: {
-            if (ok && integrated) return i18n("Graphics built into the processor – uses the main memory, no PCIe slot");
+            if (inCpu) return i18n("Graphics built into the processor – uses the main memory, no PCIe slot");
+            if (onBoard) return i18n("Graphics built into the mainboard – uses the main memory, not connected via PCIe");
             if (!ok || curWidth === 0) return "";
             const parts = [];
             if (curWidth < possibleWidth)
@@ -287,6 +294,7 @@ Item {
                 pcie.device = f[0].replace(/^0000:/, "");
                 pcie.curSpeed = parseFloat(f[1]) || 0;
                 pcie.curWidth = parseInt(f[2]) || 0;
+                pcie.noPcie = f[2] === "-";
                 pcie.cardSpeed = parseFloat(f[3]) || 0;
                 pcie.cardWidth = parseInt(f[4]) || 0;
                 pcie.port = f[5].replace(/^0000:/, "");

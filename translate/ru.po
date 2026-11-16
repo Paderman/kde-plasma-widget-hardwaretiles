@@ -1966,39 +1966,48 @@ msgstr "Команда оболочки: %1"
 msgid "PCIe"
 msgstr "PCIe"
 
-#: package/contents/ui/Reader.qml:243
+#: package/contents/ui/Reader.qml:245
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:261
 msgid "Built into CPU"
 msgstr "Встроена в ЦП"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:262
+msgctxt "graphics without PCIe link, built into the mainboard"
+msgid "Built in"
+msgstr "Встроенная"
+
+#: package/contents/ui/Reader.qml:262
 msgid "No link"
 msgstr "Нет соединения"
 
-#: package/contents/ui/Reader.qml:257
+#: package/contents/ui/Reader.qml:263
 msgid "Gen %1 · max %2 ×%3"
 msgstr "Gen %1 · макс. %2 ×%3"
 
-#: package/contents/ui/Reader.qml:260
+#: package/contents/ui/Reader.qml:266
 msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
 msgstr "Графика, встроенная в процессор, – использует оперативную память, без слота PCIe"
 
-#: package/contents/ui/Reader.qml:264
+#: package/contents/ui/Reader.qml:267
+msgid "Graphics built into the mainboard – uses the main memory, not connected via PCIe"
+msgstr "Графика, встроенная в материнскую плату, – использует оперативную память, без подключения PCIe"
+
+#: package/contents/ui/Reader.qml:271
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
 msgstr "Только ×%1 из ×%2 возможных линий – проверьте контакт/слот"
 
-#: package/contents/ui/Reader.qml:266
+#: package/contents/ui/Reader.qml:273
 msgid "Max. %1 · currently power saving"
 msgstr "Макс. %1 · сейчас энергосбережение"
 
-#: package/contents/ui/Reader.qml:268
+#: package/contents/ui/Reader.qml:275
 msgid "Maximum for this slot"
 msgstr "Максимум для этого слота"
 
-#: package/contents/ui/Reader.qml:269
+#: package/contents/ui/Reader.qml:276
 msgid "Card %1 · slot %2"
 msgstr "Карта %1 · слот %2"
 

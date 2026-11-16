@@ -1959,39 +1959,48 @@ msgstr "Orden de shell: %1"
 msgid "PCIe"
 msgstr "PCIe"
 
-#: package/contents/ui/Reader.qml:243
+#: package/contents/ui/Reader.qml:245
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:261
 msgid "Built into CPU"
 msgstr "Integrada en la CPU"
 
-#: package/contents/ui/Reader.qml:256
+#: package/contents/ui/Reader.qml:262
+msgctxt "graphics without PCIe link, built into the mainboard"
+msgid "Built in"
+msgstr "Integrada"
+
+#: package/contents/ui/Reader.qml:262
 msgid "No link"
 msgstr "Sin conexión"
 
-#: package/contents/ui/Reader.qml:257
+#: package/contents/ui/Reader.qml:263
 msgid "Gen %1 · max %2 ×%3"
 msgstr "Gen %1 · máx %2 ×%3"
 
-#: package/contents/ui/Reader.qml:260
+#: package/contents/ui/Reader.qml:266
 msgid "Graphics built into the processor – uses the main memory, no PCIe slot"
 msgstr "Gráficos integrados en el procesador: usa la memoria RAM, sin ranura PCIe"
 
-#: package/contents/ui/Reader.qml:264
+#: package/contents/ui/Reader.qml:267
+msgid "Graphics built into the mainboard – uses the main memory, not connected via PCIe"
+msgstr "Gráficos integrados en la placa base: usan la memoria principal, sin conexión PCIe"
+
+#: package/contents/ui/Reader.qml:271
 msgid "Only ×%1 of ×%2 possible lanes – check contact/slot"
 msgstr "Solo ×%1 de ×%2 líneas posibles: conviene revisar el contacto/la ranura"
 
-#: package/contents/ui/Reader.qml:266
+#: package/contents/ui/Reader.qml:273
 msgid "Max. %1 · currently power saving"
 msgstr "Máx. %1 · ahora en ahorro de energía"
 
-#: package/contents/ui/Reader.qml:268
+#: package/contents/ui/Reader.qml:275
 msgid "Maximum for this slot"
 msgstr "Máximo para esta ranura"
 
-#: package/contents/ui/Reader.qml:269
+#: package/contents/ui/Reader.qml:276
 msgid "Card %1 · slot %2"
 msgstr "Tarjeta %1 · ranura %2"
 
