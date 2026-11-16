@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "传感器"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1183
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1184
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1152
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1153
 msgid "Appearance"
 msgstr "外观"
 
@@ -56,7 +56,7 @@ msgstr "重新启动"
 
 #: package/contents/ui/ConfigAbout.qml:70
 #: package/contents/ui/ConfigProfiles.qml:159
-#: package/contents/ui/SetupWizard.qml:372
+#: package/contents/ui/SetupWizard.qml:378
 msgid "Cancel"
 msgstr "取消"
 
@@ -120,7 +120,7 @@ msgstr "尚未发布任何版本。"
 msgid "GitHub could not be reached (%1)."
 msgstr "无法连接 GitHub(%1)。"
 
-#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:586
+#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:587
 msgid "Open download page"
 msgstr "打开下载页面"
 
@@ -321,17 +321,17 @@ msgid "Tile style:"
 msgstr "磁贴样式:"
 
 #: package/contents/ui/ConfigAppearance.qml:110
-#: package/contents/ui/FullView.qml:1049
+#: package/contents/ui/FullView.qml:1050
 msgid "Glass (subtle)"
 msgstr "玻璃(低调)"
 
 #: package/contents/ui/ConfigAppearance.qml:111
-#: package/contents/ui/FullView.qml:1050
+#: package/contents/ui/FullView.qml:1051
 msgid "Filled"
 msgstr "填充"
 
 #: package/contents/ui/ConfigAppearance.qml:112
-#: package/contents/ui/FullView.qml:1051
+#: package/contents/ui/FullView.qml:1052
 msgid "Outline (accent colour)"
 msgstr "轮廓(强调色)"
 
@@ -438,17 +438,17 @@ msgid "Sections per graphics card:"
 msgstr "每块显卡的分区:"
 
 #: package/contents/ui/ConfigAppearance.qml:246
-#: package/contents/ui/FullView.qml:1060
+#: package/contents/ui/FullView.qml:1061
 msgid "From two graphics cards"
 msgstr "两块及以上显卡时"
 
 #: package/contents/ui/ConfigAppearance.qml:247
-#: package/contents/ui/FullView.qml:1061
+#: package/contents/ui/FullView.qml:1062
 msgid "Always (even with one card)"
 msgstr "始终(即使只有一块)"
 
 #: package/contents/ui/ConfigAppearance.qml:248
-#: package/contents/ui/FullView.qml:1062
+#: package/contents/ui/FullView.qml:1063
 msgid "Never (several cards: coloured edge)"
 msgstr "从不(多块显卡:彩色边缘)"
 
@@ -609,7 +609,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "可以恢复上次加载配置档案之前的视图。"
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:1095
+#: package/contents/ui/FullView.qml:1096
 msgid "Undo profile change"
 msgstr "撤销配置档案切换"
 
@@ -683,22 +683,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "导出的文件可以在另一台计算机上导入。那台计算机没有的显卡的磁贴会移到同一厂商的显卡上；学习到的风扇曲线不属于配置档案。"
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:1156
+#: package/contents/ui/FullView.qml:1157
 msgid "Ring"
 msgstr "圆环"
 
 #: package/contents/ui/ConfigSensors.qml:44
-#: package/contents/ui/FullView.qml:1161
+#: package/contents/ui/FullView.qml:1162
 msgid "Bar"
 msgstr "条形"
 
 #: package/contents/ui/ConfigSensors.qml:45
-#: package/contents/ui/FullView.qml:1166
+#: package/contents/ui/FullView.qml:1167
 msgid "History graph"
 msgstr "历史图表"
 
 #: package/contents/ui/ConfigSensors.qml:46
-#: package/contents/ui/FullView.qml:1171
+#: package/contents/ui/FullView.qml:1172
 msgid "Value only"
 msgstr "仅数值"
 
@@ -846,12 +846,12 @@ msgid "Label (empty = automatic)"
 msgstr "标签(留空 = 自动)"
 
 #: package/contents/ui/ConfigSensors.qml:478
-#: package/contents/ui/FullView.qml:875
+#: package/contents/ui/FullView.qml:876
 msgid "Move up"
 msgstr "上移"
 
 #: package/contents/ui/ConfigSensors.qml:484
-#: package/contents/ui/FullView.qml:879
+#: package/contents/ui/FullView.qml:880
 msgid "Move down"
 msgstr "下移"
 
@@ -910,7 +910,7 @@ msgid "Style:"
 msgstr "样式:"
 
 #: package/contents/ui/ConfigSensors.qml:625
-#: package/contents/ui/FullView.qml:1176
+#: package/contents/ui/FullView.qml:1177
 msgid "Double width"
 msgstr "双倍宽度"
 
@@ -1022,7 +1022,7 @@ msgid "Template …"
 msgstr "模板 …"
 
 #: package/contents/ui/ConfigSensors.qml:883
-#: package/contents/ui/FullView.qml:1306
+#: package/contents/ui/FullView.qml:1307
 msgid "Mainboard & other sensors"
 msgstr "主板及其他传感器"
 
@@ -1389,129 +1389,129 @@ msgstr "对比"
 msgid "System"
 msgstr "系统"
 
-#: package/contents/ui/FullView.qml:569
+#: package/contents/ui/FullView.qml:570
 msgid "Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "是否让 Hardware Tiles 每周检查一次新版本?届时会连接 github.com – 与访问任何网站一样,GitHub 会看到您的 IP 地址;不会发送其他任何内容。您可以随时在设置中更改。"
 
-#: package/contents/ui/FullView.qml:570
+#: package/contents/ui/FullView.qml:571
 msgid "Hardware Tiles %1 is available (installed: %2)."
 msgstr "Hardware Tiles %1 可用(已安装:%2)。"
 
-#: package/contents/ui/FullView.qml:574
+#: package/contents/ui/FullView.qml:575
 msgid "Yes, check weekly"
 msgstr "是,每周检查"
 
-#: package/contents/ui/FullView.qml:580
+#: package/contents/ui/FullView.qml:581
 msgid "No, thanks"
 msgstr "不,谢谢"
 
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:606
 msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
 msgstr "拖动磁贴或使用其箭头在所属分区内移动它。键盘：方向键选择磁贴，空格键拿起磁贴，再按一次放下；在“+”上则打开列表。× 或 Delete 删除磁贴，+ 添加磁贴。更改会立即保存；按 Esc 结束编辑。"
 
-#: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
+#: package/contents/ui/FullView.qml:610 package/contents/ui/FullView.qml:990
 #: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "恢复“%1”"
 
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:621
 msgid "Done"
 msgstr "完成"
 
-#: package/contents/ui/FullView.qml:703 package/contents/ui/FullView.qml:740
+#: package/contents/ui/FullView.qml:704 package/contents/ui/FullView.qml:741
 msgid "Add tile"
 msgstr "添加磁贴"
 
-#: package/contents/ui/FullView.qml:883
+#: package/contents/ui/FullView.qml:884
 msgid "Move left"
 msgstr "左移"
 
-#: package/contents/ui/FullView.qml:887
+#: package/contents/ui/FullView.qml:888
 msgid "Move right"
 msgstr "右移"
 
-#: package/contents/ui/FullView.qml:901 package/contents/ui/FullView.qml:921
+#: package/contents/ui/FullView.qml:902 package/contents/ui/FullView.qml:922
 msgid "Remove tile"
 msgstr "删除磁贴"
 
-#: package/contents/ui/FullView.qml:983 package/contents/ui/main.qml:494
+#: package/contents/ui/FullView.qml:984 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 可用 – 打开下载页面"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Finish editing"
 msgstr "完成编辑"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Edit tiles"
 msgstr "编辑磁贴"
 
-#: package/contents/ui/FullView.qml:1007 package/contents/ui/main.qml:512
+#: package/contents/ui/FullView.qml:1008 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "恢复原始排列"
 
-#: package/contents/ui/FullView.qml:1013 package/contents/ui/main.qml:518
+#: package/contents/ui/FullView.qml:1014 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "将小部件摆正（已旋转 %1°）"
 
-#: package/contents/ui/FullView.qml:1019
+#: package/contents/ui/FullView.qml:1020
 msgid "Configure Hardware Tiles …"
 msgstr "配置 Hardware Tiles …"
 
-#: package/contents/ui/FullView.qml:1046
+#: package/contents/ui/FullView.qml:1047
 msgid "Tile style"
 msgstr "磁贴样式"
 
-#: package/contents/ui/FullView.qml:1057
+#: package/contents/ui/FullView.qml:1058
 msgid "Sections per graphics card"
 msgstr "每块显卡的分区"
 
-#: package/contents/ui/FullView.qml:1072
+#: package/contents/ui/FullView.qml:1073
 msgid "Profile"
 msgstr "配置档案"
 
-#: package/contents/ui/FullView.qml:1075
+#: package/contents/ui/FullView.qml:1076
 msgid "No profiles saved yet"
 msgstr "尚未保存配置档案"
 
-#: package/contents/ui/FullView.qml:1085
+#: package/contents/ui/FullView.qml:1086
 msgid "changed"
 msgstr "已更改"
 
-#: package/contents/ui/FullView.qml:1101
+#: package/contents/ui/FullView.qml:1102
 msgid "Manage profiles …"
 msgstr "管理配置档案…"
 
-#: package/contents/ui/FullView.qml:1112
+#: package/contents/ui/FullView.qml:1113
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "提示:在空白处长按 – 移动、调整大小、移除小部件"
 
-#: package/contents/ui/FullView.qml:1143
+#: package/contents/ui/FullView.qml:1144
 msgid "Edit in settings …"
 msgstr "在设置中编辑 …"
 
-#: package/contents/ui/FullView.qml:1192 package/contents/ui/FullView.qml:1326
+#: package/contents/ui/FullView.qml:1193 package/contents/ui/FullView.qml:1327
 #: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "Suggestions for your hardware"
 msgstr "适合您硬件的建议"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "No further suggestions"
 msgstr "没有更多建议"
 
-#: package/contents/ui/FullView.qml:1312
+#: package/contents/ui/FullView.qml:1313
 msgid "Own tile …"
 msgstr "自定义磁贴 …"
 
-#: package/contents/ui/FullView.qml:1498
+#: package/contents/ui/FullView.qml:1499
 msgid "No sensors configured"
 msgstr "未配置传感器"
 
-#: package/contents/ui/FullView.qml:1504
+#: package/contents/ui/FullView.qml:1505
 msgid "Configure …"
 msgstr "设置 …"
 
@@ -1956,11 +1956,11 @@ msgstr "PCIe"
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:261
+#: package/contents/ui/Reader.qml:261 package/contents/ui/SetupWizard.qml:39
 msgid "Built into CPU"
 msgstr "CPU 集成"
 
-#: package/contents/ui/Reader.qml:262
+#: package/contents/ui/Reader.qml:262 package/contents/ui/SetupWizard.qml:40
 msgctxt "graphics without PCIe link, built into the mainboard"
 msgid "Built in"
 msgstr "集成"
@@ -2211,88 +2211,92 @@ msgstr "正常 · 警告自 %1 起。"
 msgid "In the normal range · critical from %1."
 msgstr "正常 · 严重自 %1 起。"
 
-#: package/contents/ui/SetupWizard.qml:110
+#: package/contents/ui/SetupWizard.qml:113
 msgid "Set up Hardware Tiles"
 msgstr "设置 Hardware Tiles"
 
-#: package/contents/ui/SetupWizard.qml:115
+#: package/contents/ui/SetupWizard.qml:118
 msgid "Step %1 of 2"
 msgstr "第 %1 步,共 2 步"
 
-#: package/contents/ui/SetupWizard.qml:144
+#: package/contents/ui/SetupWizard.qml:147
 msgid "Which graphics cards should the widget show?"
 msgstr "小部件应显示哪些显卡?"
 
-#: package/contents/ui/SetupWizard.qml:145
+#: package/contents/ui/SetupWizard.qml:148
 msgid "Which graphics card should the widget show?"
 msgstr "小部件应显示哪块显卡?"
 
-#: package/contents/ui/SetupWizard.qml:153
+#: package/contents/ui/SetupWizard.qml:156
 msgid "You can choose several cards – each then gets its own colour-coded section."
 msgstr "可以选择多块显卡 – 每块显卡将获得带颜色标记的独立分区。"
 
-#: package/contents/ui/SetupWizard.qml:154
+#: package/contents/ui/SetupWizard.qml:157
 msgid "All tile values will then refer to this card."
 msgstr "所有磁贴的数值都将指向此显卡。"
 
-#: package/contents/ui/SetupWizard.qml:163
+#: package/contents/ui/SetupWizard.qml:166
 msgid "Searching for graphics cards …"
 msgstr "正在搜索显卡 …"
 
-#: package/contents/ui/SetupWizard.qml:170
+#: package/contents/ui/SetupWizard.qml:173
 msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
 msgstr "未找到受支持的显卡。您仍可继续并显示 CPU、内存等。"
 
-#: package/contents/ui/SetupWizard.qml:231
+#: package/contents/ui/SetupWizard.qml:234
 msgid "PCI %1 · driver %2"
 msgstr "PCI %1 · 驱动 %2"
 
-#: package/contents/ui/SetupWizard.qml:263
+#: package/contents/ui/SetupWizard.qml:266
 msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Hardware Tiles directory). Without it this tile is left out."
 msgstr "注意:NVIDIA 显卡的显存温度需要 gddr6 服务(说明:Hardware Tiles 文件夹中的“gddr6-service”)。没有该服务时不显示此磁贴。"
 
-#: package/contents/ui/SetupWizard.qml:275
+#: package/contents/ui/SetupWizard.qml:278
 msgid "What should be shown besides the graphics card?"
 msgstr "除显卡外还要显示什么?"
 
-#: package/contents/ui/SetupWizard.qml:326
+#: package/contents/ui/SetupWizard.qml:329
 msgid "%1 graphics cards – basic values"
 msgstr "%1 块显卡 – 主要数值"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "Graphics card – basic values"
 msgstr "显卡 – 主要数值"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "No graphics card"
 msgstr "无显卡"
 
-#: package/contents/ui/SetupWizard.qml:328
+#: package/contents/ui/SetupWizard.qml:331
 msgid "one section per card with temperatures, load, power, VRAM, PCIe"
 msgstr "每块显卡一个分区,包含温度、负载、功耗、显存、PCIe"
 
-#: package/contents/ui/SetupWizard.qml:330
+#: package/contents/ui/SetupWizard.qml:335
+msgid "the driver reports no measured values"
+msgstr "驱动程序不提供测量值"
+
+#: package/contents/ui/SetupWizard.qml:336
 msgid "Only the selected areas are shown"
 msgstr "仅显示所选项目"
 
-#: package/contents/ui/SetupWizard.qml:342
+#: package/contents/ui/SetupWizard.qml:348
 msgid "Graphics cards – details (for each card)"
 msgstr "显卡 – 详细信息(每块显卡)"
 
-#: package/contents/ui/SetupWizard.qml:359
+#: package/contents/ui/SetupWizard.qml:365
 msgid "Results in %1 tile – you can change the arrangement and details at any time later."
 msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
 msgstr[0] "将创建 %1 个磁贴 – 排列和细节可随时更改。"
 
-#: package/contents/ui/SetupWizard.qml:378
+#: package/contents/ui/SetupWizard.qml:384
 msgid "Back"
 msgstr "返回"
 
-#: package/contents/ui/SetupWizard.qml:386
+#: package/contents/ui/SetupWizard.qml:392
 msgid "Next"
 msgstr "下一步"
 
-#: package/contents/ui/SetupWizard.qml:393
+#: package/contents/ui/SetupWizard.qml:399
 msgid "Finish"
 msgstr "完成"
 

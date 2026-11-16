@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Capteurs"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1183
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1184
 msgid "Notifications"
 msgstr "Notifications"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1152
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1153
 msgid "Appearance"
 msgstr "Apparence"
 
@@ -56,7 +56,7 @@ msgstr "Redémarrer"
 
 #: package/contents/ui/ConfigAbout.qml:70
 #: package/contents/ui/ConfigProfiles.qml:159
-#: package/contents/ui/SetupWizard.qml:372
+#: package/contents/ui/SetupWizard.qml:378
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -120,7 +120,7 @@ msgstr "Aucune version n’a encore été publiée."
 msgid "GitHub could not be reached (%1)."
 msgstr "GitHub n’a pas pu être joint (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:586
+#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:587
 msgid "Open download page"
 msgstr "Ouvrir la page de téléchargement"
 
@@ -323,17 +323,17 @@ msgid "Tile style:"
 msgstr "Style des tuiles :"
 
 #: package/contents/ui/ConfigAppearance.qml:110
-#: package/contents/ui/FullView.qml:1049
+#: package/contents/ui/FullView.qml:1050
 msgid "Glass (subtle)"
 msgstr "Verre (discret)"
 
 #: package/contents/ui/ConfigAppearance.qml:111
-#: package/contents/ui/FullView.qml:1050
+#: package/contents/ui/FullView.qml:1051
 msgid "Filled"
 msgstr "Plein"
 
 #: package/contents/ui/ConfigAppearance.qml:112
-#: package/contents/ui/FullView.qml:1051
+#: package/contents/ui/FullView.qml:1052
 msgid "Outline (accent colour)"
 msgstr "Contour (couleur d'accent)"
 
@@ -440,17 +440,17 @@ msgid "Sections per graphics card:"
 msgstr "Sections par carte graphique :"
 
 #: package/contents/ui/ConfigAppearance.qml:246
-#: package/contents/ui/FullView.qml:1060
+#: package/contents/ui/FullView.qml:1061
 msgid "From two graphics cards"
 msgstr "À partir de deux cartes graphiques"
 
 #: package/contents/ui/ConfigAppearance.qml:247
-#: package/contents/ui/FullView.qml:1061
+#: package/contents/ui/FullView.qml:1062
 msgid "Always (even with one card)"
 msgstr "Toujours (même avec une seule carte)"
 
 #: package/contents/ui/ConfigAppearance.qml:248
-#: package/contents/ui/FullView.qml:1062
+#: package/contents/ui/FullView.qml:1063
 msgid "Never (several cards: coloured edge)"
 msgstr "Jamais (plusieurs cartes : bord coloré)"
 
@@ -614,7 +614,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "La vue d’avant le dernier chargement de profil peut être restaurée."
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:1095
+#: package/contents/ui/FullView.qml:1096
 msgid "Undo profile change"
 msgstr "Annuler le changement de profil"
 
@@ -689,22 +689,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "Les fichiers exportés peuvent être importés sur un autre ordinateur. Les tuiles d’une carte graphique absente de cet ordinateur passent sur une carte du même fabricant ; les courbes de ventilateur apprises ne font pas partie du profil."
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:1156
+#: package/contents/ui/FullView.qml:1157
 msgid "Ring"
 msgstr "Anneau"
 
 #: package/contents/ui/ConfigSensors.qml:44
-#: package/contents/ui/FullView.qml:1161
+#: package/contents/ui/FullView.qml:1162
 msgid "Bar"
 msgstr "Barre"
 
 #: package/contents/ui/ConfigSensors.qml:45
-#: package/contents/ui/FullView.qml:1166
+#: package/contents/ui/FullView.qml:1167
 msgid "History graph"
 msgstr "Graphique d'historique"
 
 #: package/contents/ui/ConfigSensors.qml:46
-#: package/contents/ui/FullView.qml:1171
+#: package/contents/ui/FullView.qml:1172
 msgid "Value only"
 msgstr "Valeur seule"
 
@@ -852,12 +852,12 @@ msgid "Label (empty = automatic)"
 msgstr "Libellé (vide = automatique)"
 
 #: package/contents/ui/ConfigSensors.qml:478
-#: package/contents/ui/FullView.qml:875
+#: package/contents/ui/FullView.qml:876
 msgid "Move up"
 msgstr "Monter"
 
 #: package/contents/ui/ConfigSensors.qml:484
-#: package/contents/ui/FullView.qml:879
+#: package/contents/ui/FullView.qml:880
 msgid "Move down"
 msgstr "Descendre"
 
@@ -916,7 +916,7 @@ msgid "Style:"
 msgstr "Style :"
 
 #: package/contents/ui/ConfigSensors.qml:625
-#: package/contents/ui/FullView.qml:1176
+#: package/contents/ui/FullView.qml:1177
 msgid "Double width"
 msgstr "Double largeur"
 
@@ -1028,7 +1028,7 @@ msgid "Template …"
 msgstr "Modèle …"
 
 #: package/contents/ui/ConfigSensors.qml:883
-#: package/contents/ui/FullView.qml:1306
+#: package/contents/ui/FullView.qml:1307
 msgid "Mainboard & other sensors"
 msgstr "Carte mère et autres capteurs"
 
@@ -1395,129 +1395,129 @@ msgstr "Comparaison"
 msgid "System"
 msgstr "Système"
 
-#: package/contents/ui/FullView.qml:569
+#: package/contents/ui/FullView.qml:570
 msgid "Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Hardware Tiles doit-il rechercher de nouvelles versions une fois par semaine ? Il contacte alors github.com – GitHub voit votre adresse IP, comme lors de toute visite d’un site web ; rien d’autre n’est envoyé. Vous pouvez modifier ce choix à tout moment dans les paramètres."
 
-#: package/contents/ui/FullView.qml:570
+#: package/contents/ui/FullView.qml:571
 msgid "Hardware Tiles %1 is available (installed: %2)."
 msgstr "Hardware Tiles %1 est disponible (installé : %2)."
 
-#: package/contents/ui/FullView.qml:574
+#: package/contents/ui/FullView.qml:575
 msgid "Yes, check weekly"
 msgstr "Oui, vérifier chaque semaine"
 
-#: package/contents/ui/FullView.qml:580
+#: package/contents/ui/FullView.qml:581
 msgid "No, thanks"
 msgstr "Non, merci"
 
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:606
 msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
 msgstr "Faites glisser une tuile ou utilisez ses flèches pour la déplacer dans sa section. Clavier : les touches fléchées choisissent une tuile, Espace la prend puis la repose ; sur « + », elle ouvre la liste. × ou Suppr supprime une tuile, + en ajoute une. Les modifications sont enregistrées aussitôt ; Échap termine l’édition."
 
-#: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
+#: package/contents/ui/FullView.qml:610 package/contents/ui/FullView.qml:990
 #: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "Restaurer « %1 »"
 
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:621
 msgid "Done"
 msgstr "Terminé"
 
-#: package/contents/ui/FullView.qml:703 package/contents/ui/FullView.qml:740
+#: package/contents/ui/FullView.qml:704 package/contents/ui/FullView.qml:741
 msgid "Add tile"
 msgstr "Ajouter une tuile"
 
-#: package/contents/ui/FullView.qml:883
+#: package/contents/ui/FullView.qml:884
 msgid "Move left"
 msgstr "Déplacer à gauche"
 
-#: package/contents/ui/FullView.qml:887
+#: package/contents/ui/FullView.qml:888
 msgid "Move right"
 msgstr "Déplacer à droite"
 
-#: package/contents/ui/FullView.qml:901 package/contents/ui/FullView.qml:921
+#: package/contents/ui/FullView.qml:902 package/contents/ui/FullView.qml:922
 msgid "Remove tile"
 msgstr "Supprimer la tuile"
 
-#: package/contents/ui/FullView.qml:983 package/contents/ui/main.qml:494
+#: package/contents/ui/FullView.qml:984 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 est disponible – ouvrir la page de téléchargement"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Finish editing"
 msgstr "Terminer la modification"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Edit tiles"
 msgstr "Modifier les tuiles"
 
-#: package/contents/ui/FullView.qml:1007 package/contents/ui/main.qml:512
+#: package/contents/ui/FullView.qml:1008 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "Restaurer la disposition d'origine"
 
-#: package/contents/ui/FullView.qml:1013 package/contents/ui/main.qml:518
+#: package/contents/ui/FullView.qml:1014 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Redresser le widget (tourné de %1°)"
 
-#: package/contents/ui/FullView.qml:1019
+#: package/contents/ui/FullView.qml:1020
 msgid "Configure Hardware Tiles …"
 msgstr "Configurer Hardware Tiles …"
 
-#: package/contents/ui/FullView.qml:1046
+#: package/contents/ui/FullView.qml:1047
 msgid "Tile style"
 msgstr "Style des tuiles"
 
-#: package/contents/ui/FullView.qml:1057
+#: package/contents/ui/FullView.qml:1058
 msgid "Sections per graphics card"
 msgstr "Sections par carte graphique"
 
-#: package/contents/ui/FullView.qml:1072
+#: package/contents/ui/FullView.qml:1073
 msgid "Profile"
 msgstr "Profil"
 
-#: package/contents/ui/FullView.qml:1075
+#: package/contents/ui/FullView.qml:1076
 msgid "No profiles saved yet"
 msgstr "Aucun profil enregistré"
 
-#: package/contents/ui/FullView.qml:1085
+#: package/contents/ui/FullView.qml:1086
 msgid "changed"
 msgstr "modifié"
 
-#: package/contents/ui/FullView.qml:1101
+#: package/contents/ui/FullView.qml:1102
 msgid "Manage profiles …"
 msgstr "Gérer les profils …"
 
-#: package/contents/ui/FullView.qml:1112
+#: package/contents/ui/FullView.qml:1113
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Astuce : appui long sur un espace vide – déplacer, redimensionner, supprimer le widget"
 
-#: package/contents/ui/FullView.qml:1143
+#: package/contents/ui/FullView.qml:1144
 msgid "Edit in settings …"
 msgstr "Modifier dans les paramètres …"
 
-#: package/contents/ui/FullView.qml:1192 package/contents/ui/FullView.qml:1326
+#: package/contents/ui/FullView.qml:1193 package/contents/ui/FullView.qml:1327
 #: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "Suggestions for your hardware"
 msgstr "Suggestions pour votre matériel"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "No further suggestions"
 msgstr "Aucune autre suggestion"
 
-#: package/contents/ui/FullView.qml:1312
+#: package/contents/ui/FullView.qml:1313
 msgid "Own tile …"
 msgstr "Tuile personnalisée …"
 
-#: package/contents/ui/FullView.qml:1498
+#: package/contents/ui/FullView.qml:1499
 msgid "No sensors configured"
 msgstr "Aucun capteur configuré"
 
-#: package/contents/ui/FullView.qml:1504
+#: package/contents/ui/FullView.qml:1505
 msgid "Configure …"
 msgstr "Configurer …"
 
@@ -1963,11 +1963,11 @@ msgstr "PCIe"
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:261
+#: package/contents/ui/Reader.qml:261 package/contents/ui/SetupWizard.qml:39
 msgid "Built into CPU"
 msgstr "Intégrée au CPU"
 
-#: package/contents/ui/Reader.qml:262
+#: package/contents/ui/Reader.qml:262 package/contents/ui/SetupWizard.qml:40
 msgctxt "graphics without PCIe link, built into the mainboard"
 msgid "Built in"
 msgstr "Intégrée"
@@ -2218,89 +2218,93 @@ msgstr "Dans la plage normale · avertissement à partir de %1."
 msgid "In the normal range · critical from %1."
 msgstr "Dans la plage normale · critique à partir de %1."
 
-#: package/contents/ui/SetupWizard.qml:110
+#: package/contents/ui/SetupWizard.qml:113
 msgid "Set up Hardware Tiles"
 msgstr "Configurer Hardware Tiles"
 
-#: package/contents/ui/SetupWizard.qml:115
+#: package/contents/ui/SetupWizard.qml:118
 msgid "Step %1 of 2"
 msgstr "Étape %1 sur 2"
 
-#: package/contents/ui/SetupWizard.qml:144
+#: package/contents/ui/SetupWizard.qml:147
 msgid "Which graphics cards should the widget show?"
 msgstr "Quelles cartes graphiques le widget doit-il afficher ?"
 
-#: package/contents/ui/SetupWizard.qml:145
+#: package/contents/ui/SetupWizard.qml:148
 msgid "Which graphics card should the widget show?"
 msgstr "Quelle carte graphique le widget doit-il afficher ?"
 
-#: package/contents/ui/SetupWizard.qml:153
+#: package/contents/ui/SetupWizard.qml:156
 msgid "You can choose several cards – each then gets its own colour-coded section."
 msgstr "Vous pouvez choisir plusieurs cartes – chacune obtient alors sa propre section repérée par une couleur."
 
-#: package/contents/ui/SetupWizard.qml:154
+#: package/contents/ui/SetupWizard.qml:157
 msgid "All tile values will then refer to this card."
 msgstr "Toutes les valeurs des tuiles se rapporteront alors à cette carte."
 
-#: package/contents/ui/SetupWizard.qml:163
+#: package/contents/ui/SetupWizard.qml:166
 msgid "Searching for graphics cards …"
 msgstr "Recherche des cartes graphiques …"
 
-#: package/contents/ui/SetupWizard.qml:170
+#: package/contents/ui/SetupWizard.qml:173
 msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
 msgstr "Aucune carte graphique prise en charge trouvée. Vous pouvez quand même continuer et afficher CPU, RAM, etc."
 
-#: package/contents/ui/SetupWizard.qml:231
+#: package/contents/ui/SetupWizard.qml:234
 msgid "PCI %1 · driver %2"
 msgstr "PCI %1 · pilote %2"
 
-#: package/contents/ui/SetupWizard.qml:263
+#: package/contents/ui/SetupWizard.qml:266
 msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Hardware Tiles directory). Without it this tile is left out."
 msgstr "Remarque : la température VRAM des cartes NVIDIA nécessite le service gddr6 (instructions : dossier « gddr6-service » dans le répertoire de Hardware Tiles). Sans lui, cette tuile est omise."
 
-#: package/contents/ui/SetupWizard.qml:275
+#: package/contents/ui/SetupWizard.qml:278
 msgid "What should be shown besides the graphics card?"
 msgstr "Que faut-il afficher en plus de la carte graphique ?"
 
-#: package/contents/ui/SetupWizard.qml:326
+#: package/contents/ui/SetupWizard.qml:329
 msgid "%1 graphics cards – basic values"
 msgstr "%1 cartes graphiques – valeurs de base"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "Graphics card – basic values"
 msgstr "Carte graphique – valeurs de base"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "No graphics card"
 msgstr "Aucune carte graphique"
 
-#: package/contents/ui/SetupWizard.qml:328
+#: package/contents/ui/SetupWizard.qml:331
 msgid "one section per card with temperatures, load, power, VRAM, PCIe"
 msgstr "une section par carte avec températures, charge, consommation, VRAM, PCIe"
 
-#: package/contents/ui/SetupWizard.qml:330
+#: package/contents/ui/SetupWizard.qml:335
+msgid "the driver reports no measured values"
+msgstr "le pilote ne fournit aucune valeur mesurée"
+
+#: package/contents/ui/SetupWizard.qml:336
 msgid "Only the selected areas are shown"
 msgstr "Seules les zones choisies sont affichées"
 
-#: package/contents/ui/SetupWizard.qml:342
+#: package/contents/ui/SetupWizard.qml:348
 msgid "Graphics cards – details (for each card)"
 msgstr "Cartes graphiques – détails (pour chaque carte)"
 
-#: package/contents/ui/SetupWizard.qml:359
+#: package/contents/ui/SetupWizard.qml:365
 msgid "Results in %1 tile – you can change the arrangement and details at any time later."
 msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
 msgstr[0] "Donne %1 tuile – vous pourrez modifier la disposition et les détails à tout moment."
 msgstr[1] "Donne %1 tuiles – vous pourrez modifier la disposition et les détails à tout moment."
 
-#: package/contents/ui/SetupWizard.qml:378
+#: package/contents/ui/SetupWizard.qml:384
 msgid "Back"
 msgstr "Retour"
 
-#: package/contents/ui/SetupWizard.qml:386
+#: package/contents/ui/SetupWizard.qml:392
 msgid "Next"
 msgstr "Suivant"
 
-#: package/contents/ui/SetupWizard.qml:393
+#: package/contents/ui/SetupWizard.qml:399
 msgid "Finish"
 msgstr "Terminer"
 

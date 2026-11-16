@@ -35,7 +35,10 @@ Item {
         Hardware.categories.forEach(c => o[c.key] = false);
         o.gpuDetails = details;
         return Hardware.build(chosenGpu, o, probe.hw, (...a) => i18n(...a))
-            .map(t => t.source === "pcie" ? "PCIe" : t.label);
+            .map(t => t.source !== "pcie" ? t.label
+                 : chosenGpu.integrated ? i18n("Built into CPU")
+                 : chosenGpu.caps && chosenGpu.caps.nopcie ? i18nc("graphics without PCIe link, built into the mainboard", "Built in")
+                 : "PCIe");
     }
     readonly property var basicLabels: gpuLabels(false)
     readonly property var detailLabels: { const b = basicLabels; return gpuLabels(true).filter(l => b.indexOf(l) < 0); }
@@ -327,6 +330,9 @@ Item {
                              : wiz.chosenGpu ? i18n("Graphics card – basic values") : i18n("No graphics card")
                         hint: wiz.multi ? wiz.chosenGpus.map(g => Hardware.gpuTag(g)).join(" + ") + " · " + i18n("one section per card with temperatures, load, power, VRAM, PCIe")
                             : wiz.chosenGpu ? wiz.chosenGpu.name + (wiz.basicLabels.length ? " · " + wiz.listText(wiz.basicLabels) : "")
+                                              // only the heading is left: say why there are no tiles
+                                              + (wiz.basicLabels.length <= 1 && wiz.detailLabels.length === 0
+                                                 ? " – " + i18n("the driver reports no measured values") : "")
                             : i18n("Only the selected areas are shown")
                         iconName: "video-display"
                         checked: !!wiz.chosenGpu

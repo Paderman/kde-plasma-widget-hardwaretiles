@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "Датчики"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1183
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1184
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1152
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1153
 msgid "Appearance"
 msgstr "Внешний вид"
 
@@ -56,7 +56,7 @@ msgstr "Перезапустить"
 
 #: package/contents/ui/ConfigAbout.qml:70
 #: package/contents/ui/ConfigProfiles.qml:159
-#: package/contents/ui/SetupWizard.qml:372
+#: package/contents/ui/SetupWizard.qml:378
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -120,7 +120,7 @@ msgstr "Ещё не опубликовано ни одной версии."
 msgid "GitHub could not be reached (%1)."
 msgstr "Не удалось связаться с GitHub (%1)."
 
-#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:586
+#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:587
 msgid "Open download page"
 msgstr "Открыть страницу загрузки"
 
@@ -325,17 +325,17 @@ msgid "Tile style:"
 msgstr "Стиль плиток:"
 
 #: package/contents/ui/ConfigAppearance.qml:110
-#: package/contents/ui/FullView.qml:1049
+#: package/contents/ui/FullView.qml:1050
 msgid "Glass (subtle)"
 msgstr "Стекло (неброский)"
 
 #: package/contents/ui/ConfigAppearance.qml:111
-#: package/contents/ui/FullView.qml:1050
+#: package/contents/ui/FullView.qml:1051
 msgid "Filled"
 msgstr "Заливка"
 
 #: package/contents/ui/ConfigAppearance.qml:112
-#: package/contents/ui/FullView.qml:1051
+#: package/contents/ui/FullView.qml:1052
 msgid "Outline (accent colour)"
 msgstr "Контур (цвет акцента)"
 
@@ -442,17 +442,17 @@ msgid "Sections per graphics card:"
 msgstr "Разделы для каждой видеокарты:"
 
 #: package/contents/ui/ConfigAppearance.qml:246
-#: package/contents/ui/FullView.qml:1060
+#: package/contents/ui/FullView.qml:1061
 msgid "From two graphics cards"
 msgstr "От двух видеокарт"
 
 #: package/contents/ui/ConfigAppearance.qml:247
-#: package/contents/ui/FullView.qml:1061
+#: package/contents/ui/FullView.qml:1062
 msgid "Always (even with one card)"
 msgstr "Всегда (даже с одной картой)"
 
 #: package/contents/ui/ConfigAppearance.qml:248
-#: package/contents/ui/FullView.qml:1062
+#: package/contents/ui/FullView.qml:1063
 msgid "Never (several cards: coloured edge)"
 msgstr "Никогда (несколько карт: цветная кромка)"
 
@@ -619,7 +619,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "Вид до последней загрузки профиля можно восстановить."
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:1095
+#: package/contents/ui/FullView.qml:1096
 msgid "Undo profile change"
 msgstr "Отменить смену профиля"
 
@@ -695,22 +695,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "Экспортированные файлы можно импортировать на другом компьютере. Плитки видеокарты, которой там нет, переносятся на карту того же производителя; выученные кривые вентиляторов в профиль не входят."
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:1156
+#: package/contents/ui/FullView.qml:1157
 msgid "Ring"
 msgstr "Кольцо"
 
 #: package/contents/ui/ConfigSensors.qml:44
-#: package/contents/ui/FullView.qml:1161
+#: package/contents/ui/FullView.qml:1162
 msgid "Bar"
 msgstr "Полоса"
 
 #: package/contents/ui/ConfigSensors.qml:45
-#: package/contents/ui/FullView.qml:1166
+#: package/contents/ui/FullView.qml:1167
 msgid "History graph"
 msgstr "График истории"
 
 #: package/contents/ui/ConfigSensors.qml:46
-#: package/contents/ui/FullView.qml:1171
+#: package/contents/ui/FullView.qml:1172
 msgid "Value only"
 msgstr "Только значение"
 
@@ -858,12 +858,12 @@ msgid "Label (empty = automatic)"
 msgstr "Подпись (пусто = автоматически)"
 
 #: package/contents/ui/ConfigSensors.qml:478
-#: package/contents/ui/FullView.qml:875
+#: package/contents/ui/FullView.qml:876
 msgid "Move up"
 msgstr "Вверх"
 
 #: package/contents/ui/ConfigSensors.qml:484
-#: package/contents/ui/FullView.qml:879
+#: package/contents/ui/FullView.qml:880
 msgid "Move down"
 msgstr "Вниз"
 
@@ -922,7 +922,7 @@ msgid "Style:"
 msgstr "Стиль:"
 
 #: package/contents/ui/ConfigSensors.qml:625
-#: package/contents/ui/FullView.qml:1176
+#: package/contents/ui/FullView.qml:1177
 msgid "Double width"
 msgstr "Двойная ширина"
 
@@ -1034,7 +1034,7 @@ msgid "Template …"
 msgstr "Шаблон …"
 
 #: package/contents/ui/ConfigSensors.qml:883
-#: package/contents/ui/FullView.qml:1306
+#: package/contents/ui/FullView.qml:1307
 msgid "Mainboard & other sensors"
 msgstr "Материнская плата и другие датчики"
 
@@ -1401,129 +1401,129 @@ msgstr "Сравнение"
 msgid "System"
 msgstr "Система"
 
-#: package/contents/ui/FullView.qml:569
+#: package/contents/ui/FullView.qml:570
 msgid "Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Проверять наличие новых версий Hardware Tiles раз в неделю? Для этого выполняется подключение к github.com – GitHub видит ваш IP-адрес, как при любом посещении сайта; больше ничего не отправляется. Это можно изменить в любой момент в настройках."
 
-#: package/contents/ui/FullView.qml:570
+#: package/contents/ui/FullView.qml:571
 msgid "Hardware Tiles %1 is available (installed: %2)."
 msgstr "Доступен Hardware Tiles %1 (установлен: %2)."
 
-#: package/contents/ui/FullView.qml:574
+#: package/contents/ui/FullView.qml:575
 msgid "Yes, check weekly"
 msgstr "Да, проверять еженедельно"
 
-#: package/contents/ui/FullView.qml:580
+#: package/contents/ui/FullView.qml:581
 msgid "No, thanks"
 msgstr "Нет, спасибо"
 
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:606
 msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
 msgstr "Перетащите плитку или используйте её стрелки, чтобы переместить её в пределах раздела. Клавиатура: клавиши со стрелками выбирают плитку, Пробел берёт её и снова кладёт, а на «+» открывает список. × или Delete удаляет плитку, + добавляет новую. Изменения сохраняются сразу; Esc завершает редактирование."
 
-#: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
+#: package/contents/ui/FullView.qml:610 package/contents/ui/FullView.qml:990
 #: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "Восстановить «%1»"
 
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:621
 msgid "Done"
 msgstr "Готово"
 
-#: package/contents/ui/FullView.qml:703 package/contents/ui/FullView.qml:740
+#: package/contents/ui/FullView.qml:704 package/contents/ui/FullView.qml:741
 msgid "Add tile"
 msgstr "Добавить плитку"
 
-#: package/contents/ui/FullView.qml:883
+#: package/contents/ui/FullView.qml:884
 msgid "Move left"
 msgstr "Влево"
 
-#: package/contents/ui/FullView.qml:887
+#: package/contents/ui/FullView.qml:888
 msgid "Move right"
 msgstr "Вправо"
 
-#: package/contents/ui/FullView.qml:901 package/contents/ui/FullView.qml:921
+#: package/contents/ui/FullView.qml:902 package/contents/ui/FullView.qml:922
 msgid "Remove tile"
 msgstr "Удалить плитку"
 
-#: package/contents/ui/FullView.qml:983 package/contents/ui/main.qml:494
+#: package/contents/ui/FullView.qml:984 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Доступен Hardware Tiles %1 – открыть страницу загрузки"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Finish editing"
 msgstr "Завершить редактирование"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Edit tiles"
 msgstr "Редактировать плитки"
 
-#: package/contents/ui/FullView.qml:1007 package/contents/ui/main.qml:512
+#: package/contents/ui/FullView.qml:1008 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "Восстановить исходное расположение"
 
-#: package/contents/ui/FullView.qml:1013 package/contents/ui/main.qml:518
+#: package/contents/ui/FullView.qml:1014 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "Выровнять виджет (повёрнут на %1°)"
 
-#: package/contents/ui/FullView.qml:1019
+#: package/contents/ui/FullView.qml:1020
 msgid "Configure Hardware Tiles …"
 msgstr "Настроить Hardware Tiles …"
 
-#: package/contents/ui/FullView.qml:1046
+#: package/contents/ui/FullView.qml:1047
 msgid "Tile style"
 msgstr "Стиль плиток"
 
-#: package/contents/ui/FullView.qml:1057
+#: package/contents/ui/FullView.qml:1058
 msgid "Sections per graphics card"
 msgstr "Разделы для каждой видеокарты"
 
-#: package/contents/ui/FullView.qml:1072
+#: package/contents/ui/FullView.qml:1073
 msgid "Profile"
 msgstr "Профиль"
 
-#: package/contents/ui/FullView.qml:1075
+#: package/contents/ui/FullView.qml:1076
 msgid "No profiles saved yet"
 msgstr "Профилей пока нет"
 
-#: package/contents/ui/FullView.qml:1085
+#: package/contents/ui/FullView.qml:1086
 msgid "changed"
 msgstr "изменён"
 
-#: package/contents/ui/FullView.qml:1101
+#: package/contents/ui/FullView.qml:1102
 msgid "Manage profiles …"
 msgstr "Управление профилями…"
 
-#: package/contents/ui/FullView.qml:1112
+#: package/contents/ui/FullView.qml:1113
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "Совет: долгое нажатие на пустом месте – переместить, изменить размер, удалить виджет"
 
-#: package/contents/ui/FullView.qml:1143
+#: package/contents/ui/FullView.qml:1144
 msgid "Edit in settings …"
 msgstr "Изменить в настройках …"
 
-#: package/contents/ui/FullView.qml:1192 package/contents/ui/FullView.qml:1326
+#: package/contents/ui/FullView.qml:1193 package/contents/ui/FullView.qml:1327
 #: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "Suggestions for your hardware"
 msgstr "Предложения для вашего оборудования"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "No further suggestions"
 msgstr "Других предложений нет"
 
-#: package/contents/ui/FullView.qml:1312
+#: package/contents/ui/FullView.qml:1313
 msgid "Own tile …"
 msgstr "Своя плитка …"
 
-#: package/contents/ui/FullView.qml:1498
+#: package/contents/ui/FullView.qml:1499
 msgid "No sensors configured"
 msgstr "Датчики не настроены"
 
-#: package/contents/ui/FullView.qml:1504
+#: package/contents/ui/FullView.qml:1505
 msgid "Configure …"
 msgstr "Настроить …"
 
@@ -1970,11 +1970,11 @@ msgstr "PCIe"
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:261
+#: package/contents/ui/Reader.qml:261 package/contents/ui/SetupWizard.qml:39
 msgid "Built into CPU"
 msgstr "Встроена в ЦП"
 
-#: package/contents/ui/Reader.qml:262
+#: package/contents/ui/Reader.qml:262 package/contents/ui/SetupWizard.qml:40
 msgctxt "graphics without PCIe link, built into the mainboard"
 msgid "Built in"
 msgstr "Встроенная"
@@ -2225,90 +2225,94 @@ msgstr "В норме · предупреждение от %1."
 msgid "In the normal range · critical from %1."
 msgstr "В норме · критично от %1."
 
-#: package/contents/ui/SetupWizard.qml:110
+#: package/contents/ui/SetupWizard.qml:113
 msgid "Set up Hardware Tiles"
 msgstr "Настройка Hardware Tiles"
 
-#: package/contents/ui/SetupWizard.qml:115
+#: package/contents/ui/SetupWizard.qml:118
 msgid "Step %1 of 2"
 msgstr "Шаг %1 из 2"
 
-#: package/contents/ui/SetupWizard.qml:144
+#: package/contents/ui/SetupWizard.qml:147
 msgid "Which graphics cards should the widget show?"
 msgstr "Какие видеокарты должен показывать виджет?"
 
-#: package/contents/ui/SetupWizard.qml:145
+#: package/contents/ui/SetupWizard.qml:148
 msgid "Which graphics card should the widget show?"
 msgstr "Какую видеокарту должен показывать виджет?"
 
-#: package/contents/ui/SetupWizard.qml:153
+#: package/contents/ui/SetupWizard.qml:156
 msgid "You can choose several cards – each then gets its own colour-coded section."
 msgstr "Можно выбрать несколько карт – каждая получит собственный раздел с цветовой меткой."
 
-#: package/contents/ui/SetupWizard.qml:154
+#: package/contents/ui/SetupWizard.qml:157
 msgid "All tile values will then refer to this card."
 msgstr "Все значения плиток будут относиться к этой карте."
 
-#: package/contents/ui/SetupWizard.qml:163
+#: package/contents/ui/SetupWizard.qml:166
 msgid "Searching for graphics cards …"
 msgstr "Поиск видеокарт …"
 
-#: package/contents/ui/SetupWizard.qml:170
+#: package/contents/ui/SetupWizard.qml:173
 msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
 msgstr "Поддерживаемая видеокарта не найдена. Можно всё равно продолжить и показывать CPU, RAM и т. д."
 
-#: package/contents/ui/SetupWizard.qml:231
+#: package/contents/ui/SetupWizard.qml:234
 msgid "PCI %1 · driver %2"
 msgstr "PCI %1 · драйвер %2"
 
-#: package/contents/ui/SetupWizard.qml:263
+#: package/contents/ui/SetupWizard.qml:266
 msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Hardware Tiles directory). Without it this tile is left out."
 msgstr "Примечание: для температуры VRAM карт NVIDIA нужна служба gddr6 (инструкция: папка «gddr6-service» в каталоге Hardware Tiles). Без неё эта плитка не показывается."
 
-#: package/contents/ui/SetupWizard.qml:275
+#: package/contents/ui/SetupWizard.qml:278
 msgid "What should be shown besides the graphics card?"
 msgstr "Что показывать помимо видеокарты?"
 
-#: package/contents/ui/SetupWizard.qml:326
+#: package/contents/ui/SetupWizard.qml:329
 msgid "%1 graphics cards – basic values"
 msgstr "Видеокарт: %1 – основные значения"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "Graphics card – basic values"
 msgstr "Видеокарта – основные значения"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "No graphics card"
 msgstr "Нет видеокарты"
 
-#: package/contents/ui/SetupWizard.qml:328
+#: package/contents/ui/SetupWizard.qml:331
 msgid "one section per card with temperatures, load, power, VRAM, PCIe"
 msgstr "по разделу на карту с температурами, загрузкой, потреблением, VRAM, PCIe"
 
-#: package/contents/ui/SetupWizard.qml:330
+#: package/contents/ui/SetupWizard.qml:335
+msgid "the driver reports no measured values"
+msgstr "драйвер не передаёт измеренных значений"
+
+#: package/contents/ui/SetupWizard.qml:336
 msgid "Only the selected areas are shown"
 msgstr "Показываются только выбранные области"
 
-#: package/contents/ui/SetupWizard.qml:342
+#: package/contents/ui/SetupWizard.qml:348
 msgid "Graphics cards – details (for each card)"
 msgstr "Видеокарты – подробности (для каждой карты)"
 
-#: package/contents/ui/SetupWizard.qml:359
+#: package/contents/ui/SetupWizard.qml:365
 msgid "Results in %1 tile – you can change the arrangement and details at any time later."
 msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
 msgstr[0] "Получится %1 плитка – расположение и детали можно изменить позже в любое время."
 msgstr[1] "Получится %1 плитки – расположение и детали можно изменить позже в любое время."
 msgstr[2] "Получится %1 плиток – расположение и детали можно изменить позже в любое время."
 
-#: package/contents/ui/SetupWizard.qml:378
+#: package/contents/ui/SetupWizard.qml:384
 msgid "Back"
 msgstr "Назад"
 
-#: package/contents/ui/SetupWizard.qml:386
+#: package/contents/ui/SetupWizard.qml:392
 msgid "Next"
 msgstr "Далее"
 
-#: package/contents/ui/SetupWizard.qml:393
+#: package/contents/ui/SetupWizard.qml:399
 msgid "Finish"
 msgstr "Готово"
 

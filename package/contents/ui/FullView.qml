@@ -161,13 +161,14 @@ Item {
             if (it.compare) g = groups.length > 1 ? cmp : (groups[0] || sys);   // one card: nothing to compare
             else if (Hardware.usesGpu(root.rawItems[i])) g = byAddr[it.gpuAddr] || sys;
             // the PCIe link of a card is shown in its section header instead
-            if (it.source === "pcie" && g.addr && (!it.key || it.key === g.addr)) return;
+            // (a card without any other tile still gets its section, e.g. Radeon HD 4200)
+            if (it.source === "pcie" && g.addr && (!it.key || it.key === g.addr)) { g.linkOnly = true; return; }
             if (root.compareCollapsed(i)) return;
             g.idxs.push(i);
         });
         const out = [];
         groups.concat([cmp, sys]).forEach(g => {
-            if (!g.idxs.length) return;
+            if (!g.idxs.length && !g.linkOnly) return;
             out.push({ header: true, group: g.key, title: g.title, info: g.info, slot: g.slot, addr: g.addr, driver: g.driver });
             g.idxs.forEach(i => out.push({ idx: i, group: g.key }));
             if (editing) out.push({ add: true, group: g.key });

@@ -21,11 +21,11 @@ msgstr ""
 msgid "Sensors"
 msgstr "センサー"
 
-#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1183
+#: package/contents/config/config.qml:14 package/contents/ui/FullView.qml:1184
 msgid "Notifications"
 msgstr "通知"
 
-#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1152
+#: package/contents/config/config.qml:19 package/contents/ui/FullView.qml:1153
 msgid "Appearance"
 msgstr "外観"
 
@@ -56,7 +56,7 @@ msgstr "再起動"
 
 #: package/contents/ui/ConfigAbout.qml:70
 #: package/contents/ui/ConfigProfiles.qml:159
-#: package/contents/ui/SetupWizard.qml:372
+#: package/contents/ui/SetupWizard.qml:378
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -120,7 +120,7 @@ msgstr "まだバージョンが公開されていません。"
 msgid "GitHub could not be reached (%1)."
 msgstr "GitHub に接続できませんでした(%1)。"
 
-#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:586
+#: package/contents/ui/ConfigAbout.qml:165 package/contents/ui/FullView.qml:587
 msgid "Open download page"
 msgstr "ダウンロードページを開く"
 
@@ -321,17 +321,17 @@ msgid "Tile style:"
 msgstr "タイルのスタイル:"
 
 #: package/contents/ui/ConfigAppearance.qml:110
-#: package/contents/ui/FullView.qml:1049
+#: package/contents/ui/FullView.qml:1050
 msgid "Glass (subtle)"
 msgstr "ガラス(控えめ)"
 
 #: package/contents/ui/ConfigAppearance.qml:111
-#: package/contents/ui/FullView.qml:1050
+#: package/contents/ui/FullView.qml:1051
 msgid "Filled"
 msgstr "塗りつぶし"
 
 #: package/contents/ui/ConfigAppearance.qml:112
-#: package/contents/ui/FullView.qml:1051
+#: package/contents/ui/FullView.qml:1052
 msgid "Outline (accent colour)"
 msgstr "枠線(アクセントカラー)"
 
@@ -438,17 +438,17 @@ msgid "Sections per graphics card:"
 msgstr "グラフィックカードごとのセクション:"
 
 #: package/contents/ui/ConfigAppearance.qml:246
-#: package/contents/ui/FullView.qml:1060
+#: package/contents/ui/FullView.qml:1061
 msgid "From two graphics cards"
 msgstr "グラフィックカードが 2 枚以上のとき"
 
 #: package/contents/ui/ConfigAppearance.qml:247
-#: package/contents/ui/FullView.qml:1061
+#: package/contents/ui/FullView.qml:1062
 msgid "Always (even with one card)"
 msgstr "常に(1 枚でも)"
 
 #: package/contents/ui/ConfigAppearance.qml:248
-#: package/contents/ui/FullView.qml:1062
+#: package/contents/ui/FullView.qml:1063
 msgid "Never (several cards: coloured edge)"
 msgstr "表示しない(複数枚: 色付きの縁)"
 
@@ -609,7 +609,7 @@ msgid "The view before the last profile was loaded can be restored."
 msgstr "最後にプロファイルを読み込む前の表示に戻せます。"
 
 #: package/contents/ui/ConfigProfiles.qml:216
-#: package/contents/ui/FullView.qml:1095
+#: package/contents/ui/FullView.qml:1096
 msgid "Undo profile change"
 msgstr "プロファイルの変更を元に戻す"
 
@@ -683,22 +683,22 @@ msgid "Exported files can be imported on another computer. Tiles of a graphics c
 msgstr "エクスポートしたファイルは別のコンピューターでインポートできます。そのコンピューターにないグラフィックカードのタイルは同じメーカーのカードに移ります。学習したファンカーブはプロファイルに含まれません。"
 
 #: package/contents/ui/ConfigSensors.qml:43
-#: package/contents/ui/FullView.qml:1156
+#: package/contents/ui/FullView.qml:1157
 msgid "Ring"
 msgstr "リング"
 
 #: package/contents/ui/ConfigSensors.qml:44
-#: package/contents/ui/FullView.qml:1161
+#: package/contents/ui/FullView.qml:1162
 msgid "Bar"
 msgstr "バー"
 
 #: package/contents/ui/ConfigSensors.qml:45
-#: package/contents/ui/FullView.qml:1166
+#: package/contents/ui/FullView.qml:1167
 msgid "History graph"
 msgstr "履歴グラフ"
 
 #: package/contents/ui/ConfigSensors.qml:46
-#: package/contents/ui/FullView.qml:1171
+#: package/contents/ui/FullView.qml:1172
 msgid "Value only"
 msgstr "値のみ"
 
@@ -846,12 +846,12 @@ msgid "Label (empty = automatic)"
 msgstr "ラベル(空欄 = 自動)"
 
 #: package/contents/ui/ConfigSensors.qml:478
-#: package/contents/ui/FullView.qml:875
+#: package/contents/ui/FullView.qml:876
 msgid "Move up"
 msgstr "上へ"
 
 #: package/contents/ui/ConfigSensors.qml:484
-#: package/contents/ui/FullView.qml:879
+#: package/contents/ui/FullView.qml:880
 msgid "Move down"
 msgstr "下へ"
 
@@ -910,7 +910,7 @@ msgid "Style:"
 msgstr "スタイル:"
 
 #: package/contents/ui/ConfigSensors.qml:625
-#: package/contents/ui/FullView.qml:1176
+#: package/contents/ui/FullView.qml:1177
 msgid "Double width"
 msgstr "2 倍幅"
 
@@ -1022,7 +1022,7 @@ msgid "Template …"
 msgstr "テンプレート …"
 
 #: package/contents/ui/ConfigSensors.qml:883
-#: package/contents/ui/FullView.qml:1306
+#: package/contents/ui/FullView.qml:1307
 msgid "Mainboard & other sensors"
 msgstr "マザーボードとその他のセンサー"
 
@@ -1389,129 +1389,129 @@ msgstr "比較"
 msgid "System"
 msgstr "システム"
 
-#: package/contents/ui/FullView.qml:569
+#: package/contents/ui/FullView.qml:570
 msgid "Should Hardware Tiles look for new versions once a week? It then connects to github.com – GitHub sees your IP address, as with any website visit; nothing else is sent. You can change this any time in the settings."
 msgstr "Hardware Tiles が週に一度新しいバージョンを確認してもよいですか? その際 github.com に接続します – GitHub には、通常のウェブサイト閲覧と同様に IP アドレスが見えますが、それ以外は何も送信されません。設定でいつでも変更できます。"
 
-#: package/contents/ui/FullView.qml:570
+#: package/contents/ui/FullView.qml:571
 msgid "Hardware Tiles %1 is available (installed: %2)."
 msgstr "Hardware Tiles %1 が利用可能です(インストール済み: %2)。"
 
-#: package/contents/ui/FullView.qml:574
+#: package/contents/ui/FullView.qml:575
 msgid "Yes, check weekly"
 msgstr "はい、毎週確認する"
 
-#: package/contents/ui/FullView.qml:580
+#: package/contents/ui/FullView.qml:581
 msgid "No, thanks"
 msgstr "いいえ、結構です"
 
-#: package/contents/ui/FullView.qml:605
+#: package/contents/ui/FullView.qml:606
 msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
 msgstr "タイルをドラッグするか矢印ボタンで、セクション内で移動できます。キーボード：矢印キーでタイルを選び、スペースで持ち上げ、もう一度押すと置きます。「+」の上ではリストを開きます。× または Delete でタイルを削除、+ で追加します。変更はすぐに保存されます。Esc で編集を終了します。"
 
-#: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
+#: package/contents/ui/FullView.qml:610 package/contents/ui/FullView.qml:990
 #: package/contents/ui/main.qml:500
 msgid "Restore “%1”"
 msgstr "「%1」を復元"
 
-#: package/contents/ui/FullView.qml:620
+#: package/contents/ui/FullView.qml:621
 msgid "Done"
 msgstr "完了"
 
-#: package/contents/ui/FullView.qml:703 package/contents/ui/FullView.qml:740
+#: package/contents/ui/FullView.qml:704 package/contents/ui/FullView.qml:741
 msgid "Add tile"
 msgstr "タイルを追加"
 
-#: package/contents/ui/FullView.qml:883
+#: package/contents/ui/FullView.qml:884
 msgid "Move left"
 msgstr "左へ"
 
-#: package/contents/ui/FullView.qml:887
+#: package/contents/ui/FullView.qml:888
 msgid "Move right"
 msgstr "右へ"
 
-#: package/contents/ui/FullView.qml:901 package/contents/ui/FullView.qml:921
+#: package/contents/ui/FullView.qml:902 package/contents/ui/FullView.qml:922
 msgid "Remove tile"
 msgstr "タイルを削除"
 
-#: package/contents/ui/FullView.qml:983 package/contents/ui/main.qml:494
+#: package/contents/ui/FullView.qml:984 package/contents/ui/main.qml:494
 msgid "Hardware Tiles %1 is available – open download page"
 msgstr "Hardware Tiles %1 が利用可能です – ダウンロードページを開く"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Finish editing"
 msgstr "編集を終了"
 
-#: package/contents/ui/FullView.qml:995
+#: package/contents/ui/FullView.qml:996
 msgid "Edit tiles"
 msgstr "タイルを編集"
 
-#: package/contents/ui/FullView.qml:1007 package/contents/ui/main.qml:512
+#: package/contents/ui/FullView.qml:1008 package/contents/ui/main.qml:512
 msgid "Restore original arrangement"
 msgstr "元の配置に戻す"
 
-#: package/contents/ui/FullView.qml:1013 package/contents/ui/main.qml:518
+#: package/contents/ui/FullView.qml:1014 package/contents/ui/main.qml:518
 msgid "Straighten widget (rotated by %1°)"
 msgstr "ウィジェットをまっすぐに戻す（%1° 回転中）"
 
-#: package/contents/ui/FullView.qml:1019
+#: package/contents/ui/FullView.qml:1020
 msgid "Configure Hardware Tiles …"
 msgstr "Hardware Tiles を設定 …"
 
-#: package/contents/ui/FullView.qml:1046
+#: package/contents/ui/FullView.qml:1047
 msgid "Tile style"
 msgstr "タイルのスタイル"
 
-#: package/contents/ui/FullView.qml:1057
+#: package/contents/ui/FullView.qml:1058
 msgid "Sections per graphics card"
 msgstr "グラフィックカードごとのセクション"
 
-#: package/contents/ui/FullView.qml:1072
+#: package/contents/ui/FullView.qml:1073
 msgid "Profile"
 msgstr "プロファイル"
 
-#: package/contents/ui/FullView.qml:1075
+#: package/contents/ui/FullView.qml:1076
 msgid "No profiles saved yet"
 msgstr "保存済みのプロファイルはありません"
 
-#: package/contents/ui/FullView.qml:1085
+#: package/contents/ui/FullView.qml:1086
 msgid "changed"
 msgstr "変更あり"
 
-#: package/contents/ui/FullView.qml:1101
+#: package/contents/ui/FullView.qml:1102
 msgid "Manage profiles …"
 msgstr "プロファイルを管理…"
 
-#: package/contents/ui/FullView.qml:1112
+#: package/contents/ui/FullView.qml:1113
 msgid "Tip: press and hold an empty spot – move, resize, remove widget"
 msgstr "ヒント: 空いている場所を長押し – ウィジェットの移動・サイズ変更・削除"
 
-#: package/contents/ui/FullView.qml:1143
+#: package/contents/ui/FullView.qml:1144
 msgid "Edit in settings …"
 msgstr "設定で編集 …"
 
-#: package/contents/ui/FullView.qml:1192 package/contents/ui/FullView.qml:1326
+#: package/contents/ui/FullView.qml:1193 package/contents/ui/FullView.qml:1327
 #: package/contents/ui/main.qml:540
 msgid "Hardware Tiles"
 msgstr "Hardware Tiles"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "Suggestions for your hardware"
 msgstr "お使いのハードウェア向けの候補"
 
-#: package/contents/ui/FullView.qml:1287
+#: package/contents/ui/FullView.qml:1288
 msgid "No further suggestions"
 msgstr "これ以上の候補はありません"
 
-#: package/contents/ui/FullView.qml:1312
+#: package/contents/ui/FullView.qml:1313
 msgid "Own tile …"
 msgstr "カスタムタイル …"
 
-#: package/contents/ui/FullView.qml:1498
+#: package/contents/ui/FullView.qml:1499
 msgid "No sensors configured"
 msgstr "センサーが設定されていません"
 
-#: package/contents/ui/FullView.qml:1504
+#: package/contents/ui/FullView.qml:1505
 msgid "Configure …"
 msgstr "設定 …"
 
@@ -1956,11 +1956,11 @@ msgstr "PCIe"
 msgid "Gen %1 ×%2"
 msgstr "Gen %1 ×%2"
 
-#: package/contents/ui/Reader.qml:261
+#: package/contents/ui/Reader.qml:261 package/contents/ui/SetupWizard.qml:39
 msgid "Built into CPU"
 msgstr "CPU内蔵"
 
-#: package/contents/ui/Reader.qml:262
+#: package/contents/ui/Reader.qml:262 package/contents/ui/SetupWizard.qml:40
 msgctxt "graphics without PCIe link, built into the mainboard"
 msgid "Built in"
 msgstr "内蔵"
@@ -2211,88 +2211,92 @@ msgstr "正常 · 警告 %1 から。"
 msgid "In the normal range · critical from %1."
 msgstr "正常 · 危険 %1 から。"
 
-#: package/contents/ui/SetupWizard.qml:110
+#: package/contents/ui/SetupWizard.qml:113
 msgid "Set up Hardware Tiles"
 msgstr "Hardware Tiles のセットアップ"
 
-#: package/contents/ui/SetupWizard.qml:115
+#: package/contents/ui/SetupWizard.qml:118
 msgid "Step %1 of 2"
 msgstr "ステップ %1 / 2"
 
-#: package/contents/ui/SetupWizard.qml:144
+#: package/contents/ui/SetupWizard.qml:147
 msgid "Which graphics cards should the widget show?"
 msgstr "ウィジェットに表示するグラフィックカードは?"
 
-#: package/contents/ui/SetupWizard.qml:145
+#: package/contents/ui/SetupWizard.qml:148
 msgid "Which graphics card should the widget show?"
 msgstr "ウィジェットに表示するグラフィックカードは?"
 
-#: package/contents/ui/SetupWizard.qml:153
+#: package/contents/ui/SetupWizard.qml:156
 msgid "You can choose several cards – each then gets its own colour-coded section."
 msgstr "複数のカードを選択できます – それぞれ色付きの独自セクションが作成されます。"
 
-#: package/contents/ui/SetupWizard.qml:154
+#: package/contents/ui/SetupWizard.qml:157
 msgid "All tile values will then refer to this card."
 msgstr "すべてのタイルの値がこのカードを参照します。"
 
-#: package/contents/ui/SetupWizard.qml:163
+#: package/contents/ui/SetupWizard.qml:166
 msgid "Searching for graphics cards …"
 msgstr "グラフィックカードを検索中 …"
 
-#: package/contents/ui/SetupWizard.qml:170
+#: package/contents/ui/SetupWizard.qml:173
 msgid "No supported graphics card found. You can still continue and show CPU, RAM & co."
 msgstr "対応するグラフィックカードが見つかりません。このまま続行して CPU、RAM などを表示できます。"
 
-#: package/contents/ui/SetupWizard.qml:231
+#: package/contents/ui/SetupWizard.qml:234
 msgid "PCI %1 · driver %2"
 msgstr "PCI %1 · ドライバー %2"
 
-#: package/contents/ui/SetupWizard.qml:263
+#: package/contents/ui/SetupWizard.qml:266
 msgid "Note: the VRAM temperature of NVIDIA cards needs the gddr6 service (instructions: folder “gddr6-service” in the Hardware Tiles directory). Without it this tile is left out."
 msgstr "注意: NVIDIA カードの VRAM 温度には gddr6 サービスが必要です(手順: Hardware Tiles フォルダー内の「gddr6-service」)。サービスがない場合、このタイルは表示されません。"
 
-#: package/contents/ui/SetupWizard.qml:275
+#: package/contents/ui/SetupWizard.qml:278
 msgid "What should be shown besides the graphics card?"
 msgstr "グラフィックカード以外に表示するものは?"
 
-#: package/contents/ui/SetupWizard.qml:326
+#: package/contents/ui/SetupWizard.qml:329
 msgid "%1 graphics cards – basic values"
 msgstr "グラフィックカード %1 枚 – 主な値"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "Graphics card – basic values"
 msgstr "グラフィックカード – 主な値"
 
-#: package/contents/ui/SetupWizard.qml:327
+#: package/contents/ui/SetupWizard.qml:330
 msgid "No graphics card"
 msgstr "グラフィックカードなし"
 
-#: package/contents/ui/SetupWizard.qml:328
+#: package/contents/ui/SetupWizard.qml:331
 msgid "one section per card with temperatures, load, power, VRAM, PCIe"
 msgstr "カードごとに温度、使用率、消費電力、VRAM、PCIe のセクション"
 
-#: package/contents/ui/SetupWizard.qml:330
+#: package/contents/ui/SetupWizard.qml:335
+msgid "the driver reports no measured values"
+msgstr "ドライバーは測定値を提供しません"
+
+#: package/contents/ui/SetupWizard.qml:336
 msgid "Only the selected areas are shown"
 msgstr "選択した項目のみ表示されます"
 
-#: package/contents/ui/SetupWizard.qml:342
+#: package/contents/ui/SetupWizard.qml:348
 msgid "Graphics cards – details (for each card)"
 msgstr "グラフィックカード – 詳細(カードごと)"
 
-#: package/contents/ui/SetupWizard.qml:359
+#: package/contents/ui/SetupWizard.qml:365
 msgid "Results in %1 tile – you can change the arrangement and details at any time later."
 msgid_plural "Results in %1 tiles – you can change the arrangement and details at any time later."
 msgstr[0] "%1 個のタイルが作成されます – 配置や詳細は後でいつでも変更できます。"
 
-#: package/contents/ui/SetupWizard.qml:378
+#: package/contents/ui/SetupWizard.qml:384
 msgid "Back"
 msgstr "戻る"
 
-#: package/contents/ui/SetupWizard.qml:386
+#: package/contents/ui/SetupWizard.qml:392
 msgid "Next"
 msgstr "次へ"
 
-#: package/contents/ui/SetupWizard.qml:393
+#: package/contents/ui/SetupWizard.qml:399
 msgid "Finish"
 msgstr "完了"
 

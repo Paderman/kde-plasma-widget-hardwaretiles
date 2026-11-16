@@ -64,6 +64,8 @@ for d in /sys/bus/pci/devices/*; do
         [ -e "$d/mem_info_vram_total" ] && caps="$caps,vram"
         [ -e "$d/pp_dpm_sclk" ] && caps="$caps,sclk"
         [ -e "$d/pp_dpm_mclk" ] && caps="$caps,mclk"
+        # no PCIe link at all: graphics in the chipset behind a plain PCI bridge
+        [ -e "$d/current_link_width" ] || caps="$caps,nopcie"
         echo "GPUCAP$T$addr$T${caps#,}"
     fi
 done
