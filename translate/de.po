@@ -1410,8 +1410,8 @@ msgid "No, thanks"
 msgstr "Nein, danke"
 
 #: package/contents/ui/FullView.qml:605
-msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one."
-msgstr "Kachel ziehen oder ihre Pfeile nutzen, um sie innerhalb ihres Abschnitts zu verschieben. Tastatur: Pfeiltasten wählen eine Kachel, die Leertaste nimmt sie auf und legt sie wieder ab – auf „+“ öffnet sie die Liste. × oder Entf entfernt eine Kachel, + fügt eine hinzu."
+msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
+msgstr "Kachel ziehen oder ihre Pfeile nutzen, um sie innerhalb ihres Abschnitts zu verschieben. Tastatur: Pfeiltasten wählen eine Kachel, die Leertaste nimmt sie auf und legt sie wieder ab – auf „+“ öffnet sie die Liste. × oder Entf entfernt eine Kachel, + fügt eine hinzu. Änderungen werden sofort gespeichert; Esc beendet das Bearbeiten."
 
 #: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
 #: package/contents/ui/main.qml:500

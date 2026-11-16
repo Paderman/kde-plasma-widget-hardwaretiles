@@ -602,7 +602,7 @@ Item {
         visible: full.editing
         type: Kirigami.MessageType.Positive
         icon.source: "document-edit"
-        text: i18n("Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one.")
+        text: i18n("Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing.")
         actions: [
             Kirigami.Action {
                 visible: root.canUndoRemove

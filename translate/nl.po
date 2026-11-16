@@ -1412,8 +1412,8 @@ msgid "No, thanks"
 msgstr "Nee, bedankt"
 
 #: package/contents/ui/FullView.qml:605
-msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one."
-msgstr "Sleep een tegel of gebruik zijn pijlen om hem binnen zijn sectie te verplaatsen. Toetsenbord: de pijltjestoetsen kiezen een tegel, Spatie pakt hem op en zet hem weer neer – op „+” opent hij de lijst. × of Delete verwijdert een tegel, + voegt er een toe."
+msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
+msgstr "Sleep een tegel of gebruik zijn pijlen om hem binnen zijn sectie te verplaatsen. Toetsenbord: de pijltjestoetsen kiezen een tegel, Spatie pakt hem op en zet hem weer neer – op „+” opent hij de lijst. × of Delete verwijdert een tegel, + voegt er een toe. Wijzigingen worden direct opgeslagen; Esc beëindigt het bewerken."
 
 #: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
 #: package/contents/ui/main.qml:500

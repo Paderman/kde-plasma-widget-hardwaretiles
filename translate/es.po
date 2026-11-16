@@ -1412,8 +1412,8 @@ msgid "No, thanks"
 msgstr "No, gracias"
 
 #: package/contents/ui/FullView.qml:605
-msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one."
-msgstr "Arrastra un mosaico o usa sus flechas para moverlo dentro de su sección. Teclado: las teclas de flecha eligen un mosaico, Espacio lo toma y lo vuelve a soltar; sobre «+» abre la lista. × o Supr elimina un mosaico, + añade uno."
+msgid "Drag a tile or use its arrows to move it within its section. Keyboard: the arrow keys choose a tile, Space picks it up and puts it down again – on “+” it opens the list. × or Delete removes a tile, + adds one. Changes are saved at once; Esc ends editing."
+msgstr "Arrastra un mosaico o usa sus flechas para moverlo dentro de su sección. Teclado: las teclas de flecha eligen un mosaico, Espacio lo toma y lo vuelve a soltar; sobre «+» abre la lista. × o Supr elimina un mosaico, + añade uno. Los cambios se guardan al instante; Esc termina la edición."
 
 #: package/contents/ui/FullView.qml:609 package/contents/ui/FullView.qml:989
 #: package/contents/ui/main.qml:500
