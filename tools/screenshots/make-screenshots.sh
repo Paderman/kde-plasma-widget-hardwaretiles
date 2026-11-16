@@ -9,6 +9,7 @@
 #
 #   tools/screenshots/make-screenshots.sh [shot …]
 #   shot = <mode>-<lang>-<scheme>, e.g. overview-en-dark (default: all below)
+#   modes: overview, multi, wizard, cards, edit ("Edit tiles", one tile picked up)
 # Output: docs/screenshots/<lang>/<shot>.png ("cards" -> wizard-cards-<lang>-<scheme>.png)
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
@@ -19,13 +20,14 @@ mkdir -p "$OUTDIR" "$WORKROOT"
 
 SHOTS=("$@")
 [ ${#SHOTS[@]} -gt 0 ] || SHOTS=(overview-en-dark overview-de-dark multi-en-dark multi-de-dark
-                                 cards-en-dark cards-de-dark wizard-en-dark wizard-de-dark overview-en-light overview-de-light)
+                                 cards-en-dark cards-de-dark wizard-en-dark wizard-de-dark edit-en-dark edit-de-dark
+                                 overview-en-light overview-de-light)
 
 "$SRC/translate/build.sh" >/dev/null
 
 for shot in "${SHOTS[@]}"; do
     IFS=- read -r mode lang scheme <<<"$shot"
-    case $mode in overview) W=1180; H=580 ;; multi) W=1180; H=760 ;; wizard) W=620; H=720 ;; cards) W=620; H=460 ;;
+    case $mode in overview) W=1180; H=580 ;; edit) W=1180; H=820 ;; multi) W=1180; H=760 ;; wizard) W=620; H=720 ;; cards) W=620; H=460 ;;
                   *) echo "unknown mode $mode"; exit 1 ;; esac
     name=$shot; [ "$mode" = cards ] && name="wizard-$shot"
     OUT="$OUTDIR/$lang/$name.png"; mkdir -p "$OUTDIR/$lang"
@@ -45,7 +47,7 @@ if not sys.argv[1].endswith("/en.po"):
         if e.msgstr and not e.obsolete: m[e.msgid] = e.msgstr
 json.dump(m, open(sys.argv[2], "w"), ensure_ascii=False)
 PY
-    lmode=$mode; [ "$mode" = wizard ] && lmode=overview; [ "$mode" = cards ] && lmode=multi
+    lmode=$mode; [ "$mode" = wizard ] || [ "$mode" = edit ] && lmode=overview; [ "$mode" = cards ] && lmode=multi
     node "$HERE/gen-layout.js" "$W_/pkg/contents" "$HERE/Demo.js" "$lmode" "$tr" > "$W_/layout.json"
     python3 "$HERE/patch.py" "$W_/pkg" "$HERE/Demo.js" "$W_/layout.json" "$mode" "$OUT" "$W" "$H"
 

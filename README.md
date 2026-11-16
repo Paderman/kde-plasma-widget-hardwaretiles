@@ -56,6 +56,8 @@ PCIe link and a self-learning fan curve – plus CPU, memory, SSDs and fans, as 
 
 In *Edit tiles* the widget can be used without a mouse:
 
+![Edit tiles: the GPU fan tile is picked up with the keyboard and can be moved with the arrow keys](docs/screenshots/en/edit-en-dark.png)
+
 | Key | What it does |
 |---|---|
 | Arrow keys | choose a tile (or a “+” field) |

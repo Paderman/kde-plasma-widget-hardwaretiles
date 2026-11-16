@@ -32,7 +32,9 @@ open(ui + "Demo.js", "w").write(d)
 
 edit("Reader.qml", [
     ('import "NvidiaKeys.js" as NK', 'import "NvidiaKeys.js" as NK\nimport "Demo.js" as Demo'),
-    ("sensorId: reader.enabled_ && reader.isSensor ? reader.sensorId : \"\"", 'sensorId: ""'),
+    # no real sensors: the Instantiator that makes the Sensor objects gets no id
+    ("readonly property string activeSensorId: enabled_ && isSensor ? sensorId : \"\"",
+     'readonly property string activeSensorId: ""'),
     ("    readonly property real value: !enabled_ ? NaN",
      "    property int demoTick: 0\n"
      "    Timer { interval: reader.interval; running: true; repeat: true; onTriggered: reader.demoTick++ }\n"
@@ -78,6 +80,17 @@ edit("FullView.qml", [
 s = open(ui + "FullView.qml").read()
 s = s.replace("    Layout.minimumWidth: Kirigami.Units.gridUnit * 8\n    Layout.minimumHeight: Kirigami.Units.gridUnit * 5\n", "", 1)
 open(ui + "FullView.qml", "w").write(s)
+
+# edit: "Edit tiles" with one tile picked up with the keyboard (Space).
+# Switched on late: in this rig (Xvfb, simulated values) the graphs drop to the
+# minimum about 17 s after the edit mode starts – the real widget does not
+if mode == "edit":
+    edit("FullView.qml", [("    Timer {\n        interval: 24000; running: true\n",
+         "    Timer {\n        interval: 14000; running: true\n"
+         "        onTriggered: full.editing = true\n    }\n"
+         "    Timer {\n        interval: 16000; running: true\n"
+         "        onTriggered: { const l = full.navEntries(); full.select(l[2]); full.grabbed = full.armed; }\n    }\n"
+         "    Timer {\n        interval: 24000; running: true\n")])
 
 # wizard: show step 2 (the area choices); "cards" shows step 1 (choosing graphics cards) with two cards
 if mode == "wizard":

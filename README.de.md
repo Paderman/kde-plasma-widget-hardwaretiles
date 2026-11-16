@@ -60,6 +60,8 @@ als Ringe, Balken und Verlaufsgraphen.
 
 In *Kacheln bearbeiten* lässt sich das Widget ganz ohne Maus bedienen:
 
+![Kacheln bearbeiten: die Kachel GPU-Lüfter ist per Tastatur aufgenommen und lässt sich mit den Pfeiltasten verschieben](docs/screenshots/de/edit-de-dark.png)
+
 | Taste | Wirkung |
 |---|---|
 | Pfeiltasten | Kachel (oder „+“-Feld) auswählen |
