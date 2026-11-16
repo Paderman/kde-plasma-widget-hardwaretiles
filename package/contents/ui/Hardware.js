@@ -200,6 +200,9 @@ var notBoard = /CPU|Core|Package|Tctl|Tdie|Tccd|PECI|VRM|GPU|DIMM|Virtual|Calibr
 var boardLabel = /SYSTIN|Motherboard|Mainboard|\bMB\b|MB ?Temp|System|SYS ?Temp|Ambient|Case/i;
 // Super-I/O and board drivers: their unlabelled temp1 is usually the board sensor
 var superIo = /^(nct|it8|it87|f71|f8000|w83|sch5|gigabyte_wmi|asus|dell_smm)/i;
+// older SMSC Super-I/O chips (e.g. smsc47b397 in HP business PCs): temp1 follows
+// the processor and temp2 the hot chipset – the coolest unlabelled one is the case
+var smscIo = /^smsc47/i;
 // voltage of the mainboard battery (coin cell, keeps BIOS settings and clock):
 // "Vbat", "VBAT", "3VBAT", "CMOS Battery" … – not "3VSB" (standby supply)
 var batteryLabel = /(^|[^a-z])(vbat|vbatt|cmos)|batter/i;
@@ -234,14 +237,16 @@ function boardSensors(hw) {
                     fans.push({ id: id, label: named ? Defaults.stripSensorNo(label) : tr("Fan %1", m[2]) });
                 if (m[1] === "temp" && !skipTempChip.test(chip) && v > 10 && v < 80 && !notBoard.test(label)) {
                     var score = boardLabel.test(label) ? 3
-                              : (superIo.test(chip) && /^temp1$/.test(label)) ? 1 : 0;
-                    if (score > 0) temps.push({ id: id, label: label, score: score });
+                              : (superIo.test(chip) && /^temp1$/.test(label)) ? 1
+                              : (smscIo.test(chip) && /^temp\d+$/.test(label)) ? 0.5 : 0;
+                    if (score > 0) temps.push({ id: id, label: label, score: score, value: v });
                 }
             });
         });
     });
-    // best match first; equal scores keep the sensor order
-    temps.sort(function (x, y) { return y.score - x.score; });
+    // best match first; equal scores keep the sensor order – only among the
+    // SMSC guesses the coolest wins
+    temps.sort(function (x, y) { return y.score - x.score || (x.score === 0.5 ? x.value - y.value : 0); });
     return { fans: fans.slice(0, 4), temps: temps.slice(0, 1), battery: battery };
 }
 
@@ -339,7 +344,7 @@ function round2(v) { return Math.round(v * 100) / 100; }
 // friendly name of a sensor chip for the menus
 function chipName(chip) {
     var c = String(chip || "");
-    if (/^(nct|it8|it87|f71|f8000|w83|sch5|gigabyte_wmi|asus|asus_ec|asus_wmi|dell_smm|thinkpad)/i.test(c)) return tr("Mainboard");
+    if (/^(nct|it8|it87|f71|f8000|w83|sch5|smsc47|gigabyte_wmi|asus|asus_ec|asus_wmi|dell_smm|thinkpad)/i.test(c)) return tr("Mainboard");
     if (/^(coretemp|k10temp|zenpower)/i.test(c)) return tr("Processor");
     if (/^nvme/i.test(c)) return tr("SSD");
     if (/^(acpitz|pch_)/i.test(c)) return tr("Chipset / ACPI");
