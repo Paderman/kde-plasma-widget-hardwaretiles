@@ -1284,9 +1284,12 @@ Item {
                 }
             }
         }
+        // "No further suggestions" only when nothing else follows – above the
+        // other sensors it read like a contradiction
         HidingItem {
             text: addMenu.list.length ? i18n("Suggestions for your hardware") : i18n("No further suggestions")
             enabled: false
+            visible: addMenu.list.length > 0 || !addMenu.extrasHere
         }
         Instantiator {
             model: addMenu.list
@@ -1302,7 +1305,10 @@ Item {
             onObjectAdded: (index, object) => addMenu.insertItem(index + 1, object)
             onObjectRemoved: (index, object) => addMenu.removeItem(object)
         }
-        QQC2.MenuSeparator { }
+        QQC2.MenuSeparator {
+            visible: addMenu.list.length > 0 || !addMenu.extrasHere
+            height: visible ? implicitHeight : 0
+        }
         HidingItem {
             text: i18n("Mainboard & other sensors")
             enabled: false
