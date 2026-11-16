@@ -342,7 +342,10 @@ Item {
             p.urgency = Notification.LowUrgency;
             p.flags = Notification.CloseOnTimeout;
         }
-        if (fullName && fullName !== label) p.text += "\n" + fullName;
+        // the sensor's own name – not a bare channel name like "Fan 1" (radeon/nouveau
+        // fan, unnamed chip inputs): next to "GPU fan" it reads like a different fan
+        if (fullName && fullName !== label && !(main.isSensor && /^[^\s\d]+\s?\d+$/.test(fullName.trim())))
+            p.text += "\n" + fullName;
 
         closeActive();                     // replace the previous alert of this sensor
         const n = noteComponent.createObject(src, p);
