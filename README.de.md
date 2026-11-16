@@ -49,12 +49,28 @@ als Ringe, Balken und Verlaufsgraphen.
 - **Einstellbare Deckkraft des Hintergrunds** auf der Arbeitsfläche, Kacheln bleiben bis 0 % lesbar
 - **Jede Einstellung zurück auf den Standard** per Mittelklick oder Rechtsklick darauf
 - **Kacheln direkt im Widget bearbeiten** (Rechtsklick → *Kacheln bearbeiten*): ziehen oder Pfeile zum Verschieben,
-  × zum Entfernen, + zum Hinzufügen aus Vorschlägen für die erkannte Hardware
+  × zum Entfernen, + zum Hinzufügen aus Vorschlägen für die erkannte Hardware – auch [per Tastatur](#kacheln-per-tastatur-bearbeiten)
 - **Profile**: die aktuelle Ansicht (Kacheln, Darstellung, Benachrichtigungen) unter einem Namen speichern,
   per Rechtsklick wechseln, als Datei exportieren und importieren – Befehle in importierten Profilen
   werden vor dem Speichern angezeigt
 - Passt sich der Widget-Größe an, Leisten-Modus mit Mini-Ringen
 - **Hilfen, wenn etwas klemmt**: gedrehtes Widget gerade ausrichten, Plasma-Arbeitsfläche neu starten (*Info & Updates*)
+
+### Kacheln per Tastatur bearbeiten
+
+In *Kacheln bearbeiten* lässt sich das Widget ganz ohne Maus bedienen:
+
+| Taste | Wirkung |
+|---|---|
+| Pfeiltasten | Kachel (oder „+“-Feld) auswählen |
+| Tab / Umschalt+Tab | nächste / vorige Kachel |
+| Leertaste oder Enter | ausgewählte Kachel aufnehmen – dann verschieben die Pfeiltasten sie innerhalb ihres Abschnitts; Leertaste, Enter oder Esc legen sie wieder ab. Auf einem „+“-Feld öffnet sich die Liste zum Hinzufügen |
+| Entf | ausgewählte Kachel entfernen |
+| Strg+Z | letzte Verschiebung rückgängig machen (Schritt für Schritt, bis zu 50) |
+| Esc | aufgenommene Kachel ablegen, sonst Bearbeiten beenden |
+
+Änderungen werden sofort gespeichert. Eine entfernte Kachel färbt sich rot, schrumpft und blendet aus;
+wie lange das dauert, steht unter *Darstellung* → *Entfernte Kachel ausblenden* (*Aus*: sofort).
 
 ## Voraussetzungen
 
